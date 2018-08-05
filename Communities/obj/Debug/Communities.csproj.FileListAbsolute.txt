@@ -9,4 +9,3 @@ D:\ProyectoSolucion\Communities\bin\Debug\Communities.pdb
 D:\ProyectoSolucion\Communities\obj\Debug\Communities.csproj.CoreCompileInputs.cache
 D:\ProyectoSolucion\Communities\obj\Debug\Communities.dll
 D:\ProyectoSolucion\Communities\obj\Debug\Communities.pdb
-D:\ProyectoSolucion\Communities\obj\Debug\Communities.csprojResolveAssemblyReference.cache

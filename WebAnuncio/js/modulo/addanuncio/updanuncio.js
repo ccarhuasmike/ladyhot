@@ -29,13 +29,13 @@
 
     function cargarDetAnuncion() {
         getcargarDetAnuncion().done(responsegetcargarDetAnuncion);
-    }
-
+    }                  
+    
     function getcargarDetAnuncion() {
         return $.ajax({
             type: "POST",
-            url: $("#url_base").val() + "UpdAnuncio/getAnuncio_x_Id",
-            data: { id_anuncio: 19 },
+            url: $("#url_base").val() + "UpdAnuncio/getAnuncio_x_tokens",
+            data: { token_anuncio: __getSessionStorage("cod_anuncio_encryptado") },
             dataType: "Json",
             async: false,
             error: function (ex) {
@@ -140,11 +140,11 @@
         var chk_lugar_atencion = getValueElementoSelected('chk_lugar_atencion[]');
         var chk_servicio_ofrece = getValueElementoSelected('chk_servicio_ofrece[]');
         var tx_descripcion_extra_servicio = $("#tx_descripcion_extra_servicio").val();
-
+        
 
         var oregistro = {}
         oregistro = {
-            id: 19,
+            id: parseInt(__getSessionStorage('id_anuncio_upd')),
             txt_nombre_ficha: txt_nombre,
             txt_telefono_1: txt_telefono_1,
             txt_telefono_2: txt_telefono_2,
@@ -188,8 +188,7 @@
             url: $("#url_base").val() + "UpdAnuncio/todospasos",
             contentType: "application/json",
             dataType: "Json",
-            data: JSON.stringify(data),
-            async: false,
+            data: JSON.stringify(data),              
             error: function (ex) {
                 alert("error function getprimerpaso");
             }

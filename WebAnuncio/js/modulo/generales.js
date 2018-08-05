@@ -164,6 +164,8 @@ function Contactar() {
 function salir() {
     __removeSessionStorage("id_usuario");
     __removeSessionStorage("id_anuncio_val");
+    __removeSessionStorage("cod_anuncio_encryptado");
+    __removeSessionStorage("usuario_token");         
     location.href = '/Home';
 }
 

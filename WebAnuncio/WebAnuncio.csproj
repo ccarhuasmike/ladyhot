@@ -213,6 +213,8 @@
     <Content Include="js\jRespond.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\megamenu.js" />
+    <Content Include="js\modulo\addanuncio\darbajanuncio.js" />
+    <Content Include="js\modulo\addanuncio\misanunciosjs.js" />
     <Content Include="js\modulo\addanuncio\updanuncio.js" />
     <Content Include="js\modulo\addanuncio\addanuncio.js" />
     <Content Include="js\modulo\generales.js" />

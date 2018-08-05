@@ -35,7 +35,7 @@ namespace AccessData.PersonaDao
 
         #region Metodo
 
-        public ClientResponse MisAnuncio(string token_usuario)
+        public ClientResponse MisAnuncio(string usuario_token)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@token_usuario", SqlDbType.VarChar,255).Value = token_usuario;
+                        comando.Parameters.Add("@token_usuario", SqlDbType.VarChar,255).Value = usuario_token;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
@@ -333,8 +333,41 @@ namespace AccessData.PersonaDao
             return lstAnuncio;
         }
 
+
+        public IEnumerable<tbl_anuncio> getAnucion_x_tokens(string token_anuncio)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_tokens", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //clientResponse.Mensaje = ex.Message;
+                //clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return lstAnuncio;
+        }
         #endregion
-      
+
 
 
     }
