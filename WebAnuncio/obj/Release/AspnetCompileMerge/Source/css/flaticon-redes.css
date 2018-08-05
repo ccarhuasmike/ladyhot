@@ -1,0 +1,42 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("../fonts/flaticon-redes.eot");
+	src: url("../fonts/flaticon-redes.eot#iefix") format("embedded-opentype"),
+	url("../fonts/flaticon-redes.woff") format("woff"),
+	url("../fonts/flaticon-redes.ttf") format("truetype"),
+	url("../fonts/flaticon-redes.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+	font-family: Flaticon;
+	font-size: 20px;
+	font-style: normal;
+	margin-left: 20px;
+}
+.flaticon-back31:before {
+	content: "\e000";
+}
+.flaticon-computers13:before {
+	content: "\e001";
+}
+.flaticon-party26:before {
+	content: "\e004";
+}
+.flaticon-projector3:before {
+	content: "\e005";
+}
+.flaticon-rent2:before {
+	content: "\e006";
+}
+.flaticon-right123:before {
+	content: "\e007";
+}
+.flaticon-speaker114:before {
+	content: "\e008";
+}
+.flaticon-user223:before {
+	content: "\e00a";
+}
+

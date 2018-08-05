@@ -1,0 +1,12 @@
+D:\ProyectoArquitectura\ProyectoSolucion\BusinessEntity\bin\Debug\BusinessEntity.dll
+D:\ProyectoArquitectura\ProyectoSolucion\BusinessEntity\bin\Debug\BusinessEntity.pdb
+D:\ProyectoArquitectura\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+D:\ProyectoArquitectura\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.dll
+D:\ProyectoArquitectura\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.pdb
+D:\ProyectoArquitectura\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.csprojResolveAssemblyReference.cache
+D:\ProyectoSolucion\BusinessEntity\bin\Debug\BusinessEntity.dll
+D:\ProyectoSolucion\BusinessEntity\bin\Debug\BusinessEntity.pdb
+D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.dll
+D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.pdb
+D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.csprojResolveAssemblyReference.cache

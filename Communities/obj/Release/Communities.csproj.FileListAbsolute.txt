@@ -1,0 +1,5 @@
+D:\ProyectoSolucion\Communities\bin\Release\Communities.dll
+D:\ProyectoSolucion\Communities\bin\Release\Communities.pdb
+D:\ProyectoSolucion\Communities\obj\Release\Communities.csproj.CoreCompileInputs.cache
+D:\ProyectoSolucion\Communities\obj\Release\Communities.dll
+D:\ProyectoSolucion\Communities\obj\Release\Communities.pdb

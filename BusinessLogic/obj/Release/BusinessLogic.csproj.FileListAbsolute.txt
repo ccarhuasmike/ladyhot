@@ -1,0 +1,14 @@
+D:\ProyectoSolucion\BusinessLogic\bin\Release\BusinessLogic.dll
+D:\ProyectoSolucion\BusinessLogic\bin\Release\BusinessLogic.pdb
+D:\ProyectoSolucion\BusinessLogic\bin\Release\AccessData.dll
+D:\ProyectoSolucion\BusinessLogic\bin\Release\BusinessEntity.dll
+D:\ProyectoSolucion\BusinessLogic\bin\Release\Communities.dll
+D:\ProyectoSolucion\BusinessLogic\bin\Release\Newtonsoft.Json.dll
+D:\ProyectoSolucion\BusinessLogic\bin\Release\AccessData.pdb
+D:\ProyectoSolucion\BusinessLogic\bin\Release\BusinessEntity.pdb
+D:\ProyectoSolucion\BusinessLogic\bin\Release\Communities.pdb
+D:\ProyectoSolucion\BusinessLogic\bin\Release\Newtonsoft.Json.xml
+D:\ProyectoSolucion\BusinessLogic\obj\Release\BusinessLogic.csprojResolveAssemblyReference.cache
+D:\ProyectoSolucion\BusinessLogic\obj\Release\BusinessLogic.csproj.CoreCompileInputs.cache
+D:\ProyectoSolucion\BusinessLogic\obj\Release\BusinessLogic.dll
+D:\ProyectoSolucion\BusinessLogic\obj\Release\BusinessLogic.pdb

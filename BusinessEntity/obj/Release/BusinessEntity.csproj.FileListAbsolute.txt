@@ -1,0 +1,5 @@
+D:\ProyectoSolucion\BusinessEntity\bin\Release\BusinessEntity.dll
+D:\ProyectoSolucion\BusinessEntity\bin\Release\BusinessEntity.pdb
+D:\ProyectoSolucion\BusinessEntity\obj\Release\BusinessEntity.csproj.CoreCompileInputs.cache
+D:\ProyectoSolucion\BusinessEntity\obj\Release\BusinessEntity.dll
+D:\ProyectoSolucion\BusinessEntity\obj\Release\BusinessEntity.pdb

@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Communities
+{
+    public class Utilidades
+    {
+        public static ClientResponse ObtenerMensajeErrorWeb(Exception ex)
+        {
+            ClientResponse objReponse = new ClientResponse();
+            try
+            {
+                objReponse.Mensaje = ex.Message;
+                objReponse.Data = ex.Source;
+                objReponse.ViewResult = ex.StackTrace;
+            }
+            catch (Exception)
+            {
+
+                objReponse = null;
+            }
+
+            return objReponse;
+        }
+    }
+}
