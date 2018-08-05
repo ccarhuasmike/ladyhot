@@ -46,7 +46,7 @@ function click_dar_baja_anuncio(data) {
 
                 html += "<div class='listaAnuncio clearfix'>";
                 html += "<a name='ref6978' id='ref6978'></a><img src='../cms/anuncios/l/guia-42766.jpg'>";
-                html += "<p style='color:#f39;'><strong>Nikita</strong></p>";
+                html += "<p style='color:#f39;'><strong>" + response[i].txt_nombre_ficha +"</strong></p>";
                 html += "<p><strong>Referencia:</strong> " + response[i].id+"</p>";
                 html += "<p></p>";
                 html += "<p><strong>Este anuncio esta: </strong><strong style='color:#f39;'>Pendiente de Pago</strong><a href='anunciosPromociones.php?anuncioID=6978' class='bt_pagar'>pagar ahora</a></p>";

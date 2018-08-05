@@ -80,6 +80,8 @@ namespace AccessData.PersonaDao
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
                         conexion.Open();
+                        comando.ExecuteNonQuery();
+                        clientResponse.Status = "OK";
                     }
                 }
             }
@@ -92,8 +94,7 @@ namespace AccessData.PersonaDao
             {
                 conexion.Close();
                 conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                comando.Dispose();               
             }
             return clientResponse;
         }
