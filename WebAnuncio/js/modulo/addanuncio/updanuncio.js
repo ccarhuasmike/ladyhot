@@ -14,7 +14,7 @@
             dataType: "Json",
             async: false,
             error: function (ex) {
-                alert("hola mundo");
+                alert("error function getCargarInicia");
             }
         });
     }
@@ -61,6 +61,8 @@
             $("#cbo_ojos").val(response.int_color_ojos);
             $("#cbo_estatura").val(response.int_estatura);
             $("#cbo_peso").val(response.int_peso);
+
+
             setValueElemento("chk_forma_pagos[]", response.txt_forma_pago);
             setValueElemento("chk_distrito[]", response.txt_lugar_servicio_distrito);
             setValueElemento("chk_lugar_atencion[]", response.tx_lugar_atencion);
@@ -80,6 +82,15 @@
             $("#txt_toda_noche").val(response.dbl_costo_x_tiempo_toda_noche);
             $("#txt_viajes").val(response.dbl_costo_x_viaje);
             $("#txt_descripcion_tarifa").val(response.txt_descripcion_extra_tarifa);
+
+            //1: seleccionado
+            //0: no seleccionado
+            var chk_atiende_24_hora = false; 
+            if (response.fl_atencion_24horas == 1) {
+                chk_atiende_24_hora = true;
+            }    
+
+            $("#chk_24horas").prop("checked", chk_atiende_24_hora);
             //var chk_atiende_24_hora = 0; //Atiendes las 24hs?	
             $("#txt_descripcion_extra_horario").val(response.tx_descripcion_extra_horario);
             $("#tx_descripcion_extra_servicio").val(response.tx_descripcion_extra_servicio);   

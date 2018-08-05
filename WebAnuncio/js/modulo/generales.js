@@ -81,7 +81,7 @@ function loadCheckoxes(data) {
 
    
 
-}
+}           
 
 function getValueElementoSelected(name) {
     var value_selected = [];
@@ -127,3 +127,44 @@ function setValueElemento(name, value) {
         }
     }
 }
+
+function __AddSessionStorage(key, value) {
+    __removeSessionStorage(key);
+    sessionStorage.setItem(key, value);
+}
+
+function __getSessionStorage(key) {
+    return sessionStorage.getItem(key);
+}
+
+function __clearSessionStorage() {
+    sessionStorage.clear();
+}
+
+function __removeSessionStorage(key) {
+    sessionStorage.removeItem(key);
+}
+
+
+function AddAnuncio() { 
+    window.location.href = "/AddAnuncio";              
+}
+function MisAnuncio() {
+    __removeSessionStorage("id_anuncio_val");
+    location.href = '/MisAnuncio';
+}
+
+function Publicidad() {
+    __removeSessionStorage("id_anuncio_val");
+    window.location.href = "/Publicidad";         
+}
+function Contactar() {            
+    location.href = '/Contactar';
+}
+function salir() {
+    __removeSessionStorage("id_usuario");
+    __removeSessionStorage("id_anuncio_val");
+    location.href = '/Home';
+}
+
+

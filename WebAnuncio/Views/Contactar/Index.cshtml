@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Contactar";
+    Layout = "~/Views/Shared/_LayoutAnuncio.cshtml";
+}
+
+<div id="contenidoRight">
+    <img src="../img/top-content.gif">
+    <div id="mig">
+        <h2>Contactar</h2>
+        <p></p>
+        <p>
+            <br> Para contactar con nosotros completa el siguiente formulario:
+        </p>
+        <form id="form1" name="form1" class="formNormal" method="post" action="">
+            <fieldset>
+                <label for="nombre"><span>Nombre</span></label>
+                <input type="text" name="nombre" id="nombre">
+                <br>
+                <label for="email"><span>E-mail</span></label>
+                <input type="text" name="email" id="email">
+                <br>
+                <label for="telefono"><span>Télefono</span></label>
+                <input type="text" name="telefono" id="telefono">
+                <br>
+                <label for="referencia"><span>Referenica anuncio</span></label>
+                <input type="text" name="referencia" id="referencia">
+                <br>
+                <label for="comentarios"><span>Tu consulta</span></label>
+                <textarea name="comentarios" id="comentarios" cols="45" rows="5"></textarea>
+                <br>
+                <label for="enviar"></label>
+                <input type="submit" name="enviar" id="enviar" class="boto" value="Enviar">
+                <input name="procesar" type="hidden" id="procesar" value="1">
+            </fieldset>
+        </form>
+    </div>
+    <img src="../img/bottom-content.gif">
+    <script src="~/js/modulo/generales.js"></script>
+</div>

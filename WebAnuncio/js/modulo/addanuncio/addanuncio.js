@@ -14,7 +14,7 @@
             dataType: "Json",
             async: false,   
             error: function (ex) {
-                alert("hola mundo");
+                alert("error function getCargarInicia");
             }            
         });
     }
@@ -53,6 +53,7 @@
             int_pais_origen: parseInt(cbo_pais),
             int_estudios: parseInt(cbo_estudios),
             txt_presentacion: txt_presentacion,
+            id_usuario: parseInt(__getSessionStorage('id_usuario'))
         };
         return oregistro;
     }
@@ -75,7 +76,8 @@
     function responseprimerpaso(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson); 
-            $("#id_anuncio_val").val(response[0].id);
+            //$("#id_anuncio_val").val(response[0].id);
+            __AddSessionStorage('id_anuncio_val', response[0].id);
             console.log(response);
             alert("alert function responseprimerpaso");              
         }
@@ -99,7 +101,7 @@
 
         var oregistro = {}
         oregistro = {
-            id: parseInt($("#id_anuncio_val").val()),
+            id: parseInt(__getSessionStorage("id_anuncio_val")),
             int_color_cabello: cbo_pelo,
             int_color_ojos: cbo_ojos,
             int_peso: cbo_peso,
@@ -151,15 +153,23 @@
         var txt_viajes = $("#txt_viajes").val();
         var chk_forma_pagos = getValueElementoSelected('chk_forma_pagos[]');
         var txt_descripcion_tarifa = $("#txt_descripcion_tarifa").val();
-        var chk_distrito = getValueElementoSelected('chk_distrito[]');
+        //1: seleccionado
+        //0: no seleccionado
         var chk_atiende_24_hora = 0; //Atiendes las 24hs?	
+        if ($('#chk_24horas').is(':checked')) {
+            chk_atiende_24_hora = 1;
+        }           
+        //return false;
+
+        var chk_distrito = getValueElementoSelected('chk_distrito[]');
+       
         var txt_descripcion_extra_horario = $("#txt_descripcion_extra_horario").val();
         var chk_lugar_atencion = getValueElementoSelected('chk_lugar_atencion[]');
         var chk_servicio_ofrece = getValueElementoSelected('chk_servicio_ofrece[]');
         var tx_descripcion_extra_servicio = $("#tx_descripcion_extra_servicio").val();   
         var oregistro = {}
         oregistro = {                   
-            id: parseInt($("#id_anuncio_val").val()),
+            id: parseInt(__getSessionStorage("id_anuncio_val")),
             dbl_costo_x_tiempo_30min: parseFloat(txt_30_min ),
             dbl_costo_x_tiempo_45min: parseFloat(txt_45_min),
             dbl_costo_x_tiempo_1hora: parseFloat(txt_1_hora),

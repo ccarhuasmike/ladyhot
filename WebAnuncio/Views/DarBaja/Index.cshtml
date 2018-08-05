@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Dar de Baja";
+    Layout = "~/Views/Shared/_LayoutAnuncio.cshtml";
+}
+
+<div id="contenidoRight">
+    <img src="../img/top-content.gif">
+    <div id="mig">
+        <h2>Mis Anuncios</h2>
+        <h4>Borrar Anuncio</h4>
+        <div class="fotoNormal">
+            <img src="../cms/anuncios/s/guia-42766.jpg">
+            <p>Nikita</p>
+            <p>prueba</p>
+            <p></p>
+            <form id="form1" name="form1" method="post" action="">
+                <p>
+                    <strong class="rosa">ANTENCIÓN!</strong>
+                    <br>Al proceder a Borrar se eliminarán todas las estadisticas del anuncio así como cualqueir tipo de foto,video existente y relacionado al mismo.
+                </p>
+                <input type="button" name="cancelar" id="cancelar" value="cancelar" onclick="javascript:history.back();">
+                <input type="submit" name="button" id="button" value="Borrar">
+                <input name="anuncioID" type="hidden" id="anuncioID" value="6978">
+            </form>
+        </div>
+    </div>
+
+    <img src="../img/bottom-content.gif">
+</div>
+ 
+

@@ -1,0 +1,31 @@
+﻿@{
+
+    Uri auxBaseUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority));
+    Uri baseUri = new Uri(auxBaseUri, Url.Content("~"));
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>HottEscorts.es | Alta nuevo anuncio Paso 1</title>
+    <link href="../css/clientes.css" rel="stylesheet" type="text/css">
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <input type="hidden" value="@baseUri" id="url_base" />
+    <div id="principal">
+        <div id="headerPan">
+            <img src="../img/logotipo.png">
+        </div>
+        <ul id="menuLeft">
+            <li><a href="javascript:void(0);" onclick="AddAnuncio();" class="marcat">Publica nuevo anuncio</a></li>
+            <li><a href="javascript:void(0);" onclick="MisAnuncio();">Mis Anuncios</a></li>
+            <li><a href="javascript:void(0);" onclick="Publicidad();">Contratar Publicidad</a></li>
+            <li><a href="javascript:void(0);" onclick="Contactar();">Contactar</a></li>
+            <li><a href="javascript:void(0);" onclick="salir();">Salir</a></li>
+        </ul>
+        @RenderBody()
+    </div>
+    
+</body>
+</html>

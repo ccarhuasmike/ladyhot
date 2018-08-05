@@ -136,9 +136,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddAnuncioController.cs" />
+    <Compile Include="Controllers\ContactarController.cs" />
+    <Compile Include="Controllers\DarBajaController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MisAnuncioController.cs" />
     <Compile Include="Controllers\ParameterController.cs" />
+    <Compile Include="Controllers\PublicidadController.cs" />
+    <Compile Include="Controllers\TarifasController.cs" />
     <Compile Include="Controllers\UpdAnuncioController.cs" />
+    <Compile Include="Controllers\updGaleriaController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +216,8 @@
     <Content Include="js\modulo\addanuncio\updanuncio.js" />
     <Content Include="js\modulo\addanuncio\addanuncio.js" />
     <Content Include="js\modulo\generales.js" />
+    <Content Include="js\modulo\home\home.js" />
+    <Content Include="js\modulo\tarifa\Tarifa.js" />
     <Content Include="js\mscroller.js" />
     <Content Include="js\mwheelIntent.js" />
     <Content Include="js\typeahead.bundle.min.js" />
@@ -231,16 +241,22 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\AddAnuncio\Index.cshtml" />
     <Content Include="Views\UpdAnuncio\Index.cshtml" />
+    <Content Include="Views\MisAnuncio\Index.cshtml" />
+    <Content Include="Views\Contactar\Index.cshtml" />
+    <Content Include="Views\Publicidad\Index.cshtml" />
+    <Content Include="Views\DarBaja\Index.cshtml" />
+    <Content Include="Views\updGaleria\Index.cshtml" />
+    <Content Include="Views\Details\Index.cshtml" />
+    <Content Include="Views\Tarifas\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAnuncio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Parameter\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

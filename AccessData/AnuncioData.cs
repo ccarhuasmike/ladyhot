@@ -34,6 +34,70 @@ namespace AccessData.PersonaDao
         #endregion
 
         #region Metodo
+
+        public ClientResponse MisAnuncio(string token_usuario)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_usuario", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@token_usuario", SqlDbType.VarChar,255).Value = token_usuario;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;            
+        }
+
+        public ClientResponse darBajarAnuncio(string token_anuncio)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_upd_dar_baja_tbl_anuncio", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
+                        conexion.Open();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
         public ClientResponse InsertPrimerpaso(tbl_anuncio objeto)
         {
             int id = 0;
@@ -53,6 +117,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
                         comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
                         comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
+                        comando.Parameters.Add("@id_usuario", SqlDbType.Int).Value = objeto.id_usuario;
                         comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
                         conexion.Open();
                         comando.ExecuteNonQuery();
@@ -255,8 +320,8 @@ namespace AccessData.PersonaDao
             }
             catch (Exception ex)
             {
-                clientResponse.Mensaje = ex.Message;
-                clientResponse.Status = "ERROR";
+                //clientResponse.Mensaje = ex.Message;
+                //clientResponse.Status = "ERROR";
             }
             finally
             {

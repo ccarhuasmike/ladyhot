@@ -39,5 +39,13 @@ namespace BusinessLogic
             return _AnuncioData.UpdateTodopaso(objeto);
         }
 
+        public ClientResponse MisAnuncio(string token_usuario)
+        {
+            return _AnuncioData.MisAnuncio(token_usuario);
+        }
+        public ClientResponse darBajarAnuncio(string token_anuncio)
+        {
+            return _AnuncioData.darBajarAnuncio(token_anuncio);
+        }
     }
 }

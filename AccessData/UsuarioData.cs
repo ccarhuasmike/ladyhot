@@ -15,7 +15,7 @@ namespace AccessData
     public class UsuarioData
     {
         #region Variables
-        private static IEnumerable<tbl_usuario> lstContacto;
+        private static IEnumerable<tbl_usuario> lstUsuario;
         private static tbl_usuario entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
@@ -37,6 +37,115 @@ namespace AccessData
         #endregion
 
         #region Metodo
+
+        public ClientResponse InsertUsuario(tbl_usuario objeto)
+        {
+            int id = 0;
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_ins_usuario", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@tx_email", SqlDbType.VarChar, 60).Value = objeto.tx_email;
+                        comando.Parameters.Add("@tx_pass", SqlDbType.VarChar, 50).Value = objeto.tx_pass;
+                        comando.Parameters.Add("@tx_telefono", SqlDbType.VarChar, 50).Value = objeto.tx_telefono;                      
+                        comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        if (comando.Parameters["@id"] != null)
+                        {
+                            id = Convert.ToInt32(comando.Parameters["@id"].Value);
+                            IEnumerable<tbl_usuario> lst = getUsuario_X_Id(id);
+                            clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
+        public IEnumerable<tbl_usuario> getUsuario_X_Id(int id)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_usuario_x_id", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@id", SqlDbType.Int).Value = id;                       
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstUsuario = reader.ReadRows<tbl_usuario>();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //clientResponse.Mensaje = ex.Message;
+                //clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return lstUsuario;
+        }
+
+        public ClientResponse getUsuario_X_password(tbl_usuario entidad)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_usuario_login", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@tx_email", SqlDbType.VarChar,45).Value = entidad.tx_email;
+                        comando.Parameters.Add("@tx_pass", SqlDbType.VarChar,500).Value = entidad.tx_pass;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstUsuario = reader.ReadRows<tbl_usuario>();
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstUsuario).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
         public ClientResponse listar_usuario()
         {
             try
@@ -53,11 +162,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstContacto = reader.ReadRows<tbl_usuario>();
-                            //while (reader.Read())
-                            //{
-
-                            //}
+                            lstUsuario = reader.ReadRows<tbl_usuario>();                           
                         }
                     }
                 }
@@ -75,7 +180,7 @@ namespace AccessData
                 reader.Dispose();
             }
 
-            clientResponse.DataJson = JsonConvert.SerializeObject(lstContacto).ToString();
+            clientResponse.DataJson = JsonConvert.SerializeObject(lstUsuario).ToString();
             return clientResponse;
         }
 
