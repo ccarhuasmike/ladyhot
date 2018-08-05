@@ -60,8 +60,7 @@
 
     function getprimerpaso(data) {              
         return $.ajax({
-            type: "POST",
-            async: false,
+            type: "POST",             
             url: $("#url_base").val() + "AddAnuncio/primeropaso",
             contentType: "application/json",               
             dataType: "Json",
@@ -119,8 +118,7 @@
             url: $("#url_base").val() + "AddAnuncio/segundopaso",
             contentType: "application/json",
             dataType: "Json",
-            data: JSON.stringify(data),
-            async: false,
+            data: JSON.stringify(data),             
             error: function (ex) {
                 alert("error function getprimerpaso");
             }
@@ -193,8 +191,7 @@
 
     function gettercerpaso(data) {
         return $.ajax({
-            type: "POST",
-            async: false,
+            type: "POST",           
             url: $("#url_base").val() + "AddAnuncio/tercerpaso",
             contentType: "application/json",
             dataType: "Json",
@@ -214,12 +211,48 @@
         }
     }
 
+    //Tercero paso
+    function cuartopaso() {
+        var object = getObjectCuartopaso();
+        getCuartopaso(object).done(responseCuartopaso);
+    }
+
+    function getObjectCuartopaso() {
+        var data = new FormData();
+        var files = $("#file_fotos").get(0).files;
+        for (var x = 0; x < files.length; x++) {
+            data.append("file" + x, files[x]);
+        }
+        return data;
+    }
+
+    function getCuartopaso(data) {
+        return $.ajax({
+            type: "POST",   
+            url: $("#url_base").val() + "AddAnuncio/Cuartopaso?id=" + __getSessionStorage("id_anuncio_val"),         
+            contentType: false,
+            processData: false,
+            data: data,
+            error: function (ex) {
+                alert("error function gettercerpaso");
+            }
+        });
+    }
+
+    function responseCuartopaso(response) {
+        if (response.Status === "OK") {
+            var response = JSON.parse(response.DataJson);
+            console.log(response[0]);
+            alert("alert function responseCuartopaso");
+        }
+    }
+
     function codeBehind() { 
         cargarInicial();
         $("#btn_primerpaso").click(primerpaso);
         $("#btn_segundopaso").click(segundopaso);
         $("#btn_terceropaso").click(terceropaso);
-        
+        $("#btn_cuartopaso").click(cuartopaso);           
     }
 
     $(function () {

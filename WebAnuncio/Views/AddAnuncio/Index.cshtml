@@ -516,8 +516,28 @@
             </div>
         </div>
 
-
-        <div id="form1" name="form1" class="formNormal" method="post" action="anunciosAdd.6.php">
+        <div id="paso4" name="paso2"  class="formTaula">
+            <div>
+                <h4>Galeria</h4>
+                <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tbody>
+                        <tr>
+                            <td class="formText">Adjunte Foto</td>
+                            <td width="210">
+                                <input type="file" id="file_fotos" multiple/>                                
+                            </td>
+                            <td class="aclaraciones">
+                                <input type="submit" name="button" id="btn_cuartopaso" class="boto" value="Agregar Fotos">
+                            </td>
+                        </tr>                        
+                    </tbody>
+                </table>
+                <input type="submit" name="button" id="btn_segundopaso" class="boto" value="Guardar y Siguiente">
+                <input name="procesar" type="hidden" id="procesar" value="2">
+                <p><a class="volverCorregir" href="anunciosAdd.1.php">&lt;&lt; volver y corregir</a></p>
+            </div>
+        </div>
+        <div id="form1" name="form1" class="formNormal" >
             <div>
                 <h4>PROMOCIONES DISPONIBLES</h4>
                 <table border="0" cellspacing="0" cellpadding="5" class="taulaEstadis">
