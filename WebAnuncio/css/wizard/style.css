@@ -1,11 +1,18 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     color: #888;
     line-height: 30px;
     text-align: center;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2 !important;
+    color: #fff !important;
+    background-color: #f39 !important;
+    border-color: #F3A !important;
 }
 
 strong { font-weight: 500; }
@@ -108,7 +115,7 @@ ul.navbar-nav {
 .f1-progress { position: absolute; top: 24px; left: 0; width: 100%; height: 1px; background: #ddd; }
 .f1-progress-line { position: absolute; top: 0; left: 0; height: 1px; background: #f35b3f; }
 
-.f1-step { position: relative; float: left; width: 25%; padding: 0 5px; }
+.f1-step { position: relative; float: left; width: 20%; padding: 0 5px; }
 
 .f1-step-icon {
 	display: inline-block; width: 40px; height: 40px; margin-top: 4px; background: #ddd;

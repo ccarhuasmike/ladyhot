@@ -2,11 +2,18 @@
 
 var HTML = "";          
 function poblar_checkboxes(item, index, name) {  
-    HTML += "<p><label>";
-    HTML += "<input type='checkbox' value=" + item.val_valor + " id='ta_checkbox_0' name=" + name + "> ";
+    HTML += "<div class='checkbox'>";
+    HTML += "<label><input type='checkbox' value=" + item.val_valor + " id='ta_checkbox_0' name=" + name + "> ";
     HTML += item.tx_descripcion;
-    HTML += '</label><br></p>';            
+    HTML += '</label></div>';            
 }    
+
+//<div class="checkbox">
+//<label>
+//<input type="checkbox" value="">
+//Option one is this and that&mdash;be sure to include why it's great
+//</label>
+//</div>
 
 function loadCombos(data) {    
     //edad
