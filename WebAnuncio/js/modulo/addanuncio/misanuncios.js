@@ -64,7 +64,7 @@ function click_dar_baja_anuncio(data) {
                 html += "<li><a href='javascript:void(0);' onclick='click_dar_baja_anuncio(" + ValsTokens +");'>Dar de baja el anuncio</a></li>";
                 html += "</ul>";
                 html += "</div>";
-                $("#contenedor_mis_anuncios").append(html);
+                $("#id_container_galeria").append(html);
             }
 
             

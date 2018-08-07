@@ -60,10 +60,32 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
      
-        public async Task<JsonResult> Cuartopaso(int id)
+        public async Task<JsonResult> EliminarFoto(int id_galeria)
         {
+            ClientResponse clientResponse ;
             try
-            {   
+            {
+                tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() {id = id_galeria };
+                clientResponse = new GaleriaLogic().get_galeria_x_id(entidad);
+                FileInfo fi = new FileInfo(entidad.tx_ruta_file);
+                fi.Delete();
+                tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_galeria_anuncio>(clientResponse.DataJson);
+                clientResponse = new GaleriaLogic().eliminar_galeria_x_id(resultObjeto);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+
+            return Json(clientResponse, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public async Task<JsonResult> AgregarFotos(int id)
+        {
+            ClientResponse clientResponse;
+            try
+            {
                 tbl_parameter_det entidad_rutas_fisica_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().getParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
                 tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
@@ -110,24 +132,15 @@ namespace WebAnuncio.Controllers
                     list.Add(entidad);
                 }
 
-                ClientResponse clientResponse = new ClientResponse();
-                try
-                {
-                    clientResponse = new AnuncioLogic().Insert_Galeria(list, id);
-                }
-                catch (Exception ex)
-                {
-                    clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
-                }
+                clientResponse = new GaleriaLogic().Insert_Galeria(list, id);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               
-                return Json("Upload failed");
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
             }
 
-            return Json("File uploaded successfully");
+            return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
     }

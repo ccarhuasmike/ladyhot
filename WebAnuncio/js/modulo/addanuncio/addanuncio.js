@@ -6,6 +6,50 @@
 $('#clear').click(function () {
     $('#file_fotos').filestyle('clear');
 });
+/*Eliminar Fotos */
+function btn_eliminar_foto(id) {
+    get_eliminar_foto(id).done(response_eliminar_foto);
+}
+function get_eliminar_foto(id) {
+    return $.ajax({
+        type: "POST",
+        url: $("#url_base").val() + "AddAnuncio/EliminarFoto",
+        data: { id_galeria: id },
+        dataType: "Json",
+        async: false,
+        error: function (ex) {
+            alert("error function get_dar_baja");
+        }
+    });
+}
+
+function response_eliminar_foto(response) {
+    if (response.Status === "OK") {
+        var response = JSON.parse(response.DataJson);
+        cargar_galeria_fotos(response);
+        console.log(response);
+    }
+}
+
+function cargar_galeria_fotos(response) {
+    $("#contenedor_mis_anuncios").html("");
+    for (var i = 0; i < response.length; i++) {
+        var html = "";
+        //var valTokens = {
+        //    id: response[i].id
+        //};
+        //var ValsTokens = JSON.stringify(valTokens);
+        html += "<div class='contenedor-fotos'>";
+        html += "<img src='" + response[i].txt_ruta_virtuales+"' alt='Forest'>";
+        html += "<div class='group-button'>";
+        html += "<a 'javascript:void(0);' onclick='btn_eliminar_foto(" + response[i].id + ");' class='myButton'>Eliminar</a>";
+        html += "</div>";
+        html += "</div>";
+        $("#contenedor_mis_anuncios").append(html);
+    }
+
+}
+
 
 (function ($, window, document) {             
 
@@ -222,12 +266,12 @@ $('#clear').click(function () {
     }
 
     //Tercero paso
-    function cuartopaso() {
-        var object = getObjectCuartopaso();
-        getCuartopaso(object).done(responseCuartopaso);
+    function btn_agregar_fotos() {
+        var object = getObjectagregar_fotos();
+        getagregar_fotos(object).done(responseagregar_fotos);
     }
 
-    function getObjectCuartopaso() {
+    function getObjectagregar_fotos() {
         var data = new FormData();
         var files = $("#file_fotos").get(0).files;
         for (var x = 0; x < files.length; x++) {
@@ -236,24 +280,25 @@ $('#clear').click(function () {
         return data;
     }
 
-    function getCuartopaso(data) {
+    function getagregar_fotos(data) {
         return $.ajax({
             type: "POST",   
-            url: $("#url_base").val() + "AddAnuncio/Cuartopaso?id=" + __getSessionStorage("id_anuncio_val"),         
+            url: $("#url_base").val() + "AddAnuncio/AgregarFotos?id=" + __getSessionStorage("id_anuncio_val"),         
             contentType: false,
             processData: false,
             data: data,
             error: function (ex) {
-                alert("error function gettercerpaso");
+                alert("error function getagregar_fotos");
             }
         });
     }
 
-    function responseCuartopaso(response) {
+    function responseagregar_fotos(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson);
-            console.log(response[0]);
-            alert("alert function responseCuartopaso");
+            cargar_galeria_fotos(response);
+            //console.log(response[0]);
+            //alert("alert function responseagregar_fotos");
         }
     }
 
@@ -262,7 +307,7 @@ $('#clear').click(function () {
         $("#btn_primerpaso").click(primerpaso);
         $("#btn_segundopaso").click(segundopaso);
         $("#btn_terceropaso").click(terceropaso);
-        $("#btn_cuartopaso").click(cuartopaso);           
+        $("#btn_agregar_fotos").click(btn_agregar_fotos);           
     }
 
     $(function () {
