@@ -32,7 +32,7 @@ function response_eliminar_foto(response) {
 }
 
 function cargar_galeria_fotos(response) {
-    $("#contenedor_mis_anuncios").html("");
+    $("#id_container_galeria").html("");
     for (var i = 0; i < response.length; i++) {
         var html = "";
         //var valTokens = {
@@ -45,7 +45,7 @@ function cargar_galeria_fotos(response) {
         html += "<a 'javascript:void(0);' onclick='btn_eliminar_foto(" + response[i].id + ");' class='myButton'>Eliminar</a>";
         html += "</div>";
         html += "</div>";
-        $("#contenedor_mis_anuncios").append(html);
+        $("#id_container_galeria").append(html);
     }
 
 }
@@ -294,7 +294,8 @@ function cargar_galeria_fotos(response) {
     }
 
     function responseagregar_fotos(response) {
-        if (response.Status === "OK") {
+        if (response.Status === "Ok") {    
+            $('#file_fotos').filestyle('clear');
             var response = JSON.parse(response.DataJson);
             cargar_galeria_fotos(response);
             //console.log(response[0]);
@@ -307,7 +308,7 @@ function cargar_galeria_fotos(response) {
         $("#btn_primerpaso").click(primerpaso);
         $("#btn_segundopaso").click(segundopaso);
         $("#btn_terceropaso").click(terceropaso);
-        $("#btn_agregar_fotos").click(btn_agregar_fotos);           
+        $("#btn_agregar_imagen").click(btn_agregar_fotos);           
     }
 
     $(function () {

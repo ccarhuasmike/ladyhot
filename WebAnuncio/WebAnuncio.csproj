@@ -198,7 +198,7 @@
     <Content Include="js\bootstrap-select.js" />
     <Content Include="js\bootstrap-touch-carousel.js" />
     <Content Include="js\bootstrap.min.js" />
-	<Content Include="js\bootstrap-filestyle.js" />
+    <Content Include="js\bootstrap-filestyle.js" />
     <Content Include="js\filtros.js" />
     <Content Include="js\flickity-imagesloaded.js" />
     <Content Include="js\flickity.pkgd.min.js" />
@@ -217,7 +217,7 @@
     <Content Include="js\main.js" />
     <Content Include="js\megamenu.js" />
     <Content Include="js\modulo\addanuncio\darbajanuncio.js" />
-    <Content Include="js\modulo\addanuncio\misanunciosjs.js" />
+    <Content Include="js\modulo\addanuncio\misanuncios.js" />
     <Content Include="js\modulo\addanuncio\updanuncio.js" />
     <Content Include="js\modulo\addanuncio\addanuncio.js" />
     <Content Include="js\modulo\generales.js" />

@@ -67,9 +67,9 @@ namespace WebAnuncio.Controllers
             {
                 tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() {id = id_galeria };
                 clientResponse = new GaleriaLogic().get_galeria_x_id(entidad);
-                FileInfo fi = new FileInfo(entidad.tx_ruta_file);
-                fi.Delete();
                 tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_galeria_anuncio>(clientResponse.DataJson);
+                FileInfo fi = new FileInfo(resultObjeto.tx_ruta_file);
+                fi.Delete();
                 clientResponse = new GaleriaLogic().eliminar_galeria_x_id(resultObjeto);
             }
             catch (Exception ex)

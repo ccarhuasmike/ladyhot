@@ -69,7 +69,7 @@ namespace AccessData
 
                         if (ind > 0)
                         {
-                            tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id = id_anuncio };
+                            tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id_anuncio = id_anuncio };
                             IEnumerable<tbl_galeria_anuncio> lst = get_galeria_x_id_anuncio(entidad);
                             clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                             clientResponse.Mensaje = mensaje;
@@ -144,7 +144,7 @@ namespace AccessData
                     using (comando = new SqlCommand("sp_sel_galeria_x_id_anuncion", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id_anuncio;
+                        comando.Parameters.Add("@id_anuncio", SqlDbType.Int).Value = objeto.id_anuncio;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
