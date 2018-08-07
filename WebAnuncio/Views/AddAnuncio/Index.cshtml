@@ -4,6 +4,240 @@
     Layout = "~/Views/Shared/_LayoutAnuncio.cshtml";
 }
 
+
+
+<div class="row">
+
+    <form role="form" action="" method="post" class="f1">
+        <h3>Publica un nuevo anuncio</h3>
+        <p>ANUNCIOS: ALTA</p>
+        <div class="f1-steps">
+            <div class="f1-progress">
+                <div class="f1-progress-line" data-now-value="12.5" data-number-of-steps="4" style="width: 12.5%;"></div>
+            </div>
+            <div class="f1-step active">
+                <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                <p>Datos Básicos y presentación</p>
+            </div>
+            <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-key"></i></div>
+                <p> Aspectos personales y físicos</p>
+            </div>
+            <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-question"></i></div>
+                <p>Tarifas y Servicios</p>
+            </div>
+            <div class="f1-step">
+                <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
+                <p> Fotografías</p>
+            </div>
+        </div>
+
+        <fieldset>
+            <h4>Datos de Contacto:</h4>          
+            <div class="form-horizontal">               
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_nombre">Nombre</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" id="txt_nombre" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">el nombre que aparece en tu ficha</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_telefono_1">Teléfono</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" id="txt_telefono_1" placeholder="Ingrese Telefono 1">
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">tu teléfono de contacto</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_telefono_2">Teléfono</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" id="txt_telefono_2" placeholder="Ingrese Telefono 2">
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">otro teléfono de contacto</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_email">Email</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" id="txt_email" placeholder="Ingrese email">
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">¿tienes email dónde contactarte?</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_web">Web</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" id="txt_web" placeholder="Ingrese web">
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">la URL de tu web, si tienes</p>
+                    </div>
+                </div>
+            </div>               
+            <h4>Datos Generales:</h4>
+            <div class="form-horizontal">
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_edad">Edad</label>
+                    <div class="col-sm-5">
+                       <select class="form-control" id="cbo_edad"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">elige tu edad</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_pais">País de origen</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="cbo_pais"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">¿dónde te has criado?</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_estudios">Estudios</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="cbo_estudios"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">nivel de estudios realizados</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_presentacion">Presentación</label>
+                    <div class="col-sm-5">
+                        <textarea class="form-control" id="txt_presentacion" rows="12" placeholder="" ></textarea>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">Explica un poco más sobre ti. Aquí puedes presentarte a los futuros clientes, descríbete un poco mejor, explica cómo eres, que te gusta, tus aficiones y habilidades. ¿Porqué deben llamarte? Cualquier otra cosa que creas es importante, esta es tu oportunidad!</p>
+                    </div>
+                </div>               
+            </div>
+                    
+            <div class="f1-buttons">
+                <button type="button" class="btn btn-next">Next</button>
+            </div>
+        </fieldset>
+        <fieldset>
+
+            <h4>Apariencia:</h4>
+            <div class="form-horizontal">
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_pelo">color de pelo</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="cbo_pelo"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">el color de tu pelo</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_ojos">color de ojos</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="cbo_ojos"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">el color de tus ojos</p>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_estatura">estatura</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="cbo_estatura"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu altura en centímetros?</p>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_peso">peso</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="cbo_peso"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label control-label-small" for="cbo_estudios">Medidas (Busto-Cintura-Caderas)</label>
+                    <div class="col-sm-5" style="display: inline-flex;">
+                        <input class="form-control form-control-input-25" type="text" id="txt_medidas_busto" placeholder="busto">-
+                        <input class="form-control form-control-input-25" type="text" id="txt_medidas_cintura" placeholder="cintura">-
+                        <input class="form-control form-control-input-25" type="text" id="txt_medidas_cadera" placeholder="cadera">
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">¿Cuales son tus medidas?</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label control-label-small" for="txt_descripcion">Descripcion</label>
+                    <div class="col-sm-5">
+                        <textarea class="form-control" id="txt_descripcion" rows="6" placeholder=""></textarea>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">Si quieres explicar algun otro dato relevante sobre tu apariencia física aquí puedes describirte mejor.</p>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="f1-buttons">
+                <button type="button" class="btn btn-previous">Previous</button>
+                <button type="button" class="btn btn-next">Next</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h4>Security question:</h4>
+            <div class="form-group">
+                <label class="sr-only" for="f1-question">Question</label>
+                <input type="text" name="f1-question" placeholder="Question..." class="f1-question form-control" id="f1-question">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="f1-answer">Answer</label>
+                <input type="text" name="f1-answer" placeholder="Answer..." class="f1-answer form-control" id="f1-answer">
+            </div>
+            <div class="f1-buttons">
+                <button type="button" class="btn btn-previous">Previous</button>
+                <button type="button" class="btn btn-next">Next</button>
+            </div>
+        </fieldset>
+        <fieldset>
+            <h4>Social media profiles:</h4>
+            <div class="form-group">
+                <label class="sr-only" for="f1-facebook">Facebook</label>
+                <input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="f1-twitter">Twitter</label>
+                <input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="f1-google-plus">Google plus</label>
+                <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
+            </div>
+            <div class="f1-buttons">
+                <button type="button" class="btn btn-previous">Previous</button>
+                <button type="submit" class="btn btn-submit">Submit</button>
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+
+
+
+
 <div id="contenidoRight">
     <img src="../img/top-content.gif">
     <div id="mig">
@@ -516,7 +750,7 @@
             </div>
         </div>
 
-        <div id="paso4" name="paso2"  class="formTaula">
+        <div id="paso4" name="paso2" class="formTaula">
             <div>
                 <h4>Galeria</h4>
                 <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -524,12 +758,12 @@
                         <tr>
                             <td class="formText">Adjunte Foto</td>
                             <td width="210">
-                                <input type="file" id="file_fotos" multiple/>                                
+                                <input type="file" id="file_fotos" multiple />
                             </td>
                             <td class="aclaraciones">
                                 <input type="submit" name="button" id="btn_cuartopaso" class="boto" value="Agregar Fotos">
                             </td>
-                        </tr>                        
+                        </tr>
                     </tbody>
                 </table>
                 <input type="submit" name="button" id="btn_segundopaso" class="boto" value="Guardar y Siguiente">
@@ -537,7 +771,7 @@
                 <p><a class="volverCorregir" href="anunciosAdd.1.php">&lt;&lt; volver y corregir</a></p>
             </div>
         </div>
-        <div id="form1" name="form1" class="formNormal" >
+        <div id="form1" name="form1" class="formNormal">
             <div>
                 <h4>PROMOCIONES DISPONIBLES</h4>
                 <table border="0" cellspacing="0" cellpadding="5" class="taulaEstadis">
@@ -673,5 +907,4 @@
 </div>
 <script src="~/js/modulo/generales.js"></script>
 <script src="~/js/modulo/addanuncio/addanuncio.js"></script>
-
-
+<script src="~/js/wizard.js"></script>

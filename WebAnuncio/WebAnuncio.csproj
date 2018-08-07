@@ -176,6 +176,8 @@
     <Content Include="css\touch-carousel\bootstrap-touch-carousel.css" />
     <Content Include="css\video\video-js-default-skin.css" />
     <Content Include="css\video\video-js.min.css" />
+    <Content Include="css\wizard\form-elements.css" />
+    <Content Include="css\wizard\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\icomoon.svg" />
@@ -222,6 +224,7 @@
     <Content Include="js\modulo\tarifa\Tarifa.js" />
     <Content Include="js\mscroller.js" />
     <Content Include="js\mwheelIntent.js" />
+    <Content Include="js\wizard.js" />
     <Content Include="js\typeahead.bundle.min.js" />
     <Content Include="js\video.js" />
     <Content Include="ApplicationInsights.config">

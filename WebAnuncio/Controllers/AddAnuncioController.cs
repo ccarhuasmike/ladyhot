@@ -67,7 +67,7 @@ namespace WebAnuncio.Controllers
                 tbl_parameter_det entidad_rutas_fisica_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().getParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
                 tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
-                
+
                 tbl_parameter_det entidad_rutas_virtuales_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASVIRTUALES_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_virtuales_fichas = new ParameterLogic().getParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas);
                 tbl_parameter_det rutas_rutas_virtuales_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas.DataJson);
