@@ -6,6 +6,7 @@ using Communities;
 using AccessData.Conexion;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using System.Xml.Linq;
 
 namespace AccessData.PersonaDao
 {
@@ -34,6 +35,66 @@ namespace AccessData.PersonaDao
         #endregion
 
         #region Metodo
+
+        public ClientResponse Insert_Galeria(List<tbl_galeria_anuncio> list, int id_anuncio)
+        {
+            try
+            {
+                XElement root = new XElement("ROOT");
+                foreach (tbl_galeria_anuncio detalle in list)
+                {
+                    XElement address = new XElement("Detalle",
+                    new XElement("tx_filename", detalle.tx_filename),
+                    new XElement("tx_ruta_file", detalle.tx_ruta_file),
+                    new XElement("tx_ruta_file_cort", detalle.tx_ruta_file_cort),
+                    new XElement("size_file", detalle.size_file),
+                    new XElement("id_tipo_archivo", detalle.id_tipo_archivo),
+                    new XElement("txt_ruta_virtuales", detalle.txt_ruta_virtuales)
+                    );
+                    root.Add(address);
+                }
+                string xml = root.ToString();
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("usp_ins_galeria", conexion))
+                    {
+                        comando.Parameters.AddWithValue("@xml", xml);
+                        comando.Parameters.AddWithValue("@id_anuncio", id_anuncio);
+                        comando.Parameters.Add("@Ind", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        comando.Parameters.Add("@Mensaje", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
+                        comando.CommandType = CommandType.StoredProcedure;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        int ind = Convert.ToInt32(comando.Parameters["@Ind"].Value);
+                        string mensaje = Convert.ToString(comando.Parameters["@Mensaje"].Value);
+
+                        if (ind > 0)
+                        {
+                            clientResponse.Mensaje = mensaje;
+                            clientResponse.Status = "Ok";
+                        }
+                        else
+                        {
+                            clientResponse.Mensaje = mensaje;
+                            clientResponse.Status = "ERROR";
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+            }
+            return clientResponse;
+        }
 
         public ClientResponse MisAnuncio(string usuario_token)
         {

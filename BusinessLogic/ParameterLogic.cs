@@ -121,7 +121,7 @@ namespace BusinessLogic
         {
             return _parameterData.getParameter_skey(det);
         }
-        public IEnumerable<tbl_parameter_det> getParameter_skey_x_det_Id(tbl_parameter_det det)
+        public ClientResponse getParameter_skey_x_det_Id(tbl_parameter_det det)
         {
             return _parameterData.getParameter_skey_x_det_Id(det);
         }

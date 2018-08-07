@@ -80,7 +80,7 @@ namespace AccessData
             return lstParamaterDet;
         }
 
-        public IEnumerable<tbl_parameter_det> getParameter_skey_x_det_Id(tbl_parameter_det det)
+        public ClientResponse getParameter_skey_x_det_Id(tbl_parameter_det det)
         {
             try
             {
@@ -90,22 +90,27 @@ namespace AccessData
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@skey_cab", SqlDbType.VarChar, 45).Value = det.paramter_cab.skey_cab;
-                        comando.Parameters.Add("@skey_det", SqlDbType.VarChar, 45).Value = det.skey_det;                       
+                        comando.Parameters.Add("@skey_det", SqlDbType.VarChar, 45).Value = det.skey_det;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            while (reader.Read())
+                            //entidad = reader.ReadFields<tbl_parameter_det>();
+                            if (reader.Read())
                             {
-                                lstParamaterDet = reader.ReadRows<tbl_parameter_det>();
+                                entidad = new tbl_parameter_det();
+                                entidad.val_valor = Convert.ToInt32(reader["val_valor"] == DBNull.Value ? 0 : reader["val_valor"]);
+                                entidad.tx_descripcion = Convert.ToString(reader["tx_descripcion"] == DBNull.Value ? "" : reader["tx_descripcion"]);
                             }
+
                         }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
                     }
                 }
             }
             catch (Exception ex)
             {
-                //clientResponse.Mensaje = ex.Message;
-                //clientResponse.Status = "ERROR";
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
             }
             finally
             {
@@ -116,8 +121,8 @@ namespace AccessData
             }
 
             //clientResponse.DataJson = JsonConvert.SerializeObject(lstContacto).ToString();
-            //return clientResponse;
-            return lstParamaterDet;
+            return clientResponse;
+            //return lstParamaterDet;
         }
 
         #endregion

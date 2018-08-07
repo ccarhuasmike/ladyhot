@@ -33,6 +33,12 @@ namespace BusinessLogic
         {
             return _AnuncioData.UpdateSegundopaso(objeto);
         }
+
+        public ClientResponse Insert_Galeria(List<tbl_galeria_anuncio> list, int id_anuncio)
+        {
+            return _AnuncioData.Insert_Galeria(list,id_anuncio);
+        }
+
         public ClientResponse UpdateTercerpaso(tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateTercerpaso(objeto);
