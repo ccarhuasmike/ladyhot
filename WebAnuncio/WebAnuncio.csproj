@@ -198,6 +198,7 @@
     <Content Include="js\bootstrap-select.js" />
     <Content Include="js\bootstrap-touch-carousel.js" />
     <Content Include="js\bootstrap.min.js" />
+	<Content Include="js\bootstrap-filestyle.js" />
     <Content Include="js\filtros.js" />
     <Content Include="js\flickity-imagesloaded.js" />
     <Content Include="js\flickity.pkgd.min.js" />
