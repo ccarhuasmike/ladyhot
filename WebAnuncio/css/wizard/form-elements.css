@@ -69,7 +69,7 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
 label { font-weight: 300; }
 
 
-button.btn {
+.btn-wizard {
 	min-width: 105px;
 	height: 40px;
     margin: 0;
@@ -86,21 +86,40 @@ button.btn {
     -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
-
-button.btn:hover { opacity: 0.6; color: #fff; }
-button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
-button.btn:focus,
+* button.btn-wizard:hover {
+    opacity: 0.6;
+    color: #fff;
+}
+button.btn-wizard:active {
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+button.btn-wizard:focus,
 button.btn:active:focus,
-button.btn.active:focus { outline: 0; opacity: 0.6; color: #fff; }
+button.btn.active:focus {
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+}
 
-button.btn.btn-next,
+button.btn-wizard.btn-next,
 button.btn.btn-next:focus,
-button.btn.btn-next:active:focus, button.btn.btn-next.active:focus { background: #f35b3f; }
+button.btn.btn-next:active:focus, button.btn.btn-next.active:focus {
+    background: #f35b3f;
+}
 
-button.btn.btn-submit,
-button.btn.btn-submit:focus,
-button.btn.btn-submit:active:focus, button.btn.btn-submit.active:focus { background: #f35b3f; }
+button.btn-wizard.btn-submit,
+button.btn-wizard.btn-submit:focus,
+button.btn-wizard.btn-submit:active:focus, button.btn.btn-submit.active:focus {
+    background: #f35b3f;
+}
 
-button.btn.btn-previous,
-button.btn.btn-previous:focus,
-button.btn.btn-previous:active:focus, button.btn.btn-previous.active:focus { background: #bbb; }
+button.btn-wizard.btn-previous,
+button.btn-wizard.btn-previous:focus,
+button.btn-wizard.btn-previous:active:focus, button.btn.btn-previous.active:focus {
+    background: #bbb;
+}

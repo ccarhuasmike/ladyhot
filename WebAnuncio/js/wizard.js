@@ -38,7 +38,7 @@ jQuery(document).ready(function() {
     */
     $('.f1 fieldset:first').fadeIn('slow');
     
-    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea').on('focus', function() {
+    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea , .f1 select').on('focus', function() {
     	$(this).removeClass('input-error');
     });
     
@@ -51,8 +51,11 @@ jQuery(document).ready(function() {
     	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
     	
     	// fields validation
-    	parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
-    		if( $(this).val() == "" ) {
+        parent_fieldset.find('input[type="text"], input[type="password"], textarea , select').each(function () {
+            if ($(this).attr("id") == 'id_file_input') {
+                return false;
+            }
+            if ($(this).val() == "" || $(this).val() == "0"  ) {
     			$(this).addClass('input-error');
     			next_step = false;
     		}
@@ -99,7 +102,7 @@ jQuery(document).ready(function() {
     $('.f1').on('submit', function(e) {
     	
     	// fields validation
-    	$(this).find('input[type="text"], input[type="password"], textarea').each(function() {
+        $(this).find('input[type="text"], input[type="password"], textarea , select').each(function() {
     		if( $(this).val() == "" ) {
     			e.preventDefault();
     			$(this).addClass('input-error');

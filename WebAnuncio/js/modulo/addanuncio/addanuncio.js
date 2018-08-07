@@ -1,4 +1,14 @@
-﻿(function ($, window, document) {
+﻿$('#file_fotos').filestyle({
+    buttonText: 'Examinar',
+    buttonName:'btn-success btn-sm'
+});
+
+$('#clear').click(function () {
+    $('#file_fotos').filestyle('clear');
+});
+
+(function ($, window, document) {             
+
     var listInicial = [];
     var HTML = "";
     var cod_anuncion_encriptado;
