@@ -63,14 +63,16 @@
             $("#cbo_peso").val(response.int_peso);
 
 
-            setValueElemento("chk_forma_pagos[]", response.txt_forma_pago);
-            setValueElemento("chk_distrito[]", response.txt_lugar_servicio_distrito);
-            setValueElemento("chk_lugar_atencion[]", response.tx_lugar_atencion);
-            setValueElemento("chk_servicio_ofrece[]", response.tx_servicios_ofrece);
-            var txt_medidas_busto_cintura_cadera = response.txt_medidas_busto_cintura_cadera.split(",");
-            $("#txt_medidas_busto").val(txt_medidas_busto_cintura_cadera[0]);
-            $("#txt_medidas_cintura").val(txt_medidas_busto_cintura_cadera[1]);
-            $("#txt_medidas_cadera").val(txt_medidas_busto_cintura_cadera[2]);
+            setValueElemento("chk_forma_pagos[]", response.txt_forma_pago == null ? "" : response.txt_forma_pago);
+            setValueElemento("chk_distrito[]", response.txt_lugar_servicio_distrito == null ? "" : response.txt_lugar_servicio_distrito);
+            setValueElemento("chk_lugar_atencion[]", response.tx_lugar_atencion == null ? "" : response.tx_lugar_atencion);
+            setValueElemento("chk_servicio_ofrece[]", response.tx_servicios_ofrece == null ? "" : response.tx_servicios_ofrece);
+            if (response.txt_medidas_busto_cintura_cadera != null) {
+                var txt_medidas_busto_cintura_cadera = response.txt_medidas_busto_cintura_cadera.split(",");
+                $("#txt_medidas_busto").val(txt_medidas_busto_cintura_cadera[0]);
+                $("#txt_medidas_cintura").val(txt_medidas_busto_cintura_cadera[1]);
+                $("#txt_medidas_cadera").val(txt_medidas_busto_cintura_cadera[2]);
+            }                        
             $("#txt_descripcion").val(response.txt_descripcion_extra_apariencia);
             $("#txt_30_min").val(response.dbl_costo_x_tiempo_30min);
             $("#txt_45_min").val(response.dbl_costo_x_tiempo_45min);

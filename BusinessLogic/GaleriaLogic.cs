@@ -23,10 +23,7 @@ namespace BusinessLogic
         {
             return _GaleriaData.Insert_Galeria(list, id_anuncio);
         }
-        //public IEnumerable<tbl_galeria_anuncio> get_galeria_x_id_anuncio(tbl_galeria_anuncio objeto)
-        //{
-        //    return _GaleriaData.get_galeria_x_id_anuncio(objeto);
-        //}
+     
         public ClientResponse get_galeria_x_id(tbl_galeria_anuncio objeto)
         {
             return _GaleriaData.get_galeria_x_id(objeto);
@@ -34,6 +31,10 @@ namespace BusinessLogic
         public ClientResponse eliminar_galeria_x_id(tbl_galeria_anuncio objeto)
         {
             return _GaleriaData.eliminar_galeria_x_id(objeto);
+        }
+        public IEnumerable<tbl_galeria_anuncio> get_galeria_x_id_anuncio(tbl_galeria_anuncio objeto)
+        {
+            return _GaleriaData.get_galeria_x_id_anuncio(objeto);
         }
     }
 }

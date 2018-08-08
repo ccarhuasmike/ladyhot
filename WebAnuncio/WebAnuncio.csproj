@@ -220,6 +220,7 @@
     <Content Include="js\modulo\addanuncio\misanuncios.js" />
     <Content Include="js\modulo\addanuncio\updanuncio.js" />
     <Content Include="js\modulo\addanuncio\addanuncio.js" />
+    <Content Include="js\modulo\addanuncio\updategaleria.js" />
     <Content Include="js\modulo\generales.js" />
     <Content Include="js\modulo\home\home.js" />
     <Content Include="js\modulo\tarifa\Tarifa.js" />
@@ -235,7 +236,6 @@
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
-    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -275,6 +275,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">

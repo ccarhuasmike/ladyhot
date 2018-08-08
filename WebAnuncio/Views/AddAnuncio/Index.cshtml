@@ -5,597 +5,594 @@
 }
 
 
+<div role="form" class="f1">
+    <h3>Publica un nuevo anuncio</h3>
+    <p>ANUNCIOS: ALTA</p>
+    <div class="f1-steps">
+        <div class="f1-progress">
+            <div class="f1-progress-line" data-now-value="12.5" data-number-of-steps="4" style="width: 12.5%;"></div>
+        </div>
+        <div class="f1-step active">
+            <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+            <p>Datos Básicos y presentación</p>
+        </div>
+        <div class="f1-step">
+            <div class="f1-step-icon"><i class="fa fa-key"></i></div>
+            <p> Aspectos personales y físicos</p>
+        </div>
+        <div class="f1-step">
+            <div class="f1-step-icon"><i class="fa fa-question"></i></div>
+            <p>Tarifas y Servicios</p>
+        </div>
+        <div class="f1-step">
+            <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
+            <p> Fotografías</p>
+        </div>
+        <div class="f1-step">
+            <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
+            <p> Publicar Anuncio</p>
+        </div>
+    </div>
 
-<div class="row">
-
-    <form role="form" action="" method="post" class="f1">
-        <h3>Publica un nuevo anuncio</h3>
-        <p>ANUNCIOS: ALTA</p>
-        <div class="f1-steps">
-            <div class="f1-progress">
-                <div class="f1-progress-line" data-now-value="12.5" data-number-of-steps="4" style="width: 12.5%;"></div>
+    <fieldset>
+        <h4>Datos de Contacto:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_nombre">Nombre</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_nombre" placeholder="Ingrese nombre">
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">el nombre que aparece en tu ficha</p>
+                </div>
             </div>
-            <div class="f1-step active">
-                <div class="f1-step-icon"><i class="fa fa-user"></i></div>
-                <p>Datos Básicos y presentación</p>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_telefono_1">Teléfono</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_telefono_1" placeholder="Ingrese Telefono 1">
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">tu teléfono de contacto</p>
+                </div>
             </div>
-            <div class="f1-step">
-                <div class="f1-step-icon"><i class="fa fa-key"></i></div>
-                <p> Aspectos personales y físicos</p>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_telefono_2">Teléfono</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_telefono_2" placeholder="Ingrese Telefono 2">
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">otro teléfono de contacto</p>
+                </div>
             </div>
-            <div class="f1-step">
-                <div class="f1-step-icon"><i class="fa fa-question"></i></div>
-                <p>Tarifas y Servicios</p>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_email">Email</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_email" placeholder="Ingrese email">
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿tienes email dónde contactarte?</p>
+                </div>
             </div>
-            <div class="f1-step">
-                <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
-                <p> Fotografías</p>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_web">Web</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_web" placeholder="Ingrese web">
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">la URL de tu web, si tienes</p>
+                </div>
             </div>
-            <div class="f1-step">
-                <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
-                <p> Publicar Anuncio</p>
+        </div>
+        <h4>Datos Generales:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_edad">Edad</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_edad"></select>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">elige tu edad</p>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_pais">País de origen</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_pais"></select>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿dónde te has criado?</p>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_estudios">Estudios</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_estudios"></select>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">nivel de estudios realizados</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label control-label-small" for="txt_presentacion">Presentación</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="txt_presentacion" rows="12" placeholder=""></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">Explica un poco más sobre ti. Aquí puedes presentarte a los futuros clientes, descríbete un poco mejor, explica cómo eres, que te gusta, tus aficiones y habilidades. ¿Porqué deben llamarte? Cualquier otra cosa que creas es importante, esta es tu oportunidad!</p>
+                </div>
             </div>
         </div>
 
-        <fieldset>
-            <h4>Datos de Contacto:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_nombre">Nombre</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_nombre" placeholder="Ingrese nombre">
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">el nombre que aparece en tu ficha</p>
-                    </div>
+        <div class="f1-buttons">
+            <button type="button" class="btn-wizard btn-next" id="btn_primerpaso">Guardar y Siguiente</button>
+        </div>
+
+
+
+    </fieldset>
+
+    <fieldset>
+        <h4>Apariencia:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_pelo">color de pelo</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_pelo"></select>
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_telefono_1">Teléfono</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_telefono_1" placeholder="Ingrese Telefono 1">
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">tu teléfono de contacto</p>
-                    </div>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_telefono_2">Teléfono</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_telefono_2" placeholder="Ingrese Telefono 2">
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">otro teléfono de contacto</p>
-                    </div>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_email">Email</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_email" placeholder="Ingrese email">
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿tienes email dónde contactarte?</p>
-                    </div>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_web">Web</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_web" placeholder="Ingrese web">
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">la URL de tu web, si tienes</p>
-                    </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">el color de tu pelo</p>
                 </div>
             </div>
-            <h4>Datos Generales:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_edad">Edad</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_edad"></select>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">elige tu edad</p>
-                    </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_ojos">color de ojos</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_ojos"></select>
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_pais">País de origen</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_pais"></select>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿dónde te has criado?</p>
-                    </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">el color de tus ojos</p>
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_estudios">Estudios</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_estudios"></select>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">nivel de estudios realizados</p>
-                    </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_estatura">estatura</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_estatura"></select>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_presentacion">Presentación</label>
-                    <div class="col-sm-5">
-                        <textarea class="form-control" id="txt_presentacion" rows="12" placeholder=""></textarea>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">Explica un poco más sobre ti. Aquí puedes presentarte a los futuros clientes, descríbete un poco mejor, explica cómo eres, que te gusta, tus aficiones y habilidades. ¿Porqué deben llamarte? Cualquier otra cosa que creas es importante, esta es tu oportunidad!</p>
-                    </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿cual es tu altura en centímetros?</p>
                 </div>
             </div>
 
-            <div class="f1-buttons">
-                <button type="button" class="btn-wizard btn-next" id="btn_primerpaso">Guardar y Siguiente</button>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_peso">peso</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="cbo_peso"></select>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                </div>
             </div>
 
-            
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="cbo_estudios">Medidas (Busto-Cintura-Caderas)</label>
+                <div class="col-sm-5" style="display: inline-flex;">
+                    <input class="form-control form-control-input-25" type="text" id="txt_medidas_busto" placeholder="busto">-
+                    <input class="form-control form-control-input-25" type="text" id="txt_medidas_cintura" placeholder="cintura">-
+                    <input class="form-control form-control-input-25" type="text" id="txt_medidas_cadera" placeholder="cadera">
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿Cuales son tus medidas?</p>
+                </div>
+            </div>
 
-        </fieldset>
+            <div class="form-group">
+                <label class="col-sm-3 control-label control-label-small" for="txt_descripcion">Descripcion</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="txt_descripcion" rows="6" placeholder=""></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">Si quieres explicar algun otro dato relevante sobre tu apariencia física aquí puedes describirte mejor.</p>
+                </div>
+            </div>
+        </div>
 
-        <fieldset>
-            <h4>Apariencia:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_pelo">color de pelo</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_pelo"></select>
-                    </div>
-                    <div class="col-sm-4">
+        <div class="f1-buttons">
+            <button type="button" class="btn-wizard btn-previous"><< volver y corregir</button>
+            <button type="button" class="btn-wizard btn-next" id="btn_segundopaso">Guardar y Siguiente</button>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <h4>Tarifas:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_30_min">30 Minutos</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_30_min" value="0">
+                </div>
+                @*<div class="col-sm-4">
                         <p class="form-control-static">el color de tu pelo</p>
-                    </div>
+                    </div>*@
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_45_min">45 Minutos</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_45_min" value="0">
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_ojos">color de ojos</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_ojos"></select>
-                    </div>
-                    <div class="col-sm-4">
+                @*<div class="col-sm-4">
                         <p class="form-control-static">el color de tus ojos</p>
-                    </div>
+                    </div>*@
+            </div>
+
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_1_hora">1 Hora</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_1_hora" value="0">
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_estatura">estatura</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_estatura"></select>
-                    </div>
-                    <div class="col-sm-4">
+                @*<div class="col-sm-4">
                         <p class="form-control-static">¿cual es tu altura en centímetros?</p>
-                    </div>
-                </div>
+                    </div>*@
+            </div>
 
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_peso">peso</label>
-                    <div class="col-sm-5">
-                        <select class="form-control" id="cbo_peso"></select>
-                    </div>
-                    <div class="col-sm-4">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_1_30_hora">1 Hora y media</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_1_30_hora" value="0">
+                </div>
+                @*<div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu altura en centímetros?</p>
+                    </div>*@
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_2_hora">2 Horas</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_2_hora" value="0">
+                </div>
+                @*<div class="col-sm-4">
                         <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                    </div>*@
+            </div>
+
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_3_hora">3 Horas</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_3_hora" value="0">
+                </div>
+                @*<div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                    </div>*@
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_salida_hora">Salidas</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_salida_hora" value="0">
+                </div>
+                @*<div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                    </div>*@
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_toda_noche">Toda la noche</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_toda_noche" value="0">
+                </div>
+                @*<div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                    </div>*@
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_viajes">Viajes</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="txt_viajes" value="0">
+                </div>
+                @*<div class="col-sm-4">
+                        <p class="form-control-static">¿cual es tu peso en Kg?</p>
+                    </div>*@
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small" for="txt_viajes">Forma de Pago</label>
+                <div class="col-sm-5" id="check_forma_pago">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Option one is this and that&mdash;be sure to include why it's great
+                        </label>
+                    </div>
+                    <div class="checkbox disabled">
+                        <label>
+                            <input type="checkbox" value="" disabled>
+                            Option two is disabled
+                        </label>
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label control-label-small" for="txt_descripcion_tarifa">Descripcion</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="txt_descripcion_tarifa" rows="6" placeholder=""></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">Si necesitas aclarar algun otro aspecto sobre tus tarifas escríbelo aquí.</p>
+                </div>
+            </div>
+        </div>
 
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="cbo_estudios">Medidas (Busto-Cintura-Caderas)</label>
-                    <div class="col-sm-5" style="display: inline-flex;">
-                        <input class="form-control form-control-input-25" type="text" id="txt_medidas_busto" placeholder="busto">-
-                        <input class="form-control form-control-input-25" type="text" id="txt_medidas_cintura" placeholder="cintura">-
-                        <input class="form-control form-control-input-25" type="text" id="txt_medidas_cadera" placeholder="cadera">
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿Cuales son tus medidas?</p>
+        <h4>Servicios:</h4>
+        <div class="form-horizontal">
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small">Distrito</label>
+                <div class="col-sm-5" id="check_distrito">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Option one is this and that&mdash;be sure to include why it's great
+                        </label>
                     </div>
                 </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">elige los distrito donde ofreces tus servicios</p>
+                </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_descripcion">Descripcion</label>
-                    <div class="col-sm-5">
-                        <textarea class="form-control" id="txt_descripcion" rows="6" placeholder=""></textarea>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">Si quieres explicar algun otro dato relevante sobre tu apariencia física aquí puedes describirte mejor.</p>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small">Atiendes las 24hs?</label>
+                <div class="col-sm-5" id="check_distrito">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="0" id="chk_24horas">
+                        </label>
                     </div>
                 </div>
             </div>
 
-            <div class="f1-buttons">
-                <button type="button" class="btn-wizard btn-previous"><< volver y corregir</button>
-                <button type="button" class="btn-wizard btn-next" id="btn_segundopaso">Guardar y Siguiente</button>
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <h4>Tarifas:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_30_min">30 Minutos</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_30_min" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">el color de tu pelo</p>
-                        </div>*@
+            <div class="form-group">
+                <label class="col-sm-3 control-label control-label-small" for="txt_descripcion_tarifa">Algo sobre tu disponibilidad</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="txt_descripcion_tarifa" rows="6" placeholder=""></textarea>
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_45_min">45 Minutos</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_45_min" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">el color de tus ojos</p>
-                        </div>*@
-                </div>
-
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_1_hora">1 Hora</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_1_hora" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu altura en centímetros?</p>
-                        </div>*@
-                </div>
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_1_30_hora">1 Hora y media</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_1_30_hora" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu altura en centímetros?</p>
-                        </div>*@
-                </div>
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_2_hora">2 Horas</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_2_hora" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu peso en Kg?</p>
-                        </div>*@
-                </div>
-
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_3_hora">3 Horas</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_3_hora" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu peso en Kg?</p>
-                        </div>*@
-                </div>
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_salida_hora">Salidas</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_salida_hora" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu peso en Kg?</p>
-                        </div>*@
-                </div>
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_toda_noche">Toda la noche</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_toda_noche" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu peso en Kg?</p>
-                        </div>*@
-                </div>
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_viajes">Viajes</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="txt_viajes" value="0">
-                    </div>
-                    @*<div class="col-sm-4">
-                            <p class="form-control-static">¿cual es tu peso en Kg?</p>
-                        </div>*@
-                </div>
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_viajes">Forma de Pago</label>
-                    <div class="col-sm-5" id="check_forma_pago">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">
-                                Option one is this and that&mdash;be sure to include why it's great
-                            </label>
-                        </div>
-                        <div class="checkbox disabled">
-                            <label>
-                                <input type="checkbox" value="" disabled>
-                                Option two is disabled
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_descripcion_tarifa">Descripcion</label>
-                    <div class="col-sm-5">
-                        <textarea class="form-control" id="txt_descripcion_tarifa" rows="6" placeholder=""></textarea>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">Si necesitas aclarar algun otro aspecto sobre tus tarifas escríbelo aquí.</p>
-                    </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿Quieres hacer una aclaración sobre tus días y horarios?</p>
                 </div>
             </div>
 
-            <h4>Servicios:</h4>
-            <div class="form-horizontal">
 
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small">Distrito</label>
-                    <div class="col-sm-5" id="check_distrito">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">
-                                Option one is this and that&mdash;be sure to include why it's great
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">elige hasta distrito donde ofreces tus servicios</p>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small">Lugar</label>
+                <div class="col-sm-5" id="check_lugar_atencion">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Option one is this and that&mdash;be sure to include why it's great
+                        </label>
                     </div>
                 </div>
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small">Atiendes las 24hs?</label>
-                    <div class="col-sm-5" id="check_distrito">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="0" id="chk_24horas">
-                            </label>
-                        </div>
-                    </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿dónde atiendes a tus clientes?</p>
                 </div>
-
-                <div class="form-group">
-                    <label class="col-sm-3 control-label control-label-small" for="txt_descripcion_tarifa">Algo sobre tu disponibilidad</label>
-                    <div class="col-sm-5">
-                        <textarea class="form-control" id="txt_descripcion_tarifa" rows="6" placeholder=""></textarea>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿Quieres hacer una aclaración sobre tus días y horarios?</p>
-                    </div>
-                </div>
-
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small">Lugar</label>
-                    <div class="col-sm-5" id="check_lugar_atencion">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">
-                                Option one is this and that&mdash;be sure to include why it's great
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿dónde atiendes a tus clientes?</p>
-                    </div>
-                </div>
-
-
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small">Servicios</label>
-                    <div class="col-sm-5" id="check_servicio_ofrece">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">
-                                Option one is this and that&mdash;be sure to include why it's great
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿Qué servicios ofreces? (Estén o no incluidos en tu tarifa estándar)</p>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-3 control-label control-label-small" for="tx_descripcion_extra_servicio">Descripcion</label>
-                    <div class="col-sm-5">
-                        <textarea class="form-control" id="tx_descripcion_extra_servicio" rows="6" placeholder=""></textarea>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="form-control-static">¿Quieres hacer una aclaración o explicarte mejor?</p>
-                    </div>
-                </div>
-
-
             </div>
-            <div class="f1-buttons">
-                <button type="button" class="btn-wizard btn-previous"><< volver y corregir</button>
-                <button type="button" class="btn-wizard btn-next" id="btn_terceropaso">Guardar y Siguiente</button>
-                @*<button type="submit" class="btn btn-submit">Submit</button>*@
-            </div>
-        </fieldset>
 
-        <fieldset>
-            <h4>Galeria Fotos:</h4>
-            <div class="form-horizontal">
 
-                <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label control-label-small">Seleccione Imagen</label>
-                    <div class="col-sm-7">
-                        <input type="file" multiple="multiple" id="file_fotos">
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="button" class="btn btn-default btn-success btn-sm" value="Agregar Imagen" id="btn_agregar_imagen" name="btn_agregar_imagen">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small">Servicios</label>
+                <div class="col-sm-5" id="check_servicio_ofrece">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Option one is this and that&mdash;be sure to include why it's great
+                        </label>
                     </div>
                 </div>
-                <div class="form-group form-group-sm">
-                    <div class="col-sm-12">
-                        <div class="contenido" id="id_container_galeria">
-                            @*<div class="contenedor-fotos">
-                            <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
-                            <div class="group-button">
-                                <a href="#" class="myButton">Eliminar</a>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿Qué servicios ofreces? (Estén o no incluidos en tu tarifa estándar)</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label control-label-small" for="tx_descripcion_extra_servicio">Descripcion</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="tx_descripcion_extra_servicio" rows="6" placeholder=""></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <p class="form-control-static">¿Quieres hacer una aclaración o explicarte mejor?</p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="f1-buttons">
+            <button type="button" class="btn-wizard btn-previous"><< volver y corregir</button>
+            <button type="button" class="btn-wizard btn-next" id="btn_terceropaso">Guardar y Siguiente</button>
+            @*<button type="submit" class="btn btn-submit">Submit</button>*@
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <h4>Galeria Fotos:</h4>
+        <div class="form-horizontal">
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label control-label-small">Seleccione Imagen</label>
+                <div class="col-sm-7">
+                    <input type="file" multiple="multiple" id="file_fotos">
+                </div>
+                <div class="col-sm-2">
+                    <input type="button" class="btn btn-default btn-success btn-sm" value="Agregar Imagen" id="btn_agregar_imagen" name="btn_agregar_imagen">
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-sm-12">
+                    <div class="contenido" id="id_container_galeria">
+                        @*<div class="contenedor-fotos">
+                                <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
+                                <div class="group-button">
+                                    <a href="#" class="myButton">Eliminar</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="contenedor-fotos">
-                            <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
-                            <div class="group-button">
-                                <a href="#" class="myButton">Eliminar</a>
+                            <div class="contenedor-fotos">
+                                <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
+                                <div class="group-button">
+                                    <a href="#" class="myButton">Eliminar</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="contenedor-fotos">
-                            <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
-                            <div class="group-button">
-                                <a href="#" class="myButton">Eliminar</a>
+                            <div class="contenedor-fotos">
+                                <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
+                                <div class="group-button">
+                                    <a href="#" class="myButton">Eliminar</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="contenedor-fotos">
-                            <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
-                            <div class="group-button">
-                                <a href="#" class="myButton">Eliminar</a>
-                            </div>
-                        </div>*@
-                        </div>
+                            <div class="contenedor-fotos">
+                                <img src="https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg" alt="Forest">
+                                <div class="group-button">
+                                    <a href="#" class="myButton">Eliminar</a>
+                                </div>
+                            </div>*@
                     </div>
                 </div>
             </div>
-            <div class="f1-buttons">
-                <button type="button" class="btn-wizard btn-previous"><< volver y corregir</button>
-                <button type="button" class="btn-wizard btn-next">Guardar y Siguiente</button>
-                @*<button type="submit" class="btn btn-submit">Submit</button>*@
-            </div>
-        </fieldset>
+        </div>
+        <div class="f1-buttons">
+            <button type="button" class="btn-wizard btn-previous"><< volver y corregir</button>
+            <button type="button" class="btn-wizard btn-next">Guardar y Siguiente</button>
+            @*<button type="submit" class="btn btn-submit">Submit</button>*@
+        </div>
+    </fieldset>
 
-        <fieldset>
-            <h4>PROMOCIONES DISPONIBLES:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <div class="col-sm-12">
-                        <table class="table">
-                            <tbody>
-                                <tr class="top">
-                                    <td class="no_bg">Provincia: Alicante[3] 9814</td>
-                                    <td><strong>30 días</strong></td>
-                                    <td><strong>+TOP</strong></td>
-                                </tr>
-                                <tr class="bg">
-                                    <td>
-                                        Categoría 1
-                                        <br>Entre posición 1 a 15
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="1" alt="mensualidad|20|Categoría 1|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 1 a 15" onclick="promocion(this)" style="margin-right:5px;">20€
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="1" alt="mensualidadtop|40|Categoría 1|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 1 a 15" onclick="promocion(this)" style="margin-right:5px;">40€
-                                    </td>
-                                </tr>
-                                <tr class="">
-                                    <td>
-                                        Categoría 2
-                                        <br>Entre posición 16 a 40
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="2" alt="mensualidad|10|Categoría 2|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 16 a 40" onclick="promocion(this)" style="margin-right:5px;">10€
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="2" alt="mensualidadtop|30|Categoría 2|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 16 a 40" onclick="promocion(this)" style="margin-right:5px;">30€
-                                    </td>
-                                </tr>
-                                <tr class="bg">
-                                    <td>
-                                        Categoría 3
-                                        <br>Entre posición 41 a 150
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="3" alt="mensualidad|0|Categoría 3|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 41 a 150" onclick="promocion(this)" style="margin-right:5px;">0€
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="3" alt="mensualidadtop|20|Categoría 3|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 41 a 150" onclick="promocion(this)" style="margin-right:5px;">20€
-                                    </td>
-                                </tr>
-                                <tr class="">
-                                    <td>
-                                        Clientes
-                                        <br>a partir de la posición 150
-                                    </td>
-                                    <td>
-                                        <input type="radio" name="tiempo_y_precio" value="4" alt="mensualidad|0|Clientes|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|a partir de la posición 150" onclick="promocion(this)" style="margin-right:5px;">0€
-                                    </td>
-                                    <td>
-                                        <p><strong>-</strong></p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+    <fieldset>
+        <h4>PROMOCIONES DISPONIBLES:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <tbody>
+                            <tr class="top">
+                                <td class="no_bg">Provincia: Alicante[3] 9814</td>
+                                <td><strong>30 días</strong></td>
+                                <td><strong>+TOP</strong></td>
+                            </tr>
+                            <tr class="bg">
+                                <td>
+                                    Categoría 1
+                                    <br>Entre posición 1 a 15
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="1" alt="mensualidad|20|Categoría 1|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 1 a 15" onclick="promocion(this)" style="margin-right:5px;">20€
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="1" alt="mensualidadtop|40|Categoría 1|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 1 a 15" onclick="promocion(this)" style="margin-right:5px;">40€
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td>
+                                    Categoría 2
+                                    <br>Entre posición 16 a 40
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="2" alt="mensualidad|10|Categoría 2|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 16 a 40" onclick="promocion(this)" style="margin-right:5px;">10€
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="2" alt="mensualidadtop|30|Categoría 2|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 16 a 40" onclick="promocion(this)" style="margin-right:5px;">30€
+                                </td>
+                            </tr>
+                            <tr class="bg">
+                                <td>
+                                    Categoría 3
+                                    <br>Entre posición 41 a 150
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="3" alt="mensualidad|0|Categoría 3|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 41 a 150" onclick="promocion(this)" style="margin-right:5px;">0€
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="3" alt="mensualidadtop|20|Categoría 3|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|Entre posición 41 a 150" onclick="promocion(this)" style="margin-right:5px;">20€
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td>
+                                    Clientes
+                                    <br>a partir de la posición 150
+                                </td>
+                                <td>
+                                    <input type="radio" name="tiempo_y_precio" value="4" alt="mensualidad|0|Clientes|<strong>30 Días</strong><br /> del 2018-08-02 al 2018-09-02|a partir de la posición 150" onclick="promocion(this)" style="margin-right:5px;">0€
+                                </td>
+                                <td>
+                                    <p><strong>-</strong></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <h4>COMO QUIERES PAGAR?:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td style="padding-left:15px; width:15px;">
+                                    <input type="radio" name="forma_de_pago" value="TB" checked="checked">
+                                </td>
+                                <td><img src="images/tranfer.gif" width="47" height="43"></td>
+                                <td>
+                                    <strong>Transferencia bancaria</strong>.
+                                    <br> Tu anuncio NO se publicara hasta que no se realice la transferencia.
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <div class="col-sm-12">
+                    <div class="textNormal">
+                        <p>Todos los datos personales estan sujetos a la Protección de Datos de Carácter Personal, a los efectos de lo previsto en la Ley Orgánica 15/1999.</p>
+                        <h4>Atención!!! No se Admite:</h4>
+                        <ul class="listado">
+                            <li>Fotos falsas, antiguas, de muy poca calidad, muy desfasadas con tu imagen actual o con retoques fotográficos desproporcionados</li>
+                            <li>Que realice los servicios una persona diferente a la anunciada</li>
+                            <li>Publicar más de un anuncio por anunciante (con el mismo nombre o nombres diferentes)</li>
+                            <li>Disparidad de tarifas con las anunciadas en otras webs</li>
+                        </ul>
+                        <p>Si una vez publicada, descubrimos que estás incumpliendo alguna/s de estas normas, tu anuncio se borrará sin derecho a la devolución de la cuota pagada y se te vetará a futuras publicaciones. Si no estás dispuesta a cumplir estos requisitos, te rogamos no te publiques con nosotros.</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <h4>COMO QUIERES PAGAR?:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <div class="col-sm-12">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td style="padding-left:15px; width:15px;">
-                                        <input type="radio" name="forma_de_pago" value="TB" checked="checked">
-                                    </td>
-                                    <td><img src="images/tranfer.gif" width="47" height="43"></td>
-                                    <td>
-                                        <strong>Transferencia bancaria</strong>.
-                                        <br> Tu anuncio NO se publicara hasta que no se realice la transferencia.
-                                    </td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <h4>CONDICIONES:</h4>
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <div class="col-sm-12">
+                    <p><strong>1. </strong>HottEscorts.es es una publicación digital on-line de calidad dirigida exclusivamente a público adulto.</p>
+                    <p><strong>2. </strong>HottEscorts.es se compromete expresamente a hacer uso exclusivo de las imágenes cedidas por EL ANUNCIANTE para su publicación en nuestro sitio web o como promoción del mismo. Bajo ningún concepto será de otra manera, ni seran vendidas o cedidas a otra empresa o persona.</p>
+                    <p><strong>3. </strong>Al marcar la aceptación de este contrato, EL ANUNCIANTE acepta que el administrador de HottEscorts.es exponga sus imágenes en el portal HottEscorts.es.</p>
+                    <p><strong>4. </strong>EL ANUNCIANTE es total y exclusivamente responsables de sus contenidos gráficos y textuales.</p>
+                    <p><strong>5. </strong>EL ANUNCIANTE bajo la aceptación del presente contrato declara que es el único propietario de los derechos de las fotografías y textos que son suministrados. Que estos están libres de todo copyright o derechos de autor. Y que no se han copiado ni total ni parcialmente de ningún otro trabajo, imagen o fuente.</p>
+                    <p><strong>6. </strong>Por la presente, EL ANUNCIANTE da fe y es responsable de que las imágenes cedidas a HottEscorts.es para su publicación han sido tomadas, en su momento, a personas mayores de 18 años bajo su consentimiento y autorización.</p>
+                    <p><strong>7. </strong>En caso de ser agencia, deberás de tener autorización de la persona a publicar.</p>
+
                 </div>
             </div>
-
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <div class="col-sm-12">
-                        <div class="textNormal">
-                            <p>Todos los datos personales estan sujetos a la Protección de Datos de Carácter Personal, a los efectos de lo previsto en la Ley Orgánica 15/1999.</p>
-                            <h4>Atención!!! No se Admite:</h4>
-                            <ul class="listado">
-                                <li>Fotos falsas, antiguas, de muy poca calidad, muy desfasadas con tu imagen actual o con retoques fotográficos desproporcionados</li>
-                                <li>Que realice los servicios una persona diferente a la anunciada</li>
-                                <li>Publicar más de un anuncio por anunciante (con el mismo nombre o nombres diferentes)</li>
-                                <li>Disparidad de tarifas con las anunciadas en otras webs</li>
-                            </ul>
-                            <p>Si una vez publicada, descubrimos que estás incumpliendo alguna/s de estas normas, tu anuncio se borrará sin derecho a la devolución de la cuota pagada y se te vetará a futuras publicaciones. Si no estás dispuesta a cumplir estos requisitos, te rogamos no te publiques con nosotros.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h4>CONDICIONES:</h4>
-            <div class="form-horizontal">
-                <div class="form-group form-group-sm">
-                    <div class="col-sm-12">
-                        <p><strong>1. </strong>HottEscorts.es es una publicación digital on-line de calidad dirigida exclusivamente a público adulto.</p>
-                        <p><strong>2. </strong>HottEscorts.es se compromete expresamente a hacer uso exclusivo de las imágenes cedidas por EL ANUNCIANTE para su publicación en nuestro sitio web o como promoción del mismo. Bajo ningún concepto será de otra manera, ni seran vendidas o cedidas a otra empresa o persona.</p>
-                        <p><strong>3. </strong>Al marcar la aceptación de este contrato, EL ANUNCIANTE acepta que el administrador de HottEscorts.es exponga sus imágenes en el portal HottEscorts.es.</p>
-                        <p><strong>4. </strong>EL ANUNCIANTE es total y exclusivamente responsables de sus contenidos gráficos y textuales.</p>
-                        <p><strong>5. </strong>EL ANUNCIANTE bajo la aceptación del presente contrato declara que es el único propietario de los derechos de las fotografías y textos que son suministrados. Que estos están libres de todo copyright o derechos de autor. Y que no se han copiado ni total ni parcialmente de ningún otro trabajo, imagen o fuente.</p>
-                        <p><strong>6. </strong>Por la presente, EL ANUNCIANTE da fe y es responsable de que las imágenes cedidas a HottEscorts.es para su publicación han sido tomadas, en su momento, a personas mayores de 18 años bajo su consentimiento y autorización.</p>
-                        <p><strong>7. </strong>En caso de ser agencia, deberás de tener autorización de la persona a publicar.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="f1-buttons">
-                <button type="button" class="btn btn-previous"><< volver y corregir</button>
-                <button type="submit" class="btn btn-submit">Pagar Anuncio</button>
-            </div>
-        </fieldset>
-    </form>
+        </div>
+        <div class="f1-buttons">
+            <button type="button" class="btn btn-previous"><< volver y corregir</button>
+            <button type="submit" class="btn btn-submit">Pagar Anuncio</button>
+        </div>
+    </fieldset>
 </div>
+
 
 
 

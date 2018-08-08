@@ -13,9 +13,10 @@
     font-size: 12px !important;
     line-height: 1.8;
     margin-bottom: 0 !important;
+    font-weight: bold;
 }
 .control-label-small {
-    font-size: 14px !important;
+    font-size: 13px !important;
     padding-top: 2px !important;
 }
 input[type="text"], 
@@ -109,7 +110,8 @@ button.btn.active:focus {
 button.btn-wizard.btn-next,
 button.btn.btn-next:focus,
 button.btn.btn-next:active:focus, button.btn.btn-next.active:focus {
-    background: #f35b3f;
+    /*background: #f35b3f;*/
+    background: #f39;
 }
 
 button.btn-wizard.btn-submit,

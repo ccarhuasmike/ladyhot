@@ -9,6 +9,20 @@ body {
     background-color: black;
 }
 
+
+.divider {
+    height: 1px;
+    width: 100%;
+    display: block; /* for use on default inline elements like span */
+    margin: 20px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.parrafo-left {
+    text-align: left;
+}
+
 /*style de galeria de fotos*/
 img {
     border: 1px solid #ddd;
@@ -111,8 +125,10 @@ h3 {
 
 h4 {
     font-size: 18px;
-    font-weight: 300;
-    color: #555;
+    /*font-weight: 300;
+    color: #555;*/
+    color: #f1429adb;
+    font-weight: bold;
     line-height: 26px;
 }
 
@@ -272,7 +288,7 @@ ul.navbar-nav {
     top: 0;
     left: 0;
     height: 1px;
-    background: #f35b3f;
+    background: #f39;
 }
 
 .f1-step {
@@ -297,19 +313,20 @@ ul.navbar-nav {
 }
 
 .f1-step.activated .f1-step-icon {
-    background: #fff;
-    border: 1px solid #f35b3f;
-    color: #f35b3f;
+    background: #fff;    
     line-height: 38px;
+    border: 1px solid #f39;
+    color: #f39;
 }
 
 .f1-step.active .f1-step-icon {
     width: 48px;
     height: 48px;
     margin-top: 0;
-    background: #f35b3f;
+    /*background: #f35b3f;*/
     font-size: 22px;
     line-height: 48px;
+    background-color: #f39;
 }
 
 .f1-step p {
@@ -317,11 +334,11 @@ ul.navbar-nav {
 }
 
 .f1-step.activated p {
-    color: #f35b3f;
+    color: #f39;
 }
 
 .f1-step.active p {
-    color: #f35b3f;
+    color: #f39;
 }
 
 .f1 fieldset {

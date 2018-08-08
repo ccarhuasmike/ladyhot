@@ -3,9 +3,6 @@
     buttonName:'btn-success btn-sm'
 });
 
-$('#clear').click(function () {
-    $('#file_fotos').filestyle('clear');
-});
 /*Eliminar Fotos */
 function btn_eliminar_foto(id) {
     get_eliminar_foto(id).done(response_eliminar_foto);
@@ -27,7 +24,6 @@ function response_eliminar_foto(response) {
     if (response.Status === "OK") {
         var response = JSON.parse(response.DataJson);
         cargar_galeria_fotos(response);
-        console.log(response);
     }
 }
 

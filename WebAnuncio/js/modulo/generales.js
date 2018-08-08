@@ -124,15 +124,18 @@ function __(id) {
 
 function setValueElemento(name, value) {
     var elements = __findByName(name);
-    var array_elements = value.split(',');
-    for (index_array in array_elements) {
-        for (index in elements) {
-            if (array_elements[index_array] == elements[index].value) {
-                elements[index].checked = true;
-                break;
+    if (value != '') {
+        var array_elements = value.split(',');
+        for (index_array in array_elements) {
+            for (index in elements) {
+                if (array_elements[index_array] == elements[index].value) {
+                    elements[index].checked = true;
+                    break;
+                }
             }
         }
     }
+    
 }
 
 function __AddSessionStorage(key, value) {

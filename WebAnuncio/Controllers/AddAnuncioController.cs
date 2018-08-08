@@ -96,7 +96,7 @@ namespace WebAnuncio.Controllers
 
 
                 HttpFileCollectionBase filesCollection = Request.Files;
-                string hora = DateTime.Now.ToString("yyyyMMddhhmmss");
+                //string hora = DateTime.Now.ToString("yyyyMMddhhmmss");
                 List<tbl_galeria_anuncio> list = new List<tbl_galeria_anuncio>();
                 tbl_galeria_anuncio entidad = null;
                 for (int i = 0; i < filesCollection.Count; i++)
@@ -114,8 +114,8 @@ namespace WebAnuncio.Controllers
                         filename = file.FileName;
                     }
 
-                    string tempPath = rutas_fisica_image.tx_descripcion + hora;
-                    string tempPathVirtual = rutas_rutas_virtuales_image.tx_descripcion + hora;
+                    string tempPath = rutas_fisica_image.tx_descripcion + id;
+                    string tempPathVirtual = rutas_rutas_virtuales_image.tx_descripcion + id;
                     if (!Directory.Exists(tempPath))
                         Directory.CreateDirectory(tempPath);
 
