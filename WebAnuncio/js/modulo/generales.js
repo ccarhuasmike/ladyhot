@@ -1,12 +1,12 @@
 ﻿//Variables Globales
 
-var HTML = "";          
-function poblar_checkboxes(item, index, name) {  
+var HTML = "";
+function poblar_checkboxes(item, index, name) {
     HTML += "<div class='checkbox'>";
     HTML += "<label><input type='checkbox' value=" + item.val_valor + " id='ta_checkbox_0' name=" + name + "> ";
     HTML += item.tx_descripcion;
-    HTML += '</label></div>';            
-}    
+    HTML += '</label></div>';
+}
 
 //<div class="checkbox">
 //<label>
@@ -15,7 +15,7 @@ function poblar_checkboxes(item, index, name) {
 //</label>
 //</div>
 
-function loadCombos(data) {    
+function loadCombos(data) {
     //edad
     $("#cbo_edad option").remove();
     $("#cbo_edad").append('<option value="0">[seleccione Edad]</option>');
@@ -33,33 +33,33 @@ function loadCombos(data) {
     $("#cbo_estudios").append('<option value="0">[seleccione Estudios]</option>');
     $.each(data.estudios, function (key, value) {
         $("#cbo_estudios").append("<option value=" + value.val_valor + ">" + value.tx_descripcion + "</option>");
-    });      
+    });
     //Color cabello
     $("#cbo_pelo option").remove();
     $("#cbo_pelo").append('<option value="0">[seleccione Color cabello]</option>');
     $.each(data.color_cabello, function (key, value) {
         $("#cbo_pelo").append("<option value=" + value.val_valor + ">" + value.tx_descripcion + "</option>");
-    });      
+    });
 
     //Color ojos
     $("#cbo_ojos option").remove();
     $("#cbo_ojos").append('<option value="0">[seleccione Color ojos]</option>');
     $.each(data.color_ojos, function (key, value) {
         $("#cbo_ojos").append("<option value=" + value.val_valor + ">" + value.tx_descripcion + "</option>");
-    });  
+    });
 
     //Estatura
     $("#cbo_estatura option").remove();
     $("#cbo_estatura").append('<option value="0">[seleccione Estatura]</option>');
     $.each(data.estatura, function (key, value) {
         $("#cbo_estatura").append("<option value=" + value.val_valor + ">" + value.tx_descripcion + "</option>");
-    }); 
+    });
     //Peso
     $("#cbo_peso option").remove();
     $("#cbo_peso").append('<option value="0">[seleccione Peso]</option>');
     $.each(data.peso, function (key, value) {
         $("#cbo_peso").append("<option value=" + value.val_valor + ">" + value.tx_descripcion + "</option>");
-    });      
+    });
 }
 function loadCheckoxes(data) {
     for (index in data.formapago) {
@@ -86,9 +86,9 @@ function loadCheckoxes(data) {
     __('check_servicio_ofrece').innerHTML = HTML;
     HTML = "";
 
-   
 
-}           
+
+}
 
 function getValueElementoSelected(name) {
     var value_selected = [];
@@ -135,7 +135,7 @@ function setValueElemento(name, value) {
             }
         }
     }
-    
+
 }
 
 function __AddSessionStorage(key, value) {
@@ -156,27 +156,47 @@ function __removeSessionStorage(key) {
 }
 
 
-function AddAnuncio() { 
-    window.location.href = "/AddAnuncio";              
+function AddAnuncio() {
+    __removeSessionStorage("id_anuncio_val");
+    window.location.href = "/AddAnuncio";
 }
 function MisAnuncio() {
     __removeSessionStorage("id_anuncio_val");
-    location.href = '/MisAnuncio';
+    window.location.href = '/MisAnuncio';
 }
 
 function Publicidad() {
     __removeSessionStorage("id_anuncio_val");
-    window.location.href = "/Publicidad";         
+    window.location.href = "/Publicidad";
 }
-function Contactar() {            
+function Contactar() {
     location.href = '/Contactar';
 }
 function salir() {
     __removeSessionStorage("id_usuario");
     __removeSessionStorage("id_anuncio_val");
     __removeSessionStorage("cod_anuncio_encryptado");
-    __removeSessionStorage("usuario_token");         
+    __removeSessionStorage("usuario_token");
     location.href = '/Home';
-}
+}           
 
-
+//Alert = {
+//    show: function ($div, msg) {
+//        $div.find('.alert-msg').text(msg);
+//        if ($div.css('display') === 'none') {
+//            $div.fadeIn(1000).delay(2000).fadeOut(3000);
+//        }
+//    },
+//    info: function (msg) {
+//        this.show($('#alert-info'), msg);
+//    },
+//    warn: function (msg) {
+//        this.show($('#alert-warn'), msg);
+//    },
+//    danger: function (msg) {
+//        this.show($('#alert-danger'), msg);
+//    },
+//    success: function (msg) {
+//        this.show($('#alert-success'), msg);
+//    }
+//}

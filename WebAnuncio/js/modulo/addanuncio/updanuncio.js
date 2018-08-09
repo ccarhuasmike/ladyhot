@@ -1,11 +1,8 @@
-﻿(function ($, window, document) {
-    var listInicial = [];
-    var HTML = "";
-    var cod_anuncion_encriptado;
+﻿(function ($, window, document) {    
+    
     function cargarInicial() {
         getCargarInicia().done(responseCargarInicia);
-    }
-
+    }    
     function getCargarInicia() {
         return $.ajax({
             type: "POST",
@@ -45,9 +42,11 @@
     }
 
     function responsegetcargarDetAnuncion(response) {
-        if (response.Status === "OK") {
-            var response = JSON.parse(response.DataJson)[0];
-            console.log(response);
+        if (response.Status === "OK") {             
+            var response_carga_inicial = JSON.parse(response.Data.ListCargarInicial.DataJson);
+            loadCombos(response_carga_inicial);
+            loadCheckoxes(response_carga_inicial);  
+            var response = response.Data.DetailleAnuncion[0];
             $("#txt_nombre").val(response.txt_nombre_ficha);
             $("#txt_telefono_1").val(response.txt_telefono_1);
             $("#txt_telefono_2").val(response.txt_telefono_2);
@@ -207,7 +206,7 @@
     
 
     function codeBehind() {
-        cargarInicial();
+        //cargarInicial();
         cargarDetAnuncion();
         $("#btn_guardar_todo").click(primerpaso);   
     }

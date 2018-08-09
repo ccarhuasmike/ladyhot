@@ -18,12 +18,25 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }      
-        public async Task<JsonResult> primeropaso(tbl_anuncio oregistro)
+        public JsonResult primeropaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
                 clientResponse = new AnuncioLogic().InsertPrimerpaso(oregistro);               
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return Json(clientResponse, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ActualizarPrimerpaso(tbl_anuncio oregistro)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().ActualizarPrimerpaso(oregistro);
             }
             catch (Exception ex)
             {

@@ -29,6 +29,10 @@ namespace BusinessLogic
         {
             return _AnuncioData.InsertPrimerpaso(objeto);
         }
+        public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
+        {
+            return _AnuncioData.ActualizarPrimerpaso(objeto);
+        }
         public ClientResponse UpdateSegundopaso(tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateSegundopaso(objeto);

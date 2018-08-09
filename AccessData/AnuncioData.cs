@@ -102,6 +102,47 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
 
+        public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
+        {
+            int id = 0;
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_up_anuncio_primerpaso", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha;
+                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1;
+                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2;
+                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email;
+                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web;
+                        comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
+                        comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
+                        comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
+                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
+                        comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
         public ClientResponse InsertPrimerpaso(tbl_anuncio objeto)
         {
             int id = 0;
@@ -166,15 +207,13 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
                         comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
-                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
-                        
+                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;                        
                         comando.Parameters.Add("@int_color_cabello", SqlDbType.Int).Value = objeto.int_color_cabello;
                         comando.Parameters.Add("@int_color_ojos", SqlDbType.Int).Value = objeto.int_color_ojos;
                         comando.Parameters.Add("@int_estatura", SqlDbType.Int).Value = objeto.int_estatura;
                         comando.Parameters.Add("@int_peso", SqlDbType.Int).Value = objeto.int_peso;
                         comando.Parameters.Add("@txt_medidas_busto_cintura_cadera", SqlDbType.VarChar, 45).Value = objeto.txt_medidas_busto_cintura_cadera;
                         comando.Parameters.Add("@txt_descripcion_extra_apariencia", SqlDbType.VarChar, 200).Value = objeto.txt_descripcion_extra_apariencia;
-                        
                         comando.Parameters.Add("@dbl_costo_x_tiempo_30min", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_30min;
                         comando.Parameters.Add("@dbl_costo_x_tiempo_45min", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_45min;
                         comando.Parameters.Add("@dbl_costo_x_tiempo_1hora", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_1hora;
@@ -192,9 +231,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@tx_lugar_atencion", SqlDbType.VarChar, 255).Value = objeto.tx_lugar_atencion;
                         comando.Parameters.Add("@tx_servicios_ofrece", SqlDbType.VarChar, 400).Value = objeto.tx_servicios_ofrece;
                         comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio;
-
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
-
                         conexion.Open();
                         comando.ExecuteNonQuery();
                         IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);

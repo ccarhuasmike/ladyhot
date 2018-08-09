@@ -7,6 +7,7 @@
 function btn_eliminar_foto(id) {
     get_eliminar_foto(id).done(response_eliminar_foto);
 }
+
 function get_eliminar_foto(id) {
     return $.ajax({
         type: "POST",
@@ -24,6 +25,8 @@ function response_eliminar_foto(response) {
     if (response.Status === "OK") {
         var response = JSON.parse(response.DataJson);
         cargar_galeria_fotos(response);
+    }else {
+
     }
 }
 
@@ -31,10 +34,6 @@ function cargar_galeria_fotos(response) {
     $("#id_container_galeria").html("");
     for (var i = 0; i < response.length; i++) {
         var html = "";
-        //var valTokens = {
-        //    id: response[i].id
-        //};
-        //var ValsTokens = JSON.stringify(valTokens);
         html += "<div class='contenedor-fotos'>";
         html += "<img src='" + response[i].txt_ruta_virtuales+"' alt='Forest'>";
         html += "<div class='group-button'>";
@@ -49,9 +48,6 @@ function cargar_galeria_fotos(response) {
 
 (function ($, window, document) {             
 
-    var listInicial = [];
-    var HTML = "";
-    var cod_anuncion_encriptado;
     function cargarInicial() {
         getCargarInicia().done(responseCargarInicia);         
     }       
@@ -70,16 +66,23 @@ function cargar_galeria_fotos(response) {
     }
     
     function responseCargarInicia(response) {        
-        if (response.Status === "OK") {           
-            var response = JSON.parse(response.DataJson); 
+        if (response.Status === "OK") {
+            var response = JSON.parse(response.DataJson);
             loadCombos(response);
             loadCheckoxes(response);
+        }else {
+
         }          
     }     
     //Primer paso
-    function primerpaso() {             
-        var object = getObjectPrimerpaso();
-        getprimerpaso(object).done(responseprimerpaso);
+    function primerpaso() {          
+        if (__getSessionStorage("id_anuncio_val") != null) {
+            var object = getObjectUpdatePrimerpaso();
+            getupdateprimerpaso(object).done(responseupdateprimerpaso);
+        } else {
+            var object = getObjectPrimerpaso();
+            getprimerpaso(object).done(responseprimerpaso);
+        }                  
     }
 
     function getObjectPrimerpaso() {
@@ -108,6 +111,52 @@ function cargar_galeria_fotos(response) {
         return oregistro;
     }
 
+    function getObjectUpdatePrimerpaso() {
+        var txt_nombre = $("#txt_nombre").val();
+        var txt_telefono_1 = $("#txt_telefono_1").val();
+        var txt_telefono_2 = $("#txt_telefono_2").val();
+        var txt_email = $("#txt_email").val();
+        var txt_web = $("#txt_web").val();
+        var cbo_edad = $("#cbo_edad").val();
+        var cbo_pais = $("#cbo_pais").val();
+        var cbo_estudios = $("#cbo_estudios").val();
+        var txt_presentacion = $("#txt_presentacion").val();
+        var oregistro = {}
+        oregistro = {
+            txt_nombre_ficha: txt_nombre,
+            txt_telefono_1: txt_telefono_1,
+            txt_telefono_2: txt_telefono_2,
+            txt_email: txt_email,
+            txt_web: txt_web,
+            int_edad: parseInt(cbo_edad),
+            int_pais_origen: parseInt(cbo_pais),
+            int_estudios: parseInt(cbo_estudios),
+            txt_presentacion: txt_presentacion,
+            id_usuario: parseInt(__getSessionStorage('id_usuario')),
+            id: parseInt(__getSessionStorage("id_anuncio_val"))
+        };
+        return oregistro;
+    }
+
+    function getupdateprimerpaso(data) {
+        return $.ajax({
+            type: "POST",
+            url: $("#url_base").val() + "AddAnuncio/ActualizarPrimerpaso",
+            contentType: "application/json",
+            dataType: "Json",
+            data: JSON.stringify(data),
+            async: false,
+            error: function (ex) {
+                alert("error function getprimerpaso");
+            }
+        });
+    }
+
+    function responseupdateprimerpaso(response) {
+        if (response.Status === "OK") {
+            var response = JSON.parse(response.DataJson);
+        }
+    }         
     function getprimerpaso(data) {              
         return $.ajax({
             type: "POST",             
@@ -125,13 +174,10 @@ function cargar_galeria_fotos(response) {
     function responseprimerpaso(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson); 
-            //$("#id_anuncio_val").val(response[0].id);
             __AddSessionStorage('id_anuncio_val', response[0].id);
-            console.log(response);
-            alert("alert function responseprimerpaso");              
+            //Alert.success("El archivo seleccionado es inválido , los archivos válidos son de tipo");
         }
-    }
-   
+    }                 
     //Segundo paso
     function segundopaso() {
         var object = getObjectSegundopaso();
@@ -178,8 +224,8 @@ function cargar_galeria_fotos(response) {
     function responsesegundopaso(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson);
-            console.log(response);
-            alert("alert function responsesegundopaso");
+        } else {
+
         }
     }
 
@@ -256,8 +302,8 @@ function cargar_galeria_fotos(response) {
     function responsetercerpaso(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson);
-            console.log(response[0]);
-            alert("alert function responsesegundopaso");
+        } else {
+
         }
     }
 
@@ -294,8 +340,6 @@ function cargar_galeria_fotos(response) {
             $('#file_fotos').filestyle('clear');
             var response = JSON.parse(response.DataJson);
             cargar_galeria_fotos(response);
-            //console.log(response[0]);
-            //alert("alert function responseagregar_fotos");
         }
     }
 

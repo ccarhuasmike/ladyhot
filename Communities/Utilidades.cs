@@ -16,6 +16,7 @@ namespace Communities
                 objReponse.Mensaje = ex.Message;
                 objReponse.Data = ex.Source;
                 objReponse.ViewResult = ex.StackTrace;
+                objReponse.Errores ="Error";
             }
             catch (Exception)
             {
