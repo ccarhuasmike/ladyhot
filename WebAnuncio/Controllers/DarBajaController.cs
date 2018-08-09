@@ -17,7 +17,7 @@ namespace WebAnuncio.Controllers
             return View();
         }
 
-        public async Task<JsonResult> upd_dar_baja(string anuncio_token)
+        public JsonResult upd_dar_baja(string anuncio_token)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

@@ -19,7 +19,7 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
-        public async Task<JsonResult> getGeleriaXIdAnuncio(int id_anuncio)
+        public JsonResult getGeleriaXIdAnuncio(int id_anuncio)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -36,7 +36,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<JsonResult> EliminarFoto(int id_galeria)
+        public JsonResult EliminarFoto(int id_galeria)
         {
             ClientResponse clientResponse;
             try
@@ -56,7 +56,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<JsonResult> AgregarFotos(int id_anuncio)
+        public JsonResult AgregarFotos(int id_anuncio)
         {
             ClientResponse clientResponse;
             try

@@ -62,7 +62,7 @@ namespace AccessData
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //clientResponse.Mensaje = ex.Message;
                 //clientResponse.Status = "ERROR";

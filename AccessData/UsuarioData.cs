@@ -16,7 +16,7 @@ namespace AccessData
     {
         #region Variables
         private static IEnumerable<tbl_usuario> lstUsuario;
-        private static tbl_usuario entidad;
+        //private static tbl_usuario entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -27,7 +27,7 @@ namespace AccessData
         public UsuarioData()
         {
             //lstContacto = new IEnumerable<tbl_anuncio>();
-            entidad = null;
+            //entidad = null;
             conexion = null;
             comando = null;
             reader = null;
@@ -96,10 +96,9 @@ namespace AccessData
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                //clientResponse.Mensaje = ex.Message;
-                //clientResponse.Status = "ERROR";
+                
             }
             finally
             {

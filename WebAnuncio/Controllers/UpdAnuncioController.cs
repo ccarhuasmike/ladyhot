@@ -17,7 +17,7 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
-        public async Task<JsonResult> getAnuncio_x_tokens(string token_anuncio)
+        public JsonResult getAnuncio_x_tokens(string token_anuncio)
         {   
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -40,7 +40,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<JsonResult> todospasos(tbl_anuncio oregistro)
+        public  JsonResult todospasos(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

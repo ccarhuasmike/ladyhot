@@ -18,7 +18,7 @@ namespace WebAnuncio.Controllers
             return View();
         }
 
-        public async Task<JsonResult> GetMisanuncios(string usuario_token)
+        public  JsonResult GetMisanuncios(string usuario_token)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

@@ -17,7 +17,7 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
-        public async Task<JsonResult> login(tbl_usuario oregistro)
+        public JsonResult login(tbl_usuario oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -30,7 +30,7 @@ namespace WebAnuncio.Controllers
             }
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
-        public async Task<JsonResult> registar(tbl_usuario oregistro)
+        public JsonResult registar(tbl_usuario oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

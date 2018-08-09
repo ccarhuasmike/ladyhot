@@ -45,7 +45,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<JsonResult> segundopaso(tbl_anuncio oregistro)
+        public JsonResult segundopaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -59,7 +59,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<JsonResult> tercerpaso(tbl_anuncio oregistro)
+        public JsonResult tercerpaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -73,7 +73,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
      
-        public async Task<JsonResult> EliminarFoto(int id_galeria)
+        public JsonResult EliminarFoto(int id_galeria)
         {
             ClientResponse clientResponse ;
             try
@@ -94,7 +94,7 @@ namespace WebAnuncio.Controllers
         }
 
 
-        public async Task<JsonResult> AgregarFotos(int id)
+        public JsonResult AgregarFotos(int id)
         {
             ClientResponse clientResponse;
             try

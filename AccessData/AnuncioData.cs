@@ -15,7 +15,7 @@ namespace AccessData.PersonaDao
 
         #region Variables
         private static IEnumerable<tbl_anuncio> lstAnuncio;
-        private static tbl_anuncio entidad;
+        //private static tbl_anuncio entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -25,7 +25,7 @@ namespace AccessData.PersonaDao
         #region Constructor
         public AnuncioData()
         {           
-            entidad = null;
+            //entidad = null;
             conexion = null;
             comando = null;
             reader = null;
@@ -103,8 +103,7 @@ namespace AccessData.PersonaDao
         }
 
         public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
-        {
-            int id = 0;
+        {   
             try
             {
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
@@ -359,7 +358,7 @@ namespace AccessData.PersonaDao
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //clientResponse.Mensaje = ex.Message;
                 //clientResponse.Status = "ERROR";
@@ -393,7 +392,7 @@ namespace AccessData.PersonaDao
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //clientResponse.Mensaje = ex.Message;
                 //clientResponse.Status = "ERROR";
