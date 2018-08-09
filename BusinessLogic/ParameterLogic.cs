@@ -18,7 +18,7 @@ namespace BusinessLogic
         {
             _parameterData = new ParameterData();
         }
-        public ClientResponse getCargarControles_Add_Anuncio()
+        public ClientResponse GetCargarControles_Add_Anuncio()
         {
             ClientResponse clientResponse = new ClientResponse();
             tbl_carga_controles_add entidad = new tbl_carga_controles_add();
@@ -32,77 +32,77 @@ namespace BusinessLogic
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_EDADES" }
                 };
-                entidad.edad = _parameterData.getParameter_skey(entidad_det);
+                entidad.edad = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga color cabello*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_COLOR_CABELLO" }
                 };
-                entidad.color_cabello = _parameterData.getParameter_skey(entidad_det);
+                entidad.color_cabello = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga color ojos*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_COLOR_OJOS" }
                 };
-                entidad.color_ojos = _parameterData.getParameter_skey(entidad_det);
+                entidad.color_ojos = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga distrito*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_DISTRITO" }
                 };
-                entidad.distritro = _parameterData.getParameter_skey(entidad_det);
+                entidad.distritro = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga estatura*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_ESTATURA" }
                 };
-                entidad.estatura = _parameterData.getParameter_skey(entidad_det);
+                entidad.estatura = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga estudios*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_ESTUDIOS" }
                 };
-                entidad.estudios = _parameterData.getParameter_skey(entidad_det);
+                entidad.estudios = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga formapago*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_FORMA_PAGO" }
                 };
-                entidad.formapago = _parameterData.getParameter_skey(entidad_det);
+                entidad.formapago = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga lugaratencion*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_LUGAR_ATENCION" }
                 };
-                entidad.lugaratencion = _parameterData.getParameter_skey(entidad_det);
+                entidad.lugaratencion = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga servicio ofrece*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_SERVICIO_OFRECE" }
                 };
-                entidad.servicio_ofrece = _parameterData.getParameter_skey(entidad_det);
+                entidad.servicio_ofrece = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga servicio pais*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_PAISES" }
                 };
-                entidad.pais = _parameterData.getParameter_skey(entidad_det);
+                entidad.pais = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga servicio peso*/
                 entidad_det = new tbl_parameter_det()
                 {
                     paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_PESO" }
                 };
-                entidad.peso = _parameterData.getParameter_skey(entidad_det);
+                entidad.peso = _parameterData.GetParameter_skey(entidad_det);
                 clientResponse.Status = "OK";
             }
             catch (Exception ex )
@@ -119,11 +119,11 @@ namespace BusinessLogic
 
         public IEnumerable<tbl_parameter_det> getParameter_skey(tbl_parameter_det det)
         {
-            return _parameterData.getParameter_skey(det);
+            return _parameterData.GetParameter_skey(det);
         }
-        public ClientResponse getParameter_skey_x_det_Id(tbl_parameter_det det)
+        public ClientResponse GetParameter_skey_x_det_Id(tbl_parameter_det det)
         {
-            return _parameterData.getParameter_skey_x_det_Id(det);
+            return _parameterData.GetParameter_skey_x_det_Id(det);
         }
     }
 }

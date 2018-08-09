@@ -60,7 +60,7 @@
       <Name>BusinessEntity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Communities\Communities.csproj">
-      <Project>{AA7045E9-645D-48AD-8B82-64753F64065C}</Project>
+      <Project>{63d90465-0c85-43ee-8383-71e537219d8f}</Project>
       <Name>Communities</Name>
     </ProjectReference>
   </ItemGroup>

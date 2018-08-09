@@ -11,6 +11,13 @@ function click_dar_baja_anuncio(data) {
     __AddSessionStorage('cod_anuncio_encryptado', data.cod_anuncio_encryptado);
     window.location.href = "/DarBaja";   
 }
+function click_videos_anuncio(data) {
+    __AddSessionStorage('id_anuncio_upd', data.id);
+    window.location.href = "/UploadVideo";
+}
+
+
+
 
 (function ($, window, document) {
 
@@ -48,11 +55,11 @@ function click_dar_baja_anuncio(data) {
                 html += "<div class='form-group form-group-sm'>";
                 html += "<div class='col-sm-4'>";
                 html += "<div class=''>";
-                html += "<img src='https://i.pinimg.com/736x/e8/7f/f1/e87ff18fb1ea227b1eab4aa48c99d26d--naruto-sasuke-sakura-naruto-uzumaki.jpg' alt='Forest'>";
+                html += "<img src='" + response[i].txt_imagen_prensetancion +"' alt='Forest'>";
                 html += "</div>";
                 html += "</div>";
                 html += "<div class='col-sm-8' >";
-                html += "<div class='form-group form-group-sm'>";
+                html += "<div class='form-group form-group-sm' style='line-height: 24px;'>";
                 html += "<p class='parrafo-left' for='tx_descripcion_extra_servicio'><strong>" + response[i].txt_nombre_ficha +"</strong></p>";
                 html += "<p class='parrafo-left' for='tx_descripcion_extra_servicio'>Referencia: :</strong> " + response[i].id +"</p>";
                 html += "<p class='parrafo-left' for='tx_descripcion_extra_servicio'>Este anuncio esta: <strong>Pendiente de Pago</strong> </p>";
@@ -60,11 +67,11 @@ function click_dar_baja_anuncio(data) {
                 html += "<p class='parrafo-left' for='tx_descripcion_extra_servicio'>Te han mandado a través del formulario de correo: 0 peticiones de contacto</p>";
                 html += "</div>";                                        
                 html += "<div class='form-group form-group-sm'>";
-                html += "<a  href='javascript:void(0);' onclick='click_upd_anuncio(" + ValsTokens +");' class='btn btn-primary btn-xs  btn-block'>Modificar Anuncio</button>";
-                html += "<a  href = 'javascript:void(0);' onclick= 'click_galeria_anuncio(" + ValsTokens +");' class='btn btn-primary btn-xs  btn-block'>Fotos del anuncio</button>";
-                html += "<a  class='btn btn-primary btn-xs  btn-block'>Videos del anuncio</button>";
-                html += "<a  class='btn btn-primary btn-xs  btn-block'>Estadisticas completas</button>";
-                html += "<a  href='javascript:void(0);' onclick='click_dar_baja_anuncio(" + ValsTokens +");' class='btn btn-primary btn-xs  btn-block'>Dar de baja el anuncio</button>";
+                html += "<a  href='javascript:void(0);' onclick='click_upd_anuncio(" + ValsTokens +");'     class='btn btn-primary btn-xs  btn-block myButton'>Modificar Anuncio</button>";
+                html += "<a  href='javascript:void(0);' onclick='click_galeria_anuncio(" + ValsTokens +");' class='btn btn-primary btn-xs  btn-block myButton'>Fotos del anuncio</button>";
+                html += "<a  href='javascript:void(0);' onclick='click_videos_anuncio(" + ValsTokens +");'   class='btn btn-primary btn-xs btn-block myButton' >Videos del anuncio</button>";
+                //html += "<a  class='btn btn-primary btn-xs  btn-block myButton'>Estadisticas completas</button>";
+                html += "<a  href='javascript:void(0);' onclick='click_dar_baja_anuncio(" + ValsTokens +");' class='btn btn-primary btn-xs  btn-block myButton'>Dar de baja el anuncio</button>";
                 html += "</div>";
                 html += "</div>";
                 html += "</div>";

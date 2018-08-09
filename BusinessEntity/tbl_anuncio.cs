@@ -57,5 +57,7 @@ namespace BusinessEntity
         public int fl_cerrado { get; set; } = 0;
         public string cod_anuncio_encryptado { get; set; } = "";
         public int id_usuario { get; set; } = 0;
+        //Propiedades Extras
+        public string txt_imagen_prensetancion { get; set; } = "";
     }
 }

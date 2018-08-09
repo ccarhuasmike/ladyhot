@@ -79,11 +79,11 @@ namespace WebAnuncio.Controllers
             try
             {
                 tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() {id = id_galeria };
-                clientResponse = new GaleriaLogic().get_galeria_x_id(entidad);
+                clientResponse = new GaleriaLogic().Get_galeria_x_id(entidad);
                 tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_galeria_anuncio>(clientResponse.DataJson);
                 FileInfo fi = new FileInfo(resultObjeto.tx_ruta_file);
                 fi.Delete();
-                clientResponse = new GaleriaLogic().eliminar_galeria_x_id(resultObjeto);
+                clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(resultObjeto);
             }
             catch (Exception ex)
             {
@@ -100,11 +100,11 @@ namespace WebAnuncio.Controllers
             try
             {
                 tbl_parameter_det entidad_rutas_fisica_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
-                ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().getParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
+                ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
                 tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
 
                 tbl_parameter_det entidad_rutas_virtuales_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASVIRTUALES_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
-                ClientResponse respons_rutas_virtuales_fichas = new ParameterLogic().getParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas);
+                ClientResponse respons_rutas_virtuales_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas);
                 tbl_parameter_det rutas_rutas_virtuales_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas.DataJson);
 
 
@@ -132,14 +132,31 @@ namespace WebAnuncio.Controllers
                     if (!Directory.Exists(tempPath))
                         Directory.CreateDirectory(tempPath);
 
+                    string[] split_extension = filename.Split(new Char[] { '.' });
+                    tbl_parameter_det entidad_det = new tbl_parameter_det()
+                    {
+                        paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_TIPO_ARCHIVO" }
+                    };
+                    IEnumerable<tbl_parameter_det> lstExtension = new ParameterLogic().getParameter_skey(entidad_det);
+                    int id_tipo_archivo = 0;
+                    foreach (var element in lstExtension)
+                    {
+                        if (element.tx_descripcion.Equals(split_extension[1].ToLower()))
+                        {
+                            id_tipo_archivo = element.val_valor;
+                            break;
+                        }
+                    }
+
                     string file_ruta = tempPath + @"/" + filename;
                     string file_ruta_virtual = tempPathVirtual + @"/" + filename;
                     file.SaveAs(file_ruta);
 
                     entidad = new tbl_galeria_anuncio();
-                    entidad.tx_ruta_file = file_ruta;
-                    entidad.tx_ruta_file_cort = file_ruta;
+                    entidad.tx_ruta_file = id +"/" + filename; 
+                    entidad.tx_ruta_file_cort = id + "/" + filename;
                     entidad.txt_ruta_virtuales = file_ruta_virtual;
+                    entidad.id_tipo_archivo = id_tipo_archivo;                    
                     entidad.size_file = file.ContentLength;
                     entidad.tx_filename = filename;
                     list.Add(entidad);

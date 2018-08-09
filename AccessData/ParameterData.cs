@@ -38,7 +38,7 @@ namespace AccessData
         #endregion
 
         #region Metodo
-        public IEnumerable<tbl_parameter_det> getParameter_skey(tbl_parameter_det det)
+        public IEnumerable<tbl_parameter_det> GetParameter_skey(tbl_parameter_det det)
         {
             try
             {
@@ -54,10 +54,9 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            while (reader.Read())
-                            {
+                            
                                 lstParamaterDet = reader.ReadRows<tbl_parameter_det>();                               
-                            }
+                            
                         }
                     }
                 }
@@ -80,7 +79,7 @@ namespace AccessData
             return lstParamaterDet;
         }
 
-        public ClientResponse getParameter_skey_x_det_Id(tbl_parameter_det det)
+        public ClientResponse GetParameter_skey_x_det_Id(tbl_parameter_det det)
         {
             try
             {

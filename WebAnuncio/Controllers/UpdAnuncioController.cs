@@ -17,13 +17,13 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
-        public JsonResult getAnuncio_x_tokens(string token_anuncio)
+        public JsonResult GetAnuncio_x_tokens(string token_anuncio)
         {   
             ClientResponse clientResponse = new ClientResponse();
             try
             {
                 IEnumerable<tbl_anuncio> list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
-                ClientResponse clientResponse_cargaInicial = new ParameterLogic().getCargarControles_Add_Anuncio();
+                ClientResponse clientResponse_cargaInicial = new ParameterLogic().GetCargarControles_Add_Anuncio();
                 object initData = new
                 {
                     DetailleAnuncion = list,

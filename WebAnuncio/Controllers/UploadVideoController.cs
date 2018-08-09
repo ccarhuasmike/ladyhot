@@ -5,25 +5,27 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace WebAnuncio.Controllers
 {
-    public class updGaleriaController : Controller
+    public class UploadVideoController : Controller
     {
-        // GET: updGaleria
+        // GET: UploadVideo
         public ActionResult Index()
         {
             return View();
         }
-        public JsonResult getGeleriaXIdAnuncio(int id_anuncio)
+
+        public JsonResult getVideoXIdAnuncio(int id_anuncio)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
                 tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id_anuncio = id_anuncio };
-                IEnumerable<tbl_galeria_anuncio> lst = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
+                IEnumerable<tbl_galeria_anuncio> lst = new GaleriaLogic().Get_Video_x_id_anuncio(entidad);
                 clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                 clientResponse.Status = "Ok";
             }
@@ -34,7 +36,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult EliminarFoto(int id_galeria)
+        public JsonResult EliminarVideo(int id_galeria)
         {
             ClientResponse clientResponse;
             try
@@ -44,7 +46,7 @@ namespace WebAnuncio.Controllers
                 tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_galeria_anuncio>(clientResponse.DataJson);
                 FileInfo fi = new FileInfo(resultObjeto.tx_ruta_file);
                 fi.Delete();
-                clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(resultObjeto);
+                clientResponse = new GaleriaLogic().Eliminar_video_x_id(resultObjeto);
             }
             catch (Exception ex)
             {
@@ -54,16 +56,16 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult AgregarFotos(int id_anuncio)
+        public JsonResult AgregarVideo(int id_anuncio)
         {
             ClientResponse clientResponse;
             try
             {
-                tbl_parameter_det entidad_rutas_fisica_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                tbl_parameter_det entidad_rutas_fisica_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTAS_FISICAS_VIDEOS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
                 tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
 
-                tbl_parameter_det entidad_rutas_virtuales_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASVIRTUALES_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                tbl_parameter_det entidad_rutas_virtuales_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTAS_VIRTUALES_VIDEOS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_virtuales_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas);
                 tbl_parameter_det rutas_rutas_virtuales_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas.DataJson);
 
@@ -102,7 +104,8 @@ namespace WebAnuncio.Controllers
                     int id_tipo_archivo = 0;
                     foreach (var element in lstExtension)
                     {
-                        if (element.tx_descripcion.Equals(split_extension[1].ToLower())) {
+                        if (element.tx_descripcion.Equals(split_extension[1].ToLower()))
+                        {
                             id_tipo_archivo = element.val_valor;
                             break;
                         }
@@ -110,8 +113,8 @@ namespace WebAnuncio.Controllers
 
                     string file_ruta = tempPath + @"/" + filename;
                     string file_ruta_virtual = tempPathVirtual + @"/" + filename;
-                    file.SaveAs(file_ruta);                    
-                    
+                    file.SaveAs(file_ruta);
+
 
                     entidad = new tbl_galeria_anuncio();
                     entidad.tx_ruta_file = id_anuncio + "/" + filename;
@@ -123,7 +126,7 @@ namespace WebAnuncio.Controllers
                     list.Add(entidad);
                 }
 
-                clientResponse = new GaleriaLogic().Insert_Galeria(list, id_anuncio);
+                clientResponse = new GaleriaLogic().Insert_Videos(list, id_anuncio);
 
             }
             catch (Exception ex)

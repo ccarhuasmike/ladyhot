@@ -23,31 +23,16 @@ body {
     text-align: left;
 }
 
-/*style de galeria de fotos*/
-img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    min-width: 180px;
-    min-height: 290px;
-    width: 150px
-}
 
-img:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
 
 .group-button {
-    /* text-align: center; */
     margin-bottom: 8px;
     margin-top: 6px;
+    width: 100%;
 }
 
-.contenedor-fotos {
-    width: 12%;
-    float: left;
-    margin-right: 106px;
-}
+
+
 
 .contenido {
     width: 100%;
@@ -57,27 +42,17 @@ img:hover {
 .myButton {
     background-color: #fa25a5 !important;
     -moz-border-radius: 6px !important;
-    -webkit-border-radius: 6px !important;
-    border-radius: 6px !important;
     border: 1px solid #fa25a5 !important;
-    display: inline-block !important;
-    cursor: pointer !important;
-    color: #ffffff !important;
-    font-family: Arial !important;
-    font-size: 12px !important;
-    padding: 1px 8px !important;
-    text-decoration: none !important;
-    text-shadow: 0px 0px 2px #fa25a5 !important;
 }
 
-.myButton:hover {
-    background-color: #fa25a5;
-}
+    .myButton:hover {
+        background-color: #fa25a5;
+    }
 
-.myButton:active {
-    position: relative;
-    top: 1px;
-}
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
 /********************/
 
 .radio input[type=radio], .radio-inline input[type=radio], .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox] {
@@ -313,7 +288,7 @@ ul.navbar-nav {
 }
 
 .f1-step.activated .f1-step-icon {
-    background: #fff;    
+    background: #fff;
     line-height: 38px;
     border: 1px solid #f39;
     color: #f39;
@@ -355,13 +330,51 @@ ul.navbar-nav {
 }
 
 
-
 /***** Media queries *****/
 
-@media (min-width: 992px) and (max-width: 1199px) {
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 480px) {
+    .contenedor-fotos {
+        width: 100%;
+        float: none;
+        margin: auto;
+    }
+
+    .contenedor-video {
+        width: 100%;
+        float: none;
+        margin: auto;
+    }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .contenedor-fotos {
+        width: 30%;
+        float: left;
+        margin-right: 21px;
+    }
+
+    .contenedor-video {
+        width: 46%;
+        float: left;
+        margin-right: 21px;
+    }
+
+
+    img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        min-width: 200px;
+        /*height: 300px;*/
+        height: 300px;
+        width: 100%;
+    }
+
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
 }
 
 @media (max-width: 767px) {

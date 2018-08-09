@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard Anuncio";
+    Layout = "~/Views/Shared/_LayoutAnuncio.cshtml";
+}
+<div role="form" action="" method="post" class="f1">
+    <h3>Mis Videos</h3>
+    <div class="form-horizontal" id="id_container_mis_anuncios">
+        <div class="divider"></div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-3 control-label control-label-small">Seleccione un Video</label>
+            <div class="col-sm-6">
+                <input type="file" id="file_fotos" accept="video/mp4,video/x-m4v,video/*">
+            </div>
+            <div class="col-sm-3">
+                <input type="button" class="btn btn-default btn-success btn-sm btn-block" value="Agregar Video" id="btn_agregar_video" name="btn_agregar_imagen">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-sm-12 col-lg-12">
+                <div class="progress" id="idprogress" style="display: none;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="form-group form-group-sm">
+            <div class="col-lg-12">
+                <div class="contenido" id="id_container_galeria">                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/bootstrap-filestyle.js"></script>
+<script src="~/js/modulo/generales.js"></script>
+<script src="~/js/modulo/addanuncio/updatevideo.js"></script>

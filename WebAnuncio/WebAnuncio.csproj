@@ -146,6 +146,7 @@
     <Compile Include="Controllers\TarifasController.cs" />
     <Compile Include="Controllers\UpdAnuncioController.cs" />
     <Compile Include="Controllers\updGaleriaController.cs" />
+    <Compile Include="Controllers\UploadVideoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,6 +222,7 @@
     <Content Include="js\modulo\addanuncio\updanuncio.js" />
     <Content Include="js\modulo\addanuncio\addanuncio.js" />
     <Content Include="js\modulo\addanuncio\updategaleria.js" />
+    <Content Include="js\modulo\addanuncio\updatevideo.js" />
     <Content Include="js\modulo\generales.js" />
     <Content Include="js\modulo\home\home.js" />
     <Content Include="js\modulo\tarifa\Tarifa.js" />
@@ -276,6 +278,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <Content Include="Views\UploadVideo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">
@@ -287,7 +290,7 @@
       <Name>BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Communities\Communities.csproj">
-      <Project>{aa7045e9-645d-48ad-8b82-64753f64065c}</Project>
+      <Project>{63d90465-0c85-43ee-8383-71e537219d8f}</Project>
       <Name>Communities</Name>
     </ProjectReference>
   </ItemGroup>

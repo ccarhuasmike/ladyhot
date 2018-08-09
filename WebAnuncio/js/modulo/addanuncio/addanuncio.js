@@ -37,7 +37,7 @@ function cargar_galeria_fotos(response) {
         html += "<div class='contenedor-fotos'>";
         html += "<img src='" + response[i].txt_ruta_virtuales+"' alt='Forest'>";
         html += "<div class='group-button'>";
-        html += "<a 'javascript:void(0);' onclick='btn_eliminar_foto(" + response[i].id + ");' class='myButton'>Eliminar</a>";
+        html += "<a 'javascript:void(0);' onclick='btn_eliminar_foto(" + response[i].id + ");' class='btn btn-primary btn-xs  btn-block myButton'>Eliminar</a>";
         html += "</div>";
         html += "</div>";
         $("#id_container_galeria").append(html);
@@ -323,7 +323,29 @@ function cargar_galeria_fotos(response) {
     }
 
     function getagregar_fotos(data) {
+        $("#idprogress").css('display', 'block');
         return $.ajax({
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+                //Upload Progress
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = (evt.loaded / evt.total) * 100;
+                        $('div.progress > div.progress-bar').css({ "width": percentComplete + "%" });
+                        //$('div.progress > div.progress-bar').html(percentComplete + '%');
+                    }
+                }, false);
+                //Download progress
+                xhr.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = (evt.loaded / evt.total) * 100;
+                        $("div.progress > div.progress-bar").css({ "width": percentComplete + "%" });
+                        //$('div.progress > div.progress-bar').html(percentComplete + '%');
+                    }
+                },
+                    false);
+                return xhr;
+            },
             type: "POST",   
             url: $("#url_base").val() + "AddAnuncio/AgregarFotos?id=" + __getSessionStorage("id_anuncio_val"),         
             contentType: false,
@@ -337,6 +359,7 @@ function cargar_galeria_fotos(response) {
 
     function responseagregar_fotos(response) {
         if (response.Status === "Ok") {    
+            $("#idprogress").css('display', 'none');
             $('#file_fotos').filestyle('clear');
             var response = JSON.parse(response.DataJson);
             cargar_galeria_fotos(response);

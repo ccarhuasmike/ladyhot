@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AA7045E9-645D-48AD-8B82-64753F64065C}</ProjectGuid>
+    <ProjectGuid>{63D90465-0C85-43EE-8383-71E537219D8F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Communities</RootNamespace>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,9 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientResponse.cs" />
+    <Compile Include="Communities.cs" />
     <Compile Include="DataReaderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AppSettings.cs" />
     <Compile Include="SqlParameterCollectionExtensions.cs" />
     <Compile Include="Utilidades.cs" />
   </ItemGroup>

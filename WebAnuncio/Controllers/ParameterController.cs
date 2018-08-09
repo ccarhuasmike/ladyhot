@@ -21,7 +21,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse;
             try
             {
-                clientResponse =  new ParameterLogic().getCargarControles_Add_Anuncio();  
+                clientResponse =  new ParameterLogic().GetCargarControles_Add_Anuncio();  
             }
             catch
             {

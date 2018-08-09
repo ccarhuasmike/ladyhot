@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Communities
 {
-    public static class DataReaderExtensions
+   public static class DataReaderExtensions
     {
         public static IEnumerable<T> ReadRows<T>(this IDataReader reader) where T : new()
         {

@@ -17,4 +17,3 @@ namespace Communities
         public string ViewResult { get; set; }
     }
 }
-
