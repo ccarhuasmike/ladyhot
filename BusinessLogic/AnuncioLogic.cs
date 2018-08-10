@@ -52,6 +52,10 @@ namespace BusinessLogic
         {
             return _AnuncioData.MisAnuncio(usuario_token);
         }
+        public ClientResponse ListarAnuncio()
+        {
+            return _AnuncioData.ListarAnuncio();
+        }
         public ClientResponse darBajarAnuncio(string token_anuncio)
         {
             return _AnuncioData.darBajarAnuncio(token_anuncio);

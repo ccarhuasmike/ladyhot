@@ -35,8 +35,39 @@ namespace AccessData.PersonaDao
         #endregion
 
         #region Metodo
+        public ClientResponse ListarAnuncio()
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_fichas_anuncio", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;                        
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
 
-        
 
         public ClientResponse MisAnuncio(string usuario_token)
         {

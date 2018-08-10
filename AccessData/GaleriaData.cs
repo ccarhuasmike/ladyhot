@@ -49,7 +49,8 @@ namespace AccessData
                     new XElement("tx_ruta_file_cort", detalle.tx_ruta_file_cort),
                     new XElement("size_file", detalle.size_file),
                     new XElement("id_tipo_archivo", detalle.id_tipo_archivo),
-                    new XElement("txt_ruta_virtuales", detalle.txt_ruta_virtuales)
+                    new XElement("txt_ruta_virtuales", detalle.txt_ruta_virtuales),
+                    new XElement("txt_ruta_virtuales_cortada", detalle.txt_ruta_virtuales_cortada)
                     );
                     root.Add(address);
                 }

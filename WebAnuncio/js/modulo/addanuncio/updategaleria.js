@@ -26,7 +26,7 @@ function cargar_galeria_fotos(response) {
     for (var i = 0; i < response.length; i++) {
         var html = "";
         html += "<div class='contenedor-fotos'>";
-        html += "<img src='" + response[i].txt_ruta_virtuales + "' alt='Forest'>";
+        html += "<img src='" + response[i].txt_ruta_virtuales_cortada + "' alt='Forest'>";
         html += "<div class='group-button'>";
         html += "<a 'javascript:void(0);' onclick='btn_eliminar_foto(" + response[i].id + ");' class='btn btn-default btn-success btn-xs btn-block myButton'>Eliminar</a>";
         html += "</div>";

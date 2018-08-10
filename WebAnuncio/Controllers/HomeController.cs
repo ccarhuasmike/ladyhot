@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic;
+using Communities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,19 +14,18 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        public JsonResult ListarAnuncio()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().ListarAnuncio();
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -4,6 +4,8 @@ using Communities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
@@ -68,6 +70,17 @@ namespace WebAnuncio.Controllers
                 tbl_parameter_det rutas_rutas_virtuales_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas.DataJson);
 
 
+                tbl_parameter_det entidad_rutas_fisica_fichas_cortada = new tbl_parameter_det() { skey_det = "SKEY_RUTAS_FISICAS_FICHAS_CORTADAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                ClientResponse respons_rutas_fisica_fichas_cortada = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_fisica_fichas_cortada);
+                tbl_parameter_det rutas_fisica_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas_cortada.DataJson);
+
+                tbl_parameter_det entidad_rutas_virtuales_fichas_cortada = new tbl_parameter_det() { skey_det = "SKEY_RUTAS_VIRTUALES_FICHAS_CORTADAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                ClientResponse respons_rutas_virtuales_fichas_cortada = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas_cortada);
+                tbl_parameter_det rutas_rutas_virtuales_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas_cortada.DataJson);
+
+
+
+
                 HttpFileCollectionBase filesCollection = Request.Files;
                 //string hora = DateTime.Now.ToString("yyyyMMddhhmmss");
                 List<tbl_galeria_anuncio> list = new List<tbl_galeria_anuncio>();
@@ -87,10 +100,7 @@ namespace WebAnuncio.Controllers
                         filename = file.FileName;
                     }
 
-                    string tempPath = rutas_fisica_image.tx_descripcion + id_anuncio;
-                    string tempPathVirtual = rutas_rutas_virtuales_image.tx_descripcion + id_anuncio;
-                    if (!Directory.Exists(tempPath))
-                        Directory.CreateDirectory(tempPath);
+
 
 
                     string[] split_extension = filename.Split(new Char[] { '.' });
@@ -102,22 +112,58 @@ namespace WebAnuncio.Controllers
                     int id_tipo_archivo = 0;
                     foreach (var element in lstExtension)
                     {
-                        if (element.tx_descripcion.Equals(split_extension[1].ToLower())) {
+                        if (element.tx_descripcion.Equals(split_extension[1].ToLower()))
+                        {
                             id_tipo_archivo = element.val_valor;
                             break;
                         }
                     }
 
+                    string tempPath = rutas_fisica_image.tx_descripcion + id_anuncio;
+                    string tempPathVirtual = rutas_rutas_virtuales_image.tx_descripcion + id_anuncio;
+                    if (!Directory.Exists(tempPath))
+                        Directory.CreateDirectory(tempPath);
                     string file_ruta = tempPath + @"/" + filename;
                     string file_ruta_virtual = tempPathVirtual + @"/" + filename;
-                    file.SaveAs(file_ruta);                    
-                    
+                    file.SaveAs(file_ruta);
+
+                    /*BajaResolucion a Imagen*/
+                    string file_ruta_virtual_cortada = "";
+                    //using (Bitmap bmp1 = new Bitmap(@"C:\ImagenResolucion\foto.jpg"))
+                    using (Bitmap bmp1 = new Bitmap(file_ruta))
+                    {
+                        ImageCodecInfo jpgEncoder = Utilidades.GetEncoder(ImageFormat.Jpeg);
+                        // Create an Encoder object based on the GUID  
+                        // for the Quality parameter category.  
+                        System.Drawing.Imaging.Encoder myEncoder =
+                        System.Drawing.Imaging.Encoder.Quality;
+
+                        // Create an EncoderParameters object.  
+                        // An EncoderParameters object has an array of EncoderParameter  
+                        // objects. In this case, there is only one  
+                        // EncoderParameter object in the array.  
+                        EncoderParameters myEncoderParameters = new EncoderParameters(1);
+
+                        EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 15L);
+                        myEncoderParameters.Param[0] = myEncoderParameter;
+
+                        string tempPath_cortada = rutas_fisica_image_cortada.tx_descripcion + id_anuncio;
+                        string tempPathVirtual_cortada = rutas_rutas_virtuales_image_cortada.tx_descripcion + id_anuncio;
+
+                        if (!Directory.Exists(tempPath_cortada))
+                            Directory.CreateDirectory(tempPath_cortada);
+
+                        string file_ruta_cortada = tempPath_cortada + @"/" + filename;
+                        file_ruta_virtual_cortada = tempPathVirtual_cortada + @"/" + filename;
+                        bmp1.Save(file_ruta_cortada, jpgEncoder, myEncoderParameters);
+                    }
 
                     entidad = new tbl_galeria_anuncio();
                     entidad.tx_ruta_file = id_anuncio + "/" + filename;
                     entidad.id_tipo_archivo = id_tipo_archivo;
                     entidad.tx_ruta_file_cort = id_anuncio + "/" + filename;
                     entidad.txt_ruta_virtuales = file_ruta_virtual;
+                    entidad.txt_ruta_virtuales_cortada = file_ruta_virtual_cortada;
                     entidad.size_file = file.ContentLength;
                     entidad.tx_filename = filename;
                     list.Add(entidad);
