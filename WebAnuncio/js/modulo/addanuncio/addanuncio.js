@@ -367,13 +367,36 @@ function cargar_galeria_fotos(response) {
             cargar_galeria_fotos(response);
         }
     }
+    function regexEmail() {
+        var txt_email = $("#txt_email");
+        var regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
+        if (!regex.test(txt_email.val())) {
+            txt_email.val("");
+            //txt_email.focus();    
+            txt_email.addClass('input-error');
+            return false;             
+        }                        
+    }
+    function regexWeb() {        
+        var input = $("#txt_web");
+        var val = input.val();
+        if (val && !val.match(/^http([s]?):\/\/.*/)) {
+            input.val('https://' + val);
+        }
+    }           
 
     function codeBehind() { 
         cargarInicial();
         $("#btn_primerpaso").click(primerpaso);
         $("#btn_segundopaso").click(segundopaso);
         $("#btn_terceropaso").click(terceropaso);
-        $("#btn_agregar_imagen").click(btn_agregar_fotos);           
+        $("#btn_agregar_imagen").click(btn_agregar_fotos);          
+        
+        /*onblur*/
+        $("#txt_email").blur(regexEmail);       
+        $("#txt_web").blur(regexWeb);       
+        //$('input[rel="txtTooltip"]').tooltip();
+
     }
 
     $(function () {

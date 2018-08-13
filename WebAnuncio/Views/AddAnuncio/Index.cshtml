@@ -78,7 +78,7 @@
         </div>
     </div>
    
-    <fieldset>
+    <fieldset id="fieldset_primero_paso">
         <h4>Datos de Contacto:</h4>
         <div class="form-horizontal">
             <div class="form-group form-group-sm">
@@ -91,16 +91,16 @@
                 </div>
             </div>
             <div class="form-group form-group-sm">
-                <label class="col-sm-3 control-label control-label-small" for="txt_telefono_1">Teléfono</label>
+                <label class="col-sm-3 control-label control-label-small" for="txt_telefono_1">Teléfono o Celular</label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" id="txt_telefono_1" placeholder="Ingrese Telefono 1">
+                    <input class="form-control" rel="txtTooltip" title="**Your Title**" data-toggle="tooltip"  type="text" id="txt_telefono_1" placeholder="Ingrese Telefono 1">
                 </div>
                 <div class="col-sm-4">
                     <p class="form-control-static">tu teléfono de contacto</p>
                 </div>
             </div>
             <div class="form-group form-group-sm">
-                <label class="col-sm-3 control-label control-label-small" for="txt_telefono_2">Teléfono</label>
+                <label class="col-sm-3 control-label control-label-small" for="txt_telefono_2">Teléfono o Celular</label>
                 <div class="col-sm-5">
                     <input class="form-control" type="text" id="txt_telefono_2" placeholder="Ingrese Telefono 2">
                 </div>
@@ -111,16 +111,21 @@
             <div class="form-group form-group-sm">
                 <label class="col-sm-3 control-label control-label-small" for="txt_email">Email</label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" id="txt_email" placeholder="Ingrese email">
+                    <input class="form-control" type="text" id="txt_email" placeholder="brillit.coqueta@gmail.com">
                 </div>
                 <div class="col-sm-4">
-                    <p class="form-control-static">¿tienes email dónde contactarte?</p>
+                    <p class="form-control-static">
+                        IMPORTANTE !
+                        Tu dirección de email no será mostrada en el anuncio, pero debe ser válida para que poder contactarte.
+                        @*¿tienes email dónde contactarte?*@
+                    
+                    </p>
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <label class="col-sm-3 control-label control-label-small" for="txt_web">Web</label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" id="txt_web" placeholder="Ingrese web">
+                    <input class="form-control" type="text" id="txt_web"  placeholder="https://www.google.com">
                 </div>
                 <div class="col-sm-4">
                     <p class="form-control-static">la URL de tu web, si tienes</p>
@@ -159,7 +164,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label control-label-small" for="txt_presentacion">Presentación</label>
                 <div class="col-sm-5">
-                    <textarea class="form-control" id="txt_presentacion" rows="12" placeholder=""></textarea>
+                    <textarea class="form-control" id="txt_presentacion" rows="12" placeholder="Explica un poco más sobre ti, cómo eres, que te gusta, tus aficiones y habilidades...."></textarea>
                 </div>
                 <div class="col-sm-4">
                     <p class="form-control-static">Explica un poco más sobre ti. Aquí puedes presentarte a los futuros clientes, descríbete un poco mejor, explica cómo eres, que te gusta, tus aficiones y habilidades. ¿Porqué deben llamarte? Cualquier otra cosa que creas es importante, esta es tu oportunidad!</p>
@@ -175,7 +180,7 @@
 
     </fieldset>
 
-    <fieldset>
+    <fieldset id="fieldset_segundo_paso">
         <h4>Apariencia:</h4>
         <div class="form-horizontal">
             <div class="form-group form-group-sm">
@@ -244,7 +249,7 @@
         </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset id="fieldset_tercer_paso">
         <h4>Tarifas:</h4>
         <div class="form-horizontal">
             <div class="form-group form-group-sm">
