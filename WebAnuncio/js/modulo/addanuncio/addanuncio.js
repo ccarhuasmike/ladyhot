@@ -32,6 +32,7 @@ function response_eliminar_foto(response) {
 
 function cargar_galeria_fotos(response) {
     $("#id_container_galeria").html("");
+    __AddSessionStorage('cantidad_image_agregado', response.length);
     for (var i = 0; i < response.length; i++) {
         var html = "";
         html += "<div class='contenedor-fotos'>";
@@ -44,8 +45,7 @@ function cargar_galeria_fotos(response) {
     }
 
 }
-
-
+                                                 
 (function ($, window, document) {             
 
     function cargarInicial() {
@@ -73,8 +73,7 @@ function cargar_galeria_fotos(response) {
         }else {
 
         }          
-    }   
-
+    }        
 
     //Primer paso
     function primerpaso() {          
@@ -158,7 +157,8 @@ function cargar_galeria_fotos(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson);
         }
-    }         
+    }    
+    
     function getprimerpaso(data) {              
         return $.ajax({
             type: "POST",             
@@ -367,16 +367,17 @@ function cargar_galeria_fotos(response) {
             cargar_galeria_fotos(response);
         }
     }
+
     function regexEmail() {
         var txt_email = $("#txt_email");
         var regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
         if (!regex.test(txt_email.val())) {
-            txt_email.val("");
-            //txt_email.focus();    
+            txt_email.val("");            
             txt_email.addClass('input-error');
             return false;             
         }                        
     }
+
     function regexWeb() {        
         var input = $("#txt_web");
         var val = input.val();
@@ -384,6 +385,14 @@ function cargar_galeria_fotos(response) {
             input.val('https://' + val);
         }
     }           
+
+    function regexNumber(event) {
+        var valor = $("#" + event.currentTarget.id + "");
+        valor.val(valor.val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    }
 
     function codeBehind() { 
         cargarInicial();
@@ -394,7 +403,20 @@ function cargar_galeria_fotos(response) {
         
         /*onblur*/
         $("#txt_email").blur(regexEmail);       
-        $("#txt_web").blur(regexWeb);       
+        $("#txt_web").blur(regexWeb);                                   
+        $("#txt_medidas_busto").on("keypress keyup blur", regexNumber);
+        $("#txt_medidas_cintura").on("keypress keyup blur", regexNumber);
+        $("#txt_medidas_cadera").on("keypress keyup blur", regexNumber);
+        $("#txt_30_min").on("keypress keyup blur", regexNumber);
+        $("#txt_45_min").on("keypress keyup blur", regexNumber);
+        $("#txt_1_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_1_30_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_2_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_3_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_salida_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_toda_noche").on("keypress keyup blur", regexNumber);
+        $("#txt_viajes").on("keypress keyup blur", regexNumber);
+
         //$('input[rel="txtTooltip"]').tooltip();
 
     }

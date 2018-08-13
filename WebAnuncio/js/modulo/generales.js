@@ -158,15 +158,18 @@ function __removeSessionStorage(key) {
 
 function AddAnuncio() {
     __removeSessionStorage("id_anuncio_val");
+    __AddSessionStorage('cantidad_image_agregado', 0);
     window.location.href = "/AddAnuncio";
 }
 function MisAnuncio() {
     __removeSessionStorage("id_anuncio_val");
+    __removeSessionStorage('cantidad_image_agregado');
     window.location.href = '/MisAnuncio';
 }
 
 function Publicidad() {
     __removeSessionStorage("id_anuncio_val");
+    __removeSessionStorage('cantidad_image_agregado');
     window.location.href = "/Publicidad";
 }
 function Contactar() {
@@ -174,6 +177,7 @@ function Contactar() {
 }
 function salir() {
     __removeSessionStorage("id_usuario");
+    __removeSessionStorage('cantidad_image_agregado');
     __removeSessionStorage("id_anuncio_val");
     __removeSessionStorage("cod_anuncio_encryptado");
     __removeSessionStorage("usuario_token");

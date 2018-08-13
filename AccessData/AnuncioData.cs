@@ -24,7 +24,7 @@ namespace AccessData.PersonaDao
 
         #region Constructor
         public AnuncioData()
-        {           
+        {
             //entidad = null;
             conexion = null;
             comando = null;
@@ -43,7 +43,7 @@ namespace AccessData.PersonaDao
                 {
                     using (comando = new SqlCommand("sp_sel_fichas_anuncio", conexion))
                     {
-                        comando.CommandType = CommandType.StoredProcedure;                        
+                        comando.CommandType = CommandType.StoredProcedure;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
@@ -78,7 +78,7 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@token_usuario", SqlDbType.VarChar,255).Value = usuario_token;
+                        comando.Parameters.Add("@token_usuario", SqlDbType.VarChar, 255).Value = usuario_token;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
@@ -100,7 +100,7 @@ namespace AccessData.PersonaDao
                 comando.Dispose();
                 reader.Dispose();
             }
-            return clientResponse;            
+            return clientResponse;
         }
 
         public ClientResponse darBajarAnuncio(string token_anuncio)
@@ -128,13 +128,13 @@ namespace AccessData.PersonaDao
             {
                 conexion.Close();
                 conexion.Dispose();
-                comando.Dispose();               
+                comando.Dispose();
             }
             return clientResponse;
         }
 
         public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
-        {   
+        {
             try
             {
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
@@ -142,15 +142,15 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_up_anuncio_primerpaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha;
-                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1;
-                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2;
-                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email;
-                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web;
+                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha == null ? "" : objeto.txt_nombre_ficha;
+                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1 == null ? "" : objeto.txt_telefono_1;
+                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2 == null ? "" : objeto.txt_telefono_2;
+                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email == null ? "" : objeto.txt_email;
+                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
                         comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
-                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
+                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion == null ? "" : objeto.txt_presentacion;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
@@ -183,15 +183,15 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_ins_anuncio_primerpaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha;
-                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1;
-                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2;
-                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email;
-                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web;
+                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha == null ? "" : objeto.txt_nombre_ficha;
+                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1 == null ? "" : objeto.txt_telefono_1;
+                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2 == null ? "" : objeto.txt_telefono_2;
+                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email == null ? "" : objeto.txt_email;
+                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_nombre_ficha;
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
                         comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
-                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
+                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion == null ? "" : objeto.txt_presentacion;
                         comando.Parameters.Add("@id_usuario", SqlDbType.Int).Value = objeto.id_usuario;
                         comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
                         conexion.Open();
@@ -221,7 +221,7 @@ namespace AccessData.PersonaDao
         }
 
         public ClientResponse UpdateTodopaso(tbl_anuncio objeto)
-        {          
+        {
             try
             {
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
@@ -229,21 +229,21 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_upd_anuncio_todos_paso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha;
-                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1;
-                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2;
-                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email;
-                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web;
+                        comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha == null ? "" : objeto.txt_nombre_ficha;
+                        comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1 == null ? "" : objeto.txt_telefono_1;
+                        comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2 == null ? "" : objeto.txt_telefono_2;
+                        comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email == null ? "" : objeto.txt_email;
+                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
                         comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
-                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;                        
+                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion == null ? "" : objeto.txt_presentacion;
                         comando.Parameters.Add("@int_color_cabello", SqlDbType.Int).Value = objeto.int_color_cabello;
                         comando.Parameters.Add("@int_color_ojos", SqlDbType.Int).Value = objeto.int_color_ojos;
                         comando.Parameters.Add("@int_estatura", SqlDbType.Int).Value = objeto.int_estatura;
                         comando.Parameters.Add("@int_peso", SqlDbType.Int).Value = objeto.int_peso;
                         comando.Parameters.Add("@txt_medidas_busto_cintura_cadera", SqlDbType.VarChar, 45).Value = objeto.txt_medidas_busto_cintura_cadera;
-                        comando.Parameters.Add("@txt_descripcion_extra_apariencia", SqlDbType.VarChar, 200).Value = objeto.txt_descripcion_extra_apariencia;
+                        comando.Parameters.Add("@txt_descripcion_extra_apariencia", SqlDbType.VarChar, 200).Value = objeto.txt_descripcion_extra_apariencia == null ? "" : objeto.txt_descripcion_extra_apariencia;
                         comando.Parameters.Add("@dbl_costo_x_tiempo_30min", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_30min;
                         comando.Parameters.Add("@dbl_costo_x_tiempo_45min", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_45min;
                         comando.Parameters.Add("@dbl_costo_x_tiempo_1hora", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_1hora;
@@ -254,13 +254,13 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@dbl_costo_x_tiempo_toda_noche", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_toda_noche;
                         comando.Parameters.Add("@dbl_costo_x_viaje", SqlDbType.Decimal).Value = objeto.dbl_costo_x_viaje;
                         comando.Parameters.Add("@txt_forma_pago", SqlDbType.VarChar, 400).Value = objeto.txt_forma_pago;
-                        comando.Parameters.Add("@txt_descripcion_extra_tarifa", SqlDbType.VarChar, 255).Value = objeto.txt_descripcion_extra_tarifa;
-                        comando.Parameters.Add("@txt_lugar_servicio_distrito", SqlDbType.VarChar, 255).Value = objeto.txt_lugar_servicio_distrito;
+                        comando.Parameters.Add("@txt_descripcion_extra_tarifa", SqlDbType.VarChar, 255).Value = objeto.txt_descripcion_extra_tarifa == null ? "" : objeto.txt_descripcion_extra_tarifa;
+                        comando.Parameters.Add("@txt_lugar_servicio_distrito", SqlDbType.VarChar, 255).Value = objeto.txt_lugar_servicio_distrito == null ? "" : objeto.txt_lugar_servicio_distrito;
                         comando.Parameters.Add("@fl_atencion_24horas", SqlDbType.Int).Value = objeto.fl_atencion_24horas;
-                        comando.Parameters.Add("@tx_descripcion_extra_horario", SqlDbType.VarChar, 200).Value = objeto.tx_descripcion_extra_horario;
+                        comando.Parameters.Add("@tx_descripcion_extra_horario", SqlDbType.VarChar, 200).Value = objeto.tx_descripcion_extra_horario == null ? "" : objeto.tx_descripcion_extra_horario;
                         comando.Parameters.Add("@tx_lugar_atencion", SqlDbType.VarChar, 255).Value = objeto.tx_lugar_atencion;
                         comando.Parameters.Add("@tx_servicios_ofrece", SqlDbType.VarChar, 400).Value = objeto.tx_servicios_ofrece;
-                        comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio;
+                        comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio == null ? "" : objeto.tx_descripcion_extra_servicio;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
@@ -285,7 +285,7 @@ namespace AccessData.PersonaDao
         }
 
         public ClientResponse UpdateSegundopaso(tbl_anuncio objeto)
-        {          
+        {
             try
             {
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
@@ -298,12 +298,12 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@int_estatura", SqlDbType.Int).Value = objeto.int_estatura;
                         comando.Parameters.Add("@int_peso", SqlDbType.Int).Value = objeto.int_peso;
                         comando.Parameters.Add("@txt_medidas_busto_cintura_cadera", SqlDbType.VarChar, 45).Value = objeto.txt_medidas_busto_cintura_cadera;
-                        comando.Parameters.Add("@txt_descripcion_extra_apariencia", SqlDbType.VarChar, 200).Value = objeto.txt_descripcion_extra_apariencia;
-                        comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;                       
+                        comando.Parameters.Add("@txt_descripcion_extra_apariencia", SqlDbType.VarChar, 200).Value = objeto.txt_descripcion_extra_apariencia == null ? "" : objeto.txt_descripcion_extra_apariencia;
+                        comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
                         IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);
-                        clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();                        
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
             }
@@ -341,13 +341,13 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@dbl_costo_x_tiempo_toda_noche", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_toda_noche;
                         comando.Parameters.Add("@dbl_costo_x_viaje", SqlDbType.Decimal).Value = objeto.dbl_costo_x_viaje;
                         comando.Parameters.Add("@txt_forma_pago", SqlDbType.VarChar, 400).Value = objeto.txt_forma_pago;
-                        comando.Parameters.Add("@txt_descripcion_extra_tarifa", SqlDbType.VarChar, 255).Value = objeto.txt_descripcion_extra_tarifa;
+                        comando.Parameters.Add("@txt_descripcion_extra_tarifa", SqlDbType.VarChar, 255).Value = objeto.txt_descripcion_extra_tarifa == null ? "" : objeto.txt_descripcion_extra_tarifa;
                         comando.Parameters.Add("@txt_lugar_servicio_distrito", SqlDbType.VarChar, 255).Value = objeto.txt_lugar_servicio_distrito;
                         comando.Parameters.Add("@fl_atencion_24horas", SqlDbType.Int).Value = objeto.fl_atencion_24horas;
-                        comando.Parameters.Add("@tx_descripcion_extra_horario", SqlDbType.VarChar, 200).Value = objeto.tx_descripcion_extra_horario;
+                        comando.Parameters.Add("@tx_descripcion_extra_horario", SqlDbType.VarChar, 200).Value = objeto.tx_descripcion_extra_horario == null ? "" : objeto.tx_descripcion_extra_horario;
                         comando.Parameters.Add("@tx_lugar_atencion", SqlDbType.VarChar, 255).Value = objeto.tx_lugar_atencion;
                         comando.Parameters.Add("@tx_servicios_ofrece", SqlDbType.VarChar, 400).Value = objeto.tx_servicios_ofrece;
-                        comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio;
+                        comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio == null ? "" : objeto.tx_descripcion_extra_servicio;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
@@ -389,7 +389,7 @@ namespace AccessData.PersonaDao
                     }
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //clientResponse.Mensaje = ex.Message;
                 //clientResponse.Status = "ERROR";
@@ -423,7 +423,7 @@ namespace AccessData.PersonaDao
                     }
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //clientResponse.Mensaje = ex.Message;
                 //clientResponse.Status = "ERROR";

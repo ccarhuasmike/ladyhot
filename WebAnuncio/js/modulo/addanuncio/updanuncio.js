@@ -202,13 +202,53 @@
             window.location.href = '/MisAnuncio';
         }
     }
+    function regexEmail() {
+        var txt_email = $("#txt_email");
+        var regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{1,4}$/;
+        if (!regex.test(txt_email.val())) {
+            txt_email.val("");
+            txt_email.addClass('input-error');
+            return false;
+        }
+    }
 
-    
+    function regexWeb() {
+        var input = $("#txt_web");
+        var val = input.val();
+        if (val && !val.match(/^http([s]?):\/\/.*/)) {
+            input.val('https://' + val);
+        }
+    }  
+
+    function regexNumber(event) {        
+        var valor = $("#" + event.currentTarget.id+"");
+        valor.val(valor.val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    }
 
     function codeBehind() {
         //cargarInicial();
         cargarDetAnuncion();
-        $("#btn_guardar_todo").click(primerpaso);   
+        $("#btn_guardar_todo").click(primerpaso);           
+        $("#txt_email").blur(regexEmail);
+        $("#txt_web").blur(regexWeb);                
+        $("#txt_medidas_busto").on("keypress keyup blur", regexNumber);
+        $("#txt_medidas_cintura").on("keypress keyup blur", regexNumber);
+        $("#txt_medidas_cadera").on("keypress keyup blur", regexNumber);       
+        $("#txt_30_min").on("keypress keyup blur", regexNumber);
+        $("#txt_45_min").on("keypress keyup blur", regexNumber);
+        $("#txt_1_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_1_30_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_2_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_3_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_salida_hora").on("keypress keyup blur", regexNumber);
+        $("#txt_toda_noche").on("keypress keyup blur", regexNumber);
+        $("#txt_viajes").on("keypress keyup blur", regexNumber);
+      
+
+       // $("#txt_medidas_busto").on("keypress keyup blur", regexNumber());
     }
 
     $(function () {
