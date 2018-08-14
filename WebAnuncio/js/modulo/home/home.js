@@ -101,7 +101,7 @@ function redirecToAnunciate() {
 
 
     function codeBehind() {
-        cargarInicial();
+        //cargarInicial();
     }
 
     $(function () {

@@ -8,7 +8,7 @@ miListados.nTimer = false;
 miListados.inicializar = function () {
 
 
-    miListados.buscadorProximidad();
+   // miListados.buscadorProximidad();
 
     $('.typeahead').bind('typeahead:select', function (ev, suggestion) {
         location.href = suggestion.seourl;
@@ -173,7 +173,7 @@ miListados.cargarMasFichas = function () {
 miListados.cambiarCategoriaFooter = function (miObj) {
     location.href = $(miObj).val();
 };
-
+      /*
 miListados.buscadorProximidad = function () {
     var scortsProximidad = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
@@ -191,5 +191,5 @@ miListados.buscadorProximidad = function () {
         source: scortsProximidad
     });
 }
-
+         */
 dListados.ready(miListados.inicializar);

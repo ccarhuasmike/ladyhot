@@ -3878,14 +3878,14 @@ videos
 
 
 .cuadrado.bg-verde{
-    background-image: url('/common/img/fotos-reales.jpg') !important;
+    /*background-image: url('/common/img/fotos-reales.jpg') !important;*/
     height: 24px;
     width: 24px;
     background-color: transparent !important;
     background-size: contain !important;
 }
 .cuadrado.bg-mora{
-    background-image: url('/common/img/video.jpg') !important;
+    /*background-image: url('/common/img/video.jpg') !important;*/
     height: 24px;
     width: 24px;
     background-color: transparent !important;
@@ -3899,7 +3899,7 @@ videos
     background-size: contain !important;
 }
 .cuadrado.bg-rosa{
-    background-image: url('/common/img/gente.jpg') !important;
+    /*background-image: url('/common/img/gente.jpg') !important;*/
     height: 24px;
     width: 24px;
     background-color: transparent !important;

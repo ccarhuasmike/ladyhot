@@ -205,18 +205,23 @@ $(document).ready(function () {
             $(this).select();
         });
     });
-
-    if ($('.js-carousel').length > 0) {
-      /*
+  
+    if ($('.js-carousel').length > 0) {          
         var $carousel = $('.js-carousel').flickity({
             freeScroll: true,
             wrapAround: true,
             cellAlign: 'left',
             contain: true,
             pageDots: false
-        });*/
+        });
     }
-
+          
+       /*
+    $('.js-carousel').flickity({
+        // options
+        cellAlign: 'left',
+        contain: true
+    });   */
 
     $(function () {
         $('.button-checkbox').each(function () {
