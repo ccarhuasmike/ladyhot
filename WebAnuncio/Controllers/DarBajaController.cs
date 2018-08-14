@@ -35,7 +35,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult upd_dar_baja(string anuncio_token)
+        public JsonResult Upd_dar_baja(string anuncio_token)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

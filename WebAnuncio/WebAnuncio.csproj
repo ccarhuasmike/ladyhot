@@ -145,7 +145,7 @@
     <Compile Include="Controllers\PublicidadController.cs" />
     <Compile Include="Controllers\TarifasController.cs" />
     <Compile Include="Controllers\UpdAnuncioController.cs" />
-    <Compile Include="Controllers\updGaleriaController.cs" />
+    <Compile Include="Controllers\UpdGaleriaController.cs" />
     <Compile Include="Controllers\UploadVideoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">

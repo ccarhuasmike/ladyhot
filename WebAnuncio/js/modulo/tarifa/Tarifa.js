@@ -33,7 +33,7 @@
         return $.ajax({
             type: "POST",
             async: false,
-            url: $("#url_base").val() + "Usuario/registar",
+            url: $("#url_base").val() + "Usuario/Registar",
             contentType: "application/json",
             dataType: "Json",
             data: JSON.stringify(data),
@@ -74,7 +74,7 @@
         return $.ajax({
             type: "POST",
             async: false,
-            url: $("#url_base").val() + "Usuario/login",
+            url: $("#url_base").val() + "Usuario/Login",
             contentType: "application/json",
             dataType: "Json",
             data: JSON.stringify(data),

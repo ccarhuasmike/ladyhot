@@ -5,7 +5,7 @@
 }
 function click_galeria_anuncio(data) {
     __AddSessionStorage('id_anuncio_upd', data.id);
-    window.location.href = "/updGaleria";      
+    window.location.href = "/UpdGaleria";      
 }
 function click_dar_baja_anuncio(data) {
     __AddSessionStorage('cod_anuncio_encryptado', data.cod_anuncio_encryptado);

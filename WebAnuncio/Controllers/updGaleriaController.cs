@@ -12,14 +12,14 @@ using System.Web.Mvc;
 
 namespace WebAnuncio.Controllers
 {
-    public class updGaleriaController : Controller
+    public class UpdGaleriaController : Controller
     {
         // GET: updGaleria
         public ActionResult Index()
         {
             return View();
         }
-        public JsonResult getGeleriaXIdAnuncio(int id_anuncio)
+        public JsonResult GetGeleriaXIdAnuncio(int id_anuncio)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

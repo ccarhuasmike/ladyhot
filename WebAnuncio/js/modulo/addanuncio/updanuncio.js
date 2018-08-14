@@ -136,7 +136,12 @@
         var chk_forma_pagos = getValueElementoSelected('chk_forma_pagos[]');
         var txt_descripcion_tarifa = $("#txt_descripcion_tarifa").val();
         var chk_distrito = getValueElementoSelected('chk_distrito[]');
+        //1: seleccionado
+        //0: no seleccionado
         var chk_atiende_24_hora = 0; //Atiendes las 24hs?	
+        if ($('#chk_24horas').is(':checked')) {
+            chk_atiende_24_hora = 1;
+        }    
         var txt_descripcion_extra_horario = $("#txt_descripcion_extra_horario").val();
         var chk_lugar_atencion = getValueElementoSelected('chk_lugar_atencion[]');
         var chk_servicio_ofrece = getValueElementoSelected('chk_servicio_ofrece[]');
@@ -186,7 +191,7 @@
         return $.ajax({
             type: "POST",
             async: false,
-            url: $("#url_base").val() + "UpdAnuncio/todospasos",
+            url: $("#url_base").val() + "UpdAnuncio/Todospasos",
             contentType: "application/json",
             dataType: "Json",
             data: JSON.stringify(data),              

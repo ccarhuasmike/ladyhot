@@ -16,6 +16,7 @@ namespace BusinessEntity
         public string txt_web { get; set; } = "";
         public int int_edad { get; set; } = 0;
         public int int_pais_origen { get; set; } = 0;
+        public string tx_pais_origen { get; set; } = "";
         public int int_estudios { get; set; } = 0;
         public string txt_presentacion { get; set; } = "";
         public int int_color_cabello { get; set; } = 0;
@@ -37,6 +38,7 @@ namespace BusinessEntity
         public string txt_descripcion_extra_tarifa { get; set; } = "";
         public string txt_lugar_servicio_distrito { get; set; } = "";
         public int fl_atencion_24horas { get; set; } = 0;
+        public string tx_fl_atencion_24horas { get; set; } = "";
         public string tx_descripcion_extra_horario { get; set; } = "";
         public string tx_lugar_atencion { get; set; } = "";
         public string tx_servicios_ofrece { get; set; } = "";

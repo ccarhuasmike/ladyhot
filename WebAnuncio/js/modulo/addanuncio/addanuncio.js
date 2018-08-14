@@ -162,7 +162,7 @@ function cargar_galeria_fotos(response) {
     function getprimerpaso(data) {              
         return $.ajax({
             type: "POST",             
-            url: $("#url_base").val() + "AddAnuncio/primeropaso",
+            url: $("#url_base").val() + "AddAnuncio/Primeropaso",
             contentType: "application/json",               
             dataType: "Json",
             data: JSON.stringify(data),
@@ -213,7 +213,7 @@ function cargar_galeria_fotos(response) {
         return $.ajax({
             type: "POST",
             async: false,
-            url: $("#url_base").val() + "AddAnuncio/segundopaso",
+            url: $("#url_base").val() + "AddAnuncio/Segundopaso",
             contentType: "application/json",
             dataType: "Json",
             data: JSON.stringify(data),             
@@ -290,7 +290,7 @@ function cargar_galeria_fotos(response) {
     function gettercerpaso(data) {
         return $.ajax({
             type: "POST",           
-            url: $("#url_base").val() + "AddAnuncio/tercerpaso",
+            url: $("#url_base").val() + "AddAnuncio/Tercerpaso",
             contentType: "application/json",
             dataType: "Json",
             data: JSON.stringify(data),

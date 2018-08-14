@@ -53,7 +53,7 @@ $('#file_fotos').filestyle({
     function getCargarInicia() {
         return $.ajax({
             type: "POST",
-            url: $("#url_base").val() + "UploadVideo/getVideoXIdAnuncio",
+            url: $("#url_base").val() + "UploadVideo/GetVideoXIdAnuncio",
             data: { id_anuncio: parseInt(__getSessionStorage("id_anuncio_upd")) },
             dataType: "Json",
             async: false,

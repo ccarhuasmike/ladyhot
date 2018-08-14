@@ -40,7 +40,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public  JsonResult todospasos(tbl_anuncio oregistro)
+        public  JsonResult Todospasos(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

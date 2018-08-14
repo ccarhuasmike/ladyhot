@@ -20,7 +20,7 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
-        public JsonResult primeropaso(tbl_anuncio oregistro)
+        public JsonResult Primeropaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -47,7 +47,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult segundopaso(tbl_anuncio oregistro)
+        public JsonResult Segundopaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -61,7 +61,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult tercerpaso(tbl_anuncio oregistro)
+        public JsonResult Tercerpaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -124,7 +124,7 @@ namespace WebAnuncio.Controllers
                 HttpFileCollectionBase filesCollection = Request.Files;
                 //string hora = DateTime.Now.ToString("yyyyMMddhhmmss");
                 List<tbl_galeria_anuncio> list = new List<tbl_galeria_anuncio>();
-                tbl_galeria_anuncio entidad = null;
+                tbl_galeria_anuncio entidad ;
                 for (int i = 0; i < filesCollection.Count; i++)
                 {
                     HttpPostedFileBase file = filesCollection[i];

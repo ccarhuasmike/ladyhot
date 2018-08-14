@@ -19,7 +19,7 @@ namespace WebAnuncio.Controllers
             return View();
         }
 
-        public JsonResult getVideoXIdAnuncio(int id_anuncio)
+        public JsonResult GetVideoXIdAnuncio(int id_anuncio)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

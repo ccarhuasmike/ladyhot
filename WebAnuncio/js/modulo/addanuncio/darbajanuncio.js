@@ -4,7 +4,7 @@
 function get_dar_baja(data) {
     return $.ajax({
         type: "POST",
-        url: $("#url_base").val() + "DarBaja/upd_dar_baja",
+        url: $("#url_base").val() + "DarBaja/Upd_dar_baja",
         data: { anuncio_token: data.cod_anuncio_encryptado},
         dataType: "Json",
         async: false,

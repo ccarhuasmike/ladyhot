@@ -4,7 +4,7 @@
 function get_eliminar_foto(id) {
     return $.ajax({
         type: "POST",
-        url: $("#url_base").val() + "updGaleria/EliminarFoto",
+        url: $("#url_base").val() + "UpdGaleria/EliminarFoto",
         data: { id_galeria: id },
         dataType: "Json",
         async: false,
@@ -49,7 +49,7 @@ $('#file_fotos').filestyle({
     function getCargarInicia() {
         return $.ajax({
             type: "POST",
-            url: $("#url_base").val() + "updGaleria/getGeleriaXIdAnuncio",
+            url: $("#url_base").val() + "UpdGaleria/GetGeleriaXIdAnuncio",
             data: { id_anuncio: parseInt(__getSessionStorage("id_anuncio_upd")) },
             dataType: "Json",
             async: false,
@@ -105,7 +105,7 @@ $('#file_fotos').filestyle({
                 return xhr;
             },
             type: "POST",
-            url: $("#url_base").val() + "updGaleria/AgregarFotos?id_anuncio=" + __getSessionStorage("id_anuncio_upd"),
+            url: $("#url_base").val() + "UpdGaleria/AgregarFotos?id_anuncio=" + __getSessionStorage("id_anuncio_upd"),
             contentType: false,
             processData: false,
             data: data,
