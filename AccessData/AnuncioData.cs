@@ -15,7 +15,7 @@ namespace AccessData.PersonaDao
 
         #region Variables
         private static IEnumerable<tbl_anuncio> lstAnuncio;
-        //private static tbl_anuncio entidad;
+        private static tbl_anuncio entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -25,7 +25,7 @@ namespace AccessData.PersonaDao
         #region Constructor
         public AnuncioData()
         {
-            //entidad = null;
+            entidad = null;
             conexion = null;
             comando = null;
             reader = null;
@@ -405,7 +405,7 @@ namespace AccessData.PersonaDao
         }
 
 
-        public IEnumerable<tbl_anuncio> getAnucion_x_tokens(string token_anuncio)
+        public tbl_anuncio getAnucion_x_tokens(string token_anuncio)
         {
             try
             {
@@ -418,7 +418,11 @@ namespace AccessData.PersonaDao
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                            while (reader.Read())
+                            {
+                                entidad = reader.ReadFields<tbl_anuncio>();
+                            }
+                            
                         }
                     }
                 }
@@ -435,7 +439,7 @@ namespace AccessData.PersonaDao
                 comando.Dispose();
                 reader.Dispose();
             }
-            return lstAnuncio;
+            return entidad;
         }
         #endregion
 

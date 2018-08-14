@@ -22,7 +22,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                IEnumerable<tbl_anuncio> list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
+                tbl_anuncio list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
                 ClientResponse clientResponse_cargaInicial = new ParameterLogic().GetCargarControles_Add_Anuncio();
                 object initData = new
                 {

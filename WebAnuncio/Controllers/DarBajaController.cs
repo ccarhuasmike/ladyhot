@@ -24,7 +24,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                IEnumerable<tbl_anuncio> list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
+                tbl_anuncio list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
                 clientResponse.DataJson = JsonConvert.SerializeObject(list).ToString();
                 clientResponse.Status = "OK";
             }

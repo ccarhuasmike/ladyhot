@@ -32,6 +32,18 @@ function redirecToAnunciate() {
             var response = JSON.parse(response.DataJson);
             cargar_galeria_fotos(response);  
             //cargar_galeria_tops(response);
+
+            if ($('.js-carousel').length > 0) {
+                var $carousel = $('.js-carousel').flickity({
+                    freeScroll: true,
+                    wrapAround: true,
+                    cellAlign: 'left',
+                    contain: true,
+                    pageDots: false,
+                    draggable: '>10'
+                });
+            }
+
         } else {
 
         }
@@ -64,7 +76,8 @@ function redirecToAnunciate() {
         
         
        
-    }  
+    } 
+    
     function cargar_galeria_fotos(response) {
         $("#j_fichas").html("");
         var html = "";

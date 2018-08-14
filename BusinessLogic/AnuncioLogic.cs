@@ -21,7 +21,7 @@ namespace BusinessLogic
         {
             return _AnuncioData.getAnucionXId(id);
         }
-        public IEnumerable<tbl_anuncio> getAnucion_x_tokens(string token_anuncio)
+        public tbl_anuncio getAnucion_x_tokens(string token_anuncio)
         {
             return _AnuncioData.getAnucion_x_tokens(token_anuncio);
         }
