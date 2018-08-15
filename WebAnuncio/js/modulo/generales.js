@@ -175,6 +175,8 @@ function Publicidad() {
 function Contactar() {
     location.href = '/Contactar';
 }
+
+
 function salir() {
     __removeSessionStorage("id_usuario");
     __removeSessionStorage('cantidad_image_agregado');

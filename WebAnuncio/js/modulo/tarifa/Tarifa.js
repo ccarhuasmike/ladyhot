@@ -1,4 +1,7 @@
-﻿
+﻿function Tarifas() {
+    location.href = '/Tarifas';
+} 
+
 (function ($, window, document) {
     function registrarteahora() {          
         document.getElementById("j_registro").style.display = "block";
@@ -100,6 +103,11 @@
         $("#btn_to_login").click(btn_to_login);
         $("#btn_registrar").click(btn_registrar);      
         $("#btn_login").click(btn_login); 
+        //$("#container-main-carousel").css("display", "none");   
+        //$("#container-slide-wrapper").css("display", "none"); 
+        //$("#submenu-header-ficha").css("display", "none"); 
+        //$("#row-wrapper-home").css("margin-top", "0px"); 
+        
     }
 
     $(function () {

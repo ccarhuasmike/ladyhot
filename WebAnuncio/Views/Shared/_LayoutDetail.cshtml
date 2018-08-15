@@ -1,0 +1,399 @@
+﻿@{
+
+    Uri auxBaseUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority));
+    Uri baseUri = new Uri(auxBaseUri, Url.Content("~"));
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+    <script src="https://static2.hottescorts.es/respond.min.js"></script>
+    <script type="text/javascript">
+        var browser = navigator.userAgent;
+        var browserRegex = /(Android|BlackBerry|IEMobile|Nokia|iP(ad|hone|od)|Opera M(obi|ini))/;
+        var isMobile = false;
+        if (browser.match(browserRegex)) {
+            isMobile = true;
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        }
+    </script>
+    <script src="//oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <script type="text/javascript">
+        // <![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-16637509-46']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+  // ]]>
+    </script>
+    <script type="text/javascript">
+        var misParametros = {};
+        misParametros.tarifa_desde = 40;
+        misParametros.tarifa_hasta = 1000;
+        misParametros.tetas_desde = 60;
+        misParametros.tetas_hasta = 180;
+        misParametros.culo_desde = 60;
+        misParametros.culo_hasta = 140;
+        misParametros.edad_desde = 18;
+        misParametros.edad_hasta = 55;
+        misParametros.fichas_por_mostrar = 120;
+        misParametros.fichas_carga_bajo_demanda = 25;
+
+        misParametros.rutaAjax = "/procesos/";
+
+        misParametros.buscador = "0";
+        misParametros.home = "1";
+        misParametros.servicio = "0";
+        misParametros.tag = "0";
+        misParametros.buscador_tag = "0"; //  CRTVT-1176
+
+        misParametros.novedades = "0";
+        misParametros.gratis = "0";
+        misParametros.provincia = "";
+        misParametros.localidad = "";
+        misParametros.buscador_provincia = "";
+        misParametros.buscador_localidad = "";
+        misParametros.buscador_tarifa = "";
+        misParametros.buscador_caracteristicas = "";
+        misParametros.buscador_tetas = "";
+        misParametros.buscador_culo = "";
+        misParametros.buscador_servicio = "";
+
+        misParametros.hash_proximidad = "79c7a1727ff3d6064582a37fcbae0b16";
+    </script>
+    <link href="../css/estilos_extras_v3.css" rel="stylesheet">
+    <style type="text/css">
+        .fancybox-margin {
+            margin-right: 17px;
+        }
+    </style>
+
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <input type="hidden" value="@baseUri" id="url_base" />
+    <a class="sr-only sr-only-focusable" href="#content">Saltar al contenido principal</a>
+    <div class="hidden-md hidden-lg">
+        <nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
+            <button type="button" class="navbar-toggle collapsed sb-toggle-right sb-hide">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <a href="/" title="Escorts Madrid / Barcelona / Valencia  / Sevilla" class="logo-movil">
+                @*<img src="img/logotipo.png?hash=588f273108d2728930ab68d08160ce1b" alt="Escorts Madrid / Barcelona / Valencia  / Sevilla">*@
+            </a>
+        </nav>
+    </div>
+    <div class="sb-site-container">
+        <div class="fullwidth">
+            <div class="top-header">
+                <div class="container">
+                    @*<h1>Escorts y putas de lujo en España</h1>*@
+                </div>
+            </div>
+            <!-- MNU::20 -->
+            <header class="header hidden-xs no-shadow">
+                <nav class="navbar navbar-default hidden-xs" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed sb-toggle-right sb-hide">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar top-bar"></span>
+                                <span class="icon-bar middle-bar"></span>
+                                <span class="icon-bar bottom-bar"></span>
+                            </button>
+                            <a class="logo" href="/" title="Escorts Madrid / Barcelona / Valencia  / Sevilla">
+                                @*<img class="img-responsive" src="img/logotipo.png?hash=588f273108d2728930ab68d08160ce1b" alt="Escorts Madrid / Barcelona / Valencia  / Sevilla">*@
+                                <img class="img-responsive" src="" alt="Escorts Madrid / Barcelona / Valencia  / Sevilla">
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="main-nav">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#" title="Escorts Madrid" target="_self">Escorts Madrid</a></li>
+                                <li><a href="#" title="Escorts Barcelona" target="_self">Es Barcelona</a></li>
+                                <li><a href="#" title="Escorts Valencia" target="_self">Es Valencia</a></li>
+                                <li><a href="#" title="Masajes Eróticos" target="_self">Masajes XXX</a></li>
+                                @*<li><a href="#" title="Travestis" target="_blank">Travestis</a></li>*@
+                                <li><a href="/informacion/webcams-3/" title="Webcams" target="_self">Webcams</a></li>
+
+                                <li class="ultimo last">
+                                    <div class="btn-group btn-top ">
+                                        <button type="button" class="btn btn-main dropdown-toggle collapsed" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar top-bar"></span>
+                                            <span class="icon-bar middle-bar"></span>
+                                            <span class="icon-bar bottom-bar"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" data-toggle="modal" data-target="#js_modal_contacto">Contacto</a></li>
+                                            <li><a href="#" data-toggle="modal" data-target="#js_modal_alertas">Alertas en tu email</a></li>
+                                            <li><a href="/informacion/aviso-legal-politica-privacidad-1/">Aviso Legal - Politica Privacidad</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="penultimo">
+                                    <a href="javascript:void(0);" onclick="Tarifas();" class="pull-left btn btn-top btn-main">ANUNCIATE</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>       
+        
+            <div class="container-fluid" id="content">
+                <div class="row wrapper home" style="margin-top: 0px;">
+                    @RenderBody()
+                    @*<div class="text-center mg30 col-xs-12 top-cierre">
+                            <ul class="list-inline mg20 unline">
+                                <li><a href="/escorts-madrid/" class="bold">ESCORTS MADRID</a></li>
+                                <li><a href="/escorts-barcelona/" class="bold">ESCORTS BARCELONA</a></li>
+                            </ul>
+                            <form class="mg20" name="frmCategoriasFooter" id="frmCategoriasFooter" method="post" action="#">
+                                <select id="cf_categoriaID" name="cf_categoriaID" class="col-sm-4 col-lg-3 selectpicker" style="display: none;">
+                                    <option value="0" selected="">Escorts y putas de lujo en</option>
+                                    <option value="/escorts-alava/">Álava</option>
+                                    <option value="/escorts-albacete/">Albacete</option>
+                                    <option value="/escorts-alicante/">Alicante</option>
+                                    <option value="/escorts-almeria/">Almería</option>
+                                    <option value="/escorts-asturias/">Asturias</option>
+                                    <option value="/escorts-avila/">Ávila</option>
+                                    <option value="/escorts-badajoz/">Badajoz</option>
+                                    <option value="/escorts-barcelona/">
+                                        Barcelona
+                                    </option>
+                                    <option value="/escorts-burgos/">
+                                        Burgos
+                                    </option>
+                                    <option value="/escorts-caceres/">
+                                        Cáceres
+                                    </option>
+                                    <option value="/escorts-cadiz/">
+                                        Cádiz
+                                    </option>
+                                    <option value="/escorts-cantabria/">
+                                        Cantabria
+                                    </option>
+                                    <option value="/escorts-castellon/">
+                                        Castellón
+                                    </option>
+                                    <option value="/escorts-ceuta/">
+                                        Ceuta
+                                    </option>
+                                    <option value="/escorts-ciudad-real/">
+                                        CiudadReal
+                                    </option>
+                                    <option value="/escorts-cordoba/">
+                                        Córdoba
+                                    </option>
+                                    <option value="/escorts-cuenca/">
+                                        Cuenca
+                                    </option>
+                                    <option value="/escorts-girona/">
+                                        Girona
+                                    </option>
+                                    <option value="/escorts-granada/">
+                                        Granada
+                                    </option>
+                                    <option value="/escorts-guadalajara/">
+                                        Guadalajara
+                                    </option>
+                                    <option value="/escorts-guipuzcoa/">
+                                        Guipúzcoa
+                                    </option>
+                                    <option value="/escorts-huelva/">
+                                        Huelva
+                                    </option>
+                                    <option value="/escorts-huesca/">
+                                        Huesca
+                                    </option>
+                                    <option value="/escorts-islas-baleares/">Islas Baleares</option>
+                                    <option value="/escorts-jaen/">
+                                        Jaén
+                                    </option>
+                                    <option value="/escorts-la-coruna/">
+                                        La Coruña
+                                    </option>
+                                    <option value="/escorts-la-rioja/">La Rioja</option>
+                                    <option value="/escorts-las-palmas/">Las Palmas</option>
+                                    <option value="/escorts-leon/">
+                                        León
+                                    </option>
+                                    <option value="/escorts-lerida/">Lerida</option>
+                                    <option value="/escorts-lugo/">
+                                        Lugo
+                                    </option>
+                                    <option value="/escorts-madrid/">
+                                        Madrid
+                                    </option>
+                                    <option value="/escorts-malaga/">
+                                        Málaga
+                                    </option>
+                                    <option value="/escorts-melilla/">
+                                        Melilla
+                                    </option>
+                                    <option value="/escorts-murcia/">
+                                        Murcia
+                                    </option>
+                                    <option value="/escorts-navarra/">
+                                        Navarra
+                                    </option>
+                                    <option value="/escorts-ourense/">
+                                        Ourense
+                                    </option>
+                                    <option value="/escorts-palencia/">Palencia</option>
+                                    <option value="/escorts-pontevedra/">
+                                        Pontevedra
+                                    </option>
+                                    <option value="/escorts-salamanca/">
+                                        Salamanca
+                                    </option>
+                                    <option value="/escorts-santa-cruz-de-tenerife/">
+                                        Santa Cruz de Tenerife
+                                    </option>
+                                    <option value="/escorts-segovia/">
+                                        Segovia
+                                    </option>
+                                    <option value="/escorts-sevilla/">
+                                        Sevilla
+                                    </option>
+                                    <option value="/escorts-soria/">
+                                        Soria
+                                    </option>
+                                    <option value="/escorts-tarragona/">
+                                        Tarragona
+                                    </option>
+                                    <option value="/escorts-teruel/">
+                                        Teruel
+                                    </option>
+                                    <option value="/escorts-toledo/">
+                                        Toledo
+                                    </option>
+                                    <option value="/escorts-valencia/">
+                                        Valencia
+                                    </option>
+                                    <option value="/escorts-valladolid/">
+                                        Valladolid
+                                    </option>
+                                    <option value="/escorts-vizcaya/">
+                                        Vizcaya
+                                    </option>
+                                    <option value="/escorts-zamora/">
+                                        Zamora
+                                    </option>
+                                    <option value="/escorts-zaragoza/">
+                                        Zaragoza
+                                    </option>
+                                </select>
+                                <div class="btn-group bootstrap-select col-sm-4 col-lg-3">
+                                    <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="cf_categoriaID" title="Escorts y putas de lujo en"><span class="filter-option pull-left">Escorts y putas de lujo en</span>&nbsp;<span class="caret"></span></button>
+                                    <div class="dropdown-menu open">
+                                        <ul class="dropdown-menu inner selectpicker" role="menu">
+                                            <li data-original-index="0" class="selected"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Escorts y putas de lujo en</span>"><span class="text">Escorts y putas de lujo en</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="1"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Alava</span>"><span class="text">Álava</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="2"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Albacete</span>"><span class="text">Albacete</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="3"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Alicante</span>"><span class="text">Alicante</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="4"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Almeria</span>"><span class="text">Almería</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="5"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Asturias</span>"><span class="text">Asturias</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="6"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Avila</span>"><span class="text">Ávila</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="7"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Badajoz</span>"><span class="text">Badajoz</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>*@
+                </div>
+            </div>
+            <footer id="footer" class="bg-main">
+                <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <a href="/" class="logo" title="Escorts Madrid / Barcelona / Valencia  / Sevilla">
+                                    <img src="img/logotipo-footer.png" class="img-responsive" alt="Escorts Madrid / Barcelona / Valencia  / Sevilla">
+                                </a>
+
+                                <p>
+                                    Guia de Escorts Made In Spain. Encontraras todo lo que imaginas!!! Escorts Madrid &amp; Barcelona Nº 1 en Google ¿QUIERES ANUNCIARTE?
+                                    <br><strong>CONTACTO: </strong><a href="mailto:%69%6e%66%6f%40%68%6f%74%74%65%73%63%6f%72%74%73%2e%65%73">info@hottescorts.es</a>
+                                </p>
+                                <ul class="list-unstyled list-inline main-menu menu-footer">
+                                    <li><a href="/" title="Escorts Madrid / Barcelona / Valencia  / Sevilla">HOME</a></li>
+                                    <li><a href="/escorts-madrid/" title="ESCORTS MADRID">ESCORTS MADRID</a></li>
+                                    <li><a href="/escorts-barcelona/" title="ESCORTS BARCELONA">ESCORTS BARCELONA</a></li>
+                                    <li><a href="/escorts-valencia/" title="ESCORTS VALENCIA">ESCORTS VALENCIA</a></li>
+                                    <li><a href="/escorts-sevilla/" title="ESCORTS SEVILLA">ESCORTS SEVILLA</a></li>
+                                    <li><a href="/agencias-escorts/" title="Agencias de Escorts en España">AGENCIAS</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-md-4 action-footer">
+                                <p class="rosa title">Siguenos</p>
+                                <ul class="list-unstyled list-inline icon-footer">
+
+                                    <li><a class="no-deco" href="https://twitter.com/hottescorts" rel="nofollow" target="_blank"><i class="flaticon-twitter"></i></a></li>
+                                    <li><a class="no-deco" href="https://hott-escorts-blog.tumblr.com/" rel="nofollow" target="_blank"><i class="flaticon-tumblr4"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-md-4 action-footer">
+                                <p class="rosa title">Novedades en tu ciudad</p>
+
+                                <h3 class="subtitle">
+                                    ¿Quieres recibir todas las novedades y notícias
+                                    sobre las escorts?
+                                </h3>
+                                <a href="" class="btn btn-main no-radius" data-toggle="modal" data-target="#js_modal_alertas">APUNTATE!</a>
+                            </div>
+
+                        </div>
+                    </div>
+            </footer>
+
+
+            <a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button" title="" data-toggle="tooltip" data-placement="left" data-original-title="Haz click para volver arriba de la pagina" aria-describedby="tooltip128731" style="display: none;"><span class="glyphicon glyphicon-chevron-up"></span></a>
+            <div class="tooltip fade left in" role="tooltip" id="tooltip128731" style="top: 0px; left: -210px; display: block;">
+                <div class="tooltip-arrow" style="top: 0%;"></div>
+                <div class="tooltip-inner">Haz click para volver arriba de la pagina</div>
+            </div>
+
+            @*<div id="capaAvisoPoliticaCookies_superior_mensajes" class="capaAvisoPoliticaCookies_superior_mensajes">
+                    <div class="contenidoAvisoPoliticaCookies">
+                        <div class="navbar-fixed-bottom cookies">
+                            <div class="container">
+                                <p><a id="id_boton_cerrar_aviso_pc" title="Cerrar" class="cerrarAvisoPoliticaCookies pull-right" href="javascript:void(0);"><i class="fa fa-times"></i></a></p>
+                                <span class="block"><i class="fa fa-exclamation-triangle"></i><strong>Mayores de 18 años</strong></span>
+                                <i class="fa fa-exclamation-circle"></i><strong>Uso de cookies</strong> Utilizamos cookies para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Si continúa navegando, consideramos que acepta su uso. Puede obtener más información, o bien conocer cómo cambiar la configuración, en nuestra <a target="_blank" id="id_enlace_politica_privacidad_cookies" href="/informacion/politica-de-privacidad-2/">Política Privacidad</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+
+
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jqueryhome")
+
+</body>
+</html>

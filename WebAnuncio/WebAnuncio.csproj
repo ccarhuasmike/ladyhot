@@ -223,6 +223,7 @@
     <Content Include="js\modulo\addanuncio\addanuncio.js" />
     <Content Include="js\modulo\addanuncio\updategaleria.js" />
     <Content Include="js\modulo\addanuncio\updatevideo.js" />
+    <Content Include="js\modulo\details\details.js" />
     <Content Include="js\modulo\generales.js" />
     <Content Include="js\modulo\home\home.js" />
     <Content Include="js\modulo\tarifa\Tarifa.js" />
@@ -281,6 +282,7 @@
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Views\UploadVideo\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">
