@@ -186,6 +186,17 @@ function salir() {
     location.href = '/Home';
 }           
 
+function redirecToDetails(data) {
+    __AddSessionStorage('cod_anuncio_encryptado_details', data.cod_anuncio_encryptado);
+    var url = "../Details";
+    window.location.href = url;
+}
+
+function redirecToAnunciate() {
+    var url = "../Tarifas";
+    window.location.href = url;
+}    
+
 //Alert = {
 //    show: function ($div, msg) {
 //        $div.find('.alert-msg').text(msg);

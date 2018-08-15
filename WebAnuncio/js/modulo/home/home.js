@@ -1,15 +1,4 @@
-﻿function redirecToDetails(data) {
-    var tempId = data.cod_anuncio_encryptado;
-    var url = "../Details?id=" + tempId;
-    window.location.href = url;
-}
-function Tarifas() {
-    location.href = '/Tarifas';
-} 
-function redirecToAnunciate() {
-    var url = "../Tarifas";
-    window.location.href = url;
-}                     
+﻿                  
 (function ($, window, document) {   
 
     function cargarInicial() {

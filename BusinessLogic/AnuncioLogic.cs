@@ -29,6 +29,14 @@ namespace BusinessLogic
         {
             return _AnuncioData.InsertPrimerpaso(objeto);
         }
+
+        public ClientResponse GetAnucion_Details_anucion_x_tokens(string token_anuncio)
+        {
+            return _AnuncioData.GetAnucion_Details_anucion_x_tokens(token_anuncio);
+        }
+
+
+        
         public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
         {
             return _AnuncioData.ActualizarPrimerpaso(objeto);
@@ -55,6 +63,10 @@ namespace BusinessLogic
         public ClientResponse ListarAnuncio()
         {
             return _AnuncioData.ListarAnuncio();
+        }
+        public ClientResponse ListarAnuncio_top_10()
+        {
+            return _AnuncioData.ListarAnuncio_top_10();
         }
         public ClientResponse darBajarAnuncio(string token_anuncio)
         {

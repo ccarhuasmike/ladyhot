@@ -35,6 +35,42 @@ namespace AccessData.PersonaDao
         #endregion
 
         #region Metodo
+
+
+
+        public ClientResponse ListarAnuncio_top_10()
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_fichas_anuncio_top_10", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
         public ClientResponse ListarAnuncio()
         {
             try
@@ -422,7 +458,7 @@ namespace AccessData.PersonaDao
                             {
                                 entidad = reader.ReadFields<tbl_anuncio>();
                             }
-                            
+
                         }
                     }
                 }
@@ -440,6 +476,44 @@ namespace AccessData.PersonaDao
                 reader.Dispose();
             }
             return entidad;
+        }
+
+        public ClientResponse GetAnucion_Details_anucion_x_tokens(string token_anuncio)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_fichas_anuncio_x_tokens", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                entidad = reader.ReadFields<tbl_anuncio>();
+                            }
+
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
         }
         #endregion
 

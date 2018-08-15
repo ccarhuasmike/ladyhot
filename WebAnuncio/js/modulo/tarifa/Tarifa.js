@@ -1,8 +1,4 @@
-﻿function Tarifas() {
-    location.href = '/Tarifas';
-} 
-
-(function ($, window, document) {
+﻿(function ($, window, document) {
     function registrarteahora() {          
         document.getElementById("j_registro").style.display = "block";
         document.getElementById("j_login").style.display = "none";   

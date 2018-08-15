@@ -1,16 +1,4 @@
-﻿function redirecToDetails(data) {
-    var tempId = data.cod_anuncio_encryptado;
-    var url = "../Details?id=" + tempId;
-    window.location.href = url;
-}
-function Tarifas() {
-    location.href = '/Tarifas';
-}
-function redirecToAnunciate() {
-    var url = "../Tarifas";
-    window.location.href = url;
-}
-(function ($, window, document) {
+﻿(function ($, window, document) {         
 
     function cargarInicial() {
         getCargarInicia().done(responseCargarInicia);
@@ -19,8 +7,8 @@ function redirecToAnunciate() {
     function getCargarInicia() {
         return $.ajax({
             type: "POST",
-            url: $("#url_base").val() + "Home/ListarAnuncio",
-            data: {},
+            url: $("#url_base").val() + "Details/GetDetailsAnuncio",
+            data: { cod_anuncio_encryptado: __getSessionStorage('cod_anuncio_encryptado_details')},
             dataType: "Json",
             async: false,
             error: function (ex) {
@@ -31,125 +19,179 @@ function redirecToAnunciate() {
 
     function responseCargarInicia(response) {
         if (response.Status === "OK") {
-            var response = JSON.parse(response.DataJson);
-            cargar_galeria_fotos(response);
-            //cargar_galeria_tops(response);
-
-            if ($('.js-carousel').length > 0) {
-                var $carousel = $('.js-carousel').flickity({
-                    freeScroll: true,
-                    wrapAround: true,
-                    cellAlign: 'left',
-                    contain: true,
-                    pageDots: false,
-                    draggable: '>10'
-                });
-            }
-
+            var responseDetails = JSON.parse(response.Data.DetailsAnuncion.DataJson);
+            var responseCargaInicial = JSON.parse(response.Data.ListCargarInicial.DataJson);
+            cargar_galeria_fotos(responseDetails.txt_imagen_prensetancion);
+            $("#container-presentacion").append(responseDetails.txt_presentacion);
+            cargar_container_servicios(responseDetails.tx_servicios_ofrece);
+            cargar_container_distrito(responseDetails.txt_lugar_servicio_distrito);
+            cargar_container_informacion(responseDetails);
+            cargar_container_tarifa(responseDetails);     
+            cargar_container_fichas(responseCargaInicial);
         } else {
 
         }
-    }
-
-
-    function cargar_galeria_tops(response) {
-        $("#js-carousel").html("");
-        var html = "";
-        for (var e = 0; e < 5; e++) {
+    }  
+    function cargar_container_fichas(response) {
+        $("#container-fichas-anuncio").html("");
+        if (response.length > 0) {
             for (var i = 0; i < response.length; i++) {
                 var html = "";
                 var valTokens = {
                     cod_anuncio_encryptado: response[i].cod_anuncio_encryptado
                 };
-                var ValsTokens = JSON.stringify(valTokens);
-                html += "<div class='carousel-cell anuncios--top'>";
-                html += "<a class='imagen'  href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens + ");'  title='" + response[i].txt_nombre_ficha + " Escort de  " + response[i].tx_pais_origen + ": " + response[i].txt_presentacion.substring(0, 59) + "'>";
-                html += "<span class='overlay'></span>";
-                html += "<div class='info text-center'>";
-                html += "<h3 class='title nombre'>" + response[i].txt_nombre_ficha + "</h3>";
-                html += "<span class='provincia'>" + response[i].tx_pais_origen + "</span>";
-                html += "</div>";
-                html += "<img class='img-responsive' alt='Ver ficha completa de " + response[i].txt_nombre_ficha + " Escort de " + response[i].tx_pais_origen + "' src='" + response[i].txt_imagen_prensetancion.split(",")[0] + "'>";
+                var ValsTokens = JSON.stringify(valTokens);                
+                html += "<li class='col-xs-6 col-sm-4 col-md-2 col-lg-2 mg30'>";
+                html += "<div class='element'>";
+                html += "<div class='imagen-wrapper'>";
+                html += "<a href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens +");'>";
+                html += "<img src='" + response[i].txt_imagen_prensetancion.split(",")[0] + "' alt='Sample' class='img-responsive'>";
                 html += "</a>";
                 html += "</div>";
-                $("#js-carousel").append(html);
-            }
-        }
-    }
-
-    function cargar_galeria_fotos(response) {
-        $("#j_fichas").html("");
-        var html = "";
-        html += "<ul class='blq-list-big list-unstyled clearfix'>";
-        for (var i = 0; i < response.length; i++) {
-            var valTokens = {
-                cod_anuncio_encryptado: response[i].cod_anuncio_encryptado
-            };
-            var ValsTokens = JSON.stringify(valTokens);
-            html += "<li class='col-xs-6 col-sm-4 col-md-15 col-lg-15 mg30 zona-100'>";
-            html += "<div class='element'>";
-            html += "<div class='ficha-peq'>";
-            html += "<a class='imagen' href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens + ");' title='" + response[i].txt_nombre_ficha + " de " + response[i].tx_pais_origen + ": " + response[i].txt_presentacion.substring(0, 59) + "'> <img class='img-responsive' alt='Ver ficha completa de " + response[i].txt_nombre_ficha + " de " + response[i].tx_pais_origen + "' src='" + response[i].txt_imagen_prensetancion.split(",")[0] + "' data-original='" + response[i].txt_imagen_prensetancion.split(",")[1] + "' data-thumbnail='" + response[i].txt_imagen_prensetancion.split(",")[2] + "' data-path='" + response[i].txt_imagen_prensetancion.split(",")[3] + "'> </a>";
-            html += "</div>";
-            html += "<div class='description' style='margin-top: 0px;'>";
-            html += "<div class='sube clearfix'>";
-            html += "<div class='sube-interior clearfix'>";
-            html += "<div class='izquierda text-left'>";
-            html += "<a href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens + ");' class='block title bold no-deco ellipsis'>" + response[i].txt_nombre_ficha + "</a>";
-            html += "<span class='block subtitle'>" + response[i].tx_pais_origen + "</span>";
-            html += "<ul class='list-inline clearfix'>";
-            html += "<li><span class='cuadrado bg-rosa'></span> </li>";
-            html += "</ul>";
-            html += "</div>";
-            html += "<div class='derecha'>";
-            html += "<span class='rosa bold block'>" + response[i].dbl_costo_x_tiempo_1hora + " S/.</span>";
-            html += "<span class='block subtitle'>1 Hora</span>";
-            html += "</div>";
-            html += "</div>";
-            html += "</div>";
-            html += "<div class='clearfix cuerpo'>";
-            html += "<p class='mg20'>" + response[i].txt_presentacion.substring(0, 366) + "...</p>";
-            html += "<ul class='list-unstyled specificaciones'>";
-            html += "<li class='clearfix'>";
-            html += "<span class='pull-left bold'>Tipo: </span><span class='rosa'>Agencia</span>";
-            html += "</li>";
-            html += "<li class='clearfix'><span class='pull-left bold'>Edad: </span>" + response[i].int_edad + " Años</li>";
-            html += "<li class='clearfix'>";
-            html += "<span class='pull-left bold'>Pais: </span>" + response[i].tx_pais_origen + "";
-            html += "</li>";
-            //html += "<li class='clearfix'>";
-            //html += "<span class='pull-left bold'>Idiomas:</span>Italiano, Inglés, Español";
-            //html += "</li>";
-
-            if (response[i].tx_fl_atencion_24horas != "") {
-                html += "<li class='clearfix'>";
-                html += "<span class='pull-left bold'>Horarios:</span>" + response[i].tx_fl_atencion_24horas + "";
-                html += "<br>";
+                html += "<div class='description'>";
+                html += "<ul class='sube list-unstyled clearfix'>";
+                html += "<li class='izquierda text-left'>";
+                html += "<a href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens + ");' class='no-deco bold block ellipsis'>" + response[i].txt_nombre_ficha + "</a>";
+                html += "<span class='ft12 block'>" + response[i].tx_pais_origen +"</span>";
                 html += "</li>";
+                html += "<li class='derecha text-left'>";
+                html += "<span class='rosa bold block'>" + response[i].dbl_costo_x_tiempo_1hora +" S/.</span>";
+                html += "<span class='ft12 block'>1 Hora</span>";
+                html += "</li>";
+                html += "</ul>";
+                html += "<div class='clearfix cuerpo'>" + response[i].txt_presentacion.substring(0, 366) +"...</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</li>";  
+                $("#container-fichas-anuncio").append(html);
             }
-            html += "</ul>";
-            html += "</div>";
-            html += "</div>";
-            html += "</div>";
-            html += "</li>";
-
-
-            //var html = "";
-            //html += "<div class='contenedor-fotos'>";
-            //html += "<img src='" + response[i].txt_ruta_virtuales_cortada + "' alt='Forest'>";
-            //html += "<div class='group-button'>";
-            //html += "<a 'javascript:void(0);' onclick='btn_eliminar_foto(" + response[i].id + ");' class='btn btn-default btn-success btn-xs btn-block myButton'>Eliminar</a>";
-            //html += "</div>";
-            //html += "</div>";
-
         }
-        html += "</ul>";
-        $("#j_fichas").append(html);
+        
+    }
+    function cargar_container_servicios(data) {
+        $("#container-servicios").html("");
+        var list = data.split(",");
+        if (list.length > 0) {
+            for (var i = 0; i < list.length; i++) {
+                var valor = list[i].split("-")[1]; 
+                var html = "";
+                html += "<li><a href='javascript:void(0);' title='" + valor +"' target='_blank'>" + valor+"</a></li>"
+                $("#container-servicios").append(html);
+            }
+        }      
+    }
+    function cargar_container_distrito(data) {
+        $("#container-distrito-atencion").html("");
+        var list = data.split(",");
+        if (list.length > 0) {
+            for (var i = 0; i < list.length; i++) {
+                var valor = list[i].split("-")[1];
+                var html = "";
+                html += "<li><a href='javascript:void(0);' title='" + valor + "' target='_blank'>" + valor + "</a></li>"
+                $("#container-distrito-atencion").append(html);
+            }
+        }
     }
 
+    function cargar_container_informacion(data) {
+        $("#container-informacion").html("");
+        var html = "";              
+        if (data.int_edad > 0) {
+            html += "<li class='clearfix'>";
+            html += "<span class='pull-left'>Edad</span>";
+            html += "<span class='pull-right' > <strong>" + data.int_edad+" Años</strong></span >";
+            html += "</li>";
+        }                   
+        if (data.tx_pais_origen != "") {
+            html += "<li class='clearfix'>";
+            html += "<span class='pull-left'>Pais</span>";
+            html += "<span class='pull-right'><strong>" + data.tx_pais_origen+"</strong></span>";
+            html += "</li>";
+        }
+        if (data.tx_estudio != "") {
+            html += "<li class='clearfix'>";
+            html += "<span class='pull-left'>Estudio</span>";
+            html += "<span class='pull-right'><strong>" + data.tx_estudio+"</strong></span>";
+            html += "</li>";
+        } 
+        if (data.tx_color_ojos != "") {
+            html += "<li class='clearfix'>";
+            html += "<span class='pull-left'>Color Ojos</span>";
+            html += "<span class='pull-right'><strong>" + data.tx_color_ojos + "</strong></span>";
+            html += "</li>";
+        }      
+        
+        if (data.tx_color_cabello != "") {
+            html += "<li class='clearfix'>";
+            html += "<span class='pull-left'>Color Cabello</span>";
+            html += "<span class='pull-right'><strong>" + data.tx_color_cabello + "</strong></span>";
+            html += "</li>";
+        }     
+        if (data.txt_medidas_busto_cintura_cadera != "") {
+            var list_medidas = data.txt_medidas_busto_cintura_cadera.split(",");
+            html += "<li class='clearfix'>";
+            html += "<span class='pull-left'>Medidas (Busto-Cintura-Caderas</span>";
+            html += "<span class='pull-right'><strong>" + list_medidas[0] + " - " + list_medidas[1] + " - " + list_medidas[2] +"</strong></span>";
+            html += "</li>";
+        }        
+        $("#container-informacion").append(html);      
+    }
+
+    function cargar_container_tarifa(data) {
+        $("#container-tarifa").html("");
+        console.log(data);
+        var html = "";        
+
+        var tx_costo_x_tiempo_30min = data.dbl_costo_x_tiempo_30min == 0 ? "Consultar" : "S/. "+ data.dbl_costo_x_tiempo_30min;
+        var tx_costo_x_tiempo_45min = data.dbl_costo_x_tiempo_45min == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_45min;
+        var tx_dbl_costo_x_tiempo_1hora = data.dbl_costo_x_tiempo_1hora == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_1hora;
+        var tx_dbl_costo_x_tiempo_1hora_media = data.dbl_costo_x_tiempo_1hora_media == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_1hora_media;
+        var tx_dbl_costo_x_tiempo_2hora = data.dbl_costo_x_tiempo_2hora == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_2hora;
+        var tx_dbl_costo_x_tiempo_3hora = data.dbl_costo_x_tiempo_3hora == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_3hora;
+        var tx_dbl_costo_x_tiempo_salidas = data.dbl_costo_x_tiempo_salidas == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_salidas;
+        var tx_dbl_costo_x_tiempo_toda_noche = data.dbl_costo_x_tiempo_toda_noche == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_toda_noche;
+        var tx_dbl_costo_x_viaje = data.dbl_costo_x_viaje == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_viaje;
+
+        html += "<li class='clearfix'><span class='pull-left'>30 Minutos</span><span class='pull-right'><strong>" + tx_costo_x_tiempo_30min +" </strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>45 Minutos</span><span class='pull-right'><strong>" + tx_costo_x_tiempo_45min +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>1 Hora</span><span class='pull-right'><strong>" + tx_dbl_costo_x_tiempo_1hora +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>1 Hora y media</span><span class='pull-right'><strong>" + tx_dbl_costo_x_tiempo_1hora_media +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>2 Horas</span><span class='pull-right'><strong>" + tx_dbl_costo_x_tiempo_2hora +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>3 Horas</span><span class='pull-right'><strong>" + tx_dbl_costo_x_tiempo_3hora +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>Salidas</span><span class='pull-right'><strong>" + tx_dbl_costo_x_tiempo_salidas +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>Toda la noche</span><span class='pull-right'><strong>" + tx_dbl_costo_x_tiempo_toda_noche +"</strong></span></li>";
+        html += "<li class='clearfix'><span class='pull-left'>Viajes</span><span class='pull-right'><strong> " + tx_dbl_costo_x_viaje + "</strong></span></li>";    
+        if (data.txt_forma_pago != "") {
+            html += "<li class='clearfix'><span class='pull-left'>Forma de Pago:</span><span class='pull-right'><strong>" + data.txt_forma_pago + "</strong></span></li>";    
+        }        
+        $("#container-tarifa").append(html);
+    }
+
+    
+    function cargar_galeria_fotos(response) {
+        $("#container-fotos-seccion-1").html("");
+        $("#container-fotos-seccion-2").html("");
+        var list = response.split(",");
+        var contador = 0;
+        if (list.length > 0) {
+            for (var i = 0; i < list.length; i++) {                
+                contador++;
+                var html = "";
+                if (contador < 3) {
+                    html += "<div class='col-sm-6 mg30'>";
+                    html += "<img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES #1' class='img-responsive full-img'>";
+                    html += "</div>";
+                    $("#container-fotos-seccion-1").append(html);
+                } else {
+                    html += "<li class='col-sm-6 item masonry-brick'><img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES' class='img-responsive full-img'></li>";
+                    $("#container-fotos-seccion-2").append(html);
+                }                                             
+            }
+        }             
+    }                   
 
     function codeBehind() {
-        //cargarInicial();
+        cargarInicial();
     }
 
     $(function () {

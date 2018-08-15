@@ -46,7 +46,7 @@
             var response_carga_inicial = JSON.parse(response.Data.ListCargarInicial.DataJson);
             loadCombos(response_carga_inicial);
             loadCheckoxes(response_carga_inicial);  
-            var response = response.Data.DetailleAnuncion[0];
+            var response = response.Data.DetailleAnuncion;
             $("#txt_nombre").val(response.txt_nombre_ficha);
             $("#txt_telefono_1").val(response.txt_telefono_1);
             $("#txt_telefono_2").val(response.txt_telefono_2);

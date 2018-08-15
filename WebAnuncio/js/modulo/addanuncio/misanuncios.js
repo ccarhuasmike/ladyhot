@@ -14,10 +14,7 @@ function click_dar_baja_anuncio(data) {
 function click_videos_anuncio(data) {
     __AddSessionStorage('id_anuncio_upd', data.id);
     window.location.href = "/UploadVideo";
-}
-
-
-
+}                           
 
 (function ($, window, document) {
 

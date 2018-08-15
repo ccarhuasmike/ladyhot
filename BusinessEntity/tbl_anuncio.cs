@@ -14,13 +14,16 @@ namespace BusinessEntity
         public string txt_telefono_2 { get; set; } = "";
         public string txt_email { get; set; } = "";
         public string txt_web { get; set; } = "";
-        public int int_edad { get; set; } = 0;
+        public int int_edad { get; set; } = 0;        
         public int int_pais_origen { get; set; } = 0;
         public string tx_pais_origen { get; set; } = "";
         public int int_estudios { get; set; } = 0;
+        public string tx_estudio { get; set; } = "";
         public string txt_presentacion { get; set; } = "";
         public int int_color_cabello { get; set; } = 0;
+        public string tx_color_cabello { get; set; } = "";
         public int int_color_ojos { get; set; } = 0;
+        public string tx_color_ojos { get; set; } = "";
         public int int_estatura { get; set; } = 0;
         public int int_peso { get; set; } = 0;
         public string txt_medidas_busto_cintura_cadera { get; set; } = "";
@@ -60,6 +63,7 @@ namespace BusinessEntity
         public string cod_anuncio_encryptado { get; set; } = "";
         public int id_usuario { get; set; } = 0;
         //Propiedades Extras
-        public string txt_imagen_prensetancion { get; set; } = "";
+        public string txt_imagen_prensetancion { get; set; } = "";        
+        
     }
 }
