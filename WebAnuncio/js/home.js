@@ -1,8 +1,8 @@
 var dListados = $(document);
 var miListados = {};
-miListados.nDesde = misParametros.fichas_por_mostrar;
-miListados.nFichasBajoDemanda = misParametros.fichas_carga_bajo_demanda;
-miListados.sRutaAjax = misParametros.rutaAjax;
+miListados.nDesde = 0;
+miListados.nFichasBajoDemanda = 0;
+miListados.sRutaAjax = 0;
 miListados.nTimer = false;
 
 miListados.inicializar = function () {

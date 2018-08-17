@@ -2,7 +2,7 @@
 	font-family: "Flaticon";
 	src: url("flaticon.eot");
 	src: url("flaticon.eot#iefix") format("embedded-opentype"),
-	url("flaticon.woff") format("woff"),
+	url("../../fonts/slide/flaticon.woff") format("woff"),
 	url("flaticon.ttf") format("truetype"),
 	url("flaticon.svg") format("svg");
 	font-weight: normal;

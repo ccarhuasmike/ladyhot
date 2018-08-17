@@ -13,85 +13,10 @@
     @Styles.Render("~/Content/flickitydetails")
     <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
     <script src="https://static2.hottescorts.es/respond.min.js"></script>
-    <script type="text/javascript">
-        var browser = navigator.userAgent;
-        var browserRegex = /(Android|BlackBerry|IEMobile|Nokia|iP(ad|hone|od)|Opera M(obi|ini))/;
-        var isMobile = false;
-        if (browser.match(browserRegex)) {
-            isMobile = true;
-            addEventListener("load", function () {
-                setTimeout(hideURLbar, 0);
-            }, false);
-
-            function hideURLbar() {
-                window.scrollTo(0, 1);
-            }
-        }
-    </script>
-    <script src="//oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    <script type="text/javascript">
-        // <![CDATA[
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-16637509-46']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-  // ]]>
-    </script>
-    <script type="text/javascript">
-        var misParametros = {};
-        misParametros.tarifa_desde = 40;
-        misParametros.tarifa_hasta = 1000;
-        misParametros.tetas_desde = 60;
-        misParametros.tetas_hasta = 180;
-        misParametros.culo_desde = 60;
-        misParametros.culo_hasta = 140;
-        misParametros.edad_desde = 18;
-        misParametros.edad_hasta = 55;
-        misParametros.fichas_por_mostrar = 120;
-        misParametros.fichas_carga_bajo_demanda = 25;
-
-        misParametros.rutaAjax = "/procesos/";
-
-        misParametros.buscador = "0";
-        misParametros.home = "1";
-        misParametros.servicio = "0";
-        misParametros.tag = "0";
-        misParametros.buscador_tag = "0"; //  CRTVT-1176
-
-        misParametros.novedades = "0";
-        misParametros.gratis = "0";
-        misParametros.provincia = "";
-        misParametros.localidad = "";
-        misParametros.buscador_provincia = "";
-        misParametros.buscador_localidad = "";
-        misParametros.buscador_tarifa = "";
-        misParametros.buscador_caracteristicas = "";
-        misParametros.buscador_tetas = "";
-        misParametros.buscador_culo = "";
-        misParametros.buscador_servicio = "";
-
-        misParametros.hash_proximidad = "79c7a1727ff3d6064582a37fcbae0b16";
-    </script>
+    <script src="//oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js"></script>   
     @*<link href="../css/estilos_extras_v3.css" rel="stylesheet">*@
-    @*<style type="text/css">
-        .fancybox-margin {
-            margin-right: 17px;
-        }
-    </style>
-    *@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/flickity")
-
-
-
 </head>
 <body>
     <input type="hidden" value="@baseUri" id="url_base" />
@@ -391,12 +316,8 @@
                         </div>
                     </div>
                 </div>*@
-
-
-
-
         </div>
     </div>
-    @Scripts.Render("~/bundles/jqueryhome")
+    @*@Scripts.Render("~/bundles/jqueryhome")*@
 </body>
 </html>

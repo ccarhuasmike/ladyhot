@@ -13,6 +13,22 @@
     fullscreen: true,
     lazyLoad: 1*/
 
+$(document).on("mouseenter", ".element .sube", function (e) {
+    // $('.element .sube').mouseenter(function () {
+    var element = $(this).closest('.element');
+    var blockHeight = element.height();
+    var headerHeight = $(this).height();
+    element.find('.description').animate({
+        'margin-top': -(blockHeight - headerHeight)
+    });
+});
+$(document).on("mouseleave", ".element", function (e) {
+    // $('.element').mouseleave(function () {
+    $(this).find('.description').animate({
+        'margin-top': "0px"
+    });
+});
+
 (function ($, window, document) {         
 
     function cargarInicial() {
@@ -153,10 +169,8 @@
     }
 
     function cargar_container_tarifa(data) {
-        $("#container-tarifa").html("");
-        console.log(data);
-        var html = "";        
-
+        $("#container-tarifa").html("");        
+        var html = "";                  
         var tx_costo_x_tiempo_30min = data.dbl_costo_x_tiempo_30min == 0 ? "Consultar" : "S/. "+ data.dbl_costo_x_tiempo_30min;
         var tx_costo_x_tiempo_45min = data.dbl_costo_x_tiempo_45min == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_45min;
         var tx_dbl_costo_x_tiempo_1hora = data.dbl_costo_x_tiempo_1hora == 0 ? "Consultar" : "S/. " +data.dbl_costo_x_tiempo_1hora;
@@ -194,21 +208,9 @@
             for (var i = 0; i < list.length; i++) {       
                 var htmlaux = "";
                 htmlaux += "<div class='carousel-cell'>";
-                htmlaux += "<img src='" + list[i] + "' alt='orange tree' />";
+                htmlaux += "<img src='" + list[i] + "' alt='orange tree' data-flickity-lazyload='" + list[i] + "' />";
                 htmlaux += "</div>";
-                $("#id_carusel").append(htmlaux);         
-
-                //contador++;
-                //var html = "";
-                //if (contador < 3) {
-                //    html += "<div class='col-sm-6 mg30'>";
-                //    html += "<img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES #1' class='img-responsive full-img'>";
-                //    html += "</div>";
-                //    $("#container-fotos-seccion-1").append(html);
-                //} else {
-                //    html += "<li class='col-sm-6 item masonry-brick'><img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES' class='img-responsive full-img'></li>";
-                //    $("#container-fotos-seccion-2").append(html);
-                //}                                             
+                $("#id_carusel").append(htmlaux);                                                               
             }
 
             var $carousel = $('#id_carusel').flickity({
@@ -217,7 +219,7 @@
                 pageDots: false,
                 fullscreen: true,
                 imagesLoaded: true,
-                autoPlay: 1500,
+                //autoPlay: 1500,
                 pauseAutoPlayOnHover: false,
                 adaptiveHeight: true
             });

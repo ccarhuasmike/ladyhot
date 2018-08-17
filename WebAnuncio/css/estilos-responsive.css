@@ -1,11 +1,12 @@
 /* Large desktop */
-
 @media (min-width: 1200px) {
     .navbar-nav > li > a {
         padding-top: 32px;
         padding-bottom: 32px;
     }
-
+    .imagen img {
+        height:100% !important;
+    }
     .messages-menu .dropdown-toggle {
         padding: 0;
         position: relative;
@@ -19,7 +20,7 @@
         height: 355px;
     }
     .blq-list-big .element {
-        height: 376px;
+        height: 430px;
        
     }
 
@@ -233,9 +234,7 @@
     }
 }
 
-
 /* Portrait tablet to landscape and desktop */
-
 @media (min-width: 768px) and (max-width: 979px) {
     .scroll-to-fixed-fixed.submenu {
         background: rgb(0, 0, 0);
@@ -493,9 +492,7 @@
     }
 }
 
-
 /* Landscape phone to portrait tablet */
-
 @media (max-width: 767px) {
     .submenu.scroll-to-fixed-fixed {
         background: rgb(0, 0, 0);
@@ -1056,9 +1053,7 @@
     }
 }
 
-
-/* Landscape phones and down */
-
+/*Landscape phones and down */
 @media (max-width: 480px) {
     .page404 {
         margin: 40px 0;
@@ -1596,6 +1591,7 @@
     }
 }
 
+/*Smartphones (portrait)*/
 @media (max-width: 320px) {
     li:before,
     li:after {
@@ -1604,21 +1600,15 @@
     }
 }
 
-
 /* iPhone 5 in landscape  */
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 }
-
-
 /* iPhone 5 in portrait */
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
 }
 
-
 /* Custom, iPhone Retina */
-
 @media only screen and (min-width: 320px) {
     .sb-site-container {
         padding-top: 48px;
@@ -1681,8 +1671,6 @@
         color: #FFF !important;
     }
 }
-
-
 /* Extra Small Devices, Phones */
 
 @media only screen and (min-width: 480px) {
@@ -1724,7 +1712,6 @@
         font-size: 2rem;
     }
 }
-
 
 /* Small Devices, Tablets */
 
@@ -1914,9 +1901,7 @@
     }
 }
 
-
 /* Medium Devices, Desktops */
-
 @media only screen and (min-width: 992px) {
     .masaje .chicas-agencia li {
         height: 51px;
@@ -2142,7 +2127,6 @@
         padding: 5px 5px;
     }
 }
-
 
 /* Large Devices, Wide Screens */
 
@@ -2401,7 +2385,6 @@
         padding: 0 30px;
     }
 }
-
 
 /* iphone  */
 
