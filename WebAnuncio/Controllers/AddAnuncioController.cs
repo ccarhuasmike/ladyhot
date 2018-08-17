@@ -1,6 +1,7 @@
 ﻿using BusinessEntity;
 using BusinessLogic;
 using Communities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,6 +21,35 @@ namespace WebAnuncio.Controllers
         {
             return View();
         }
+
+        
+        public JsonResult GetAnucionXId(int id)
+        {
+
+
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                //IEnumerable <tbl_anuncio> listDetall = new AnuncioLogic().getAnucionXId(id);
+                tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id_anuncio = id };
+                //IEnumerable<tbl_galeria_anuncio> Get_galeria_x_id_anuncio = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
+                object initData = new
+                {
+                    DetailleAnuncion = new AnuncioLogic().getAnucionXId(id),
+                    ListCargarInicial = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad)
+                };
+                clientResponse.Status = "OK";
+                clientResponse.Data = initData;
+                //clientResponse.Status = "OK";
+                //clientResponse.DataJson = JsonConvert.SerializeObject(list).ToString();
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return Json(clientResponse, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult Primeropaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
@@ -33,6 +63,7 @@ namespace WebAnuncio.Controllers
             }
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
+
         public JsonResult ActualizarPrimerpaso(tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();

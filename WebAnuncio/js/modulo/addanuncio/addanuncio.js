@@ -1,4 +1,24 @@
-﻿$('#file_fotos').filestyle({
+﻿function scroll_to_class(element_class, removed_height) {
+    var scroll_to = $(element_class).offset().top - removed_height;
+    if ($(window).scrollTop() != scroll_to) {
+        $('html, body').stop().animate({ scrollTop: scroll_to }, 0);
+    }
+}
+
+function bar_progress(progress_line_object, direction) {
+    var number_of_steps = progress_line_object.data('number-of-steps');
+    var now_value = progress_line_object.data('now-value');
+    var new_value = 0;
+    if (direction == 'right') {
+        new_value = now_value + (100 / number_of_steps);
+    }
+    else if (direction == 'left') {
+        new_value = now_value - (100 / number_of_steps);
+    }
+    progress_line_object.attr('style', 'width: ' + new_value + '%;').data('now-value', new_value);
+}
+      
+$('#file_fotos').filestyle({
     buttonText: 'Examinar',
     buttonName:'btn-success btn-sm'
 });
@@ -42,11 +62,167 @@ function cargar_galeria_fotos(response) {
         html += "</div>";
         html += "</div>";
         $("#id_container_galeria").append(html);
-    }
-
+    }                      
 }
                                                  
 (function ($, window, document) {             
+
+
+    $('.f1 fieldset:first').fadeIn('slow');
+
+    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea, .f1 select').on('focus', function () {
+        $(this).removeClass('input-error');
+    });
+
+    // next step
+    $('.f1 .btn-next').on('click', function () {
+        var parent_fieldset = $(this).parents('fieldset');
+        var next_step = true;
+        // navigation steps / progress steps
+        var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+
+        // fields validation
+        // fields validation del primero paso
+        if (parent_fieldset.attr("id") == 'fieldset_primero_paso') {
+            parent_fieldset.find('input[type="text"], input[type="password"], textarea , select').each(function () {
+                if (
+                    $(this).attr("id") == 'txt_nombre' ||
+                    $(this).attr("id") == 'txt_telefono_1' ||
+                    $(this).attr("id") == 'txt_telefono_2' ||
+                    $(this).attr("id") == 'txt_email' ||
+                    $(this).attr("id") == 'cbo_edad' ||
+                    $(this).attr("id") == 'cbo_pais' ||
+                    $(this).attr("id") == 'cbo_estudios' ||
+                    $(this).attr("id") == 'txt_presentacion'
+                ) {
+                    if ($(this).val() == "" || $(this).val() == "0") {
+                        $(this).addClass('input-error');
+                        next_step = false;
+                    }
+                    else {
+                        $(this).removeClass('input-error');                        
+                    }
+                }
+
+            });
+            if (next_step){
+                primerpaso();
+            }
+        }
+
+        // fields validation del segundo paso
+        if (parent_fieldset.attr("id") == 'fieldset_segundo_paso') {
+            parent_fieldset.find('input[type="text"], input[type="password"], textarea , select').each(function () {
+                if (
+                    $(this).attr("id") == 'cbo_pelo' ||
+                    $(this).attr("id") == 'cbo_ojos' ||
+                    $(this).attr("id") == 'cbo_estatura' ||
+                    $(this).attr("id") == 'cbo_peso' ||
+                    $(this).attr("id") == 'txt_medidas_busto' ||
+                    $(this).attr("id") == 'txt_medidas_cintura' ||
+                    $(this).attr("id") == 'txt_medidas_cadera'
+                ) {
+                    if ($(this).val() == "" || $(this).val() == "0") {
+                        $(this).addClass('input-error');
+                        next_step = false;
+                    }
+                    else {
+                        $(this).removeClass('input-error');
+                    }
+                }
+            });    
+            if (next_step) {
+                segundopaso();
+            }
+        }
+
+        if (parent_fieldset.attr("id") == 'fieldset_tercer_paso') {
+            parent_fieldset.find('input[type="text"], input[type="password"], textarea , select').each(function () {
+                if (
+                    $(this).attr("id") == 'txt_30_min' ||
+                    $(this).attr("id") == 'txt_45_min' ||
+                    $(this).attr("id") == 'txt_1_hora' ||
+                    $(this).attr("id") == 'txt_1_30_hora' ||
+                    $(this).attr("id") == 'txt_2_hora' ||
+                    $(this).attr("id") == 'txt_3_hora' ||
+                    $(this).attr("id") == 'txt_salida_hora' ||
+                    $(this).attr("id") == 'txt_toda_noche' ||
+                    $(this).attr("id") == 'txt_viajes'
+                ) {
+                    if ($(this).val() == "") {
+                        $(this).addClass('input-error');
+                        next_step = false;
+                    }
+                    else {
+                        $(this).removeClass('input-error');
+                    }
+                }
+            });
+            if (next_step) {
+                terceropaso();
+            }
+        }
+
+        if (parent_fieldset.attr("id") == 'fieldset_cuarto_paso') {
+            parent_fieldset.find('input[type="text"], input[type="password"], textarea , select').each(function () {
+                if (
+                    parseInt(__getSessionStorage("cantidad_image_agregado")) < 3
+                ) {
+                    next_step = false;
+                }
+            });          
+        }
+        // fields validation   
+        if (next_step) {
+            parent_fieldset.fadeOut(400, function () {
+                // change icons
+                current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+                // progress bar
+                bar_progress(progress_line, 'right');
+                // show next step
+                $(this).next().fadeIn();
+                // scroll window to beginning of the form
+                scroll_to_class($('.f1'), 20);
+            });
+        }
+
+    });
+
+    // previous step
+    $('.f1 .btn-previous').on('click', function () {
+        // navigation steps / progress steps
+        var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+        var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+
+        $(this).parents('fieldset').fadeOut(400, function () {
+            // change icons
+            current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+            // progress bar
+            bar_progress(progress_line, 'left');
+            // show previous step
+            $(this).prev().fadeIn();
+            // scroll window to beginning of the form
+            scroll_to_class($('.f1'), 20);
+        });
+    });                   
+    // submit
+    $('.f1').on('submit', function (e) {
+
+        // fields validation
+        $(this).find('input[type="text"], input[type="password"], textarea').each(function () {
+            if ($(this).val() == "") {
+                e.preventDefault();
+                $(this).addClass('input-error');
+            }
+            else {
+                $(this).removeClass('input-error');
+            }
+        });
+        // fields validation
+
+    });
+
 
     function cargarInicial() {
         getCargarInicia().done(responseCargarInicia);         
@@ -73,7 +249,83 @@ function cargar_galeria_fotos(response) {
         }else {
 
         }          
-    }        
+    }             
+
+    /*Obtenemos el detalle del anuncio para poder cargarlos en los controles*/
+    function cargarDetAnuncion() {
+        getcargarDetAnuncion().done(responsegetcargarDetAnuncion);
+    }            
+    
+    function getcargarDetAnuncion() {
+        return $.ajax({
+            type: "POST",
+            url: $("#url_base").val() + "AddAnuncio/GetAnucionXId",
+            data: { id: parseInt(__getSessionStorage("id_anuncio_val")) },
+            dataType: "Json",
+            async: false,
+            error: function (ex) {
+                alert("error getcargarDetAnuncion ");
+            }
+        });
+    }
+
+    function responsegetcargarDetAnuncion(response_data) {
+        if (response_data.Status === "OK") {
+            //var response = JSON.parse(response.DataJson)[0];
+            var response = response_data.Data.DetailleAnuncion[0];
+            $("#txt_nombre").val(response.txt_nombre_ficha);
+            $("#txt_telefono_1").val(response.txt_telefono_1);
+            $("#txt_telefono_2").val(response.txt_telefono_2);
+            $("#txt_email").val(response.txt_email);
+            $("#txt_web").val(response.txt_web);
+            $("#txt_presentacion").val(response.txt_presentacion);
+            $("#cbo_edad").val(response.int_edad);
+            $("#cbo_pais").val(response.int_pais_origen);
+            $("#cbo_estudios").val(response.int_estudios);
+            $("#cbo_pelo").val(response.int_color_cabello);
+            $("#cbo_ojos").val(response.int_color_ojos);
+            $("#cbo_estatura").val(response.int_estatura);
+            $("#cbo_peso").val(response.int_peso);
+
+
+            setValueElemento("chk_forma_pagos[]", response.txt_forma_pago == null ? "" : response.txt_forma_pago);
+            setValueElemento("chk_distrito[]", response.txt_lugar_servicio_distrito == null ? "" : response.txt_lugar_servicio_distrito);
+            setValueElemento("chk_lugar_atencion[]", response.tx_lugar_atencion == null ? "" : response.tx_lugar_atencion);
+            setValueElemento("chk_servicio_ofrece[]", response.tx_servicios_ofrece == null ? "" : response.tx_servicios_ofrece);
+            if (response.txt_medidas_busto_cintura_cadera != null) {
+                var txt_medidas_busto_cintura_cadera = response.txt_medidas_busto_cintura_cadera.split(",");
+                $("#txt_medidas_busto").val(txt_medidas_busto_cintura_cadera[0]);
+                $("#txt_medidas_cintura").val(txt_medidas_busto_cintura_cadera[1]);
+                $("#txt_medidas_cadera").val(txt_medidas_busto_cintura_cadera[2]);
+            }
+            $("#txt_descripcion").val(response.txt_descripcion_extra_apariencia);
+            $("#txt_30_min").val(response.dbl_costo_x_tiempo_30min);
+            $("#txt_45_min").val(response.dbl_costo_x_tiempo_45min);
+            $("#txt_1_hora").val(response.dbl_costo_x_tiempo_1hora);
+            $("#txt_1_30_hora").val(response.dbl_costo_x_tiempo_1hora_media);
+            $("#txt_2_hora").val(response.dbl_costo_x_tiempo_2hora);
+            $("#txt_3_hora").val(response.dbl_costo_x_tiempo_3hora);
+            $("#txt_salida_hora").val(response.dbl_costo_x_tiempo_salidas);
+            $("#txt_toda_noche").val(response.dbl_costo_x_tiempo_toda_noche);
+            $("#txt_viajes").val(response.dbl_costo_x_viaje);
+            $("#txt_descripcion_tarifa").val(response.txt_descripcion_extra_tarifa);
+
+            //1: seleccionado
+            //0: no seleccionado
+            var chk_atiende_24_hora = false;
+            if (response.fl_atencion_24horas == 1) {
+                chk_atiende_24_hora = true;
+            }
+
+            $("#chk_24horas").prop("checked", chk_atiende_24_hora);
+            //var chk_atiende_24_hora = 0; //Atiendes las 24hs?	
+            $("#txt_descripcion_extra_horario").val(response.tx_descripcion_extra_horario);
+            $("#tx_descripcion_extra_servicio").val(response.tx_descripcion_extra_servicio);
+
+            var listGaleria = response_data.Data.ListCargarInicial;
+            cargar_galeria_fotos(listGaleria);
+        }
+    }  
 
     //Primer paso
     function primerpaso() {          
@@ -174,9 +426,8 @@ function cargar_galeria_fotos(response) {
     }
 
     function responseprimerpaso(response) {
-        if (response.Status === "OK") {
-            var response = JSON.parse(response.DataJson); 
-            __AddSessionStorage('id_anuncio_val', response[0].id);
+        if (response.Status === "OK") {                       
+            __AddSessionStorage('id_anuncio_val', response.Id);
             //Alert.success("El archivo seleccionado es inválido , los archivos válidos son de tipo");
         }
     }                 
@@ -225,7 +476,7 @@ function cargar_galeria_fotos(response) {
 
     function responsesegundopaso(response) {
         if (response.Status === "OK") {
-            var response = JSON.parse(response.DataJson);
+            //var response = JSON.parse(response.DataJson);
         } else {
 
         }
@@ -303,7 +554,7 @@ function cargar_galeria_fotos(response) {
 
     function responsetercerpaso(response) {
         if (response.Status === "OK") {
-            var response = JSON.parse(response.DataJson);
+            //var response = JSON.parse(response.DataJson);
         } else {
 
         }
@@ -396,11 +647,14 @@ function cargar_galeria_fotos(response) {
 
     function codeBehind() { 
         cargarInicial();
-        $("#btn_primerpaso").click(primerpaso);
-        $("#btn_segundopaso").click(segundopaso);
-        $("#btn_terceropaso").click(terceropaso);
-        $("#btn_agregar_imagen").click(btn_agregar_fotos);          
-        
+        /*Si refrescamos la pagina despues de haber registrado el anuncion debera de cargar los datos grabados en todos los pasos*/
+        if (__getSessionStorage("id_anuncio_val") != null) {
+            cargarDetAnuncion();
+        }
+        //$("#btn_primerpaso").click(primerpaso);
+        //$("#btn_segundopaso").click(segundopaso);
+        //$("#btn_terceropaso").click(terceropaso);
+        $("#btn_agregar_imagen").click(btn_agregar_fotos);                 
         /*onblur*/
         $("#txt_email").blur(regexEmail);       
         $("#txt_web").blur(regexWeb);                                   

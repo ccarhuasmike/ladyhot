@@ -39,21 +39,12 @@ namespace WebAnuncio
                       "~/js/home.js"
                       ));
 
-            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-            //            "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/flickity").Include(
+                    "~/js/flickity.pkgd.min.js",
+                    "~/js/fullscreen.js"
+                    ));          
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
-
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-            //          "~/Scripts/bootstrap.js",
-            //          "~/Scripts/respond.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      //"~/Content/bootstrap.css",
+            bundles.Add(new StyleBundle("~/Content/css").Include(                      
                       "~/css/bootstrap.min.css",
                       "~/css/flaticon.css",
                       "~/css/flaticon-redes.css",
@@ -70,13 +61,22 @@ namespace WebAnuncio
                       "~/css/jquery.jscrollpane.css",
                       "~/css/video/video-js.min.css",
                       "~/css/video/video-js-default-skin.css",
-                      "~/css/slidebars/slidebars.css",
-                      "~/css/flickity/flickity.css",
+                      "~/css/slidebars/slidebars.css",                      
                       "~/css/estilos.css",
                       "~/css/estilos-responsive.css",
                       "~/css/print.css",
                       "~/Content/site.css"
                       ));
+            bundles.Add(new StyleBundle("~/Content/flickitydetails").Include(
+                     "~/css/flickity/flickity.css",
+                     "~/css/fullscreen/fullscreen.css",
+                     "~/css/flickity/flickitydetails.css"
+                     ));
+            bundles.Add(new StyleBundle("~/Content/flickityhome").Include(
+                     "~/css/flickity/flickity.css",
+                     "~/css/fullscreen/fullscreen.css",
+                     "~/css/flickity/flickityhome.css"
+                     ));
         }
     }
 }

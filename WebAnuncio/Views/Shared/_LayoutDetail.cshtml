@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/flickitydetails")
     <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
     <script src="https://static2.hottescorts.es/respond.min.js"></script>
     <script type="text/javascript">
@@ -79,14 +80,18 @@
 
         misParametros.hash_proximidad = "79c7a1727ff3d6064582a37fcbae0b16";
     </script>
-    <link href="../css/estilos_extras_v3.css" rel="stylesheet">
-    <style type="text/css">
+    @*<link href="../css/estilos_extras_v3.css" rel="stylesheet">*@
+    @*<style type="text/css">
         .fancybox-margin {
             margin-right: 17px;
         }
     </style>
-
+    *@
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/flickity")
+
+
+
 </head>
 <body>
     <input type="hidden" value="@baseUri" id="url_base" />
@@ -392,8 +397,6 @@
 
         </div>
     </div>
-
     @Scripts.Render("~/bundles/jqueryhome")
-
 </body>
 </html>

@@ -1,4 +1,19 @@
-﻿(function ($, window, document) {         
+﻿//var $carousel = $('#id_carusel').flickity({
+//    asNavFor: '.carousel-main',
+//    contain: true,
+//    pageDots: false,
+//    adaptiveHeight: true,
+//    imagesLoaded: true,
+//    lazyLoad: true
+//});
+
+
+
+/*,
+    fullscreen: true,
+    lazyLoad: 1*/
+
+(function ($, window, document) {         
 
     function cargarInicial() {
         getCargarInicia().done(responseCargarInicia);
@@ -169,24 +184,43 @@
 
     
     function cargar_galeria_fotos(response) {
-        $("#container-fotos-seccion-1").html("");
-        $("#container-fotos-seccion-2").html("");
+        $("#id_carusel").html("");
+        //$("#container-fotos-seccion-1").html("");
+        //$("#container-fotos-seccion-2").html("");
         var list = response.split(",");
         var contador = 0;
         if (list.length > 0) {
-            for (var i = 0; i < list.length; i++) {                
-                contador++;
-                var html = "";
-                if (contador < 3) {
-                    html += "<div class='col-sm-6 mg30'>";
-                    html += "<img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES #1' class='img-responsive full-img'>";
-                    html += "</div>";
-                    $("#container-fotos-seccion-1").append(html);
-                } else {
-                    html += "<li class='col-sm-6 item masonry-brick'><img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES' class='img-responsive full-img'></li>";
-                    $("#container-fotos-seccion-2").append(html);
-                }                                             
+            
+            for (var i = 0; i < list.length; i++) {       
+                var htmlaux = "";
+                htmlaux += "<div class='carousel-cell'>";
+                htmlaux += "<img src='" + list[i] + "' alt='orange tree' />";
+                htmlaux += "</div>";
+                $("#id_carusel").append(htmlaux);         
+
+                //contador++;
+                //var html = "";
+                //if (contador < 3) {
+                //    html += "<div class='col-sm-6 mg30'>";
+                //    html += "<img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES #1' class='img-responsive full-img'>";
+                //    html += "</div>";
+                //    $("#container-fotos-seccion-1").append(html);
+                //} else {
+                //    html += "<li class='col-sm-6 item masonry-brick'><img src='" + list[i] + "' alt='Foto de: GRUPO DE AMIGAS SENSUALES' class='img-responsive full-img'></li>";
+                //    $("#container-fotos-seccion-2").append(html);
+                //}                                             
             }
+
+            var $carousel = $('#id_carusel').flickity({
+                
+                contain: true,
+                pageDots: false,
+                fullscreen: true,
+                imagesLoaded: true,
+                autoPlay: 1500,
+                pauseAutoPlayOnHover: false,
+                adaptiveHeight: true
+            });
         }             
     }                   
 

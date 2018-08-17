@@ -1,28 +1,4 @@
-﻿(function ($, window, document) {    
-    
-    //function cargarInicial() {
-    //    getCargarInicia().done(responseCargarInicia);
-    //}    
-    //function getCargarInicia() {
-    //    return $.ajax({
-    //        type: "POST",
-    //        url: $("#url_base").val() + "Parameter/getCargarControles_Add",
-    //        data: {},
-    //        dataType: "Json",
-    //        async: false,
-    //        error: function (ex) {
-    //            alert("error function getCargarInicia");
-    //        }
-    //    });
-    //}
-
-    //function responseCargarInicia(response) {
-    //    if (response.Status === "OK") {
-    //        var response = JSON.parse(response.DataJson);
-    //        loadCombos(response);
-    //        loadCheckoxes(response);
-    //    }
-    //}
+﻿(function ($, window, document) {        
 
     function cargarDetAnuncion() {
         getcargarDetAnuncion().done(responsegetcargarDetAnuncion);

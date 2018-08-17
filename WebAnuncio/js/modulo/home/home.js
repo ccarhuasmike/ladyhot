@@ -21,8 +21,8 @@
     function responseCargarInicia(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson);
-            cargar_galeria_fotos(response);  
-            //cargar_galeria_tops(response);
+            cargar_galeria_tops(response);
+            cargar_galeria_fotos(response);         
 
             if ($('.js-carousel').length > 0) {
                 var $carousel = $('.js-carousel').flickity({
@@ -44,7 +44,7 @@
     function cargar_galeria_tops(response) {
         $("#js-carousel").html("");
         var html = "";         
-        for (var e = 0; e < 5; e++) {
+        //for (var e = 0; e < 5; e++) {
             for (var i = 0; i < response.length; i++) {
                 var html = "";         
                 var valTokens = {
@@ -63,7 +63,7 @@
                 html += "</div>";
                 $("#js-carousel").append(html);    
             }
-        }    
+        //}    
     } 
     
     function cargar_galeria_fotos(response) {

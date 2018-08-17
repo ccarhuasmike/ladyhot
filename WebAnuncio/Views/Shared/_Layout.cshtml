@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")  
+    @Styles.Render("~/Content/flickityhome")
     <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
     <script src="https://static2.hottescorts.es/respond.min.js"></script>
     <script type="text/javascript">
@@ -87,6 +88,7 @@
     </style>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/flickity")    
 </head>
 <body>
     <input type="hidden" value="@baseUri" id="url_base" />
@@ -165,8 +167,8 @@
             <!-- Anuncios tops -->
             <div class="container" id="container-main-carousel">
                 <div class="main-carousel">
-                    <div class="js-carousel">
-                        <div class="carousel-cell anuncios--top">
+                    <div class="js-carousel" id="js-carousel">
+                        @*<div class="carousel-cell anuncios--top">
                             <a class="imagen" href="/escorts-barcelona/8921-rocio/" title="Rocio Escort de Barcelona: Soy Rocio, cariño,una joven escort en Barcelona de tan sól">
                                 <span class="overlay"></span>
                                 <div class="info text-center">
@@ -405,7 +407,7 @@
                                 <img class="img-responsive" alt="Ver ficha completa de Lina Escort de Barcelona" src="http://localhost:2911/uploads_fichas_cortadas/135/1.jpg">
 
                             </a>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -1483,7 +1485,7 @@
                 </div>
             </div>
             <!-- carousel noticias -->
-            @*<div class="news hidden-xs hidden-sm">
+            <div class="news hidden-xs hidden-sm">
                     <div class="container">
                         <div class="news-box center-block">
                             <span class="marquee-sibling">Lo Último</span>
@@ -1523,12 +1525,12 @@
                             </marquee>
                         </div>
                     </div>
-                </div>*@
+                </div>
 
             <div class="container">
                 <div class="entrada">
                     <div class="gradient">
-                        @*<h2 class="subtitle text-uppercase rosa">¡Tu guía de profesionales del sexo!</h2>
+                        <h2 class="subtitle text-uppercase rosa">¡Tu guía de profesionales del XXXXX!</h2>
                             <div class="entradilla jspScrollable" tabindex="0" style="overflow: hidden; padding: 0px; width: 1258px;">
                                 <div class="jspContainer" style="width: 1258px; height: 50px;">
                                     <div class="jspPane" style="padding: 0px; top: 0px; width: 1244px;">
@@ -1549,7 +1551,7 @@
                                         <div class="jspCap jspCapBottom"></div>
                                     </div>
                                 </div>
-                            </div>*@
+                            </div>
                     </div>
                 </div>
             </div>

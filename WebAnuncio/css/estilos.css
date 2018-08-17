@@ -1817,7 +1817,7 @@ lista chicas 7 elememtos
 }
 
 .blq-list-tiny .description .cuerpo {
-    min-height: 240px;
+    min-height: 245px;
     padding: 10px;
 }
 
@@ -4130,78 +4130,4 @@ header .btn-group .dropdown-menu {
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.main-carousel {
-  height: 180px;
-  max-height: 180px;
-  overflow: hidden;
-  width: 100%;
-}
-
-.carousel-cell {
-  width: 120px;
-  height: 180px;
-  max-height: 180px;
-  overflow: hidden;
-}
-.flickity-prev-next-button {
-  width: 32px;
-  height: 32px;
-}
-
-/* fade in image when loaded */
-
-.carousel-cell img {
-  transition: opacity 0.4s;
-  opacity: 0;
-}
-
-.flickity-slider .carousel-cell img {
-  opacity: 1;
-}
-
-.carousel-cell .info {
-    display: none;
-    position: absolute;
-    bottom: 30px;
-    color: #FFF;
-    width: 100%;
-}
-.flickity-slider .carousel-cell .info {
-    display: inherit;
-}
-.carousel-cell .info .title {
-    margin: 0 0 2px 0;
-    font-size: 13px;
-    font-size: 1.3rem;
-}
-.carousel-cell li .info .provincia {
-    font-size: 12px;
-    font-size: 1.2rem;
-}
-
-.carousel-cell .overlay {
-    width: 100%;
-    height: 100%;
-    display: none;
-    position: absolute;
-    background: #000;
-    opacity: 0.2;
-    filter: alpha(opacity=20);
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    top: 0px;
-}
-.flickity-slider .carousel-cell .info {
-    display: block;
-}
-.carousel-cell:hover .overlay {
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-
-.carousel-cell:hover .info {
-    display: none;
 }
