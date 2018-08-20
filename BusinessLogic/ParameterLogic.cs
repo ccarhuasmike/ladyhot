@@ -21,86 +21,86 @@ namespace BusinessLogic
         public ClientResponse GetCargarControles_Add_Anuncio()
         {
             ClientResponse clientResponse = new ClientResponse();
-            tbl_carga_controles_add entidad = new tbl_carga_controles_add();
-            tbl_parameter_det entidad_det = null;
+            Tbl_carga_controles_add entidad = new Tbl_carga_controles_add();
+            Tbl_parameter_det entidad_det = null;
             try
             {
                 
                
                 /*carga edad*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_EDADES" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_EDADES" }
                 };
                 entidad.edad = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga color cabello*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_COLOR_CABELLO" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_COLOR_CABELLO" }
                 };
                 entidad.color_cabello = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga color ojos*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_COLOR_OJOS" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_COLOR_OJOS" }
                 };
                 entidad.color_ojos = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga distrito*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_DISTRITO" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_DISTRITO" }
                 };
                 entidad.distritro = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga estatura*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_ESTATURA" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_ESTATURA" }
                 };
                 entidad.estatura = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga estudios*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_ESTUDIOS" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_ESTUDIOS" }
                 };
                 entidad.estudios = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga formapago*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_FORMA_PAGO" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_FORMA_PAGO" }
                 };
                 entidad.formapago = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga lugaratencion*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_LUGAR_ATENCION" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_LUGAR_ATENCION" }
                 };
                 entidad.lugaratencion = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga servicio ofrece*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_SERVICIO_OFRECE" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_SERVICIO_OFRECE" }
                 };
                 entidad.servicio_ofrece = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga servicio pais*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_PAISES" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_PAISES" }
                 };
                 entidad.pais = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga servicio peso*/
-                entidad_det = new tbl_parameter_det()
+                entidad_det = new Tbl_parameter_det()
                 {
-                    paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_PESO" }
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_PESO" }
                 };
                 entidad.peso = _parameterData.GetParameter_skey(entidad_det);
                 clientResponse.Status = "OK";
@@ -117,11 +117,11 @@ namespace BusinessLogic
             return clientResponse;
         }
 
-        public IEnumerable<tbl_parameter_det> getParameter_skey(tbl_parameter_det det)
+        public IEnumerable<Tbl_parameter_det> GetParameter_skey(Tbl_parameter_det det)
         {
             return _parameterData.GetParameter_skey(det);
         }
-        public ClientResponse GetParameter_skey_x_det_Id(tbl_parameter_det det)
+        public ClientResponse GetParameter_skey_x_det_Id(Tbl_parameter_det det)
         {
             return _parameterData.GetParameter_skey_x_det_Id(det);
         }

@@ -5254,5 +5254,10 @@
             </li>
         </ul>*@
 </div>
+@section scriptshome{
+    <script type="text/javascript">   
+        var responsedata = @Html.Raw(Json.Encode(ViewBag.Message));
+    </script>
+}
 <script src="~/js/modulo/generales.js"></script>
 <script src="~/js/modulo/home/home.js"></script>

@@ -187,8 +187,8 @@ function salir() {
 }           
 
 function redirecToDetails(data) {
-    __AddSessionStorage('cod_anuncio_encryptado_details', data.cod_anuncio_encryptado);
-    var url = "../Details";
+    //__AddSessionStorage('cod_anuncio_encryptado_details', data.cod_anuncio_encryptado);
+    var url = "../Details?id=" + data.cod_anuncio_encryptado+"";
     window.location.href = url;
 }
 

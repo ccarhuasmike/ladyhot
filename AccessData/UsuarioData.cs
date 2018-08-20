@@ -15,7 +15,7 @@ namespace AccessData
     public class UsuarioData
     {
         #region Variables
-        private static IEnumerable<tbl_usuario> lstUsuario;
+        private static IEnumerable<Tbl_usuario> lstUsuario;
         //private static tbl_usuario entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
@@ -38,7 +38,7 @@ namespace AccessData
 
         #region Metodo
 
-        public ClientResponse InsertUsuario(tbl_usuario objeto)
+        public ClientResponse InsertUsuario(Tbl_usuario objeto)
         {
             int id = 0;
             try
@@ -57,7 +57,7 @@ namespace AccessData
                         if (comando.Parameters["@id"] != null)
                         {
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
-                            IEnumerable<tbl_usuario> lst = getUsuario_X_Id(id);
+                            IEnumerable<Tbl_usuario> lst = getUsuario_X_Id(id);
                             clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                         }
                     }
@@ -78,7 +78,7 @@ namespace AccessData
             return clientResponse;
         }
 
-        public IEnumerable<tbl_usuario> getUsuario_X_Id(int id)
+        public IEnumerable<Tbl_usuario> getUsuario_X_Id(int id)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstUsuario = reader.ReadRows<tbl_usuario>();
+                            lstUsuario = reader.ReadRows<Tbl_usuario>();
                         }
                     }
                 }
@@ -110,7 +110,7 @@ namespace AccessData
             return lstUsuario;
         }
 
-        public ClientResponse getUsuario_X_password(tbl_usuario entidad)
+        public ClientResponse getUsuario_X_password(Tbl_usuario entidad)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstUsuario = reader.ReadRows<tbl_usuario>();
+                            lstUsuario = reader.ReadRows<Tbl_usuario>();
                         }
                         clientResponse.DataJson = JsonConvert.SerializeObject(lstUsuario).ToString();
                     }
@@ -161,7 +161,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstUsuario = reader.ReadRows<tbl_usuario>();                           
+                            lstUsuario = reader.ReadRows<Tbl_usuario>();                           
                         }
                     }
                 }

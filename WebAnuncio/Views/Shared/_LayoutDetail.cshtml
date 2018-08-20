@@ -17,6 +17,7 @@
     @*<link href="../css/estilos_extras_v3.css" rel="stylesheet">*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/flickity")
+  
 </head>
 <body>
     <input type="hidden" value="@baseUri" id="url_base" />
@@ -319,5 +320,8 @@
         </div>
     </div>
     @*@Scripts.Render("~/bundles/jqueryhome")*@
+    @RenderSection("scripts", false)
+
+ 
 </body>
 </html>

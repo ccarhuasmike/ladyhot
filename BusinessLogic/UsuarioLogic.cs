@@ -23,12 +23,12 @@ namespace BusinessLogic
             return _usuarioData.listar_usuario();
         }
 
-        public ClientResponse InsertUsuario(tbl_usuario objeto)
+        public ClientResponse InsertUsuario(Tbl_usuario objeto)
         {
             return _usuarioData.InsertUsuario(objeto);
         }
 
-        public ClientResponse getUsuario_X_password(tbl_usuario entidad)
+        public ClientResponse getUsuario_X_password(Tbl_usuario entidad)
         {
             return _usuarioData.getUsuario_X_password(entidad);
         }

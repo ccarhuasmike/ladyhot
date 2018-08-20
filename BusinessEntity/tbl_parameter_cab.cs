@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-    public class tbl_parameter_cab
+    public class Tbl_parameter_cab
     {
         public int id { get; set; }
         public string skey_cab { get; set; }

@@ -43,8 +43,7 @@
         });
     }
 
-    function responseRegistrar(response) {
-        debugger;
+    function responseRegistrar(response) {        
         if (response.Status === "OK") {              
             var response = JSON.parse(response.DataJson);
             __AddSessionStorage('id_usuario', response[0].id);

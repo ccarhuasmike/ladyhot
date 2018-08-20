@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-    public class tbl_usuario
+    public class Tbl_usuario
     {
         public int id { get; set; }
         public string tx_pass { get; set; }

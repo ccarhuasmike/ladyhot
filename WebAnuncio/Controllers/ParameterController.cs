@@ -16,7 +16,7 @@ namespace WebAnuncio.Controllers
             return View();
         }
 
-        public JsonResult getCargarControles_Add()
+        public JsonResult GetCargarControles_Add()
         {                   
             ClientResponse clientResponse;
             try

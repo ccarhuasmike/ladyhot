@@ -40,8 +40,7 @@ function response_dar_baja(response) {
     }
 
     function responsegetcargarDetAnuncion(response) {        
-        if (response.Status === "OK") {     
-            debugger;
+        if (response.Status === "OK") {                 
             var response = JSON.parse(response.DataJson);
             var valTokens = {
                 cod_anuncio_encryptado: response.cod_anuncio_encryptado

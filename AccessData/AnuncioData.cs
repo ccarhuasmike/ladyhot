@@ -14,8 +14,8 @@ namespace AccessData.PersonaDao
     {
 
         #region Variables
-        private static IEnumerable<tbl_anuncio> lstAnuncio;
-        private static tbl_anuncio entidad;
+        private static IEnumerable<Tbl_anuncio> lstAnuncio;
+        private static Tbl_anuncio entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -50,7 +50,7 @@ namespace AccessData.PersonaDao
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
                         clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
                     }
@@ -83,7 +83,7 @@ namespace AccessData.PersonaDao
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
                         clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
                     }
@@ -118,7 +118,7 @@ namespace AccessData.PersonaDao
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
                         clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
                     }
@@ -169,7 +169,7 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
 
-        public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
+        public ClientResponse ActualizarPrimerpaso(Tbl_anuncio objeto)
         {
             try
             {
@@ -190,7 +190,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);
+                        IEnumerable<Tbl_anuncio> lst = getAnucionXId(objeto.id);
                         clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
@@ -209,7 +209,7 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-        public ClientResponse InsertPrimerpaso(tbl_anuncio objeto)
+        public ClientResponse InsertPrimerpaso(Tbl_anuncio objeto)
         {
             int id = 0;
             try
@@ -235,7 +235,7 @@ namespace AccessData.PersonaDao
                         if (comando.Parameters["@id"] != null)
                         {
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
-                            IEnumerable<tbl_anuncio> lst = getAnucionXId(id);
+                            IEnumerable<Tbl_anuncio> lst = getAnucionXId(id);
                             clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                         }
                     }
@@ -256,7 +256,7 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
 
-        public ClientResponse UpdateTodopaso(tbl_anuncio objeto)
+        public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
             try
             {
@@ -300,7 +300,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);
+                        IEnumerable<Tbl_anuncio> lst = getAnucionXId(objeto.id);
                         clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
@@ -320,7 +320,7 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
 
-        public ClientResponse UpdateSegundopaso(tbl_anuncio objeto)
+        public ClientResponse UpdateSegundopaso(Tbl_anuncio objeto)
         {
             try
             {
@@ -338,7 +338,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);
+                        IEnumerable<Tbl_anuncio> lst = getAnucionXId(objeto.id);
                         clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
@@ -358,7 +358,7 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
 
-        public ClientResponse UpdateTercerpaso(tbl_anuncio objeto)
+        public ClientResponse UpdateTercerpaso(Tbl_anuncio objeto)
         {
             try
             {
@@ -387,7 +387,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<tbl_anuncio> lst = getAnucionXId(objeto.id);
+                        IEnumerable<Tbl_anuncio> lst = getAnucionXId(objeto.id);
                         clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
@@ -407,7 +407,7 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
 
-        public IEnumerable<tbl_anuncio> getAnucionXId(int id_anucion)
+        public IEnumerable<Tbl_anuncio> getAnucionXId(int id_anucion)
         {
             try
             {
@@ -420,7 +420,7 @@ namespace AccessData.PersonaDao
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstAnuncio = reader.ReadRows<tbl_anuncio>();
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
                     }
                 }
@@ -441,7 +441,7 @@ namespace AccessData.PersonaDao
         }
 
 
-        public tbl_anuncio getAnucion_x_tokens(string token_anuncio)
+        public Tbl_anuncio getAnucion_x_tokens(string token_anuncio)
         {
             try
             {
@@ -456,7 +456,7 @@ namespace AccessData.PersonaDao
                         {
                             while (reader.Read())
                             {
-                                entidad = reader.ReadFields<tbl_anuncio>();
+                                entidad = reader.ReadFields<Tbl_anuncio>();
                             }
 
                         }
@@ -493,7 +493,7 @@ namespace AccessData.PersonaDao
                         {
                             if (reader.Read())
                             {
-                                entidad = reader.ReadFields<tbl_anuncio>();
+                                entidad = reader.ReadFields<Tbl_anuncio>();
                             }
 
                         }

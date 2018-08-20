@@ -21,7 +21,7 @@
     function responseCargarInicia(response) {
         if (response.Status === "OK") {
             var response = JSON.parse(response.DataJson);
-            cargar_galeria_tops(response);
+            //cargar_galeria_tops(response);
             cargar_galeria_fotos(response);         
 
             if ($('.js-carousel').length > 0) {
@@ -138,7 +138,9 @@
 
 
     function codeBehind() {
-        cargarInicial();
+        //cargarInicial();
+        debugger;
+        responseCargarInicia(responsedata);
     }
 
     $(function () {

@@ -1,7 +1,7 @@
 ﻿
 @{
-    Uri auxBaseUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority));
-    Uri baseUri = new Uri(auxBaseUri, Url.Content("~"));
+    //Uri auxBaseUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority));
+    //Uri baseUri = new Uri(auxBaseUri, Url.Content("~"));
     ViewBag.Title = "Detalle";
     Layout = "~/Views/Shared/_LayoutDetail.cshtml";
 }
@@ -455,6 +455,13 @@
     </div>
 </div>
 
+@section scripts{
+    <script type="text/javascript">        
+        //var variable1 = '@(ViewBag.Message)'
+        //var variable1 = '@(ViewBag.ProductId)';
+        var responsedata = @Html.Raw(Json.Encode(ViewBag.Message));
+    </script>
+}
 <script src="~/js/modulo/generales.js"></script>
 <script src="~/js/modulo/details/details.js"></script>
 

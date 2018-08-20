@@ -31,22 +31,22 @@ $(document).on("mouseleave", ".element", function (e) {
 
 (function ($, window, document) {         
 
-    function cargarInicial() {
-        getCargarInicia().done(responseCargarInicia);
-    }
+    //function cargarInicial() {
+    //    getCargarInicia().done(responseCargarInicia);
+    //}
 
-    function getCargarInicia() {
-        return $.ajax({
-            type: "POST",
-            url: $("#url_base").val() + "Details/GetDetailsAnuncio",
-            data: { cod_anuncio_encryptado: __getSessionStorage('cod_anuncio_encryptado_details')},
-            dataType: "Json",
-            async: false,
-            error: function (ex) {
-                console.log(ex);
-            }
-        });
-    }
+    //function getCargarInicia() {
+    //    return $.ajax({
+    //        type: "POST",
+    //        url: $("#url_base").val() + "Details/GetDetailsAnuncio",
+    //        data: { cod_anuncio_encryptado: __getSessionStorage('cod_anuncio_encryptado_details')},
+    //        dataType: "Json",
+    //        async: false,
+    //        error: function (ex) {
+    //            console.log(ex);
+    //        }
+    //    });
+    //}
 
     function responseCargarInicia(response) {
         if (response.Status === "OK") {
@@ -226,8 +226,9 @@ $(document).on("mouseleave", ".element", function (e) {
         }             
     }                   
 
-    function codeBehind() {
-        cargarInicial();
+    function codeBehind() {       
+        //cargarInicial();
+        responseCargarInicia(responsedata);
     }
 
     $(function () {

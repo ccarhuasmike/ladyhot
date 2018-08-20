@@ -31,7 +31,7 @@ namespace WebAnuncio.Controllers
             try
             {
                 //IEnumerable <tbl_anuncio> listDetall = new AnuncioLogic().getAnucionXId(id);
-                tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id_anuncio = id };
+                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };
                 //IEnumerable<tbl_galeria_anuncio> Get_galeria_x_id_anuncio = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
                 object initData = new
                 {
@@ -50,7 +50,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Primeropaso(tbl_anuncio oregistro)
+        public JsonResult Primeropaso(Tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -64,7 +64,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult ActualizarPrimerpaso(tbl_anuncio oregistro)
+        public JsonResult ActualizarPrimerpaso(Tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -78,7 +78,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Segundopaso(tbl_anuncio oregistro)
+        public JsonResult Segundopaso(Tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -92,7 +92,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Tercerpaso(tbl_anuncio oregistro)
+        public JsonResult Tercerpaso(Tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
@@ -111,9 +111,9 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse;
             try
             {
-                tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id = id_galeria };
+                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id = id_galeria };
                 clientResponse = new GaleriaLogic().Get_galeria_x_id(entidad);
-                tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_galeria_anuncio>(clientResponse.DataJson);
+                Tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_galeria_anuncio>(clientResponse.DataJson);
                 FileInfo fi = new FileInfo(resultObjeto.tx_ruta_file);
                 fi.Delete();
                 clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(resultObjeto);
@@ -132,30 +132,30 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse;
             try
             {
-                tbl_parameter_det entidad_rutas_fisica_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                Tbl_parameter_det entidad_rutas_fisica_fichas = new Tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
-                tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
+                Tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
 
-                tbl_parameter_det entidad_rutas_virtuales_fichas = new tbl_parameter_det() { skey_det = "SKEY_RUTASVIRTUALES_FICHAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                Tbl_parameter_det entidad_rutas_virtuales_fichas = new Tbl_parameter_det() { skey_det = "SKEY_RUTASVIRTUALES_FICHAS", paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_virtuales_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas);
-                tbl_parameter_det rutas_rutas_virtuales_image = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas.DataJson);
+                Tbl_parameter_det rutas_rutas_virtuales_image = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_virtuales_fichas.DataJson);
 
 
-                tbl_parameter_det entidad_rutas_fisica_fichas_cortada = new tbl_parameter_det() { skey_det = "SKEY_RUTAS_FISICAS_FICHAS_CORTADAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                Tbl_parameter_det entidad_rutas_fisica_fichas_cortada = new Tbl_parameter_det() { skey_det = "SKEY_RUTAS_FISICAS_FICHAS_CORTADAS", paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_fisica_fichas_cortada = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_fisica_fichas_cortada);
-                tbl_parameter_det rutas_fisica_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_fisica_fichas_cortada.DataJson);
+                Tbl_parameter_det rutas_fisica_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_fisica_fichas_cortada.DataJson);
 
-                tbl_parameter_det entidad_rutas_virtuales_fichas_cortada = new tbl_parameter_det() { skey_det = "SKEY_RUTAS_VIRTUALES_FICHAS_CORTADAS", paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
+                Tbl_parameter_det entidad_rutas_virtuales_fichas_cortada = new Tbl_parameter_det() { skey_det = "SKEY_RUTAS_VIRTUALES_FICHAS_CORTADAS", paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_virtuales_fichas_cortada = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas_cortada);
-                tbl_parameter_det rutas_rutas_virtuales_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<tbl_parameter_det>(respons_rutas_virtuales_fichas_cortada.DataJson);
+                Tbl_parameter_det rutas_rutas_virtuales_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_virtuales_fichas_cortada.DataJson);
 
 
 
 
                 HttpFileCollectionBase filesCollection = Request.Files;
                 //string hora = DateTime.Now.ToString("yyyyMMddhhmmss");
-                List<tbl_galeria_anuncio> list = new List<tbl_galeria_anuncio>();
-                tbl_galeria_anuncio entidad ;
+                List<Tbl_galeria_anuncio> list = new List<Tbl_galeria_anuncio>();
+                Tbl_galeria_anuncio entidad ;
                 for (int i = 0; i < filesCollection.Count; i++)
                 {
                     HttpPostedFileBase file = filesCollection[i];
@@ -174,11 +174,11 @@ namespace WebAnuncio.Controllers
            
 
                     string[] split_extension = filename.Split(new Char[] { '.' });
-                    tbl_parameter_det entidad_det = new tbl_parameter_det()
+                    Tbl_parameter_det entidad_det = new Tbl_parameter_det()
                     {
-                        paramter_cab = new tbl_parameter_cab() { skey_cab = "SKEY_TIPO_ARCHIVO" }
+                        paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_TIPO_ARCHIVO" }
                     };
-                    IEnumerable<tbl_parameter_det> lstExtension = new ParameterLogic().getParameter_skey(entidad_det);
+                    IEnumerable<Tbl_parameter_det> lstExtension = new ParameterLogic().GetParameter_skey(entidad_det);
                     int id_tipo_archivo = 0;
                     foreach (var element in lstExtension)
                     {
@@ -232,7 +232,7 @@ namespace WebAnuncio.Controllers
                     }
 
 
-                    entidad = new tbl_galeria_anuncio();
+                    entidad = new Tbl_galeria_anuncio();
                     entidad.tx_ruta_file = id + "/" + filename;
                     entidad.tx_ruta_file_cort = id + "/" + filename;
                     entidad.txt_ruta_virtuales = file_ruta_virtual;

@@ -2,7 +2,7 @@
 
 namespace BusinessEntity
 {
-   public class tbl_galeria_anuncio
+   public class Tbl_galeria_anuncio
     {
 
         public int id { get; set; } = 0;

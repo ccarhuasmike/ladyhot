@@ -22,7 +22,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                tbl_anuncio list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
+                Tbl_anuncio list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
                 ClientResponse clientResponse_cargaInicial = new ParameterLogic().GetCargarControles_Add_Anuncio();
                 object initData = new
                 {
@@ -40,7 +40,7 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public  JsonResult Todospasos(tbl_anuncio oregistro)
+        public  JsonResult Todospasos(Tbl_anuncio oregistro)
         {
             ClientResponse clientResponse = new ClientResponse();
             try

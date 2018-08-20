@@ -18,16 +18,12 @@ namespace WebAnuncio.Controllers
         // GET: Details
         public ActionResult Index()
         {
-            return View();
-        }
-        public JsonResult GetDetailsAnuncio(string cod_anuncio_encryptado)
-        {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
                 //clientResponse = new AnuncioLogic().GetAnucion_Details_anucion_x_tokens(cod_anuncio_encryptado);
                 //clientResponse = new AnuncioLogic().ListarAnuncio_top_10();
-
+                string cod_anuncio_encryptado = Request.QueryString["id"];// "EA957C43-D29D-4B3A-9C2B-97CA9DCD8054";
                 object initData = new
                 {
                     DetailsAnuncion = new AnuncioLogic().GetAnucion_Details_anucion_x_tokens(cod_anuncio_encryptado),
@@ -41,7 +37,34 @@ namespace WebAnuncio.Controllers
             {
                 clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
             }
-            return Json(clientResponse, JsonRequestBehavior.AllowGet);
+            //return Json(clientResponse, JsonRequestBehavior.AllowGet);
+
+            ViewBag.Message = clientResponse;
+            return View();
+        }
+        public JsonResult GetDetailsAnuncio(string cod_anuncio_encryptado)
+        {
+            //ClientResponse clientResponse = new ClientResponse();
+            //try
+            //{
+            //    //clientResponse = new AnuncioLogic().GetAnucion_Details_anucion_x_tokens(cod_anuncio_encryptado);
+            //    //clientResponse = new AnuncioLogic().ListarAnuncio_top_10();
+
+            //    object initData = new
+            //    {
+            //        DetailsAnuncion = new AnuncioLogic().GetAnucion_Details_anucion_x_tokens(cod_anuncio_encryptado),
+            //        ListCargarInicial = new AnuncioLogic().ListarAnuncio_top_10()
+            //    };
+            //    clientResponse.Status = "OK";
+            //    clientResponse.Data = initData;
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            //}
+            //return Json(clientResponse, JsonRequestBehavior.AllowGet);
+            return null;
         }
     }
 }

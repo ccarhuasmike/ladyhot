@@ -16,8 +16,8 @@ namespace AccessData
     {
 
         #region Variables
-        private static IEnumerable<tbl_parameter_det> lstParamaterDet;
-        private static tbl_parameter_det entidad;
+        private static IEnumerable<Tbl_parameter_det> lstParamaterDet;
+        private static Tbl_parameter_det entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -38,7 +38,7 @@ namespace AccessData
         #endregion
 
         #region Metodo
-        public IEnumerable<tbl_parameter_det> GetParameter_skey(tbl_parameter_det det)
+        public IEnumerable<Tbl_parameter_det> GetParameter_skey(Tbl_parameter_det det)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace AccessData
                         using (reader = comando.ExecuteReader())
                         {
                             
-                                lstParamaterDet = reader.ReadRows<tbl_parameter_det>();                               
+                                lstParamaterDet = reader.ReadRows<Tbl_parameter_det>();                               
                             
                         }
                     }
@@ -79,7 +79,7 @@ namespace AccessData
             return lstParamaterDet;
         }
 
-        public ClientResponse GetParameter_skey_x_det_Id(tbl_parameter_det det)
+        public ClientResponse GetParameter_skey_x_det_Id(Tbl_parameter_det det)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace AccessData
                             //entidad = reader.ReadFields<tbl_parameter_det>();
                             if (reader.Read())
                             {
-                                entidad = new tbl_parameter_det();
+                                entidad = new Tbl_parameter_det();
                                 entidad.val_valor = Convert.ToInt32(reader["val_valor"] == DBNull.Value ? 0 : reader["val_valor"]);
                                 entidad.tx_descripcion = Convert.ToString(reader["tx_descripcion"] == DBNull.Value ? "" : reader["tx_descripcion"]);
                             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-    public class tbl_parameter_det
+    public class Tbl_parameter_det
     {
         public int id { get; set; }
         public string skey_det { get; set; }
@@ -16,10 +16,10 @@ namespace BusinessEntity
         public string tx_comentario { get; set; }
         public int id_estado_reg { get; set; }
         public DateTime dt_fe_crea { get; set; }
-        public tbl_parameter_cab paramter_cab;
-        public tbl_parameter_det()
+        public Tbl_parameter_cab paramter_cab;
+        public Tbl_parameter_det()
         {
-            paramter_cab = new tbl_parameter_cab();
+            paramter_cab = new Tbl_parameter_cab();
         }
     }
 }

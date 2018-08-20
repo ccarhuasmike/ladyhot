@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Communities
 {
-    public static class Utilidades
+    public  class Utilidades
     {
         public static ClientResponse ObtenerMensajeErrorWeb(Exception ex)
         {

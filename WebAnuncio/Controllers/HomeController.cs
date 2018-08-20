@@ -12,10 +12,6 @@ namespace WebAnuncio.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-        public JsonResult ListarAnuncio()
-        {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
@@ -25,7 +21,22 @@ namespace WebAnuncio.Controllers
             {
                 clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
             }
-            return Json(clientResponse, JsonRequestBehavior.AllowGet);
+            ViewBag.Message = clientResponse;
+            return View();
+        }
+        public JsonResult ListarAnuncio()
+        {
+            //ClientResponse clientResponse = new ClientResponse();
+            //try
+            //{
+            //    clientResponse = new AnuncioLogic().ListarAnuncio();
+            //}
+            //catch (Exception ex)
+            //{
+            //    clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            //}
+            //return Json(clientResponse, JsonRequestBehavior.AllowGet);
+            return null;
         }
     }
 }

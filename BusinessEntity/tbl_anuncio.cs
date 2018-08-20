@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-   public class tbl_anuncio
+   public class Tbl_anuncio
     {
         public int id { get; set; }  = 0;
         public string txt_nombre_ficha { get; set; } = "";

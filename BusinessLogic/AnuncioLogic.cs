@@ -17,15 +17,15 @@ namespace BusinessLogic
         {
             _AnuncioData = new AnuncioData();
         }
-        public IEnumerable<tbl_anuncio> getAnucionXId(int id)
+        public IEnumerable<Tbl_anuncio> getAnucionXId(int id)
         {
             return _AnuncioData.getAnucionXId(id);
         }
-        public tbl_anuncio getAnucion_x_tokens(string token_anuncio)
+        public Tbl_anuncio getAnucion_x_tokens(string token_anuncio)
         {
             return _AnuncioData.getAnucion_x_tokens(token_anuncio);
         }
-        public ClientResponse InsertPrimerpaso(tbl_anuncio objeto)
+        public ClientResponse InsertPrimerpaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.InsertPrimerpaso(objeto);
         }
@@ -37,21 +37,21 @@ namespace BusinessLogic
 
 
         
-        public ClientResponse ActualizarPrimerpaso(tbl_anuncio objeto)
+        public ClientResponse ActualizarPrimerpaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.ActualizarPrimerpaso(objeto);
         }
-        public ClientResponse UpdateSegundopaso(tbl_anuncio objeto)
+        public ClientResponse UpdateSegundopaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateSegundopaso(objeto);
         }
 
 
-        public ClientResponse UpdateTercerpaso(tbl_anuncio objeto)
+        public ClientResponse UpdateTercerpaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateTercerpaso(objeto);
         }
-        public ClientResponse UpdateTodopaso(tbl_anuncio objeto)
+        public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateTodopaso(objeto);
         }

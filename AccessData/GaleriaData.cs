@@ -16,8 +16,8 @@ namespace AccessData
     public class GaleriaData
     {
         #region Variables
-        private static IEnumerable<tbl_galeria_anuncio> lstGaleria;
-        private static tbl_galeria_anuncio entidad;
+        private static IEnumerable<Tbl_galeria_anuncio> lstGaleria;
+        private static Tbl_galeria_anuncio entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -27,7 +27,7 @@ namespace AccessData
         #region Constructor
         public GaleriaData()
         {
-            lstGaleria = new List<tbl_galeria_anuncio>();
+            lstGaleria = new List<Tbl_galeria_anuncio>();
             entidad = null;
             conexion = null;
             comando = null;
@@ -36,12 +36,12 @@ namespace AccessData
             clientResponse.Status = "OK";
         }
 
-        public ClientResponse Insert_Galeria(List<tbl_galeria_anuncio> list, int id_anuncio)
+        public ClientResponse Insert_Galeria(List<Tbl_galeria_anuncio> list, int id_anuncio)
         {
             try
             {
                 XElement root = new XElement("ROOT");
-                foreach (tbl_galeria_anuncio detalle in list)
+                foreach (Tbl_galeria_anuncio detalle in list)
                 {
                     XElement address = new XElement("Detalle",
                     new XElement("tx_filename", detalle.tx_filename),
@@ -71,8 +71,8 @@ namespace AccessData
 
                         if (ind > 0)
                         {
-                            tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id_anuncio = id_anuncio };
-                            IEnumerable<tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(entidad);
+                            Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id_anuncio };
+                            IEnumerable<Tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(entidad);
                             clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                             clientResponse.Mensaje = mensaje;
                             clientResponse.Status = "Ok";
@@ -100,12 +100,12 @@ namespace AccessData
             return clientResponse;
         }
 
-        public ClientResponse Insert_Videos(List<tbl_galeria_anuncio> list, int id_anuncio)
+        public ClientResponse Insert_Videos(List<Tbl_galeria_anuncio> list, int id_anuncio)
         {
             try
             {
                 XElement root = new XElement("ROOT");
-                foreach (tbl_galeria_anuncio detalle in list)
+                foreach (Tbl_galeria_anuncio detalle in list)
                 {
                     XElement address = new XElement("Detalle",
                     new XElement("tx_filename", detalle.tx_filename),
@@ -134,8 +134,8 @@ namespace AccessData
 
                         if (ind > 0)
                         {
-                            tbl_galeria_anuncio entidad = new tbl_galeria_anuncio() { id_anuncio = id_anuncio };
-                            IEnumerable<tbl_galeria_anuncio> lst = Get_video_x_id_anuncio(entidad);
+                            Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id_anuncio };
+                            IEnumerable<Tbl_galeria_anuncio> lst = Get_video_x_id_anuncio(entidad);
                             clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                             clientResponse.Mensaje = mensaje;
                             clientResponse.Status = "Ok";
@@ -163,7 +163,7 @@ namespace AccessData
             return clientResponse;
         }
 
-        public ClientResponse Get_galeria_x_id(tbl_galeria_anuncio objeto)
+        public ClientResponse Get_galeria_x_id(Tbl_galeria_anuncio objeto)
         {
             try
             {
@@ -178,7 +178,7 @@ namespace AccessData
                         {
                             while (reader.Read())
                             {
-                                entidad = reader.ReadFields<tbl_galeria_anuncio>();
+                                entidad = reader.ReadFields<Tbl_galeria_anuncio>();
                             }
                         }
                         clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
@@ -200,7 +200,7 @@ namespace AccessData
             return clientResponse;
         }
 
-        public IEnumerable<tbl_galeria_anuncio> Get_galeria_x_id_anuncio(tbl_galeria_anuncio objeto)
+        public IEnumerable<Tbl_galeria_anuncio> Get_galeria_x_id_anuncio(Tbl_galeria_anuncio objeto)
         {
             try
             {
@@ -213,7 +213,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstGaleria = reader.ReadRows<tbl_galeria_anuncio>();
+                            lstGaleria = reader.ReadRows<Tbl_galeria_anuncio>();
                         }
                     }
                 }
@@ -233,7 +233,7 @@ namespace AccessData
             return lstGaleria;
         }
 
-        public IEnumerable<tbl_galeria_anuncio> Get_video_x_id_anuncio(tbl_galeria_anuncio objeto)
+        public IEnumerable<Tbl_galeria_anuncio> Get_video_x_id_anuncio(Tbl_galeria_anuncio objeto)
         {
             try
             {
@@ -246,7 +246,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstGaleria = reader.ReadRows<tbl_galeria_anuncio>();
+                            lstGaleria = reader.ReadRows<Tbl_galeria_anuncio>();
                         }
                     }
                 }
@@ -267,7 +267,7 @@ namespace AccessData
         }
 
 
-        public ClientResponse Eliminar_galeria_x_id(tbl_galeria_anuncio objeto)
+        public ClientResponse Eliminar_galeria_x_id(Tbl_galeria_anuncio objeto)
         {
             try
             {
@@ -279,7 +279,7 @@ namespace AccessData
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(objeto);
+                        IEnumerable<Tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(objeto);
                         clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
@@ -299,7 +299,7 @@ namespace AccessData
             return clientResponse;
         }
 
-        public ClientResponse Eliminar_video_x_id(tbl_galeria_anuncio objeto)
+        public ClientResponse Eliminar_video_x_id(Tbl_galeria_anuncio objeto)
         {
             try
             {
@@ -311,7 +311,7 @@ namespace AccessData
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<tbl_galeria_anuncio> lst = Get_video_x_id_anuncio(objeto);
+                        IEnumerable<Tbl_galeria_anuncio> lst = Get_video_x_id_anuncio(objeto);
                         clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                     }
                 }
