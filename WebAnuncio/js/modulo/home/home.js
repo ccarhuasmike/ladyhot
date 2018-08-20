@@ -138,8 +138,7 @@
 
 
     function codeBehind() {
-        //cargarInicial();
-        debugger;
+        //cargarInicial();        
         responseCargarInicia(responsedata);
     }
 

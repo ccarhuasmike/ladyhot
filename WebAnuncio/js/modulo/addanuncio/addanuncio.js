@@ -328,8 +328,10 @@ function cargar_galeria_fotos(response) {
     }  
 
     //Primer paso
-    function primerpaso() {          
-        if (__getSessionStorage("id_anuncio_val") != null) {
+    function primerpaso() {
+        debugger;
+        //|| __getSessionStorage("id_anuncio_val") != "0"
+        if (__getSessionStorage("id_anuncio_val") != null ) {
             var object = getObjectUpdatePrimerpaso();
             getupdateprimerpaso(object).done(responseupdateprimerpaso);
         } else {
@@ -407,7 +409,8 @@ function cargar_galeria_fotos(response) {
 
     function responseupdateprimerpaso(response) {
         if (response.Status === "OK") {
-            var response = JSON.parse(response.DataJson);
+            var response = JSON.parse(response.DataJson);            
+            
         }
     }    
     
@@ -426,7 +429,8 @@ function cargar_galeria_fotos(response) {
     }
 
     function responseprimerpaso(response) {
-        if (response.Status === "OK") {                       
+        if (response.Status === "OK") {
+            debugger;
             __AddSessionStorage('id_anuncio_val', response.Id);
             //Alert.success("El archivo seleccionado es inválido , los archivos válidos son de tipo");
         }

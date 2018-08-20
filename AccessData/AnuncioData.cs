@@ -235,8 +235,9 @@ namespace AccessData.PersonaDao
                         if (comando.Parameters["@id"] != null)
                         {
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
-                            IEnumerable<Tbl_anuncio> lst = getAnucionXId(id);
-                            clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
+                            clientResponse.Id = id;
+                            //IEnumerable<Tbl_anuncio> lst = getAnucionXId(id);
+                            //clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                         }
                     }
                 }
