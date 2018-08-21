@@ -1,4 +1,5 @@
-﻿                  
+﻿
+
 (function ($, window, document) {   
 
     function cargarInicial() {
@@ -78,10 +79,20 @@
             html += "<li class='col-xs-6 col-sm-4 col-md-15 col-lg-15 mg30 zona-100'>";
             
             html += "<div class='element'>";
-            html += "<div class='contttttt'><span class='span-top'>Top</span></div>";
+            html += "<div class='contttttt'>";
+            html += "<span class='span-top'>Top</span >";                        
+            html += "</div>";                               
             html += "<div class='ficha-peq'>";                                                   
             html += "<a class='imagen' href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens +");' title='" + response[i].txt_nombre_ficha + " de " + response[i].tx_pais_origen + ": " + response[i].txt_presentacion.substring(0, 59) + "'> <img class='img-responsive' alt='Ver ficha completa de " + response[i].txt_nombre_ficha + " de " + response[i].tx_pais_origen +"' src='" + response[i].txt_imagen_prensetancion.split(",")[0] + "' data-original='" + response[i].txt_imagen_prensetancion.split(",")[1] + "' data-thumbnail='" + response[i].txt_imagen_prensetancion.split(",")[2] + "' data-path='" + response[i].txt_imagen_prensetancion.split(",")[3] +"'> </a>";
             html += "</div>";
+            html += "<div class='sss'>";                       
+            html += "<div class='content-info'>";
+            html += "<span class='fa fa-info span-info-circle'></span >";
+            html += "</div >";          
+            html += "<div class='content-play'>";
+            html += "<span class='fa fa-youtube-play span-info-play-circle'></span >";
+            html += "</div >";                                 
+            html += "</div >";                                 
             html += "<div class='description' style='margin-top: 0px;'>";
             html += "<div class='sube clearfix'>";
             html += "<div class='sube-interior clearfix'>";
@@ -137,11 +148,15 @@
         html += "</ul>";
         $("#j_fichas").append(html);
     }  
+    function cerrarAvisosPolitica() {
+        $("#capaAvisoPoliticaCookies_superior_mensajes").css("display", "none");        
+    } 
 
 
     function codeBehind() {
-        //cargarInicial();        
+        //cargarInicial();                          
         responseCargarInicia(responsedata);
+        $("#id_boton_cerrar_aviso_pc").click(cerrarAvisosPolitica);
     }
 
     $(function () {

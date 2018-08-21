@@ -1,11 +1,71 @@
 /* Large desktop */
 @media (min-width: 1200px) {
 
-    .contttttt {
-        width: 100%;        
-        top: 0;
-        left: 0;        
+    .container-tarifas {
+        text-align: center;
+        border: 1px solid #7a7a7a;
+        padding: 0 0px 45px;
+        background: #fff;
+        border-radius: 6px;
+        margin-bottom: 10px;
     }
+
+    .container-tarifas h2 {
+        background: none repeat scroll 0 0 #3d3d3d;
+        border-radius: 4px 4px 0 0;
+        color: #fff;
+        font-family: "segoe_uiregular";
+        font-size: 20px;
+        font-weight: normal;
+        margin: 0;
+        padding: 25px 0;
+        text-transform: uppercase;
+    }
+
+    .container-tarifas .appinner a {
+        background: none repeat scroll 0 0 #F39;
+        border-bottom: 3px solid #F39;
+        border-radius: 4px;
+        clear: both;
+        color: #fff;
+        font-size: 24px;
+        padding: 12px 30px;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+
+    .sss {
+        margin-top: -49px;
+        padding: 4px 0px;
+        font-size: 20px;
+    }
+
+    .content-info {
+        text-align: right;
+        margin-right: 11px;
+    }
+
+    .span-info-circle {
+        color: #268ecc;
+        /*background: #f2f2f5;*/
+    }
+
+    .content-play {
+        text-align: right;
+        margin-right: 4px;
+    }
+
+    .span-info-play-circle {
+        color: red;
+        /*background: white;*/
+    }
+
+    .contttttt {
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
     .span-top {
         position: absolute;
         background: red;
@@ -17,18 +77,20 @@
         border-top-right-radius: 25px;
         border-bottom-right-radius: 25px;
         padding: 2px 2px;
-        z-index: 2; 
+        z-index: 2;
         top: 0px;
         left: 0px;
     }
-    
+
     .navbar-nav > li > a {
         padding-top: 32px;
         padding-bottom: 32px;
     }
+
     .imagen img {
-        height:100% !important;
+        height: 100% !important;
     }
+
     .messages-menu .dropdown-toggle {
         padding: 0;
         position: relative;
@@ -38,12 +100,13 @@
     .blq-list-tiny .element {
         height: 254px;
     }
+
     .ficha-peq {
         height: 355px;
     }
+
     .blq-list-big .element {
         height: 430px;
-       
     }
 
     .blq-list-big .description .spec,
@@ -516,11 +579,68 @@
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    .sss {
+        margin-top: -49px;
+        padding: 4px 0px;
+        font-size: 20px;
+    }
+
+    .content-info {
+        text-align: right;
+        margin-right: 11px;
+    }
+
+    .span-info-circle {
+        color: #268ecc;
+        /*background: #f2f2f5;*/
+    }
+
+    .content-play {
+        text-align: right;
+        margin-right: 4px;
+    }
+
+    .span-info-play-circle {
+        color: red;
+        /*background: white;*/
+    }
     .contttttt {
         width: 100%;
         top: 0;
-        left: 0;        
+        left: 0;
     }
+    .container-tarifas {
+        text-align: center;
+        border: 1px solid #7a7a7a;
+        padding: 0 0px 45px;
+        background: #fff;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+        .container-tarifas h2 {
+            background: none repeat scroll 0 0 #3d3d3d;
+            border-radius: 4px 4px 0 0;
+            color: #fff;
+            font-family: "segoe_uiregular";
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+            padding: 25px 0;
+            text-transform: uppercase;
+        }
+
+        .container-tarifas .appinner a {
+            background: none repeat scroll 0 0 #F39;
+            border-bottom: 3px solid #F39;
+            border-radius: 4px;
+            clear: both;
+            color: #fff;
+            font-size: 24px;
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
 
     .span-top {
         position: absolute;
@@ -537,6 +657,7 @@
         top: 0px;
         left: 0px;
     }
+
     .submenu.scroll-to-fixed-fixed {
         background: rgb(0, 0, 0);
         background: transparent\9;
@@ -1690,6 +1811,7 @@
         margin: 20px 0;
         display: block;
     }
+
     .slide-wrapper {
         height: 168px;
         top: 2px;
@@ -1955,12 +2077,71 @@
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
 
+    .sss {
+        margin-top: -49px;
+        padding: 4px 0px;
+        font-size: 20px;
+    }
+
+    .content-info {
+        text-align: right;
+        margin-right: 11px;
+    }
+
+    .span-info-circle {
+        color: #268ecc;
+        /*background: #f2f2f5;*/
+    }
+
+    .content-play {
+        text-align: right;
+        margin-right: 4px;
+    }
+
+    .span-info-play-circle {
+        color: red;
+        /*background: white;*/
+    }
+
     .contttttt {
         width: 100%;
         top: 0;
-        left: 0;        
+        left: 0;
+    }
+    .container-tarifas {
+        text-align: center;
+        border: 1px solid #7a7a7a;
+        padding: 0 0px 45px;
+        background: #fff;
+        border-radius: 6px;
+        margin-bottom: 10px;
     }
 
+        .container-tarifas h2 {
+            background: none repeat scroll 0 0 #3d3d3d;
+            border-radius: 4px 4px 0 0;
+            color: #fff;
+            font-family: "segoe_uiregular";
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+            padding: 25px 0;
+            text-transform: uppercase;
+        }
+
+        .container-tarifas .appinner a {
+            background: none repeat scroll 0 0 #F39;
+            border-bottom: 3px solid #F39;
+            border-radius: 4px;
+            clear: both;
+            color: #fff;
+            font-size: 24px;
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+
+    
     .span-top {
         position: absolute;
         background: red;
@@ -2491,11 +2672,74 @@
     .carousel-cell .info {
         bottom: 50px;
     }
+    .sss {
+        margin-top: -49px;
+        padding: 4px 0px;
+        font-size: 20px;
+    }
+
+    .content-info {
+        text-align: right;
+        margin-right: 11px;
+    }
+
+    .span-info-circle {
+        color: #268ecc;
+        /*background: #f2f2f5;*/
+    }
+
+    .content-play {
+        text-align: right;
+        margin-right: 4px;
+    }
+
+    .span-info-play-circle {
+        color: red;
+        /*background: white;*/
+    }
+
+    .panels-detail-info {
+        height: auto;
+    }
+
     .contttttt {
         width: 100%;
         top: 0;
-        left: 0;        
+        left: 0;
     }
+    .container-tarifas {
+        text-align: center;
+        border: 1px solid #7a7a7a;
+        padding: 0 0px 45px;
+        background: #fff;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+        .container-tarifas h2 {
+            background: none repeat scroll 0 0 #3d3d3d;
+            border-radius: 4px 4px 0 0;
+            color: #fff;
+            font-family: "segoe_uiregular";
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+            padding: 25px 0;
+            text-transform: uppercase;
+        }
+
+        .container-tarifas .appinner a {
+            background: none repeat scroll 0 0 #F39;
+            border-bottom: 3px solid #F39;
+            border-radius: 4px;
+            clear: both;
+            color: #fff;
+            font-size: 24px;
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+
 
     .span-top {
         position: absolute;
