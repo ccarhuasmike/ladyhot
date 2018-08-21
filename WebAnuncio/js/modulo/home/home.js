@@ -76,8 +76,10 @@
             };
             var ValsTokens = JSON.stringify(valTokens);
             html += "<li class='col-xs-6 col-sm-4 col-md-15 col-lg-15 mg30 zona-100'>";
+            
             html += "<div class='element'>";
-            html += "<div class='ficha-peq'>";
+            html += "<div class='contttttt'><span class='span-top'>Top</span></div>";
+            html += "<div class='ficha-peq'>";                                                   
             html += "<a class='imagen' href='javascript:void(0);' onclick='redirecToDetails(" + ValsTokens +");' title='" + response[i].txt_nombre_ficha + " de " + response[i].tx_pais_origen + ": " + response[i].txt_presentacion.substring(0, 59) + "'> <img class='img-responsive' alt='Ver ficha completa de " + response[i].txt_nombre_ficha + " de " + response[i].tx_pais_origen +"' src='" + response[i].txt_imagen_prensetancion.split(",")[0] + "' data-original='" + response[i].txt_imagen_prensetancion.split(",")[1] + "' data-thumbnail='" + response[i].txt_imagen_prensetancion.split(",")[2] + "' data-path='" + response[i].txt_imagen_prensetancion.split(",")[3] +"'> </a>";
             html += "</div>";
             html += "<div class='description' style='margin-top: 0px;'>";

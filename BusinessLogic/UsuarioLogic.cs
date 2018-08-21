@@ -19,8 +19,8 @@ namespace BusinessLogic
         {
             _usuarioData = new UsuarioData();
         }
-        public ClientResponse listar_usuario() {
-            return _usuarioData.listar_usuario();
+        public ClientResponse Listar_usuario() {
+            return _usuarioData.Listar_usuario();
         }
 
         public ClientResponse InsertUsuario(Tbl_usuario objeto)
@@ -28,9 +28,9 @@ namespace BusinessLogic
             return _usuarioData.InsertUsuario(objeto);
         }
 
-        public ClientResponse getUsuario_X_password(Tbl_usuario entidad)
+        public ClientResponse GetUsuario_X_password(Tbl_usuario entidad)
         {
-            return _usuarioData.getUsuario_X_password(entidad);
+            return _usuarioData.GetUsuario_X_password(entidad);
         }
     }
 }

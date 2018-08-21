@@ -429,8 +429,8 @@ function cargar_galeria_fotos(response) {
     }
 
     function responseprimerpaso(response) {
-        if (response.Status === "OK") {
-            debugger;
+        debugger;
+        if (response.Status === "OK") {            
             __AddSessionStorage('id_anuncio_val', response.Id);
             //Alert.success("El archivo seleccionado es inválido , los archivos válidos son de tipo");
         }

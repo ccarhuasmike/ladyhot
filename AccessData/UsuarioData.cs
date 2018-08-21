@@ -57,7 +57,7 @@ namespace AccessData
                         if (comando.Parameters["@id"] != null)
                         {
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
-                            IEnumerable<Tbl_usuario> lst = getUsuario_X_Id(id);
+                            IEnumerable<Tbl_usuario> lst = GetUsuario_X_Id(id);
                             clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                         }
                     }
@@ -78,7 +78,7 @@ namespace AccessData
             return clientResponse;
         }
 
-        public IEnumerable<Tbl_usuario> getUsuario_X_Id(int id)
+        public IEnumerable<Tbl_usuario> GetUsuario_X_Id(int id)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace AccessData
             return lstUsuario;
         }
 
-        public ClientResponse getUsuario_X_password(Tbl_usuario entidad)
+        public ClientResponse GetUsuario_X_password(Tbl_usuario entidad)
         {
             try
             {
@@ -145,7 +145,7 @@ namespace AccessData
             return clientResponse;
         }
 
-        public ClientResponse listar_usuario()
+        public ClientResponse Listar_usuario()
         {
             try
             {

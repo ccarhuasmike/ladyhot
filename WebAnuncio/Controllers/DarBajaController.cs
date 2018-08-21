@@ -24,7 +24,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                Tbl_anuncio list = new AnuncioLogic().getAnucion_x_tokens(token_anuncio);
+                Tbl_anuncio list = new AnuncioLogic().GetAnucion_x_tokens(token_anuncio);
                 clientResponse.DataJson = JsonConvert.SerializeObject(list).ToString();
                 clientResponse.Status = "OK";
             }
@@ -40,7 +40,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                clientResponse = new AnuncioLogic().darBajarAnuncio(anuncio_token);
+                clientResponse = new AnuncioLogic().DarBajarAnuncio(anuncio_token);
             }
             catch (Exception ex)
             {

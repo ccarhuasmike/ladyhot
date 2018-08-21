@@ -1,5 +1,27 @@
 /* Large desktop */
 @media (min-width: 1200px) {
+
+    .contttttt {
+        width: 100%;        
+        top: 0;
+        left: 0;        
+    }
+    .span-top {
+        position: absolute;
+        background: red;
+        width: 46px;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        padding: 2px 2px;
+        z-index: 2; 
+        top: 0px;
+        left: 0px;
+    }
+    
     .navbar-nav > li > a {
         padding-top: 32px;
         padding-bottom: 32px;
@@ -494,6 +516,27 @@
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    .contttttt {
+        width: 100%;
+        top: 0;
+        left: 0;        
+    }
+
+    .span-top {
+        position: absolute;
+        background: red;
+        width: 46px;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        padding: 2px 2px;
+        z-index: 2;
+        top: 0px;
+        left: 0px;
+    }
     .submenu.scroll-to-fixed-fixed {
         background: rgb(0, 0, 0);
         background: transparent\9;
@@ -1647,9 +1690,8 @@
         margin: 20px 0;
         display: block;
     }
-
     .slide-wrapper {
-        height: 208px;
+        height: 168px;
         top: 2px;
     }
 
@@ -1690,7 +1732,7 @@
     }
 
     .slide-wrapper {
-        height: 330px;
+        height: 234px;
     }
 
     .entrada {
@@ -1833,7 +1875,7 @@
     }
 
     .slide-wrapper {
-        height: 270px;
+        height: 212px;
     }
 
     .entrada {
@@ -1912,9 +1954,34 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
+
+    .contttttt {
+        width: 100%;
+        top: 0;
+        left: 0;        
+    }
+
+    .span-top {
+        position: absolute;
+        background: red;
+        width: 46px;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        padding: 2px 2px;
+        z-index: 2;
+        top: 0px;
+        left: 0px;
+    }
+
     .masaje .chicas-agencia li {
         height: 51px;
     }
+
+
 
     .cabecera-big .bg-form {
         margin-top: 45px;
@@ -2071,7 +2138,7 @@
     }
 
     .slide-wrapper {
-        height: 360px;
+        height: 302px;
         top: 1px;
     }
 
@@ -2423,6 +2490,27 @@
 @media only screen and (min-width: 768px) {
     .carousel-cell .info {
         bottom: 50px;
+    }
+    .contttttt {
+        width: 100%;
+        top: 0;
+        left: 0;        
+    }
+
+    .span-top {
+        position: absolute;
+        background: red;
+        width: 46px;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        padding: 2px 2px;
+        z-index: 2;
+        top: 0px;
+        left: 0px;
     }
 }
 

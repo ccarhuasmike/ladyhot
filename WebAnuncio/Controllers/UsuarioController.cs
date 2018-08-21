@@ -22,7 +22,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                clientResponse = new UsuarioLogic().getUsuario_X_password(oregistro);
+                clientResponse = new UsuarioLogic().GetUsuario_X_password(oregistro);
             }
             catch (Exception ex)
             {

@@ -35,7 +35,7 @@ namespace WebAnuncio.Controllers
                 //IEnumerable<tbl_galeria_anuncio> Get_galeria_x_id_anuncio = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
                 object initData = new
                 {
-                    DetailleAnuncion = new AnuncioLogic().getAnucionXId(id),
+                    DetailleAnuncion = new AnuncioLogic().GetAnucionXId(id),
                     ListCargarInicial = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad)
                 };
                 clientResponse.Status = "OK";
