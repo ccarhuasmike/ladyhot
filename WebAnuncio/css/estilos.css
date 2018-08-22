@@ -1091,7 +1091,7 @@ slide
     top: 50%;
     z-index: 5;
     display: inline-block;
-    left: 50px;
+    left: 80px;
 }
 
 .carousel-control i:before {

@@ -1,5 +1,9 @@
 /* Large desktop */
 @media (min-width: 1200px) {
+    .scroll-to-fixed-fixed {
+        position: fixed;
+        top: 0
+    }
 
     .container-tarifas {
         text-align: center;

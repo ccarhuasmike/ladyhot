@@ -225,13 +225,27 @@ $(document).on("mouseleave", ".element", function (e) {
             });
         }             
     }                   
+    //function enviarmensaje() {
 
+    //    https://api.whatsapp.com/send?phone=5493516342592&text=Hola!%20Quiero%20generar%20mas%20ventas!
+
+    //}
     function codeBehind() {       
         //cargarInicial();
         responseCargarInicia(responsedata);
+      
+
+      //  $("#id_enviar_mensaje_wasapt").click(enviarmensaje)
+        
     }
 
     $(function () {
         codeBehind();
     });
 }(window.jQuery, window, document));
+
+$(window).scroll(function () {
+    scroll = $(window).scrollTop();
+    if (scroll >= 192) $('#ficha-info').css({ position: 'fixed' });
+    else $('#ficha-info').css({ position: 'relative' });
+});
