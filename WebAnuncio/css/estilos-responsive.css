@@ -1,8 +1,27 @@
 /* Large desktop */
 @media (min-width: 1200px) {
-    .scroll-to-fixed-fixed {
+    #inferior {
+        color: #FFF;
+        background: #000;
+        position: absolute; /*El div será ubicado con relación a la pantalla*/
+        left: 0px; /*A la derecha deje un espacio de 0px*/
+        right: 0px; /*A la izquierda deje un espacio de 0px*/
+        bottom: 0px; /*Abajo deje un espacio de 0px*/
+        height: 50px; /*alto del div*/
+        z-index: 0;
+        height: 34px;
         position: fixed;
-        top: 0
+        width: 100%;
+        z-index: 5000;
+    }
+ 
+
+    .fixed-datos-telefonos {
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        right: 75px;
+        background: white;
     }
 
     .container-tarifas {
@@ -1223,6 +1242,7 @@
 
 /*Landscape phones and down */
 @media (max-width: 480px) {
+
     .page404 {
         margin: 40px 0;
     }
@@ -1761,6 +1781,7 @@
 
 /*Smartphones (portrait)*/
 @media (max-width: 320px) {
+
     li:before,
     li:after {
         content: "" !important;
@@ -1770,6 +1791,7 @@
 
 /* iPhone 5 in landscape  */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
 }
 /* iPhone 5 in portrait */
 
@@ -1778,8 +1800,53 @@
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
+    .inferior {
+        color: #FFF;
+        background: #000;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: auto;
+        position: fixed;
+        width: 100%;
+        z-index: 5000;
+    }
+
+    .inferior-whassapt {
+        height: auto;
+        width: 50%;
+        background: #09b109;        
+        padding: 6px 10px;
+        float: left;
+    }
+    .inferior-telefono {
+        height: auto;
+        width: 50%;
+        background: #3186f1;        
+        padding: 6px 10px;
+        float: left;
+    }
+    .inferior-whassapt a {
+        font-size: 22px;
+        text-decoration: none;
+        color: white;
+        padding: 4px;
+    }
+
+    .inferior-whassapt a > span {
+        color: white;
+    }
+    .inferior-telefono a {
+        font-size: 22px;
+        text-decoration: none;
+        color: white;
+        padding: 4px;
+    }
+    .inferior-telefono a > span {
+    }
     .sb-site-container {
-        padding-top: 48px;
+        /*padding-top: 48px;*/
+        padding-top: 10px;
     }
 
     .vjs-default-skin .vjs-big-play-button {
@@ -1889,6 +1956,7 @@
 /* Small Devices, Tablets */
 
 @media only screen and (min-width: 768px) {
+
     .masaje .chicas-agencia li {
         height: 67px;
     }

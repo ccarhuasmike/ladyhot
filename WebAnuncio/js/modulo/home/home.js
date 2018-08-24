@@ -150,13 +150,26 @@
     }  
     function cerrarAvisosPolitica() {
         $("#capaAvisoPoliticaCookies_superior_mensajes").css("display", "none");        
-    } 
+    }                   
+    //function toggleMenu() {
+    //    $(this).toggleClass('navicon--active');
+    //}
+    
 
 
     function codeBehind() {
         //cargarInicial();                          
         responseCargarInicia(responsedata);
         $("#id_boton_cerrar_aviso_pc").click(cerrarAvisosPolitica);
+        $('#navbar-toggle-resposive').on('click', function (e) {
+            e.preventDefault();                 
+            
+            $('#collapsed-nav').slideToggle("slow");
+            //$('#collapsed-nav').animate({ width: ["toggle", "swing"], height: "300px"}, 200);
+            //$(this).toggleClass('navicon--active');
+            //$('.toggle').toggleClass('toggle--active');
+        });
+
     }
 
     $(function () {

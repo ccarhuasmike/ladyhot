@@ -11,26 +11,26 @@
 
 
 <div class="col-xs-12">
-    <div class="row" >
+    <div class="row">
         <div class="carousel" id="id_carusel">
             @*<div class="carousel-cell">
-                <img src="http://localhost:2911/uploads_fichas/1138/1.jpg" alt="orange tree" />
-            </div>
-            <div class="carousel-cell">
-                <img src="http://localhost:2911/uploads_fichas/1138/2.jpg" alt="submerged" />
-            </div>
-            <div class="carousel-cell">
-                <img src="http://localhost:2911/uploads_fichas/1138/3.jpg" alt="look-out" />
-            </div>
-            <div class="carousel-cell">
-                <img src="http://localhost:2911/uploads_fichas/1138/4.jpg" alt="One World Trade" />
-            </div>
-            <div class="carousel-cell">
-                <img src="http://localhost:2911/uploads_fichas/1138/4.jpg" alt="drizzle" />
-            </div>
-            <div class="carousel-cell">
-                <img src="http://localhost:2911/uploads_fichas/1138/2.jpg" alt="cat nose" />
-            </div>*@
+                    <img src="http://localhost:2911/uploads_fichas/1138/1.jpg" alt="orange tree" />
+                </div>
+                <div class="carousel-cell">
+                    <img src="http://localhost:2911/uploads_fichas/1138/2.jpg" alt="submerged" />
+                </div>
+                <div class="carousel-cell">
+                    <img src="http://localhost:2911/uploads_fichas/1138/3.jpg" alt="look-out" />
+                </div>
+                <div class="carousel-cell">
+                    <img src="http://localhost:2911/uploads_fichas/1138/4.jpg" alt="One World Trade" />
+                </div>
+                <div class="carousel-cell">
+                    <img src="http://localhost:2911/uploads_fichas/1138/4.jpg" alt="drizzle" />
+                </div>
+                <div class="carousel-cell">
+                    <img src="http://localhost:2911/uploads_fichas/1138/2.jpg" alt="cat nose" />
+                </div>*@
         </div>
     </div>
 
@@ -42,7 +42,7 @@
                 <img src="" alt="Foto de: GRUPO DE AMIGAS SENSUALES #2" class="img-responsive full-img">
             </div>
         </div>*@
-    <div class="blq-dtll row mg30" itemscope="" itemtype="https://schema.org/Person">
+    <div class="blq-dtll row mg30">
         <div class="col-sm-6">
             <ul class="list-inline">
                 <li>
@@ -62,7 +62,7 @@
             </ul>
         </div>
         <div class="col-sm-6">
-            <div class="ficha-info">
+            <div class="ficha-info hidden-xs" id="id-ficha-info">
                 <div class="medio-cont">
                     <div class="telef-show bg-rosa clearfix">
                         <ul class="list-inline list-unstyled clearfix">
@@ -71,10 +71,10 @@
                             </li>
                             <li>
                                 @*<span class="j_contenedor_btn_vertelefono">
-                                    <a href="javascript:void(0);" class="btn-blanco j_btn_vertelefono" title="VER TELEFONO" rel="nofollow">
-                                        <strong>VER TELEFONO</strong>
-                                    </a>
-                                </span>*@
+                                        <a href="javascript:void(0);" class="btn-blanco j_btn_vertelefono" title="VER TELEFONO" rel="nofollow">
+                                            <strong>VER TELEFONO</strong>
+                                        </a>
+                                    </span>*@
                                 <a href="tel:+983150754" class="btn-gris j_vermensajes hidden-xs" title="VER TELEFONO" rel="nofollow" style="display:block">
                                     <strong>Llamame ahora ;)</strong>
                                 </a>
@@ -89,7 +89,6 @@
                 </ul>
             </div>
         </div>
-
         <!-- Modal -->
         <div class="modal fade modal-special" id="j_bloque_modal_contactar_ficha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -149,7 +148,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <!-- bloque que queda fijo con el telefono -->
     <div class="blq-dtll telefono-top" style="z-index: auto; position: static; top: auto;">
@@ -453,10 +451,27 @@
     <div class="text-center mg30">
         <a href="/escorts-madrid/" class="btn btn-main big-btn no-radius">VER MAS ESCORTS</a>
     </div>
+    <div class="row">
+        <div class="col-lg-12 visible-xs-* hidden-md hidden-lg">
+            <div class="inferior">
+                <div class="inferior-whassapt">
+                    <a href="https://api.whatsapp.com/send?phone=51983150754&text=Hola!%20Quiero%20generar%20mas%20ventas!">
+                        <span class="fa fa-whatsapp" aria-hidden="true"></span> WhatsApp
+                    </a>
+                </div>
+                <div class="inferior-telefono">
+                    <a href="tel:+983150754">
+                        <span class="fa fa-phone" aria-hidden="true"></span> 983150754
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section scripts{
-    <script type="text/javascript">        
+    <script type="text/javascript">
+
         //var variable1 = '@(ViewBag.Message)'
         //var variable1 = '@(ViewBag.ProductId)';
         var responsedata = @Html.Raw(Json.Encode(ViewBag.Message));

@@ -1,17 +1,13 @@
-﻿//var $carousel = $('#id_carusel').flickity({
-//    asNavFor: '.carousel-main',
-//    contain: true,
-//    pageDots: false,
-//    adaptiveHeight: true,
-//    imagesLoaded: true,
-//    lazyLoad: true
-//});
-
-
-
-/*,
-    fullscreen: true,
-    lazyLoad: 1*/
+﻿$(window).scroll(function () {
+    if ($(this).scrollTop() > 600) {
+        $('#id-ficha-info').addClass("fixed-datos-telefonos").fadeIn();
+        //$('.contenedor').addClass("margen").fadeIn();
+    }
+    else {
+        $('#id-ficha-info').removeClass("fixed-datos-telefonos");
+        //$('.contenedor').removeClass("margen");
+    }
+});
 
 $(document).on("mouseenter", ".element .sube", function (e) {
     // $('.element .sube').mouseenter(function () {
