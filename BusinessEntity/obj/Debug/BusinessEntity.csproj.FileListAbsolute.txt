@@ -9,3 +9,8 @@ D:\ProyectoSolucion\BusinessEntity\bin\Debug\BusinessEntity.pdb
 D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
 D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.dll
 D:\ProyectoSolucion\BusinessEntity\obj\Debug\BusinessEntity.pdb
+D:\Proyectos\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.dll
+D:\Proyectos\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.pdb
+D:\Proyectos\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+D:\Proyectos\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.dll
+D:\Proyectos\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb

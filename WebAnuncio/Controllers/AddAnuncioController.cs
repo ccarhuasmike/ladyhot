@@ -25,23 +25,17 @@ namespace WebAnuncio.Controllers
         
         public JsonResult GetAnucionXId(int id)
         {
-
-
             ClientResponse clientResponse = new ClientResponse();
             try
-            {
-                //IEnumerable <tbl_anuncio> listDetall = new AnuncioLogic().getAnucionXId(id);
-                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };
-                //IEnumerable<tbl_galeria_anuncio> Get_galeria_x_id_anuncio = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
+            {   
+                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };                
                 object initData = new
                 {
                     DetailleAnuncion = new AnuncioLogic().GetAnucionXId(id),
                     ListCargarInicial = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad)
                 };
                 clientResponse.Status = "OK";
-                clientResponse.Data = initData;
-                //clientResponse.Status = "OK";
-                //clientResponse.DataJson = JsonConvert.SerializeObject(list).ToString();
+                clientResponse.Data = initData;                
             }
             catch (Exception ex)
             {
@@ -126,7 +120,6 @@ namespace WebAnuncio.Controllers
             return Json(clientResponse, JsonRequestBehavior.AllowGet);
         }
 
-
         public JsonResult AgregarFotos(int id)
         {
             ClientResponse clientResponse;
@@ -149,9 +142,6 @@ namespace WebAnuncio.Controllers
                 ClientResponse respons_rutas_virtuales_fichas_cortada = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas_cortada);
                 Tbl_parameter_det rutas_rutas_virtuales_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_virtuales_fichas_cortada.DataJson);
 
-
-
-
                 HttpFileCollectionBase filesCollection = Request.Files;
                 //string hora = DateTime.Now.ToString("yyyyMMddhhmmss");
                 List<Tbl_galeria_anuncio> list = new List<Tbl_galeria_anuncio>();
@@ -169,9 +159,7 @@ namespace WebAnuncio.Controllers
                     else
                     {
                         filename = file.FileName;
-                    }
-
-           
+                    }          
 
                     string[] split_extension = filename.Split(new Char[] { '.' });
                     Tbl_parameter_det entidad_det = new Tbl_parameter_det()

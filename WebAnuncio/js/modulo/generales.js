@@ -135,7 +135,6 @@ function setValueElemento(name, value) {
             }
         }
     }
-
 }
 
 function __AddSessionStorage(key, value) {

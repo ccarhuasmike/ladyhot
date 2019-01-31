@@ -479,7 +479,9 @@ function cargar_galeria_fotos(response) {
     }
 
     function responsesegundopaso(response) {
-        if (response.Status === "OK") {
+        var result = JSON.parse(response.d);
+        if (result.Status === "OK") {
+
             //var response = JSON.parse(response.DataJson);
         } else {
 
