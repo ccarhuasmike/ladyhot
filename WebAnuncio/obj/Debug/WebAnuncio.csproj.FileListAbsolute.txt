@@ -97,3 +97,13 @@ D:\Proyectos\ladyhot\WebAnuncio\bin\es\System.Web.WebPages.Razor.resources.dll
 D:\Proyectos\ladyhot\WebAnuncio\obj\Debug\WebAnuncio.csprojAssemblyReference.cache
 D:\Proyectos\ladyhot\WebAnuncio\obj\Debug\WebAnuncio.csproj.CoreCompileInputs.cache
 D:\Proyectos\ladyhot\WebAnuncio\obj\Debug\WebAnuncio.csproj.CopyComplete
+D:\Proyectos\ladyhot\WebAnuncio\bin\es\System.Web.Optimization.resources.dll
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Net.Http.Formatting.dll
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Web.Cors.dll
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Web.Http.Cors.dll
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Web.Http.dll
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Net.Http.Formatting.xml
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Web.Http.xml
+D:\Proyectos\ladyhot\WebAnuncio\bin\System.Web.Http.Cors.xml
+D:\Proyectos\ladyhot\WebAnuncio\bin\es\System.Net.Http.Formatting.resources.dll
+D:\Proyectos\ladyhot\WebAnuncio\bin\es\System.Web.Http.resources.dll

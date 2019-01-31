@@ -20,9 +20,7 @@ namespace WebAnuncio.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        
+        }        
         public JsonResult GetAnucionXId(int id)
         {
             ClientResponse clientResponse = new ClientResponse();

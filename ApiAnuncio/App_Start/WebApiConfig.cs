@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ApiAnuncio
 {
@@ -10,7 +12,10 @@ namespace ApiAnuncio
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
-
+            // Configuración y servicios de API web
+            EnableCorsAttribute defaultPolicyProvider = new EnableCorsAttribute(ConfigurationManager.AppSettings["host"], "*", "GET,POST");
+            config.EnableCors(defaultPolicyProvider);
+            // Rutas de API web
             // Rutas de API web
             config.MapHttpAttributeRoutes();
 
