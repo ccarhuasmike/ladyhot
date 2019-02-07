@@ -218,7 +218,7 @@ namespace AccessData.PersonaDao
                         comando.ExecuteNonQuery();
                         if (comando.Parameters["@id"] != null)
                         {
-                            //dante gay
+                            //dante gay medio weon
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
                             clientResponse.Id = id;
                             Tbl_anuncio entidad = GetAnucionXId(id);
