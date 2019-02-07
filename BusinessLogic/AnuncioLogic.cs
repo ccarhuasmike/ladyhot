@@ -50,6 +50,13 @@ namespace BusinessLogic
             return _AnuncioData.UpdateCuartopaso(objeto);
         }
 
+        public ClientResponse UpdateQuintopaso(Tbl_anuncio objeto)
+        {
+            return _AnuncioData.UpdateQuintopaso(objeto);
+        }
+
+        
+
         public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateTodopaso(objeto);

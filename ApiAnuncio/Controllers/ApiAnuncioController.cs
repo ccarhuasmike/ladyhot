@@ -121,6 +121,20 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+        [Route("Quintopaso"), HttpPost]
+        public ClientResponse Quintopaso(Tbl_anuncio oregistro)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().UpdateQuintopaso(oregistro);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
         [Route("EliminarFoto"), HttpPost]
         public ClientResponse EliminarFoto(int id_galeria)
         {

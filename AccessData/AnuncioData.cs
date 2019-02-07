@@ -333,6 +333,44 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@dbl_costo_x_viaje", SqlDbType.Decimal).Value = objeto.dbl_costo_x_viaje;
                         comando.Parameters.Add("@txt_forma_pago", SqlDbType.VarChar, 400).Value = objeto.txt_forma_pago;
                         comando.Parameters.Add("@txt_descripcion_extra_tarifa", SqlDbType.VarChar, 255).Value = objeto.txt_descripcion_extra_tarifa == null ? "" : objeto.txt_descripcion_extra_tarifa;
+                        //comando.Parameters.Add("@txt_lugar_servicio_distrito", SqlDbType.VarChar, 255).Value = objeto.txt_lugar_servicio_distrito;
+                        //comando.Parameters.Add("@fl_atencion_24horas", SqlDbType.Int).Value = objeto.fl_atencion_24horas;
+                        //comando.Parameters.Add("@tx_descripcion_extra_horario", SqlDbType.VarChar, 200).Value = objeto.tx_descripcion_extra_horario == null ? "" : objeto.tx_descripcion_extra_horario;
+                        //comando.Parameters.Add("@tx_lugar_atencion", SqlDbType.VarChar, 255).Value = objeto.tx_lugar_atencion;
+                        //comando.Parameters.Add("@tx_servicios_ofrece", SqlDbType.VarChar, 400).Value = objeto.tx_servicios_ofrece;
+                        //comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio == null ? "" : objeto.tx_descripcion_extra_servicio;
+                        comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        Tbl_anuncio entidad = GetAnucionXId(objeto.id);
+                        clientResponse.Data = JsonConvert.SerializeObject(entidad).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
+        public ClientResponse UpdateQuintopaso(Tbl_anuncio objeto)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_upd_anuncio_quintopaso", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@txt_lugar_servicio_distrito", SqlDbType.VarChar, 255).Value = objeto.txt_lugar_servicio_distrito;
                         comando.Parameters.Add("@fl_atencion_24horas", SqlDbType.Int).Value = objeto.fl_atencion_24horas;
                         comando.Parameters.Add("@tx_descripcion_extra_horario", SqlDbType.VarChar, 200).Value = objeto.tx_descripcion_extra_horario == null ? "" : objeto.tx_descripcion_extra_horario;
@@ -361,6 +399,7 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
+
         public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
             try
