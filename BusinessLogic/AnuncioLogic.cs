@@ -19,7 +19,7 @@ namespace BusinessLogic
         }
         public IEnumerable<Tbl_anuncio> GetAnucionXId(int id)
         {
-            return _AnuncioData.GetAnucionXId(id);
+            return null;///_AnuncioData.GetAnucionXId(id);
         }
         public Tbl_anuncio GetAnucion_x_tokens(string token_anuncio)
         {
