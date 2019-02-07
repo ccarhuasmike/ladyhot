@@ -220,6 +220,7 @@ namespace AccessData.PersonaDao
                         {
                             //dante gay medio weon
                             //chiv
+                            //mike
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
                             clientResponse.Id = id;
                             Tbl_anuncio entidad = GetAnucionXId(id);
