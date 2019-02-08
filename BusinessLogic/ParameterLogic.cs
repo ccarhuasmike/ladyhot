@@ -25,8 +25,8 @@ namespace BusinessLogic
             Tbl_parameter_det entidad_det = null;
             try
             {
-                
                
+
                 /*carga edad*/
                 entidad_det = new Tbl_parameter_det()
                 {
@@ -110,9 +110,7 @@ namespace BusinessLogic
 
                 clientResponse.Mensaje = ex.Message;
                 clientResponse.Status = "ERROR";
-            }
-            
-
+            }            
             clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
             return clientResponse;
         }

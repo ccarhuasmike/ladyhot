@@ -6,9 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Communities;
+
 
 namespace AccessData
 {
@@ -43,6 +46,12 @@ namespace AccessData
             try
             {
 
+                //using (StreamWriter w = File.AppendText("log.txt"))
+                //{
+                //    Utilidades.Log("Test1", w);
+                //    Utilidades.Log("Test2", w);
+                //}               
+                Utilidades.WriteLog("inicio log");
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
                     using (comando = new SqlCommand("sp_sel_parameter_skey", conexion))
@@ -61,10 +70,15 @@ namespace AccessData
                     }
                 }
             }
-            catch (Exception )
+            catch (Exception  ex)
             {
-                //clientResponse.Mensaje = ex.Message;
-                //clientResponse.Status = "ERROR";
+                Utilidades.WriteLog(ex.Message);
+                //using (StreamReader r = File.OpenText("log.txt"))
+                //{
+                //    Utilidades.DumpLog(r);
+                //}
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
             }
             finally
             {
@@ -72,10 +86,7 @@ namespace AccessData
                 conexion.Dispose();
                 comando.Dispose();
                 reader.Dispose();
-            }
-
-            //clientResponse.DataJson = JsonConvert.SerializeObject(lstContacto).ToString();
-            // return clientResponse;
+            }            
             return lstParamaterDet;
         }
 
