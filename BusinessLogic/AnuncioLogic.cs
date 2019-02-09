@@ -17,9 +17,9 @@ namespace BusinessLogic
         {
             _AnuncioData = new AnuncioData();
         }
-        public IEnumerable<Tbl_anuncio> GetAnucionXId(int id)
+        public Tbl_anuncio GetAnucionXId(int id)
         {
-            return null;///_AnuncioData.GetAnucionXId(id);
+            return _AnuncioData.GetAnucionXId(id);
         }
         public Tbl_anuncio GetAnucion_x_tokens(string token_anuncio)
         {

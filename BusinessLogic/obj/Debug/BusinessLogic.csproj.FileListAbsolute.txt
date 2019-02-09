@@ -56,3 +56,17 @@ D:\Proyectos\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
 D:\Proyectos\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.dll
 D:\Proyectos\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.pdb
 D:\Proyectos\ladyhot\BusinessLogic\bin\Debug\Newtonsoft.Json.xml
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\AccessData.dll
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\BusinessEntity.dll
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\Communities.dll
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\Newtonsoft.Json.dll
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\AccessData.pdb
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\BusinessEntity.pdb
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\Communities.pdb
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\bin\Debug\Newtonsoft.Json.xml
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Proyecto_LadHot\ladyhot\BusinessLogic\obj\Debug\BusinessLogic.pdb

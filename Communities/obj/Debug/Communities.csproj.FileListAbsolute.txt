@@ -15,3 +15,9 @@ D:\Proyectos\ladyhot\Communities\obj\Debug\Communities.csproj.CoreCompileInputs.
 D:\Proyectos\ladyhot\Communities\obj\Debug\Communities.dll
 D:\Proyectos\ladyhot\Communities\obj\Debug\Communities.pdb
 D:\Proyectos\ladyhot\Communities\obj\Debug\Communities.csprojAssemblyReference.cache
+C:\Proyecto_LadHot\ladyhot\Communities\bin\Debug\Communities.dll
+C:\Proyecto_LadHot\ladyhot\Communities\bin\Debug\Communities.pdb
+C:\Proyecto_LadHot\ladyhot\Communities\obj\Debug\Communities.csprojResolveAssemblyReference.cache
+C:\Proyecto_LadHot\ladyhot\Communities\obj\Debug\Communities.csproj.CoreCompileInputs.cache
+C:\Proyecto_LadHot\ladyhot\Communities\obj\Debug\Communities.dll
+C:\Proyecto_LadHot\ladyhot\Communities\obj\Debug\Communities.pdb
