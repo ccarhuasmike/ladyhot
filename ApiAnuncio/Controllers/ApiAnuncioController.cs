@@ -65,6 +65,20 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+        [Route("ActualizarTodo"), HttpPost]
+        public ClientResponse ActualizarTodo(Tbl_anuncio oregistro)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().UpdateTodopaso(oregistro);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
         [Route("ActualizarPrimerpaso"), HttpPost]
         public ClientResponse ActualizarPrimerpaso(Tbl_anuncio oregistro)
         {
