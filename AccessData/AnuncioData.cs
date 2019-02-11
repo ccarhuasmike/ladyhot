@@ -132,7 +132,7 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-        public ClientResponse DarBajarAnuncio(string token_anuncio)
+        public ClientResponse DarBajarAnuncio(Tbl_anuncio entidad)
         {
             try
             {
@@ -141,7 +141,7 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_upd_dar_baja_tbl_anuncio", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
+                        comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = entidad.cod_anuncio_encryptado;
                         conexion.Open();
                         comando.ExecuteNonQuery();
                         clientResponse.Status = "OK";

@@ -21,3 +21,8 @@ C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csprojResolve
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.dll
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb
+C:\ProyectoLady\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.dll
+C:\ProyectoLady\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.pdb
+C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.dll
+C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb

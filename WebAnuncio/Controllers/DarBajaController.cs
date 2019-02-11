@@ -40,7 +40,7 @@ namespace WebAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                clientResponse = new AnuncioLogic().DarBajarAnuncio(anuncio_token);
+                //clientResponse = new AnuncioLogic().DarBajarAnuncio(anuncio_token);
             }
             catch (Exception ex)
             {

@@ -73,9 +73,9 @@ namespace BusinessLogic
         {
             return _AnuncioData.ListarAnuncio_top_10();
         }
-        public ClientResponse DarBajarAnuncio(string token_anuncio)
+        public ClientResponse DarBajarAnuncio(Tbl_anuncio entidad)
         {
-            return _AnuncioData.DarBajarAnuncio(token_anuncio);
+            return _AnuncioData.DarBajarAnuncio(entidad);
         }
     }
 }

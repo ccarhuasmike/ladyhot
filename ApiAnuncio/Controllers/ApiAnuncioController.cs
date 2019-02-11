@@ -149,6 +149,22 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+
+        [Route("DarBajarAnuncio"), HttpPost]
+        public ClientResponse DarBajarAnuncio(Tbl_anuncio oregistro)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().DarBajarAnuncio(oregistro);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
+
         [Route("EliminarFoto"), HttpPost]
         public ClientResponse EliminarFoto(int id_galeria)
         {
