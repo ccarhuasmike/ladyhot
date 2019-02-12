@@ -46,9 +46,6 @@ namespace AccessData
         {
             try
             {
-
-
-
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
                     using (comando = new SqlCommand("sp_sel_parameter_skey", conexion))

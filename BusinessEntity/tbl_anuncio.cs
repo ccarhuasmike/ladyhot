@@ -9,6 +9,7 @@ namespace BusinessEntity
    public class Tbl_anuncio
     {
         public int id { get; set; }  = 0;
+        public string codigo { get; set; } = "";
         public string txt_nombre_ficha { get; set; } = "";
         public string txt_telefono_1 { get; set; } = "";
         public string txt_telefono_2 { get; set; } = "";
@@ -62,6 +63,7 @@ namespace BusinessEntity
         public int fl_cerrado { get; set; } = 0;
         public string cod_anuncio_encryptado { get; set; } = "";
         public int id_usuario { get; set; } = 0;
+        public int int_cant_visto { get; set; } = 0;        
         //Propiedades Extras
         public string txt_imagen_prensetancion { get; set; } = "";        
         
