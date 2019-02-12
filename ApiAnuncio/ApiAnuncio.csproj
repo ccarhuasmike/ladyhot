@@ -124,6 +124,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AnuncioController.cs" />
     <Compile Include="Controllers\ApiAnuncioController.cs" />
+    <Compile Include="Controllers\ApiContactarController.cs" />
     <Compile Include="Controllers\ApiMisAnuncioController.cs" />
     <Compile Include="Controllers\ApiParameterController.cs" />
     <Compile Include="Global.asax.cs">

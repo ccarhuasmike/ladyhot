@@ -41,42 +41,31 @@ namespace AccessData
         #endregion
 
         #region Metodo
+
         public IEnumerable<Tbl_parameter_det> GetParameter_skey(Tbl_parameter_det det)
         {
             try
             {
 
-                //using (StreamWriter w = File.AppendText("log.txt"))
-                //{
-                //    Utilidades.Log("Test1", w);
-                //    Utilidades.Log("Test2", w);
-                //}               
-                Utilidades.WriteLog("inicio log");
+
+
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
                     using (comando = new SqlCommand("sp_sel_parameter_skey", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.Add("@skey_cab", SqlDbType.VarChar,45).Value = det.paramter_cab.skey_cab;
-                        // comando.Parameters.Add("@id_sede", SqlDbType.Int).Value = idSede;
-                        // comando.Parameters.Add("@numero_documento", SqlDbType.VarChar, 15).Value = numeroDocumento;
+                        comando.Parameters.Add("@skey_cab", SqlDbType.VarChar, 45).Value = det.paramter_cab.skey_cab;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            
-                                lstParamaterDet = reader.ReadRows<Tbl_parameter_det>();                               
-                            
+                            lstParamaterDet = reader.ReadRows<Tbl_parameter_det>();
                         }
                     }
                 }
             }
-            catch (Exception  ex)
+            catch (Exception ex)
             {
                 Utilidades.WriteLog(ex.Message);
-                //using (StreamReader r = File.OpenText("log.txt"))
-                //{
-                //    Utilidades.DumpLog(r);
-                //}
                 clientResponse.Mensaje = ex.Message;
                 clientResponse.Status = "ERROR";
             }
@@ -86,7 +75,7 @@ namespace AccessData
                 conexion.Dispose();
                 comando.Dispose();
                 reader.Dispose();
-            }            
+            }
             return lstParamaterDet;
         }
 

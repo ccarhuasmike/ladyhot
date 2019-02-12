@@ -44,9 +44,16 @@
     <Compile Include="ClientResponse.cs" />
     <Compile Include="Communities.cs" />
     <Compile Include="DataReaderExtensions.cs" />
+    <Compile Include="Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlParameterCollectionExtensions.cs" />
     <Compile Include="Utilidades.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">
+      <Project>{0f2e1255-eae6-43bf-813f-2a25dfea858c}</Project>
+      <Name>BusinessEntity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -149,7 +149,6 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
-
         [Route("DarBajarAnuncio"), HttpPost]
         public ClientResponse DarBajarAnuncio(Tbl_anuncio oregistro)
         {
@@ -164,7 +163,6 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
-
         [Route("EliminarFoto"), HttpPost]
         public ClientResponse EliminarFoto(int id_galeria)
         {
