@@ -26,10 +26,10 @@ C:\ProyectoLady\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.pdb
 C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
 C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.dll
 C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb
+C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache
 D:\ProjecLadyHot\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.dll
 D:\ProjecLadyHot\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.pdb
 D:\ProjecLadyHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache
 D:\ProjecLadyHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
 D:\ProjecLadyHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.dll
 D:\ProjecLadyHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb
-C:\ProyectoLady\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache

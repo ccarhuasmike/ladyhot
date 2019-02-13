@@ -13,15 +13,12 @@ namespace ApiAnuncio
         {
             // Configuración y servicios de API web
             // Configuración y servicios de API web
-            //EnableCorsAttribute defaultPolicyProvider = new EnableCorsAttribute(ConfigurationManager.AppSettings["host"], "*", "GET,POST")
-            //{
-            //    SupportsCredentials = true
-            //};
-            var defaultPolicyProvider = new EnableCorsAttribute(
-            origins: "*",
-            headers: "*",
-            methods: "*");
-            
+            EnableCorsAttribute defaultPolicyProvider = new EnableCorsAttribute(ConfigurationManager.AppSettings["host"], "*", "GET,POST");
+
+            //var defaultPolicyProvider = new EnableCorsAttribute(
+            //origins: "*",
+            //headers: "*",
+            //methods: "*");            
 
             config.EnableCors(defaultPolicyProvider);
             // Rutas de API web
