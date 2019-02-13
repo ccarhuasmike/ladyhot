@@ -15,5 +15,7 @@ namespace BusinessEntity
         public int id_anuncio { get; set; } = 0;
         public string txt_ruta_virtuales { get; set; } = "";
         public string txt_ruta_virtuales_cortada { get; set; } = "";
+        public string tx_extension_archivo { get; set; } = "";
+        
     }
 }

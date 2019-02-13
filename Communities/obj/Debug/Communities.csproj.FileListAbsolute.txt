@@ -39,3 +39,12 @@ D:\ProjecLadyHot\ladyhot\Communities\obj\Debug\Communities.csproj.CoreCompileInp
 D:\ProjecLadyHot\ladyhot\Communities\obj\Debug\Communities.csproj.CopyComplete
 D:\ProjecLadyHot\ladyhot\Communities\obj\Debug\Communities.dll
 D:\ProjecLadyHot\ladyhot\Communities\obj\Debug\Communities.pdb
+C:\ProyectoLady\ladyhot_api\Communities\bin\Debug\Communities.dll
+C:\ProyectoLady\ladyhot_api\Communities\bin\Debug\Communities.pdb
+C:\ProyectoLady\ladyhot_api\Communities\bin\Debug\BusinessEntity.dll
+C:\ProyectoLady\ladyhot_api\Communities\bin\Debug\BusinessEntity.pdb
+C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.csprojAssemblyReference.cache
+C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.csproj.CoreCompileInputs.cache
+C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.csproj.CopyComplete
+C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.dll
+C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.pdb
