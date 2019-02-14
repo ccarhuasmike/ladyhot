@@ -77,5 +77,9 @@ namespace BusinessLogic
         {
             return _AnuncioData.DarBajarAnuncio(entidad);
         }
+        public ClientResponse ListarAnuncioPaginate(Tbl_anuncio tblAnuncio)
+        {
+            return _AnuncioData.ListarAnuncioPaginate(tblAnuncio);
+        }
     }
 }

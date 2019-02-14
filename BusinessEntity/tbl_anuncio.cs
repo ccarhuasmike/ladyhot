@@ -65,7 +65,7 @@ namespace BusinessEntity
         public int id_usuario { get; set; } = 0;
         public int int_cant_visto { get; set; } = 0;        
         //Propiedades Extras
-        public string txt_imagen_prensetancion { get; set; } = "";        
-        
+        public string txt_imagen_prensetancion { get; set; } = "";
+        public Bean_paginate beanPaginate { get; set; }
     }
 }

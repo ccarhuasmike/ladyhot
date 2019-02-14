@@ -305,5 +305,19 @@ namespace ApiAnuncio.Controllers
 
             return clientResponse;
         }
+        [Route("ListarAnuncioPaginate"), HttpPost]
+        public ClientResponse ListarAnuncioPaginate(Tbl_anuncio tblAnuncio)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().ListarAnuncioPaginate(tblAnuncio);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
     }
 }
