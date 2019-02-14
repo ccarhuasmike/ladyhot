@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Bean_mail.cs" />
     <Compile Include="Bean_paginate.cs" />
+    <Compile Include="Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tbl_anuncio.cs" />
     <Compile Include="Tbl_carga_controles_add.cs" />

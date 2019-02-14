@@ -38,3 +38,4 @@ C:\ProyectoLady\ladyhot_api\BusinessEntity\bin\Debug\BusinessEntity.pdb
 C:\ProyectoLady\ladyhot_api\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
 C:\ProyectoLady\ladyhot_api\BusinessEntity\obj\Debug\BusinessEntity.dll
 C:\ProyectoLady\ladyhot_api\BusinessEntity\obj\Debug\BusinessEntity.pdb
+C:\ProyectoLady\ladyhot_api\BusinessEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache

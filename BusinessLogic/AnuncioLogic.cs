@@ -81,5 +81,9 @@ namespace BusinessLogic
         {
             return _AnuncioData.ListarAnuncioPaginate(tblAnuncio);
         }
+        public ClientResponse listarPaginado(Pagination paginacion)
+        {
+            return _AnuncioData.listarPaginado(paginacion);
+        }        
     }
 }

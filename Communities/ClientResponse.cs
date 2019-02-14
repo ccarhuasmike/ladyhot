@@ -17,5 +17,6 @@ namespace Communities
         public int StatusCode { get; set; }
         public string ViewResult { get; set; }
         public string totalCount { get; set; }
+        public object paginacion { get; set; }
     }
 }

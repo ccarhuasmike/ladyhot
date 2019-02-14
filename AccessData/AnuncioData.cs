@@ -174,10 +174,10 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1 == null ? "" : objeto.txt_telefono_1;
                         comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2 == null ? "" : objeto.txt_telefono_2;
                         comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email == null ? "" : objeto.txt_email;
-                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;                        
+                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
-                        comando.ExecuteNonQuery();                       
+                        comando.ExecuteNonQuery();
                         Tbl_anuncio entidad = GetAnucionXId(objeto.id);
                         clientResponse.Data = JsonConvert.SerializeObject(entidad).ToString();
                     }
@@ -211,7 +211,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@txt_telefono_1", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_1 == null ? "" : objeto.txt_telefono_1;
                         comando.Parameters.Add("@txt_telefono_2", SqlDbType.VarChar, 50).Value = objeto.txt_telefono_2 == null ? "" : objeto.txt_telefono_2;
                         comando.Parameters.Add("@txt_email", SqlDbType.VarChar, 40).Value = objeto.txt_email == null ? "" : objeto.txt_email;
-                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;                        
+                        comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;
                         comando.Parameters.Add("@id_usuario", SqlDbType.Int).Value = objeto.id_usuario;
                         comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
                         conexion.Open();
@@ -224,7 +224,7 @@ namespace AccessData.PersonaDao
                             id = Convert.ToInt32(comando.Parameters["@id"].Value);
                             clientResponse.Id = id;
                             Tbl_anuncio entidad = GetAnucionXId(id);
-                            clientResponse.Data = JsonConvert.SerializeObject(entidad).ToString();                            
+                            clientResponse.Data = JsonConvert.SerializeObject(entidad).ToString();
                         }
                     }
                 }
@@ -238,7 +238,7 @@ namespace AccessData.PersonaDao
             {
                 conexion.Close();
                 conexion.Dispose();
-                comando.Dispose();                
+                comando.Dispose();
             }
             return clientResponse;
         }
@@ -254,7 +254,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
                         comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
-                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;                        
+                        comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
@@ -482,7 +482,7 @@ namespace AccessData.PersonaDao
                             if (reader.Read())
                             {
                                 entidad = reader.ReadFields<Tbl_anuncio>();
-                            }                               
+                            }
                         }
                     }
                 }
@@ -575,7 +575,7 @@ namespace AccessData.PersonaDao
             return clientResponse;
         }
         public ClientResponse ListarAnuncioPaginate(Tbl_anuncio tblAnuncio)
-            {
+        {
             try
             {
                 using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
@@ -613,6 +613,51 @@ namespace AccessData.PersonaDao
                 comando.Dispose();
                 reader.Dispose();
             }
+            return clientResponse;
+        }
+
+        public ClientResponse listarPaginado(Pagination objeto)
+        {
+            int recordCount = 0;
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_listar_anuncio", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;                        
+                        comando.Parameters.Add("@vi_pagina", SqlDbType.Int).Value = objeto.CurrentPage;
+                        comando.Parameters.Add("@vi_registrosporpagina", SqlDbType.Int).Value = objeto.ItemsPerPage;
+                        comando.Parameters.Add("@vi_RecordCount", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
+                        }
+                        recordCount = Convert.ToInt32(comando.Parameters["@vi_RecordCount"].Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            Pagination responsepaginacion = new Pagination()
+            {
+                TotalItems = recordCount,
+                TotalPages = (int)Math.Ceiling((double)recordCount / objeto.ItemsPerPage)                
+            };
+
+            clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+            clientResponse.paginacion = JsonConvert.SerializeObject(responsepaginacion).ToString();
             return clientResponse;
         }
         #endregion

@@ -319,5 +319,19 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+        [Route("Listarpaginado"), HttpPost]
+        public ClientResponse listarPaginado(Pagination paginacion)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().listarPaginado(paginacion);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
     }
 }
