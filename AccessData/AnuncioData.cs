@@ -574,6 +574,47 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
+        public ClientResponse ListarAnuncioPaginate(Tbl_anuncio tblAnuncio)
+            {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_anuncio_paginada", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@PageIndex", SqlDbType.Int).Value = tblAnuncio.beanPaginate.pageIndex;
+                        comando.Parameters.Add("@pageSize", SqlDbType.Int).Value = tblAnuncio.beanPaginate.pageSize;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
+                            reader.NextResult();
+                            while (reader.Read())
+                            {
+                                clientResponse.totalCount = reader["totalCount"].ToString();
+                            }
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
         #endregion
     }
 }
