@@ -17,7 +17,6 @@ D:\Proyectos\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb
 D:\Proyectos\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.dll
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\bin\Debug\BusinessEntity.pdb
-C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csprojResolveAssemblyReference.cache
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.dll
 C:\Proyecto_LadHot\ladyhot\BusinessEntity\obj\Debug\BusinessEntity.pdb

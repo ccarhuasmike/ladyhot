@@ -48,3 +48,5 @@ C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.csproj.CoreCompile
 C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.csproj.CopyComplete
 C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.dll
 C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.pdb
+C:\Proyecto_LadHot\ladyhot\Communities\bin\Debug\BusinessEntity.dll
+C:\Proyecto_LadHot\ladyhot\Communities\bin\Debug\BusinessEntity.pdb
