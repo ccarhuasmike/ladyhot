@@ -17,13 +17,15 @@ namespace BusinessLogic
         {
             _GaleriaData = new GaleriaData();
         }
-
+        public ClientResponse Insert_GaleriaObject(Tbl_galeria_anuncio entidad)
+        {
+            return _GaleriaData.Insert_GaleriaObject(entidad);
+        }
 
         public ClientResponse Insert_Galeria(List<Tbl_galeria_anuncio> list, int id_anuncio)
         {
-            return _GaleriaData.Insert_Galeria(list, id_anuncio);
+            return _GaleriaData.Insert_Galeria(list,id_anuncio);
         }
-
         public ClientResponse Insert_Videos(List<Tbl_galeria_anuncio> list, int id_anuncio)
         {
             return _GaleriaData.Insert_Videos(list, id_anuncio);

@@ -26,6 +26,7 @@ namespace ApiAnuncio.Controllers
                 Tbl_parameter_det entidad_rutas_fisica_fichas = new Tbl_parameter_det() { skey_det = "SKEY_RUTASFISICAS_FICHAS", paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_RUTAS_FICHAS" } };
                 ClientResponse respons_rutas_fisica_fichas = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_fisica_fichas);
                 Tbl_parameter_det rutas_fisica_image = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_fisica_fichas.DataJson);
+
                 string tempPath = rutas_fisica_image.tx_descripcion + objeto.id_anuncio;
 
                 byte[] imageBytes = System.Convert.FromBase64String(objeto.tx_ruta_file);
@@ -44,11 +45,14 @@ namespace ApiAnuncio.Controllers
                 string base64EncodedImg = base64Img.ToString();
                 Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio()
                 {
-                    tx_ruta_file = base64EncodedImg
+                    Base64ContentFicha = base64EncodedImg,
+                    Base64ContentFichaCort = base64EncodedImg,
+                    id_anuncio = objeto.id_anuncio,
+                    tx_filename = objeto.tx_filename + "." + objeto.tx_extension_archivo,
+                    size_file = 0
+
                 };
-                clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
-                clientResponse.Status = "OK";
-                //clientResponse = new AnuncioLogic().InsertGaleria(objeto);
+                clientResponse = new GaleriaLogic().Insert_GaleriaObject(entidad);
             }
             catch (Exception ex)
             {
@@ -56,6 +60,39 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+
+        [Route("GetGeleriaXIdAnuncio"), HttpPost]
+        public ClientResponse GetGeleriaXIdAnuncio(Tbl_galeria_anuncio entidad)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {   
+                IEnumerable<Tbl_galeria_anuncio> lst = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
+                clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();  
+                clientResponse.Status = "OK";
+            }
+            catch (Exception ex)
+            {                
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
+        [Route("EliminarFoto"), HttpPost]
+        public ClientResponse EliminarFoto(Tbl_galeria_anuncio entidad)
+        {
+            ClientResponse clientResponse;
+            try
+            {            
+                clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(entidad);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+
+            return clientResponse;
+        }
+
     }
 }
 

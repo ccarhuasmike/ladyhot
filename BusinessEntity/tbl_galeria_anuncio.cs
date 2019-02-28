@@ -16,6 +16,8 @@ namespace BusinessEntity
         public string txt_ruta_virtuales { get; set; } = "";
         public string txt_ruta_virtuales_cortada { get; set; } = "";
         public string tx_extension_archivo { get; set; } = "";
-        
+        public string Base64ContentFicha { get; set; } = "";
+        public string Base64ContentFichaCort { get; set; } = "";
+
     }
 }

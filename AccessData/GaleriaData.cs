@@ -36,6 +36,55 @@ namespace AccessData
             clientResponse.Status = "OK";
         }
 
+        public ClientResponse Insert_GaleriaObject(Tbl_galeria_anuncio objeto)
+        {
+            try
+            { 
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("usp_ins_galeria_object", conexion))
+                    {   
+                        comando.Parameters.AddWithValue("@id_anuncio", objeto.id_anuncio);
+                        comando.Parameters.AddWithValue("@tx_filename", objeto.tx_filename);
+                        comando.Parameters.AddWithValue("@Base64ContentFicha", objeto.Base64ContentFicha);
+                        comando.Parameters.AddWithValue("@Base64ContentFichaCort", objeto.Base64ContentFichaCort);
+                        comando.Parameters.AddWithValue("@size_file", objeto.size_file);
+                        comando.Parameters.Add("@Ind", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        comando.Parameters.Add("@Mensaje", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
+                        comando.CommandType = CommandType.StoredProcedure;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        int ind = Convert.ToInt32(comando.Parameters["@Ind"].Value);
+                        string mensaje = Convert.ToString(comando.Parameters["@Mensaje"].Value);
+                        if (ind > 0)
+                        {
+                            Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id = ind };
+                            clientResponse = Get_galeria_x_id(entidad);                            
+                            clientResponse.Mensaje = mensaje;
+                            clientResponse.Status = "OK";
+                        }
+                        else
+                        {
+                            clientResponse.Mensaje = mensaje;
+                            clientResponse.Status = "ERROR";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+            }
+            return clientResponse;
+        }
+
         public ClientResponse Insert_Galeria(List<Tbl_galeria_anuncio> list, int id_anuncio)
         {
             try
