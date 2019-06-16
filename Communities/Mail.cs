@@ -26,7 +26,7 @@ namespace Communities
             }   
             correo.SubjectEncoding = System.Text.Encoding.UTF8;
             correo.Subject = entidad.asunto;
-            correo.Body = entidad.body;
+            correo.Body = string.Format("Nombre del Solicitante: {0}<br/>Numero de telefono: {1}<br/>Solicitud: {2}", entidad.nombreContactante, string.Join(",", entidad.telefonoContacto), entidad.body);
             correo.BodyEncoding = System.Text.Encoding.UTF8;
             correo.IsBodyHtml = true;
             correo.Priority = MailPriority.High;

@@ -25,15 +25,15 @@ namespace ApiAnuncio.Controllers
                 };
                 IEnumerable<Tbl_parameter_det> lista = new ParameterLogic().GetParameter_skey(entidad_det);
 
-                var user = lista.ToList().Where(x => x.skey_det.Equals("SKEY_MAIL_DET_USER")).FirstOrDefault();
+                Tbl_parameter_det user = lista.ToList().Where(x => x.skey_det.Equals("SKEY_MAIL_DET_USER")).FirstOrDefault();
                 Tbl_parameter_det clave = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_CLAVE")).FirstOrDefault();
                 Tbl_parameter_det smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
                 Tbl_parameter_det puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
-                beanMail.puerto = int.Parse(puerto.tx_valor);
-                beanMail.de = user.tx_valor;
+                beanMail.puerto = int.Parse(puerto.tx_descripcion);
+                beanMail.de = user.tx_descripcion;
                 beanMail.para = beanMail.para;
-                beanMail.clave = clave.tx_valor;
-                beanMail.smtpServer = smtp.tx_valor;
+                beanMail.clave = clave.tx_descripcion;
+                beanMail.smtpServer = smtp.tx_descripcion;
                 beanMail.body = beanMail.body;
                 beanMail.asunto = beanMail.asunto;
                 clientResponse = Mail.EnvioMailSegundo(beanMail);
