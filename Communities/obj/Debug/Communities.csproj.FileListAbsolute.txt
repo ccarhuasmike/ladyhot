@@ -50,3 +50,12 @@ C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.dll
 C:\ProyectoLady\ladyhot_api\Communities\obj\Debug\Communities.pdb
 C:\Proyecto_LadHot\ladyhot\Communities\bin\Debug\BusinessEntity.dll
 C:\Proyecto_LadHot\ladyhot\Communities\bin\Debug\BusinessEntity.pdb
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\bin\Debug\Communities.dll
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\bin\Debug\Communities.pdb
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\bin\Debug\BusinessEntity.dll
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\bin\Debug\BusinessEntity.pdb
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\obj\Debug\Communities.csprojAssemblyReference.cache
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\obj\Debug\Communities.csproj.CoreCompileInputs.cache
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\obj\Debug\Communities.csproj.CopyComplete
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\obj\Debug\Communities.dll
+C:\ProyectoLady\branch-desarollo\ladyhot\Communities\obj\Debug\Communities.pdb

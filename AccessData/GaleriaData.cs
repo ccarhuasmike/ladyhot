@@ -46,8 +46,11 @@ namespace AccessData
                     {   
                         comando.Parameters.AddWithValue("@id_anuncio", objeto.id_anuncio);
                         comando.Parameters.AddWithValue("@tx_filename", objeto.tx_filename);
-                        comando.Parameters.AddWithValue("@Base64ContentFicha", objeto.Base64ContentFicha);
-                        comando.Parameters.AddWithValue("@Base64ContentFichaCort", objeto.Base64ContentFichaCort);
+                        comando.Parameters.AddWithValue("@tx_ruta_file", objeto.tx_ruta_file);
+                        comando.Parameters.AddWithValue("@tx_ruta_file_cort", objeto.tx_ruta_file_cort);
+                        comando.Parameters.AddWithValue("@txt_ruta_virtuales", objeto.txt_ruta_virtuales);
+                        comando.Parameters.AddWithValue("@txt_ruta_virtuales_cortada", objeto.txt_ruta_virtuales_cortada);
+                        comando.Parameters.AddWithValue("@id_tipo_archivo", objeto.id_tipo_archivo);
                         comando.Parameters.AddWithValue("@size_file", objeto.size_file);
                         comando.Parameters.Add("@Ind", SqlDbType.Int).Direction = ParameterDirection.Output;
                         comando.Parameters.Add("@Mensaje", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
@@ -58,8 +61,9 @@ namespace AccessData
                         string mensaje = Convert.ToString(comando.Parameters["@Mensaje"].Value);
                         if (ind > 0)
                         {
-                            Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id = ind };
-                            clientResponse = Get_galeria_x_id(entidad);                            
+                            Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = objeto.id_anuncio };                            
+                            IEnumerable<Tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(entidad);
+                            clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                             clientResponse.Mensaje = mensaje;
                             clientResponse.Status = "OK";
                         }
