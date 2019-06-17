@@ -30,6 +30,10 @@ namespace BusinessLogic
 
         public ClientResponse GetUsuario_X_password(Tbl_usuario entidad)
         {
+            string usuarioDesencryptado = Utilidades.Desencryptar(entidad.tx_email);
+            string passwordDesencryptado = Utilidades.Desencryptar(entidad.tx_pass);
+            entidad.tx_email = usuarioDesencryptado;
+            entidad.tx_pass = passwordDesencryptado;
             return _usuarioData.GetUsuario_X_password(entidad);
         }
     }
