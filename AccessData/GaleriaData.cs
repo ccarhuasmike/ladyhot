@@ -52,6 +52,7 @@ namespace AccessData
                         comando.Parameters.AddWithValue("@txt_ruta_virtuales_cortada", objeto.txt_ruta_virtuales_cortada);
                         comando.Parameters.AddWithValue("@id_tipo_archivo", objeto.id_tipo_archivo);
                         comando.Parameters.AddWithValue("@size_file", objeto.size_file);
+                        comando.Parameters.AddWithValue("@IdTipoPresentacion", objeto.IdTipoPresentacion);                        
                         comando.Parameters.Add("@Ind", SqlDbType.Int).Direction = ParameterDirection.Output;
                         comando.Parameters.Add("@Mensaje", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                         comando.CommandType = CommandType.StoredProcedure;
@@ -332,8 +333,9 @@ namespace AccessData
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
                         comando.ExecuteNonQuery();
-                        IEnumerable<Tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(objeto);
-                        clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
+                        //IEnumerable<Tbl_galeria_anuncio> lst = Get_galeria_x_id_anuncio(objeto);
+                        //clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
+                        clientResponse.Status = "OK";
                     }
                 }
             }
@@ -347,7 +349,7 @@ namespace AccessData
                 conexion.Close();
                 conexion.Dispose();
                 comando.Dispose();
-                reader.Dispose();
+               // reader.Dispose();
             }
             return clientResponse;
         }

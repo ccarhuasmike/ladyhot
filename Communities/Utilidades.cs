@@ -98,8 +98,8 @@ namespace Communities
                 // the rest is encrypted data
                 var encrypted = cipherBytes.Skip(32).ToArray();
                 //Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(password, salt, 100);
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EnumLogueo.LLAVE.GetStringValue(), salt, 100);
-                encryptor.Key = pdb.GetBytes(32);
+                //Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EnumLogueo.LLAVE.GetStringValue(), salt, 100);
+                //encryptor.Key = pdb.GetBytes(32);
                 encryptor.Padding = PaddingMode.PKCS7;
                 encryptor.Mode = CipherMode.CBC;
                 encryptor.IV = iv;
@@ -122,10 +122,11 @@ namespace Communities
             Type type = value.GetType();
             FieldInfo fieldInfo = type.GetField(value.ToString());
             // Get the stringvalue attributes  
-            EnumStringAttribute[] attribs = fieldInfo.GetCustomAttributes(
-                 typeof(EnumStringAttribute), false) as EnumStringAttribute[];
+            //EnumStringAttribute[] attribs = fieldInfo.GetCustomAttributes(
+            //     typeof(EnumStringAttribute), false) as EnumStringAttribute[];
             // Return the first if there was a match.  
-            return attribs.Length > 0 ? attribs[0].Value : null;
+            //return attribs.Length > 0 ? attribs[0].Value : null;
+            return "";
         }
     }
 }

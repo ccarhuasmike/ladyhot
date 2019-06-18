@@ -43,8 +43,6 @@ namespace ApiAnuncio.Controllers
                 ClientResponse respons_rutas_virtuales_fichas_cortada = new ParameterLogic().GetParameter_skey_x_det_Id(entidad_rutas_virtuales_fichas_cortada);
                 Tbl_parameter_det rutas_rutas_virtuales_image_cortada = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_parameter_det>(respons_rutas_virtuales_fichas_cortada.DataJson);
 
-
-
                 string[] split_extension = objeto.tx_filename.Split(new Char[] { '.' });
                 Tbl_parameter_det entidad_det = new Tbl_parameter_det()
                 {
@@ -102,9 +100,7 @@ namespace ApiAnuncio.Controllers
                     file_ruta_cortada = tempPath_cortada + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                     file_ruta_virtual_cortada = tempPathVirtual_cortada + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                     bmp1.Save(file_ruta_cortada, jpgEncoder, myEncoderParameters);
-                }
-
-                
+                }                
                 objeto.tx_ruta_file = objeto.id_anuncio + "/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                 objeto.id_tipo_archivo = id_tipo_archivo;
                 objeto.tx_ruta_file_cort = objeto.id_anuncio + "/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
@@ -112,24 +108,6 @@ namespace ApiAnuncio.Controllers
                 objeto.txt_ruta_virtuales_cortada = file_ruta_virtual_cortada;
                 //entidad.size_file = file.ContentLength;
                 objeto.tx_filename = objeto.tx_filename + "." + objeto.tx_extension_archivo;
-
-                //File.WriteAllBytes(file_ruta, imageBytes);
-                //string _b64 = Convert.ToBase64String(File.ReadAllBytes(file_ruta));
-                //var base64Img = new Base64Image
-                //{
-                //    FileContents = File.ReadAllBytes(file_ruta),
-                //    ContentType = "image/png"
-                //};
-                //string base64EncodedImg = base64Img.ToString();
-                //Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio()
-                //{
-                //    Base64ContentFicha = base64EncodedImg,
-                //    Base64ContentFichaCort = base64EncodedImg,
-                //    id_anuncio = objeto.id_anuncio,
-                //    tx_filename = objeto.tx_filename + "." + objeto.tx_extension_archivo,
-                //    size_file = 0
-                //};
-
                 clientResponse = new GaleriaLogic().Insert_GaleriaObject(objeto);
             }
             catch (Exception ex)
@@ -160,8 +138,14 @@ namespace ApiAnuncio.Controllers
         {
             ClientResponse clientResponse;
             try
-            {            
-                clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(entidad);
+            {
+                //Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id = entidad.id };
+                clientResponse = new GaleriaLogic().Get_galeria_x_id(entidad);
+                Tbl_galeria_anuncio resultObjeto = Newtonsoft.Json.JsonConvert.DeserializeObject<Tbl_galeria_anuncio>(clientResponse.DataJson);
+                FileInfo fi = new FileInfo(resultObjeto.tx_ruta_file);
+                fi.Delete();
+                clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(resultObjeto);
+                //clientResponse = new GaleriaLogic().Eliminar_galeria_x_id(entidad);
             }
             catch (Exception ex)
             {
