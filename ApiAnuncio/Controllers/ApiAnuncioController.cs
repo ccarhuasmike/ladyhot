@@ -30,7 +30,7 @@ namespace ApiAnuncio.Controllers
             }           
             return clientResponse;
         }
-        [Route("GetAnucionXId/{id}"), HttpPost]
+        [Route("GetAnucionXId/{id}"), HttpGet]
         public ClientResponse GetAnucionXId([FromUri] int id)
         {
             ClientResponse clientResponse = new ClientResponse();
