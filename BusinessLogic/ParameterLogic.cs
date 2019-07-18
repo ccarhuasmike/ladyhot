@@ -115,6 +115,44 @@ namespace BusinessLogic
             return clientResponse;
         }
 
+
+        public ClientResponse GetCargarControlesFilterHome()
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            Tbl_carga_controles_add entidad = new Tbl_carga_controles_add();
+            Tbl_parameter_det entidad_det = null;
+            try
+            {
+                /*carga distrito*/
+                entidad_det = new Tbl_parameter_det()
+                {
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_DISTRITO" }
+                };
+                entidad.distritro = _parameterData.GetParameter_skey(entidad_det);     
+                /*carga lugaratencion*/
+                entidad_det = new Tbl_parameter_det()
+                {
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_LUGAR_ATENCION" }
+                };
+                entidad.lugaratencion = _parameterData.GetParameter_skey(entidad_det);
+
+                /*carga servicio ofrece*/
+                entidad_det = new Tbl_parameter_det()
+                {
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_SERVICIO_OFRECE" }
+                };
+                entidad.servicio_ofrece = _parameterData.GetParameter_skey(entidad_det);                    
+                clientResponse.Status = "OK";
+            }
+            catch (Exception ex)
+            {
+
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
+            return clientResponse;
+        }
         public IEnumerable<Tbl_parameter_det> GetParameter_skey(Tbl_parameter_det det)
         {
             return _parameterData.GetParameter_skey(det);
