@@ -26,5 +26,23 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+
+        [Route("sel_parameter_filter_home"), HttpGet]
+        public ClientResponse sel_parameter_filter_home()
+        {
+            ClientResponse clientResponse;
+            try
+            {
+                clientResponse = new ParameterLogic().GetCargarControlesFilterHome();
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
+
+
+
     }
 }
