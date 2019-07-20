@@ -118,6 +118,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="script\Arquitectura.png" />
+    <Content Include="script\bdanuncio.sql" />
+    <Content Include="script\bdanuncio10.sql" />
+    <Content Include="script\bdanuncio11.sql" />
+    <Content Include="script\bdanuncio12.sql" />
+    <Content Include="script\bdanuncio2.sql" />
+    <Content Include="script\bdanuncio3.sql" />
+    <Content Include="script\bdanuncio4.sql" />
+    <Content Include="script\bdanuncio5.sql" />
+    <Content Include="script\bdanuncio6.sql" />
+    <Content Include="script\bdanuncio7.sql" />
+    <Content Include="script\bdanuncio8.sql" />
+    <Content Include="script\bdanuncio9.sql" />
+    <Content Include="script\demooooooooooooo.sql" />
+    <Content Include="script\SCRIPT.txt" />
+    <Content Include="script\updatehosting.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -141,6 +157,8 @@
     <Content Include="libman.json" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="script\Informacion Sobre el Negocio.xlsx" />
+    <Content Include="script\site1.PublishSettings" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
