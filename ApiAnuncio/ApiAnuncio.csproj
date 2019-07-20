@@ -123,6 +123,7 @@
     <Content Include="script\bdanuncio10.sql" />
     <Content Include="script\bdanuncio11.sql" />
     <Content Include="script\bdanuncio12.sql" />
+    <Content Include="script\bdanuncio13.sql" />
     <Content Include="script\bdanuncio2.sql" />
     <Content Include="script\bdanuncio3.sql" />
     <Content Include="script\bdanuncio4.sql" />
