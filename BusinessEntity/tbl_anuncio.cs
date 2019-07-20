@@ -71,5 +71,11 @@ namespace BusinessEntity
         public Bean_paginate beanPaginate { get; set; }
         //
         public string txt_imagen_galeria { get; set; } = "";
+
+        public string txt_descripcion_lugar_servicio_distrito { get; set; } = "";
+        public string tx_descripcion_lugar_atencion { get; set; } = "";
+        public string tx_descripcion_servicios_ofrece { get; set; } = "";
+
+
     }
 }
