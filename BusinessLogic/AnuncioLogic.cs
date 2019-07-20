@@ -69,6 +69,10 @@ namespace BusinessLogic
         {
             return _AnuncioData.ListarAnuncio();
         }
+        public ClientResponse ListarMisAnuncioPorUsuario()
+        {
+            return _AnuncioData.ListarMisAnuncioPorUsuario();
+        }
         public ClientResponse ListarAnuncio_top_10()
         {
             return _AnuncioData.ListarAnuncio_top_10();

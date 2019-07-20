@@ -99,6 +99,38 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
+        public ClientResponse ListarMisAnuncioPorUsuario()
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_fichas_mis_anuncio_por_usuario", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
         public ClientResponse MisAnuncio(string usuario_token)
         {
             try

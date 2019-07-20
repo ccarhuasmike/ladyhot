@@ -13,13 +13,13 @@ namespace ApiAnuncio.Controllers
     public class ApiMisAnuncioController : ApiController
     {
 
-        [Route("ListarMisAnuncios"), HttpGet]
+        [Route("ListarMisAnuncioPorUsuario"), HttpGet]
         public ClientResponse listarMisAnuncios()
         {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                clientResponse = new AnuncioLogic().ListarAnuncio();
+                clientResponse = new AnuncioLogic().ListarMisAnuncioPorUsuario();
             }
             catch (Exception ex)
             {
