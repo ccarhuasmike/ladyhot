@@ -26,7 +26,9 @@ namespace BusinessEntity
         public int int_color_ojos { get; set; } = 0;
         public string tx_color_ojos { get; set; } = "";
         public int int_estatura { get; set; } = 0;
+        public string tx_estatura { get; set; } = "";
         public int int_peso { get; set; } = 0;
+        public string tx_peso { get; set; } = "";
         public string txt_medidas_busto_cintura_cadera { get; set; } = "";
         public string txt_descripcion_extra_apariencia { get; set; } = "";
         public decimal dbl_costo_x_tiempo_30min { get; set; } = 0;
@@ -67,5 +69,7 @@ namespace BusinessEntity
         //Propiedades Extras
         public string txt_imagen_prensetancion { get; set; } = "";
         public Bean_paginate beanPaginate { get; set; }
+        //
+        public string txt_imagen_galeria { get; set; } = "";
     }
 }

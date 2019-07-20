@@ -51,6 +51,24 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+
+        [Route("ObtenerDetalleAnucionXId/{id}"), HttpGet]
+        public ClientResponse ObtenerDetalleAnucionXId([FromUri] int id)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };              
+                clientResponse.Status = "OK";
+                clientResponse.Data = new AnuncioLogic().GetAnucionXId(id);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
+
         [Route("Primeropaso"), HttpPost]
         public ClientResponse Primeropaso(Tbl_anuncio oregistro)
         {
