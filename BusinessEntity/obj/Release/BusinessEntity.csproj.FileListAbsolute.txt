@@ -9,3 +9,9 @@ D:\Proyectos\ladyhot\BusinessEntity\obj\Release\BusinessEntity.csprojAssemblyRef
 D:\Proyectos\ladyhot\BusinessEntity\obj\Release\BusinessEntity.csproj.CoreCompileInputs.cache
 D:\Proyectos\ladyhot\BusinessEntity\obj\Release\BusinessEntity.dll
 D:\Proyectos\ladyhot\BusinessEntity\obj\Release\BusinessEntity.pdb
+C:\Proyecto_LadHot\branch-desarrollo\ladyhot\BusinessEntity\bin\Release\BusinessEntity.dll
+C:\Proyecto_LadHot\branch-desarrollo\ladyhot\BusinessEntity\bin\Release\BusinessEntity.pdb
+C:\Proyecto_LadHot\branch-desarrollo\ladyhot\BusinessEntity\obj\Release\BusinessEntity.csprojAssemblyReference.cache
+C:\Proyecto_LadHot\branch-desarrollo\ladyhot\BusinessEntity\obj\Release\BusinessEntity.csproj.CoreCompileInputs.cache
+C:\Proyecto_LadHot\branch-desarrollo\ladyhot\BusinessEntity\obj\Release\BusinessEntity.dll
+C:\Proyecto_LadHot\branch-desarrollo\ladyhot\BusinessEntity\obj\Release\BusinessEntity.pdb
