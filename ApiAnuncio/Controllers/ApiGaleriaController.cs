@@ -67,7 +67,7 @@ namespace ApiAnuncio.Controllers
                     Directory.CreateDirectory(tempPath);
                 
                 string file_ruta = tempPath + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;                
-                string file_ruta_virtual = tempPathVirtual + @"/" + objeto.tx_filename;
+                string file_ruta_virtual = tempPathVirtual + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                 File.WriteAllBytes(file_ruta, imageBytes);
 
                 /*BajaResolucion a Imagen*/
