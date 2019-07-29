@@ -22,10 +22,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/ApiAnuncio.dll">
-      <publishTime>07/21/2019 13:55:48</publishTime>
+      <publishTime>07/26/2019 14:37:47</publishTime>
     </File>
     <File Include="bin/ApiAnuncio.pdb">
-      <publishTime>07/21/2019 13:55:48</publishTime>
+      <publishTime>07/26/2019 14:37:47</publishTime>
     </File>
     <File Include="bin/BusinessEntity.dll">
       <publishTime>07/20/2019 17:21:49</publishTime>
@@ -285,6 +285,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="script/bdanuncio13.sql">
       <publishTime>07/20/2019 16:07:58</publishTime>
     </File>
+    <File Include="script/bdanuncio14.sql">
+      <publishTime>07/21/2019 23:10:45</publishTime>
+    </File>
     <File Include="script/bdanuncio2.sql">
       <publishTime>06/15/2019 23:17:45</publishTime>
     </File>
@@ -325,7 +328,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/23/2019 14:16:53</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/20/2019 17:21:57</publishTime>
+      <publishTime>07/26/2019 14:37:50</publishTime>
     </File>
   </ItemGroup>
 </Project>

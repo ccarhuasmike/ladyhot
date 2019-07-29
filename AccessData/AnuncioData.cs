@@ -99,7 +99,7 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-        public ClientResponse ListarMisAnuncioPorUsuario()
+        public ClientResponse ListarMisAnuncioPorUsuario(Tbl_anuncio anuncio)
         {
             try
             {
@@ -108,6 +108,7 @@ namespace AccessData.PersonaDao
                     using (comando = new SqlCommand("sp_sel_fichas_mis_anuncio_por_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@id_usuario", SqlDbType.Int).Value = anuncio.id_usuario;
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {

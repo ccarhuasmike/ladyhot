@@ -32,10 +32,10 @@ namespace BusinessLogic
         {
             //string usuarioDesencryptado = Utilidades.Desencryptar(entidad.tx_email);
             //string passwordDesencryptado = Utilidades.Desencryptar(entidad.tx_pass);
-            string usuarioDesencryptado = "";
-            string passwordDesencryptado = "";
-            entidad.tx_email = usuarioDesencryptado;
-            entidad.tx_pass = passwordDesencryptado;
+            //string usuarioDesencryptado = "";
+            //string passwordDesencryptado = "";
+            //entidad.tx_email = usuarioDesencryptado;
+            //entidad.tx_pass = passwordDesencryptado;
             return _usuarioData.GetUsuario_X_password(entidad);
         }
     }

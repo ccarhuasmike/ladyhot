@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using BusinessEntity;
+using BusinessLogic;
 using Communities;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,13 @@ namespace ApiAnuncio.Controllers
     public class ApiMisAnuncioController : ApiController
     {
 
-        [Route("ListarMisAnuncioPorUsuario"), HttpGet]
-        public ClientResponse listarMisAnuncios()
+        [Route("ListarMisAnuncioPorUsuario"), HttpPost]
+        public ClientResponse listarMisAnuncios(Tbl_anuncio anuncio)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                clientResponse = new AnuncioLogic().ListarMisAnuncioPorUsuario();
+                clientResponse = new AnuncioLogic().ListarMisAnuncioPorUsuario(anuncio);
             }
             catch (Exception ex)
             {
@@ -27,6 +28,5 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
-
     }
 }

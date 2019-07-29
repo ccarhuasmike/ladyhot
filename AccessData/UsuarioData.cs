@@ -124,9 +124,22 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstUsuario = reader.ReadRows<Tbl_usuario>();
+                            if (reader.Read())
+                            {
+                                entidad = reader.ReadFields<Tbl_usuario>();
+                                clientResponse.Data = entidad;
+                            }
+                            else {
+                                clientResponse.Data = null;
+                            }
                         }
-                        clientResponse.DataJson = JsonConvert.SerializeObject(lstUsuario).ToString();
+                       
+                        clientResponse.Status = "OK";
+                        //using (reader = comando.ExecuteReader())
+                        //{
+                        //    lstUsuario = reader.ReadRows<Tbl_usuario>();
+                        //}
+                        //clientResponse.DataJson = JsonConvert.SerializeObject(lstUsuario).ToString();
                     }
                 }
             }
