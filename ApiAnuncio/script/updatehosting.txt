@@ -17,3 +17,9 @@ update tbl_parameter_det set tx_descripcion = 'uploads_fichas_cortadas/' where s
 update tbl_parameter_det set tx_descripcion = 'h:\root\home\segundomike-001\www\site1\uploads_videos\' where skey_det = 'SKEY_RUTAS_FISICAS_VIDEOS'
 update tbl_parameter_det set tx_descripcion = 'uploads_videos/' where skey_det = 'SKEY_RUTAS_VIRTUALES_VIDEOS'
 update tbl_parameter_det set tx_descripcion = 'http://segundomike-001-site1.itempurl.com/' where skey_det = 'SKEY_DOMINIO_FICHAS'
+
+
+estraga.gonzales@gmail.com
+https://www.photokinesiologas.com/control
+user : estraga.gonzales@gmail.com
+pwd : 123456789

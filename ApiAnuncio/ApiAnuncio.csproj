@@ -125,6 +125,7 @@
     <Content Include="script\bdanuncio12.sql" />
     <Content Include="script\bdanuncio13.sql" />
     <Content Include="script\bdanuncio14.sql" />
+    <Content Include="script\bdanuncio15.sql" />
     <Content Include="script\bdanuncio2.sql" />
     <Content Include="script\bdanuncio3.sql" />
     <Content Include="script\bdanuncio4.sql" />
@@ -136,6 +137,7 @@
     <Content Include="script\demooooooooooooo.sql" />
     <Content Include="script\SCRIPT.txt" />
     <Content Include="script\updatehosting.txt" />
+    <Content Include="template\templatecorreo.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
