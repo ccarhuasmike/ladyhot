@@ -26,7 +26,7 @@ namespace Communities
             }   
             correo.SubjectEncoding = System.Text.Encoding.UTF8;
             correo.Subject = entidad.asunto;
-            correo.Body = string.Format("Nombre del Solicitante: {0}<br/>Numero de telefono: {1}<br/>Solicitud: {2}", entidad.nombreContactante, string.Join(",", entidad.telefonoContacto), entidad.body);
+            correo.Body = entidad.body;
             correo.BodyEncoding = System.Text.Encoding.UTF8;
             correo.IsBodyHtml = true;
             correo.Priority = MailPriority.High;
@@ -37,15 +37,7 @@ namespace Communities
             smtp.Credentials = new System.Net.NetworkCredential(entidad.de, entidad.clave);
             //smtp.Port = Puerto;
             smtp.Host = entidad.smtpServer;
-            smtp.EnableSsl = true;
-
-
-            //ServicePointManager.ServerCertificateValidationCallback =
-            //   delegate (object s
-            //       , X509Certificate certificate
-            //       , X509Chain chai
-            //       , SslPolicyErrors sslPolicyErrors)
-            //   { return true; };
+            smtp.EnableSsl = true;           
             smtp.Send(correo);
             clientResponse.Status = "OK";
             return clientResponse;

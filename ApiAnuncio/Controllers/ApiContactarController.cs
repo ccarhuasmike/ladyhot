@@ -34,8 +34,8 @@ namespace ApiAnuncio.Controllers
                 beanMail.para = beanMail.para;
                 beanMail.clave = clave.tx_descripcion;
                 beanMail.smtpServer = smtp.tx_descripcion;
-                beanMail.body = beanMail.body;
-                beanMail.asunto = beanMail.asunto;
+                beanMail.body = string.Format("Nombre del Solicitante: {0}<br/>Numero de telefono: {1}<br/>Solicitud: {2}", beanMail.nombreContactante, string.Join(",", beanMail.telefonoContacto), beanMail.body);
+                beanMail.asunto = beanMail.asunto;                
                 clientResponse = Mail.EnvioMailSegundo(beanMail);
             }
             catch (Exception ex)

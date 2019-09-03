@@ -30,6 +30,15 @@ namespace Communities
 
             return objReponse;
         }
+
+        public static string LeerTemplateHTML(string url)
+        {
+            using (StreamReader lector = new StreamReader(url, System.Text.Encoding.UTF7))
+            {
+                return lector.ReadToEnd();
+            }
+        }
+
         public static ImageCodecInfo GetEncoder(ImageFormat format)
         {
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
