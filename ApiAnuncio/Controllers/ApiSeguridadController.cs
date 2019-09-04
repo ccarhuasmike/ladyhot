@@ -40,7 +40,7 @@ namespace ApiAnuncio.Controllers
                 string mensaje = "";                
                 mensaje = Utilidades.LeerTemplateHTML(url);
                 //mensaje = mensaje.Replace("[Nombre]", txtapepaterno.Text + " " + txtapematerno.Text + "," + txtnombres.Text);
-                //mensaje = mensaje.Replace("[usuario]", txtCorreoElectronico.Text);
+                mensaje = mensaje.Replace("{email}", beanMail.para.First());
                 //mensaje = mensaje.Replace("[clave]", txtcontraseña.Text);
                 //mensaje = mensaje.Replace("[userid]", userid);
 
