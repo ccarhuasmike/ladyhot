@@ -23,7 +23,6 @@ namespace ApiAnuncio.Controllers
             try
             {
                 Tbl_parameter_det entidad_det = null;
-
                 entidad_det = new Tbl_parameter_det()
                 {
                     paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_MAIL" }
@@ -35,14 +34,20 @@ namespace ApiAnuncio.Controllers
                 Tbl_parameter_det smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
                 Tbl_parameter_det puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
 
-                //string url = Server.MapPath(@"\Templates\TemplateEmailAfiliacion.html");
+                Tbl_parameter_det entidad_det_site_lady_hot = null;
+                entidad_det_site_lady_hot = new Tbl_parameter_det()
+                {
+                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_SITE_LADYHOT" }
+                };
+                IEnumerable<Tbl_parameter_det> lista_site_lady_hot = new ParameterLogic().GetParameter_skey(entidad_det_site_lady_hot);
+                Tbl_parameter_det site_lady_hot = lista_site_lady_hot.ToList().Where(x => x.skey_det.Equals("SKEY_SITE_LADYHOT_RUTA")).FirstOrDefault();
+
                 var url = System.Web.Hosting.HostingEnvironment.MapPath("/template/templatecorreo.html");
                 string mensaje = "";                
-                mensaje = Utilidades.LeerTemplateHTML(url);
-                //mensaje = mensaje.Replace("[Nombre]", txtapepaterno.Text + " " + txtapematerno.Text + "," + txtnombres.Text);
+                mensaje = Utilidades.LeerTemplateHTML(url);              
+                Tbl_usuario entididad_usuario = new UsuarioLogic().getUsuarioPorCorreo(new Tbl_usuario() { tx_email = beanMail.para.First() });
                 mensaje = mensaje.Replace("{email}", beanMail.para.First());
-                //mensaje = mensaje.Replace("[clave]", txtcontraseña.Text);
-                //mensaje = mensaje.Replace("[userid]", userid);
+                mensaje = mensaje.Replace("{url_escogerpassword}", site_lady_hot.tx_descripcion+ "seguridad/EscogerPassword/"+ entididad_usuario.tx_token);                
 
                 mensaje = HttpUtility.HtmlDecode(mensaje);
                 beanMail.puerto = int.Parse(puerto.tx_valor);
@@ -53,6 +58,22 @@ namespace ApiAnuncio.Controllers
                 beanMail.body = mensaje;
                 beanMail.asunto = beanMail.asunto;
                 clientResponse = Mail.EnvioMailSegundo(beanMail);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
+
+
+        [Route("ActualizarPasswordUsuario"), HttpPost]
+        public ClientResponse ActualizarPasswordUsuario(Tbl_usuario usuario)
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new UsuarioLogic().UpdatePasswordPorUsuario(usuario);
             }
             catch (Exception ex)
             {

@@ -13,21 +13,33 @@ namespace BusinessLogic
 {
     public class UsuarioLogic
     {
-        private UsuarioData _usuarioData;           
-       
+        private UsuarioData _usuarioData;
+
         public UsuarioLogic()
         {
             _usuarioData = new UsuarioData();
         }
-        public ClientResponse Listar_usuario() {
+        public ClientResponse Listar_usuario()
+        {
             return _usuarioData.Listar_usuario();
         }
 
+        public Tbl_usuario getUsuarioPorCorreo(Tbl_usuario usuario)
+        {
+            return _usuarioData.getUsuarioPorCorreo(usuario);
+        }
         public ClientResponse InsertUsuario(Tbl_usuario objeto)
         {
             return _usuarioData.InsertUsuario(objeto);
         }
-
+        public ClientResponse UpdatePasswordPorUsuario(Tbl_usuario entidad)
+        {
+            return _usuarioData.UpdatePasswordPorUsuario(entidad);
+        }
+        public ClientResponse getUsuarioPorToken(Tbl_usuario entidad)
+        {
+            return _usuarioData.getUsuarioPorToken(entidad);
+        }
         public ClientResponse GetUsuario_X_password(Tbl_usuario entidad)
         {
             //string usuarioDesencryptado = Utilidades.Desencryptar(entidad.tx_email);
