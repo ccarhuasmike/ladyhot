@@ -16,7 +16,7 @@ namespace AccessData
     {
         #region Variables
         private static IEnumerable<Tbl_usuario> lstUsuario;
-        //private static tbl_usuario entidad;
+        private static Tbl_usuario entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
         private static SqlDataReader reader;
@@ -37,7 +37,41 @@ namespace AccessData
         #endregion
 
         #region Metodo
-
+        public Tbl_usuario getUsuarioPorCorreo(Tbl_usuario usuario)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_usuario_por_correo", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@tx_email", SqlDbType.VarChar, 60).Value = usuario.tx_email;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                entidad = new Tbl_usuario();
+                                entidad = reader.ReadFields<Tbl_usuario>();
+                            }
+                        }                       
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return entidad;
+        }
         public ClientResponse InsertUsuario(Tbl_usuario objeto)
         {
             int id = 0;
@@ -108,6 +142,79 @@ namespace AccessData
                 reader.Dispose();
             }
             return lstUsuario;
+        }
+        public ClientResponse getUsuarioPorToken(Tbl_usuario entidad)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_usuario_por_token", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@tx_token", SqlDbType.VarChar, 255).Value = entidad.tx_token;                       
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                entidad = reader.ReadFields<Tbl_usuario>();
+                                clientResponse.Data = entidad;
+                            }
+                            else
+                            {
+                                clientResponse.Data = null;
+                            }
+                        }
+                        clientResponse.Status = "OK";                      
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
+        public ClientResponse UpdatePasswordPorUsuario(Tbl_usuario entidad)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_up_password_por_usuario", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@tx_pass", SqlDbType.VarChar,500).Value = entidad.tx_pass;                        
+                        comando.Parameters.Add("@id", SqlDbType.Int).Value = entidad.id;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        clientResponse.Status = "OK";
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();             
+            }
+            return clientResponse;
         }
 
         public ClientResponse GetUsuario_X_password(Tbl_usuario entidad)
