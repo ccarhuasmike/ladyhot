@@ -133,6 +133,7 @@
     <Content Include="script\bdanuncio14.sql" />
     <Content Include="script\bdanuncio15.sql" />
     <Content Include="script\bdanuncio16.sql" />
+    <Content Include="script\bdanuncio17.sql" />
     <Content Include="script\bdanuncio2.sql" />
     <Content Include="script\bdanuncio3.sql" />
     <Content Include="script\bdanuncio4.sql" />
@@ -143,8 +144,10 @@
     <Content Include="script\bdanuncio9.sql" />
     <Content Include="script\demooooooooooooo.sql" />
     <Content Include="script\SCRIPT.txt" />
+    <Content Include="script\secuencia.sql" />
     <Content Include="script\updatehosting.txt" />
     <Content Include="template\templatecorreo.html" />
+    <Content Include="template\templatereestablecerpassword.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -171,6 +174,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="script\Informacion Sobre el Negocio.xlsx" />
     <Content Include="script\site1.PublishSettings" />
+    <Content Include="script\DB_A3F06D.bak" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
