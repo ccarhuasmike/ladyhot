@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeanCharge.cs" />
+    <Compile Include="BeanChargeViewModel.cs" />
     <Compile Include="Bean_mail.cs" />
     <Compile Include="Bean_paginate.cs" />
     <Compile Include="Pagination.cs" />

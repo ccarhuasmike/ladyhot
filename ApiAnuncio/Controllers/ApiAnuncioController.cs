@@ -27,7 +27,7 @@ namespace ApiAnuncio.Controllers
             catch (Exception ex)
             {
                 clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
-            }           
+            }
             return clientResponse;
         }
         [Route("GetAnucionXId/{id}"), HttpGet]
@@ -58,7 +58,7 @@ namespace ApiAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };              
+                Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };
                 clientResponse.Status = "OK";
                 clientResponse.Data = new AnuncioLogic().GetAnucionXId(id);
             }
@@ -351,5 +351,22 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
+        [Route("CrearCargo"), HttpPost]
+        public BeanChargeViewModel CrearCargo(BeanCharge beanCharge)
+        {
+            //ClientResponse clientResponse = new ClientResponse();
+            BeanChargeViewModel bChViewMode = null;
+            try
+            {
+                bChViewMode = new BeanChargeViewModel();
+                bChViewMode = new AnuncioLogic().crearCargos(beanCharge);
+            }
+            catch (Exception ex)
+            {
+                //clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return bChViewMode;
+        }
+
     }
 }

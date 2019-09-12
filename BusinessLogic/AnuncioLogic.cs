@@ -1,6 +1,7 @@
 ﻿using AccessData.PersonaDao;
 using BusinessEntity;
 using Communities;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace BusinessLogic
         public ClientResponse GetAnucion_Details_anucion_x_tokens(string token_anuncio)
         {
             return _AnuncioData.GetAnucion_Details_anucion_x_tokens(token_anuncio);
-        }        
+        }
         public ClientResponse ActualizarPrimerpaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.ActualizarPrimerpaso(objeto);
@@ -55,7 +56,7 @@ namespace BusinessLogic
             return _AnuncioData.UpdateQuintopaso(objeto);
         }
 
-        
+
 
         public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
@@ -88,6 +89,40 @@ namespace BusinessLogic
         public ClientResponse listarPaginado(Pagination paginacion)
         {
             return _AnuncioData.listarPaginado(paginacion);
-        }        
+        }
+        public BeanChargeViewModel crearCargos(BeanCharge beanCharge)
+        {
+            StripeConfiguration.ApiKey = "sk_test_E4gwJSpR18sVDTtVmsH9HpuB00ps4xFKQU";
+            //Create Customer
+            var customerOptions = new CustomerCreateOptions
+            {
+                Description = beanCharge.CardName,
+                Source = beanCharge.StripeToken,
+                Email = beanCharge.Email,
+                Metadata = new Dictionary<String, String>()
+                {
+                    { "Phone Number", beanCharge.Phone}
+                }
+            };
+
+            var customerService = new CustomerService();
+            Customer customer = customerService.Create(customerOptions);
+
+            var options = new ChargeCreateOptions
+            {
+                Amount = 2000,
+                Currency = "usd",
+                Description = "Charge for jenny.rosen@example.com",
+                //Source = chargeDTO.StripeToken // obtained with Stripe.js,
+                CustomerId = customer.Id
+            };
+            var service = new ChargeService();
+            Charge charge = service.Create(options);
+
+            BeanChargeViewModel chViewModel = new BeanChargeViewModel();
+            chViewModel.ChargeId = charge.Id;
+            chViewModel.CustomerId = charge.CustomerId;
+            return chViewModel;
+        }
     }
 }
