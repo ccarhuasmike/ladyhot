@@ -92,16 +92,18 @@ namespace BusinessLogic
         }
         public BeanChargeViewModel crearCargos(BeanCharge beanCharge)
         {
-            StripeConfiguration.ApiKey = "sk_test_E4gwJSpR18sVDTtVmsH9HpuB00ps4xFKQU";
-            //Create Customer
+            //Llave secreta de produccion para realizar el cargo
+            StripeConfiguration.ApiKey = "sk_test_E4gwJSpR18sVDTtVmsH9HpuB00ps4xFKQU";//Llave secreta de prueba - Cambiar llave secreta por el de producccion
+            //Crear Cliente a quien se le adjuntara el cargo
             var customerOptions = new CustomerCreateOptions
             {
-                Description = beanCharge.CardName,
+                Name = beanCharge.nombreCompleto,
                 Source = beanCharge.StripeToken,
-                Email = beanCharge.Email,
+                Description = "Cargo para " + beanCharge.correo,
+                Email = beanCharge.correo,
                 Metadata = new Dictionary<String, String>()
                 {
-                    { "Phone Number", beanCharge.Phone}
+                    { "Numero Telefono", beanCharge.telefonoCelular}
                 }
             };
 
@@ -110,10 +112,10 @@ namespace BusinessLogic
 
             var options = new ChargeCreateOptions
             {
-                Amount = 2000,
-                Currency = "usd",
-                Description = "Charge for jenny.rosen@example.com",
-                //Source = chargeDTO.StripeToken // obtained with Stripe.js,
+                Amount = beanCharge.montoPagar,
+                Currency = "pen",
+                Description = beanCharge.descripcionCargo,
+                //Source = beanCharge.StripeToken, // obtenido con Stripe.js
                 CustomerId = customer.Id
             };
             var service = new ChargeService();
