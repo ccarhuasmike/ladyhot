@@ -139,6 +139,7 @@
     <Content Include="script\bdanuncio15.sql" />
     <Content Include="script\bdanuncio16.sql" />
     <Content Include="script\bdanuncio17.sql" />
+    <Content Include="script\bdanuncio18.sql" />
     <Content Include="script\bdanuncio2.sql" />
     <Content Include="script\bdanuncio3.sql" />
     <Content Include="script\bdanuncio4.sql" />
@@ -150,6 +151,8 @@
     <Content Include="script\demooooooooooooo.sql" />
     <Content Include="script\SCRIPT.txt" />
     <Content Include="script\secuencia.sql" />
+    <Content Include="script\secuenciass.sql" />
+    <Content Include="script\sp_sel_tbl_anuncio_x_id.sql" />
     <Content Include="script\updatehosting.txt" />
     <Content Include="template\templatecorreo.html" />
     <Content Include="template\templatereestablecerpassword.html" />
