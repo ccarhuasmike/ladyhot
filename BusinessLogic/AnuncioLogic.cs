@@ -106,7 +106,7 @@ namespace BusinessLogic
                     { "Numero Telefono", beanCharge.telefonoCelular}
                 }
             };
-
+            //beanCharge.descripcionCargo = customerOptions.Description;
             var customerService = new CustomerService();
             Customer customer = customerService.Create(customerOptions);
 
@@ -118,13 +118,23 @@ namespace BusinessLogic
                 //Source = beanCharge.StripeToken, // obtenido con Stripe.js
                 CustomerId = customer.Id
             };
+            beanCharge.moneda = options.Currency;
+
             var service = new ChargeService();
             Charge charge = service.Create(options);
+            Card tarjeta = ((Stripe.Card)charge.Source);
+            beanCharge.numeroTarjeta = tarjeta.Last4;
+            beanCharge.tipoTarjeta = tarjeta.Funding;
+            beanCharge.nombreTarjeta = tarjeta.Brand;
 
             BeanChargeViewModel chViewModel = new BeanChargeViewModel();
             chViewModel.ChargeId = charge.Id;
             chViewModel.CustomerId = charge.CustomerId;
             return chViewModel;
+        }
+        public ClientResponse RegistrarPago(BeanCharge objeto)
+        {
+            return _AnuncioData.RegistrarPago(objeto);
         }
     }
 }

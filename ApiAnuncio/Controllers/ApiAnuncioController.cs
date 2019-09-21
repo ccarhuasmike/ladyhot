@@ -360,6 +360,7 @@ namespace ApiAnuncio.Controllers
             {
                 bChViewMode = new BeanChargeViewModel();
                 bChViewMode = new AnuncioLogic().crearCargos(beanCharge);
+                new AnuncioLogic().RegistrarPago(beanCharge);
             }
             catch (Exception ex)
             {

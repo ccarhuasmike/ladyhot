@@ -658,7 +658,7 @@ namespace AccessData.PersonaDao
                 {
                     using (comando = new SqlCommand("sp_listar_anuncio", conexion))
                     {
-                        comando.CommandType = CommandType.StoredProcedure;                        
+                        comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@vi_pagina", SqlDbType.Int).Value = objeto.CurrentPage;
                         comando.Parameters.Add("@vi_registrosporpagina", SqlDbType.Int).Value = objeto.ItemsPerPage;
                         comando.Parameters.Add("@vi_RecordCount", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -686,11 +686,57 @@ namespace AccessData.PersonaDao
             Pagination responsepaginacion = new Pagination()
             {
                 TotalItems = recordCount,
-                TotalPages = (int)Math.Ceiling((double)recordCount / objeto.ItemsPerPage)                
+                TotalPages = (int)Math.Ceiling((double)recordCount / objeto.ItemsPerPage)
             };
 
             clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
             clientResponse.paginacion = JsonConvert.SerializeObject(responsepaginacion).ToString();
+            return clientResponse;
+        }
+
+        public ClientResponse RegistrarPago(BeanCharge objeto)
+        {
+            int id = 0;
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_registrar_pago", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@nombre_completo_pagador", SqlDbType.VarChar, 60).Value = objeto.nombreCompleto == null ? "" : objeto.nombreCompleto;
+                        comando.Parameters.Add("@descripcion_pago", SqlDbType.VarChar, 300).Value = objeto.descripcionCargo == null ? "" : objeto.descripcionCargo;
+                        comando.Parameters.Add("@numero_tarjeta", SqlDbType.VarChar, 20).Value = objeto.numeroTarjeta == null ? "" : objeto.numeroTarjeta;
+                        comando.Parameters.Add("@tipo_tarjeta", SqlDbType.VarChar, 30).Value = objeto.tipoTarjeta == null ? "" : objeto.tipoTarjeta;
+                        comando.Parameters.Add("@nombre_tarjeta", SqlDbType.VarChar, 50).Value = objeto.nombreTarjeta == null ? "" : objeto.nombreTarjeta;
+                        comando.Parameters.Add("@email_pagador", SqlDbType.VarChar, 30).Value = objeto.correo == null ? "" : objeto.correo;
+                        comando.Parameters.Add("@monto_pagado", SqlDbType.Decimal).Value = objeto.montoPagar;
+                        comando.Parameters.Add("@moneda", SqlDbType.VarChar, 20).Value = objeto.moneda;
+                        comando.Parameters.Add("@id_anuncio", SqlDbType.Int).Value = objeto.idAnuncio;
+                        comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        conexion.Open();
+                        comando.ExecuteNonQuery();
+                        if (comando.Parameters["@id"] != null)
+                        {
+                            id = Convert.ToInt32(comando.Parameters["@id"].Value);
+                            clientResponse.Id = id;
+                            Tbl_anuncio entidad = GetAnucionXId(id);
+                            clientResponse.Data = JsonConvert.SerializeObject(entidad).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+            }
             return clientResponse;
         }
         #endregion
