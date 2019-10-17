@@ -68,14 +68,15 @@ namespace BusinessEntity
         public int int_cant_visto { get; set; } = 0;        
         //Propiedades Extras
         public string txt_imagen_prensetancion { get; set; } = "";
-        public Bean_paginate beanPaginate { get; set; }
-        //
+        public Bean_paginate beanPaginate { get; set; }        
         public string txt_imagen_galeria { get; set; } = "";
-
         public string txt_descripcion_lugar_servicio_distrito { get; set; } = "";
         public string tx_descripcion_lugar_atencion { get; set; } = "";
         public string tx_descripcion_servicios_ofrece { get; set; } = "";
 
-
+        #region propiedades auxiliares
+        public string txt_descripcion_forma_pago { get; set; } = "";
+        public int txt_descripcion_edad { get; set; } = 0;
+        #endregion
     }
 }
