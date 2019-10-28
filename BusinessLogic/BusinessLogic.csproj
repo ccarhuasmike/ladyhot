@@ -53,6 +53,7 @@
     <Compile Include="AnuncioLogic.cs" />
     <Compile Include="GaleriaLogic.cs" />
     <Compile Include="ParameterLogic.cs" />
+    <Compile Include="PersonaLogic.cs" />
     <Compile Include="UsuarioLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

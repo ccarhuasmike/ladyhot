@@ -85,6 +85,7 @@
     <Compile Include="AnuncioData.cs" />
     <Compile Include="GaleriaData.cs" />
     <Compile Include="ParameterData.cs" />
+    <Compile Include="PersonaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioData.cs" />
   </ItemGroup>
