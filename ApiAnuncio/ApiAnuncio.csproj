@@ -168,6 +168,7 @@
     <Compile Include="Controllers\ApiGaleriaController.cs" />
     <Compile Include="Controllers\ApiMisAnuncioController.cs" />
     <Compile Include="Controllers\ApiParameterController.cs" />
+    <Compile Include="Controllers\ApiProductoController.cs" />
     <Compile Include="Controllers\ApiSeguridadController.cs" />
     <Compile Include="Controllers\ApiUsuarioController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />

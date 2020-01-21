@@ -1,7 +1,9 @@
 ﻿using BusinessEntity;
 using BusinessLogic;
 using Communities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -352,21 +354,55 @@ namespace ApiAnuncio.Controllers
             return clientResponse;
         }
         [Route("CrearCargo"), HttpPost]
-        public BeanChargeViewModel CrearCargo(BeanCharge beanCharge)
+        public ClientResponse CrearCargo(BeanCharge beanCharge)
         {
-            //ClientResponse clientResponse = new ClientResponse();
-            BeanChargeViewModel bChViewMode = null;
+            ClientResponse clientResponse = new ClientResponse();
             try
             {
-                bChViewMode = new BeanChargeViewModel();
-                bChViewMode = new AnuncioLogic().crearCargos(beanCharge);
+                clientResponse = new AnuncioLogic().crearCargos(beanCharge);
                 new AnuncioLogic().RegistrarPago(beanCharge);
+            }
+            catch (StripeException ex)
+            {
+                switch (ex.StripeError.ErrorType)
+                {
+                    case "card_error":
+                    case "api_connection_error":
+                    case "api_error":
+                    case "authentication_error":
+                    case "invalid_request_error":
+                    case "rate_limit_error":
+                    case "validation_error":
+                        clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+                        break;
+                    default:
+                        clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+                        break;
+                }
             }
             catch (Exception ex)
             {
-                //clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
             }
-            return bChViewMode;
+            return clientResponse;
+        }
+        [Route("ObtenerLlavePublica"), HttpGet]
+        public ClientResponse ObtenerLlavePublica()
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                Tbl_parameter_det entidad_llave_publicable_stripe = new Tbl_parameter_det() { paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_LLAVE_PUBLICA_STRIPE" } };
+                IEnumerable<Tbl_parameter_det> Ellave_publicable_stripe = new ParameterLogic().GetParameter_skey(entidad_llave_publicable_stripe);
+                Tbl_parameter_det llave_publicable_stripe = Ellave_publicable_stripe.ToList().Where(x => x.skey_det.Equals("SKEY_LLAVE_PUBLICA_STRIPE")).FirstOrDefault();
+                clientResponse.DataJson = llave_publicable_stripe.tx_valor;
+
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
         }
 
     }
