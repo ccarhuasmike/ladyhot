@@ -12,14 +12,14 @@ namespace ApiAnuncio.Controllers
     [RoutePrefix("api/producto")]
     public class ApiProductoController : ApiController
     {
-        [Route("ListarProductosSubirAutomatico"), HttpPost]
-        public ClientResponse sel_cliente()
+        [Route("ListarProductos/{tipoProducto}"), HttpGet]
+        public ClientResponse sel_cliente([FromUri] int tipoProducto)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                int TIPO_PRODUCTO_SUBIR_AUTOMATICO = 1;
-                clientResponse = new ProductoLogic().ListarProductoPorTipoProducto(TIPO_PRODUCTO_SUBIR_AUTOMATICO);
+                //int TIPO_PRODUCTO_SUBIR_AUTOMATICO = 293;
+                clientResponse = new ProductoLogic().ListarProductoPorTipoProducto(tipoProducto);
             }
             catch (Exception ex)
             {
