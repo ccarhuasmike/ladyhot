@@ -20,6 +20,7 @@ namespace AccessData
         private static SqlCommand comando;
         private static SqlDataReader reader;
         private static ClientResponse clientResponse;
+        private static Tbl_productos entidad;
         #endregion
 
         #region Constructor
@@ -27,6 +28,7 @@ namespace AccessData
         {
             conexion = null;
             comando = null;
+            entidad = null;
             reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
@@ -51,6 +53,43 @@ namespace AccessData
                         }
                         clientResponse.DataJson = JsonConvert.SerializeObject(lstProducto).ToString();
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+                comando.Dispose();
+                reader.Dispose();
+            }
+            return clientResponse;
+        }
+
+        public ClientResponse GetMontoProductoPorId(int id_producto)
+        {
+            try
+            {
+                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (comando = new SqlCommand("sp_sel_monto_producto_por_id", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@id_producto", SqlDbType.Int).Value = id_producto;
+                        conexion.Open();
+                        using (reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                entidad = reader.ReadFields<Tbl_productos>();
+                            }
+                        }
+                    }
+                    clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
                 }
             }
             catch (Exception ex)

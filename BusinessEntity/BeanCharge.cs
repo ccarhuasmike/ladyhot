@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace BusinessEntity
 {
     public class BeanCharge
@@ -15,5 +16,10 @@ namespace BusinessEntity
         public string nombreTarjeta { get; set; }
         public string moneda { get; set; }
         public int idProducto { get; set; }
+        public DateTime primerDiaSubida { get; set; }
+        public DateTime ultimoDiaSubida { get; set; }
+        public string primerHoraSubida { get; set; }
+        public string ultimoHoraSubida { get; set; }
+        //public Tbl_productos datosProducto { get; set; }
     }
 }

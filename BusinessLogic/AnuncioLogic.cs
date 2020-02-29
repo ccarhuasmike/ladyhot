@@ -1,4 +1,5 @@
-﻿using AccessData.PersonaDao;
+﻿using AccessData;
+using AccessData.PersonaDao;
 using BusinessEntity;
 using Communities;
 using Newtonsoft.Json;
@@ -95,6 +96,12 @@ namespace BusinessLogic
         public ClientResponse crearCargos(BeanCharge beanCharge)
         {
             ClientResponse clientResponse = new ClientResponse();
+
+            clientResponse = new ProductoData().GetMontoProductoPorId(beanCharge.idProducto);
+            Tbl_productos productoBean = JsonConvert.DeserializeObject<Tbl_productos>(clientResponse.DataJson);
+            clientResponse = null;
+            clientResponse = new ClientResponse();
+
             //Llave secreta de produccion para realizar el cargo
             StripeConfiguration.ApiKey = obtenerLlaveSecretaStripe("SKEY_LLAVE_SECRETA_STRIPE");//"sk_test_E4gwJSpR18sVDTtVmsH9HpuB00ps4xFKQU";//Llave secreta de prueba - Cambiar llave secreta por el de producccion
             //Crear Cliente a quien se le adjuntara el cargo
@@ -112,11 +119,12 @@ namespace BusinessLogic
             //beanCharge.descripcionCargo = customerOptions.Description;
             var customerService = new CustomerService();
             Customer customer = customerService.Create(customerOptions);
-
+            //string mo = productoBean.mt_monto.ToString("#.00#");
+            //decimal monto = 0;
             //Creando un cargo con el token(beanCharge.stripeToken) creado con en el front-end con los datos de la tarjeta del cliente
             var options = new ChargeCreateOptions
             {
-                Amount = beanCharge.montoPagar,
+                Amount = Convert.ToInt64(productoBean.mt_monto)*100, //beanCharge.montoPagar, 
                 Currency = "pen",
                 Description = beanCharge.descripcionCargo,
                 //Source = beanCharge.stripeToken, // obtenido con Stripe.js
@@ -136,6 +144,13 @@ namespace BusinessLogic
             //chViewModel.ChargeId = charge.Id;
             chViewModel.CustomerId = charge.CustomerId;
             chViewModel.status = charge.Status;
+
+            Tbl_parameter_det entidad_mensaje_confirm_pago = new Tbl_parameter_det() { paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_MENSAJE_CONFIRMACION" } };
+            IEnumerable<Tbl_parameter_det> respons_mensaje_confirm_pago = new ParameterLogic().GetParameter_skey(entidad_mensaje_confirm_pago);
+            Tbl_parameter_det llave_mensaje_confirm_pago = respons_mensaje_confirm_pago.ToList().Where(x => x.skey_det.Equals("SKEY_MENSAJE_CONFIRMACION_PAGO")).FirstOrDefault();
+            //session[key] = llave_publicable_stripe.tx_valor;
+            chViewModel.mensajePago = llave_mensaje_confirm_pago.tx_valor;
+
             //chViewModel.clientSecret = charge.PaymentIntent.ClientSecret;
             clientResponse.Data = JsonConvert.SerializeObject(chViewModel).ToString();
             return clientResponse;

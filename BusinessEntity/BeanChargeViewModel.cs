@@ -7,5 +7,6 @@ namespace BusinessEntity
         public string CustomerId { get; set; }
         public string status { get; set; }
         public string clientSecret { get; set; }
+        public string mensajePago { get; set; }
     }
 }
