@@ -710,9 +710,14 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@tipo_tarjeta", SqlDbType.VarChar, 30).Value = objeto.tipoTarjeta == null ? "" : objeto.tipoTarjeta;
                         comando.Parameters.Add("@nombre_tarjeta", SqlDbType.VarChar, 50).Value = objeto.nombreTarjeta == null ? "" : objeto.nombreTarjeta;
                         comando.Parameters.Add("@email_pagador", SqlDbType.VarChar, 30).Value = objeto.correo == null ? "" : objeto.correo;
-                        comando.Parameters.Add("@monto_pagado", SqlDbType.Decimal).Value = objeto.montoPagar;
+                        //comando.Parameters.Add("@monto_pagado", SqlDbType.Decimal).Value = objeto.montoPagar;
                         comando.Parameters.Add("@moneda", SqlDbType.VarChar, 20).Value = objeto.moneda;
                         comando.Parameters.Add("@id_anuncio", SqlDbType.Int).Value = objeto.idAnuncio;
+                        comando.Parameters.Add("@id_producto", SqlDbType.Int).Value = objeto.idProducto;
+                        comando.Parameters.Add("@primer_dia_subida", SqlDbType.DateTime).Value = objeto.primerDiaSubida;
+                        comando.Parameters.Add("@ultimo_dia_subida", SqlDbType.DateTime).Value = objeto.ultimoDiaSubida;
+                        comando.Parameters.Add("@primer_hora_subida", SqlDbType.VarChar).Value = objeto.primerHoraSubida;
+                        comando.Parameters.Add("@ultimo_hora_subida", SqlDbType.VarChar).Value = objeto.ultimoHoraSubida;
                         comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
                         conexion.Open();
                         comando.ExecuteNonQuery();
