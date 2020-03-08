@@ -18,8 +18,22 @@ namespace ApiAnuncio.Controllers
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                //int TIPO_PRODUCTO_SUBIR_AUTOMATICO = 293;
                 clientResponse = new ProductoLogic().ListarProductoPorTipoProducto(tipoProducto);
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
+
+        [Route("ObtenerHorariosSubida"), HttpGet]
+        public ClientResponse ObtenerHorariosSubida()
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new ProductoLogic().ObtenerHorariosSubida();
             }
             catch (Exception ex)
             {
