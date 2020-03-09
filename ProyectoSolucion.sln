@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8A6D03B4-D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B3F3BB90-B819-46F2-8858-AE0DE957C157}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "comparar base datos", "comparar base datos\comparar base datos.sqlproj", "{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,12 @@ Global
 		{B3F3BB90-B819-46F2-8858-AE0DE957C157}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3F3BB90-B819-46F2-8858-AE0DE957C157}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3F3BB90-B819-46F2-8858-AE0DE957C157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{739EF0C0-220A-42C0-BF49-54F488ABD6F5} = {EF23EBBA-89B7-4683-B7C4-D97E87D8CD03}
 		{4D83D712-21F8-48B9-9716-B2111C22E913} = {739EF0C0-220A-42C0-BF49-54F488ABD6F5}
 		{B3F3BB90-B819-46F2-8858-AE0DE957C157} = {8A6D03B4-D07F-45D8-BEC4-FA68BC39B173}
+		{AD2F67BB-0BD9-4890-8D1C-1426CF3C0939} = {739EF0C0-220A-42C0-BF49-54F488ABD6F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31DAA170-C785-4BCD-8B2D-DA8C0F6793BC}

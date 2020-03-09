@@ -180,10 +180,9 @@
   <ItemGroup>
     <Content Include="libman.json" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="script\Informacion Sobre el Negocio.xlsx" />
-    <Content Include="script\site1.PublishSettings" />
+    <Content Include="script\Informacion Sobre el Negocio.xlsx" />  
     <Content Include="script\DB_A3F06D.bak" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

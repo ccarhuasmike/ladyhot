@@ -6,14 +6,17 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\MIKE\Desktop\webapiii</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Publish\ws</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AccessData.dll">
-      <publishTime>07/20/2019 17:21:52</publishTime>
+      <publishTime>03/08/2020 16:18:09</publishTime>
+    </File>
+    <File Include="bin/AccessData.dll.config">
+      <publishTime>02/29/2020 11:19:13</publishTime>
     </File>
     <File Include="bin/AccessData.pdb">
-      <publishTime>07/20/2019 17:21:52</publishTime>
+      <publishTime>03/08/2020 16:18:09</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>02/22/2013 08:43:40</publishTime>
@@ -22,28 +25,28 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/ApiAnuncio.dll">
-      <publishTime>07/26/2019 14:37:47</publishTime>
+      <publishTime>03/08/2020 16:18:09</publishTime>
     </File>
     <File Include="bin/ApiAnuncio.pdb">
-      <publishTime>07/26/2019 14:37:47</publishTime>
+      <publishTime>03/08/2020 16:18:09</publishTime>
     </File>
     <File Include="bin/BusinessEntity.dll">
-      <publishTime>07/20/2019 17:21:49</publishTime>
+      <publishTime>03/08/2020 16:18:08</publishTime>
     </File>
     <File Include="bin/BusinessEntity.pdb">
-      <publishTime>07/20/2019 17:21:49</publishTime>
+      <publishTime>03/08/2020 16:18:08</publishTime>
     </File>
     <File Include="bin/BusinessLogic.dll">
-      <publishTime>07/20/2019 17:21:52</publishTime>
+      <publishTime>03/08/2020 16:18:09</publishTime>
     </File>
     <File Include="bin/BusinessLogic.pdb">
-      <publishTime>07/20/2019 17:21:52</publishTime>
+      <publishTime>03/08/2020 16:18:09</publishTime>
     </File>
     <File Include="bin/Communities.dll">
-      <publishTime>07/20/2019 17:21:50</publishTime>
+      <publishTime>03/08/2020 16:18:08</publishTime>
     </File>
     <File Include="bin/Communities.pdb">
-      <publishTime>07/20/2019 17:21:50</publishTime>
+      <publishTime>03/08/2020 16:18:08</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
       <publishTime>11/28/2018 13:00:46</publishTime>
@@ -222,6 +225,12 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
+    <File Include="bin/Stripe.net.dll">
+      <publishTime>09/04/2019 22:31:36</publishTime>
+    </File>
+    <File Include="bin/Stripe.net.pdb">
+      <publishTime>09/04/2019 22:31:36</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>11/28/2018 13:00:36</publishTime>
     </File>
@@ -262,73 +271,100 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/17/2013 17:03:52</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>06/15/2019 23:17:33</publishTime>
+      <publishTime>09/20/2019 06:47:40</publishTime>
     </File>
     <File Include="libman.json">
-      <publishTime>06/15/2019 23:17:34</publishTime>
+      <publishTime>09/20/2019 06:47:40</publishTime>
     </File>
     <File Include="script/Arquitectura.png">
-      <publishTime>06/15/2019 23:17:36</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio10.sql">
-      <publishTime>06/23/2019 16:43:22</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio11.sql">
-      <publishTime>07/07/2019 23:17:17</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio12.sql">
-      <publishTime>07/20/2019 12:41:50</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio13.sql">
-      <publishTime>07/20/2019 16:07:58</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio14.sql">
-      <publishTime>07/21/2019 23:10:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="script/bdanuncio15.sql">
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="script/bdanuncio16.sql">
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="script/bdanuncio17.sql">
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="script/bdanuncio18.sql">
+      <publishTime>09/20/2019 06:31:26</publishTime>
     </File>
     <File Include="script/bdanuncio2.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio3.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio4.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio5.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio6.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio7.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio8.sql">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/bdanuncio9.sql">
-      <publishTime>06/23/2019 14:16:53</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="script/DB_A3F06D.bak">
+      <publishTime>02/29/2020 11:19:13</publishTime>
     </File>
     <File Include="script/demooooooooooooo.sql">
-      <publishTime>06/23/2019 14:16:53</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/Informacion Sobre el Negocio.xlsx">
-      <publishTime>06/15/2019 23:17:40</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/SCRIPT.txt">
-      <publishTime>06/23/2019 14:16:53</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
-    <File Include="script/site1.PublishSettings">
-      <publishTime>06/15/2019 23:17:45</publishTime>
+    <File Include="script/secuencia.sql">
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="script/secuenciass.sql">
+      <publishTime>09/20/2019 06:33:08</publishTime>
+    </File>
+    <File Include="script/sp_sel_tbl_anuncio_x_id.sql">
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="script/updatehosting.txt">
-      <publishTime>06/23/2019 14:16:53</publishTime>
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="template/templatecorreo.html">
+      <publishTime>09/20/2019 06:51:44</publishTime>
+    </File>
+    <File Include="template/templatereestablecerpassword.html">
+      <publishTime>09/20/2019 06:51:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/26/2019 14:37:50</publishTime>
+      <publishTime>03/08/2020 16:18:10</publishTime>
     </File>
   </ItemGroup>
 </Project>
