@@ -15,7 +15,8 @@ namespace BusinessEntity
         public string txt_telefono_2 { get; set; } = "";
         public string txt_email { get; set; } = "";
         public string txt_web { get; set; } = "";
-        public int int_edad { get; set; } = 0;        
+        public int int_edad { get; set; } = 0;
+        public string tx_edad { get; set; } = "";
         public int int_pais_origen { get; set; } = 0;
         public string tx_pais_origen { get; set; } = "";
         public int int_estudios { get; set; } = 0;
