@@ -15,8 +15,8 @@ namespace BusinessEntity
         public string txt_telefono_2 { get; set; } = "";
         public string txt_email { get; set; } = "";
         public string txt_web { get; set; } = "";
-        public int int_edad { get; set; } = 0;
         public string tx_edad { get; set; } = "";
+        public int int_edad { get; set; } = 0;
         public int int_pais_origen { get; set; } = 0;
         public string tx_pais_origen { get; set; } = "";
         public int int_estudios { get; set; } = 0;
@@ -42,6 +42,7 @@ namespace BusinessEntity
         public decimal dbl_costo_x_tiempo_toda_noche { get; set; } = 0;
         public decimal dbl_costo_x_viaje { get; set; } = 0;        
         public string txt_forma_pago { get; set; } = "";
+        public string txt_forma_pago_desc { get; set; } = "";
         public string txt_descripcion_extra_tarifa { get; set; } = "";
         public string txt_lugar_servicio_distrito { get; set; } = "";
         public int fl_atencion_24horas { get; set; } = 0;
