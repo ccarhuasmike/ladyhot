@@ -8,3 +8,14 @@ C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communiti
 C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.csproj.CopyComplete
 C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.dll
 C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.pdb
+C:\ProyectoFreelance\ladyhot\Communities\bin\Release\Communities.dll
+C:\ProyectoFreelance\ladyhot\Communities\bin\Release\Communities.pdb
+C:\ProyectoFreelance\ladyhot\Communities\bin\Release\BusinessEntity.dll
+C:\ProyectoFreelance\ladyhot\Communities\bin\Release\Newtonsoft.Json.dll
+C:\ProyectoFreelance\ladyhot\Communities\bin\Release\BusinessEntity.pdb
+C:\ProyectoFreelance\ladyhot\Communities\bin\Release\Newtonsoft.Json.xml
+C:\ProyectoFreelance\ladyhot\Communities\obj\Release\Communities.csprojAssemblyReference.cache
+C:\ProyectoFreelance\ladyhot\Communities\obj\Release\Communities.csproj.CoreCompileInputs.cache
+C:\ProyectoFreelance\ladyhot\Communities\obj\Release\Communities.csproj.CopyComplete
+C:\ProyectoFreelance\ladyhot\Communities\obj\Release\Communities.dll
+C:\ProyectoFreelance\ladyhot\Communities\obj\Release\Communities.pdb

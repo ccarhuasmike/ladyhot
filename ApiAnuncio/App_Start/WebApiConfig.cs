@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
 
 namespace ApiAnuncio
 {
@@ -28,6 +30,7 @@ namespace ApiAnuncio
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            GlobalConfiguration.Configuration.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
         }
     }
 }

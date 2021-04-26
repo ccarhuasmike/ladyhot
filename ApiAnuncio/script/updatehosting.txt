@@ -10,13 +10,23 @@ update tbl_parameter_det set tx_descripcion = 'http://10.226.40.244/fileserver/'
 
 /*Hosting*/
 
-update tbl_parameter_det set tx_descripcion = 'h:\root\home\segundomike-001\www\site1\uploads_fichas\' where skey_det = 'SKEY_RUTASFISICAS_FICHAS'
+update tbl_parameter_det set tx_descripcion = 'h:\root\home\danteccarhuas-002\www\fileserver\uploads_fichas\' where skey_det = 'SKEY_RUTASFISICAS_FICHAS'
 update tbl_parameter_det set tx_descripcion = 'uploads_fichas/' where skey_det = 'SKEY_RUTASVIRTUALES_FICHAS'
-update tbl_parameter_det set tx_descripcion = 'h:\root\home\segundomike-001\www\site1\uploads_fichas_cortadas\' where skey_det = 'SKEY_RUTAS_FISICAS_FICHAS_CORTADAS'
+update tbl_parameter_det set tx_descripcion = 'h:\root\home\danteccarhuas-002\www\fileserver\uploads_fichas_cortadas\' where skey_det = 'SKEY_RUTAS_FISICAS_FICHAS_CORTADAS'
 update tbl_parameter_det set tx_descripcion = 'uploads_fichas_cortadas/' where skey_det = 'SKEY_RUTAS_VIRTUALES_FICHAS_CORTADAS'
-update tbl_parameter_det set tx_descripcion = 'h:\root\home\segundomike-001\www\site1\uploads_videos\' where skey_det = 'SKEY_RUTAS_FISICAS_VIDEOS'
+update tbl_parameter_det set tx_descripcion = 'h:\root\home\danteccarhuas-002\www\fileserver\uploads_videos\' where skey_det = 'SKEY_RUTAS_FISICAS_VIDEOS'
 update tbl_parameter_det set tx_descripcion = 'uploads_videos/' where skey_det = 'SKEY_RUTAS_VIRTUALES_VIDEOS'
-update tbl_parameter_det set tx_descripcion = 'http://segundomike-001-site1.itempurl.com/' where skey_det = 'SKEY_DOMINIO_FICHAS'
+update tbl_parameter_det set tx_descripcion = 'https://fileserver.gologolos.com/' where skey_det = 'SKEY_DOMINIO_FICHAS'
+
+
+/*Localhot*/
+update tbl_parameter_det set tx_descripcion = 'C:/inetpub/wwwroot/fileserver/uploads_fichas/' where skey_det = 'SKEY_RUTASFISICAS_FICHAS'
+update tbl_parameter_det set tx_descripcion = 'uploads_fichas/' where skey_det = 'SKEY_RUTASVIRTUALES_FICHAS'
+update tbl_parameter_det set tx_descripcion = 'C:/inetpub/wwwroot/fileserver/uploads_fichas_cortadas/' where skey_det = 'SKEY_RUTAS_FISICAS_FICHAS_CORTADAS'
+update tbl_parameter_det set tx_descripcion = 'uploads_fichas_cortadas/' where skey_det = 'SKEY_RUTAS_VIRTUALES_FICHAS_CORTADAS'
+update tbl_parameter_det set tx_descripcion = 'C:/inetpub/wwwroot/fileserver/uploads_videos/' where skey_det = 'SKEY_RUTAS_FISICAS_VIDEOS'
+update tbl_parameter_det set tx_descripcion = 'uploads_videos/' where skey_det = 'SKEY_RUTAS_VIRTUALES_VIDEOS'
+update tbl_parameter_det set tx_descripcion = 'http://192.168.0.31/fileserver/' where skey_det = 'SKEY_DOMINIO_FICHAS'
 
 
 estraga.gonzales@gmail.com
