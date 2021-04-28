@@ -23,4 +23,12 @@ namespace BusinessEntity
             paramter_cab = new Tbl_parameter_cab();
         }
     }
+    public class Tbl_parameter_detDto
+    {
+        
+        public string skey_det { get; set; }
+        public int val_valor { get; set; }
+        public string tx_valor { get; set; }
+        public string tx_descripcion { get; set; }        
+    }
 }

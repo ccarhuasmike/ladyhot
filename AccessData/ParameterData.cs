@@ -19,7 +19,7 @@ namespace AccessData
     {
 
         #region Variables
-        private static IEnumerable<Tbl_parameter_det> lstParamaterDet;
+        private static IEnumerable<Tbl_parameter_detDto> lstParamaterDet;
         private static Tbl_parameter_det entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
@@ -42,7 +42,7 @@ namespace AccessData
 
         #region Metodo
 
-        public IEnumerable<Tbl_parameter_det> GetParameter_skey(Tbl_parameter_det det)
+        public IEnumerable<Tbl_parameter_detDto> GetParameter_skey(Tbl_parameter_det det)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace AccessData
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstParamaterDet = reader.ReadRows<Tbl_parameter_det>();
+                            lstParamaterDet = reader.ReadRows<Tbl_parameter_detDto>();
                         }
                     }
                 }

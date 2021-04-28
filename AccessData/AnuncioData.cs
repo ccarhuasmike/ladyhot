@@ -15,6 +15,8 @@ namespace AccessData.PersonaDao
 
         #region Variables
         private static IEnumerable<Tbl_anuncio> lstAnuncio;
+        private static IEnumerable<Tbl_anuncioDto> lstAnuncioDto;
+        
         private static Tbl_anuncio entidad;
         private static SqlConnection conexion;
         private static SqlCommand comando;
@@ -79,9 +81,9 @@ namespace AccessData.PersonaDao
                         conexion.Open();
                         using (reader = comando.ExecuteReader())
                         {
-                            lstAnuncio = reader.ReadRows<Tbl_anuncio>();
+                            lstAnuncioDto = reader.ReadRows<Tbl_anuncioDto>();
                         }
-                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncio).ToString();
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncioDto).ToString();
                     }
                 }
             }

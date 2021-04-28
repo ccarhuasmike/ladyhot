@@ -146,8 +146,8 @@ namespace BusinessLogic
             chViewModel.status = charge.Status;
 
             Tbl_parameter_det entidad_mensaje_confirm_pago = new Tbl_parameter_det() { paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_MENSAJE_CONFIRMACION" } };
-            IEnumerable<Tbl_parameter_det> respons_mensaje_confirm_pago = new ParameterLogic().GetParameter_skey(entidad_mensaje_confirm_pago);
-            Tbl_parameter_det llave_mensaje_confirm_pago = respons_mensaje_confirm_pago.ToList().Where(x => x.skey_det.Equals("SKEY_MENSAJE_CONFIRMACION_PAGO")).FirstOrDefault();
+            IEnumerable<Tbl_parameter_detDto> respons_mensaje_confirm_pago = new ParameterLogic().GetParameter_skey(entidad_mensaje_confirm_pago);
+            Tbl_parameter_detDto llave_mensaje_confirm_pago = respons_mensaje_confirm_pago.ToList().Where(x => x.skey_det.Equals("SKEY_MENSAJE_CONFIRMACION_PAGO")).FirstOrDefault();
             //session[key] = llave_publicable_stripe.tx_valor;
             chViewModel.mensajePago = llave_mensaje_confirm_pago.tx_valor;
 
@@ -171,8 +171,8 @@ namespace BusinessLogic
                 //if (session[key] == null)
                 //{
                 Tbl_parameter_det entidad_llave_secreta_stripe = new Tbl_parameter_det() { paramter_cab = new Tbl_parameter_cab() { skey_cab = key } };
-                IEnumerable<Tbl_parameter_det> respons_llave_secreta_stripe = new ParameterLogic().GetParameter_skey(entidad_llave_secreta_stripe);
-                Tbl_parameter_det llave_publicable_stripe = respons_llave_secreta_stripe.ToList().Where(x => x.skey_det.Equals(key)).FirstOrDefault();
+                IEnumerable<Tbl_parameter_detDto> respons_llave_secreta_stripe = new ParameterLogic().GetParameter_skey(entidad_llave_secreta_stripe);
+                Tbl_parameter_detDto llave_publicable_stripe = respons_llave_secreta_stripe.ToList().Where(x => x.skey_det.Equals(key)).FirstOrDefault();
                 //session[key] = llave_publicable_stripe.tx_valor;
                 llaveSecreta = llave_publicable_stripe.tx_valor;
                 // }

@@ -26,20 +26,20 @@ namespace ApiAnuncio.Controllers
                 {
                     paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_MAIL" }
                 };
-                IEnumerable<Tbl_parameter_det> lista = new ParameterLogic().GetParameter_skey(entidad_det);
+                IEnumerable<Tbl_parameter_detDto> lista = new ParameterLogic().GetParameter_skey(entidad_det);
 
-                Tbl_parameter_det user = lista.ToList().Where(x => x.skey_det.Equals("SKEY_MAIL_DET_USER")).FirstOrDefault();
-                Tbl_parameter_det clave = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_CLAVE")).FirstOrDefault();
-                Tbl_parameter_det smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
-                Tbl_parameter_det puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
+                Tbl_parameter_detDto user = lista.ToList().Where(x => x.skey_det.Equals("SKEY_MAIL_DET_USER")).FirstOrDefault();
+                Tbl_parameter_detDto clave = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_CLAVE")).FirstOrDefault();
+                Tbl_parameter_detDto smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
+                Tbl_parameter_detDto puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
 
                 Tbl_parameter_det entidad_det_site_lady_hot = null;
                 entidad_det_site_lady_hot = new Tbl_parameter_det()
                 {
                     paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_SITE_LADYHOT" }
                 };
-                IEnumerable<Tbl_parameter_det> lista_site_lady_hot = new ParameterLogic().GetParameter_skey(entidad_det_site_lady_hot);
-                Tbl_parameter_det site_lady_hot = lista_site_lady_hot.ToList().Where(x => x.skey_det.Equals("SKEY_SITE_LADYHOT_RUTA")).FirstOrDefault();
+                IEnumerable<Tbl_parameter_detDto> lista_site_lady_hot = new ParameterLogic().GetParameter_skey(entidad_det_site_lady_hot);
+                Tbl_parameter_detDto site_lady_hot = lista_site_lady_hot.ToList().Where(x => x.skey_det.Equals("SKEY_SITE_LADYHOT_RUTA")).FirstOrDefault();
 
                 var url = System.Web.Hosting.HostingEnvironment.MapPath("/template/templatecorreo.html");
                 string mensaje = "";                
@@ -77,20 +77,20 @@ namespace ApiAnuncio.Controllers
                 {
                     paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_MAIL" }
                 };
-                IEnumerable<Tbl_parameter_det> lista = new ParameterLogic().GetParameter_skey(entidad_det);
+                IEnumerable<Tbl_parameter_detDto> lista = new ParameterLogic().GetParameter_skey(entidad_det);
 
-                Tbl_parameter_det user = lista.ToList().Where(x => x.skey_det.Equals("SKEY_MAIL_DET_USER")).FirstOrDefault();
-                Tbl_parameter_det clave = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_CLAVE")).FirstOrDefault();
-                Tbl_parameter_det smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
-                Tbl_parameter_det puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
+                Tbl_parameter_detDto user = lista.ToList().Where(x => x.skey_det.Equals("SKEY_MAIL_DET_USER")).FirstOrDefault();
+                Tbl_parameter_detDto clave = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_CLAVE")).FirstOrDefault();
+                Tbl_parameter_detDto smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
+                Tbl_parameter_detDto puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
 
                 Tbl_parameter_det entidad_det_site_lady_hot = null;
                 entidad_det_site_lady_hot = new Tbl_parameter_det()
                 {
                     paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_SITE_LADYHOT" }
                 };
-                IEnumerable<Tbl_parameter_det> lista_site_lady_hot = new ParameterLogic().GetParameter_skey(entidad_det_site_lady_hot);
-                Tbl_parameter_det site_lady_hot = lista_site_lady_hot.ToList().Where(x => x.skey_det.Equals("SKEY_SITE_LADYHOT_RUTA")).FirstOrDefault();
+                IEnumerable<Tbl_parameter_detDto> lista_site_lady_hot = new ParameterLogic().GetParameter_skey(entidad_det_site_lady_hot);
+                Tbl_parameter_detDto site_lady_hot = lista_site_lady_hot.ToList().Where(x => x.skey_det.Equals("SKEY_SITE_LADYHOT_RUTA")).FirstOrDefault();
 
                 var url = System.Web.Hosting.HostingEnvironment.MapPath("/template/templatereestablecerpassword.html");
                 string mensaje = "";

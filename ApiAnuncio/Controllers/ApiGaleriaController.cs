@@ -48,7 +48,7 @@ namespace ApiAnuncio.Controllers
                 {
                     paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_TIPO_ARCHIVO" }
                 };
-                IEnumerable<Tbl_parameter_det> lstExtension = new ParameterLogic().GetParameter_skey(entidad_det);
+                IEnumerable<Tbl_parameter_detDto> lstExtension = new ParameterLogic().GetParameter_skey(entidad_det);
                 int id_tipo_archivo = 0;
                 foreach (var element in lstExtension)
                 {

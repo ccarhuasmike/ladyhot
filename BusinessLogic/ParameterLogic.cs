@@ -153,7 +153,7 @@ namespace BusinessLogic
             clientResponse.DataJson = JsonConvert.SerializeObject(entidad).ToString();
             return clientResponse;
         }
-        public IEnumerable<Tbl_parameter_det> GetParameter_skey(Tbl_parameter_det det)
+        public IEnumerable<Tbl_parameter_detDto> GetParameter_skey(Tbl_parameter_det det)
         {
             return _parameterData.GetParameter_skey(det);
         }

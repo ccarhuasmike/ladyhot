@@ -24,7 +24,7 @@ namespace BusinessLogic
         {
             ClientResponse clientResponse = new ClientResponse();
             Tbl_parameter_det entidad_mensaje_confirm_pago = new Tbl_parameter_det() { paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_HORA_SUBIDA" } };
-            IEnumerable<Tbl_parameter_det> respons_mensaje_confirm_pago = new ParameterLogic().GetParameter_skey(entidad_mensaje_confirm_pago);
+            IEnumerable<Tbl_parameter_detDto> respons_mensaje_confirm_pago = new ParameterLogic().GetParameter_skey(entidad_mensaje_confirm_pago);
             clientResponse.DataJson = JsonConvert.SerializeObject(respons_mensaje_confirm_pago).ToString();
             clientResponse.Status = "OK";
             return clientResponse;

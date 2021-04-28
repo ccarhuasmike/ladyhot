@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
-edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+https://go.microsoft.com/fwlink/?LinkID=208121. 
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Publish\Ws</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AccessData.dll">
-      <publishTime>04/22/2021 12:33:35</publishTime>
+      <publishTime>04/28/2021 12:37:33</publishTime>
     </File>
     <File Include="bin/AccessData.dll.config">
       <publishTime>04/21/2021 12:16:07</publishTime>
     </File>
     <File Include="bin/AccessData.pdb">
-      <publishTime>04/22/2021 12:33:35</publishTime>
+      <publishTime>04/28/2021 12:37:33</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>02/22/2013 08:43:40</publishTime>
@@ -25,28 +23,28 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/ApiAnuncio.dll">
-      <publishTime>04/22/2021 12:35:47</publishTime>
+      <publishTime>04/28/2021 13:38:21</publishTime>
     </File>
     <File Include="bin/ApiAnuncio.pdb">
-      <publishTime>04/22/2021 12:35:47</publishTime>
+      <publishTime>04/28/2021 13:38:21</publishTime>
     </File>
     <File Include="bin/BusinessEntity.dll">
-      <publishTime>04/22/2021 12:33:33</publishTime>
+      <publishTime>04/27/2021 12:49:23</publishTime>
     </File>
     <File Include="bin/BusinessEntity.pdb">
-      <publishTime>04/22/2021 12:33:33</publishTime>
+      <publishTime>04/27/2021 12:49:23</publishTime>
     </File>
     <File Include="bin/BusinessLogic.dll">
-      <publishTime>04/22/2021 12:33:37</publishTime>
+      <publishTime>04/28/2021 12:37:34</publishTime>
     </File>
     <File Include="bin/BusinessLogic.pdb">
-      <publishTime>04/22/2021 12:33:37</publishTime>
+      <publishTime>04/28/2021 12:37:34</publishTime>
     </File>
     <File Include="bin/Communities.dll">
-      <publishTime>04/22/2021 12:33:34</publishTime>
+      <publishTime>04/28/2021 12:37:32</publishTime>
     </File>
     <File Include="bin/Communities.pdb">
-      <publishTime>04/22/2021 12:33:34</publishTime>
+      <publishTime>04/28/2021 12:37:32</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
       <publishTime>11/28/2018 13:00:46</publishTime>
@@ -63,9 +61,6 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/es/System.Web.Mvc.resources.dll">
       <publishTime>01/28/2015 04:02:24</publishTime>
     </File>
-    <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>02/11/2014 15:28:40</publishTime>
-    </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
       <publishTime>01/28/2015 04:02:36</publishTime>
     </File>
@@ -77,6 +72,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="bin/es/System.Web.WebPages.resources.dll">
       <publishTime>01/28/2015 04:04:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.WebApi.Extensions.Compression.Server.dll">
+      <publishTime>01/28/2016 14:57:02</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -231,8 +229,20 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/Stripe.net.pdb">
       <publishTime>09/04/2019 22:31:36</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.Extensions.Compression.Client.dll">
+      <publishTime>01/28/2016 14:58:22</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.Compression.Core.dll">
+      <publishTime>01/28/2016 14:58:22</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>02/19/2015 20:10:46</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>11/28/2018 13:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>02/19/2015 20:10:46</publishTime>
     </File>
     <File Include="bin/System.Web.Cors.dll">
       <publishTime>11/28/2018 12:58:44</publishTime>
@@ -333,9 +343,6 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="script/bdanuncio9.sql">
       <publishTime>04/21/2021 12:16:09</publishTime>
     </File>
-    <File Include="script/DB_A3F06D.bak">
-      <publishTime>02/29/2020 11:19:13</publishTime>
-    </File>
     <File Include="script/demooooooooooooo.sql">
       <publishTime>04/21/2021 12:16:09</publishTime>
     </File>
@@ -355,7 +362,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/21/2021 12:16:09</publishTime>
     </File>
     <File Include="script/updatehosting.txt">
-      <publishTime>04/21/2021 12:16:09</publishTime>
+      <publishTime>04/26/2021 16:57:57</publishTime>
     </File>
     <File Include="template/templatecorreo.html">
       <publishTime>04/21/2021 12:16:09</publishTime>
@@ -364,7 +371,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/21/2021 12:16:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/22/2021 12:33:39</publishTime>
+      <publishTime>04/28/2021 13:34:19</publishTime>
     </File>
   </ItemGroup>
 </Project>

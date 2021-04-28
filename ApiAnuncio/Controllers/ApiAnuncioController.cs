@@ -393,8 +393,8 @@ namespace ApiAnuncio.Controllers
             try
             {
                 Tbl_parameter_det entidad_llave_publicable_stripe = new Tbl_parameter_det() { paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_LLAVE_PUBLICA_STRIPE" } };
-                IEnumerable<Tbl_parameter_det> Ellave_publicable_stripe = new ParameterLogic().GetParameter_skey(entidad_llave_publicable_stripe);
-                Tbl_parameter_det llave_publicable_stripe = Ellave_publicable_stripe.ToList().Where(x => x.skey_det.Equals("SKEY_LLAVE_PUBLICA_STRIPE")).FirstOrDefault();
+                IEnumerable<Tbl_parameter_detDto> Ellave_publicable_stripe = new ParameterLogic().GetParameter_skey(entidad_llave_publicable_stripe);
+                Tbl_parameter_detDto llave_publicable_stripe = Ellave_publicable_stripe.ToList().Where(x => x.skey_det.Equals("SKEY_LLAVE_PUBLICA_STRIPE")).FirstOrDefault();
                 clientResponse.DataJson = llave_publicable_stripe.tx_valor;
 
             }

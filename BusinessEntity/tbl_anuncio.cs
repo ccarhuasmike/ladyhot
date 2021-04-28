@@ -81,4 +81,18 @@ namespace BusinessEntity
         public int txt_descripcion_edad { get; set; } = 0;
         #endregion
     }
+
+
+    public class Tbl_anuncioDto
+    {
+        public int id { get; set; } = 0;
+        public string txt_imagen_prensetancion { get; set; } = "";
+        public string txt_nombre_ficha { get; set; } = "";
+        public string tx_pais_origen { get; set; } = "";
+        public int int_edad { get; set; } = 0;
+        public string txt_presentacion { get; set; } = "";
+        public string txt_lugar_servicio_distrito { get; set; } = "";
+        public string tx_servicios_ofrece { get; set; } = "";
+        public string tx_lugar_atencion { get; set; } = "";
+    }
 }
