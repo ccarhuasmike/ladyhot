@@ -17,9 +17,9 @@ namespace AccessData
         #region Variables
         private static IEnumerable<Tbl_usuario> lstUsuario;
         private static Tbl_usuario entidad;
-        private static SqlConnection conexion;
-        private static SqlCommand comando;
-        private static SqlDataReader reader;
+        //private static SqlConnection conexion;
+        //private static SqlCommand comando;
+        //private static SqlDataReader reader;
         private static ClientResponse clientResponse;
         #endregion
 
@@ -28,9 +28,9 @@ namespace AccessData
         {
             //lstContacto = new IEnumerable<tbl_anuncio>();
             //entidad = null;
-            conexion = null;
-            comando = null;
-            reader = null;
+            //var conexion = null;
+            //var comando = null;
+            //var reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
         }
@@ -41,14 +41,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_usuario_por_correo", conexion))
+                    using (var comando = new SqlCommand("sp_sel_usuario_por_correo", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@tx_email", SqlDbType.VarChar, 60).Value = usuario.tx_email;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -65,10 +65,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return entidad;
         }
@@ -77,9 +77,9 @@ namespace AccessData
             int id = 0;
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_ins_usuario", conexion))
+                    using (var comando = new SqlCommand("sp_ins_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@tx_email", SqlDbType.VarChar, 60).Value = objeto.tx_email;
@@ -104,10 +104,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -116,14 +116,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_usuario_x_id", conexion))
+                    using (var comando = new SqlCommand("sp_sel_usuario_x_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = id;                       
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstUsuario = reader.ReadRows<Tbl_usuario>();
                         }
@@ -136,10 +136,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return lstUsuario;
         }
@@ -147,14 +147,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_usuario_por_token", conexion))
+                    using (var comando = new SqlCommand("sp_sel_usuario_por_token", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@tx_token", SqlDbType.VarChar, 255).Value = entidad.tx_token;                       
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -177,10 +177,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -189,9 +189,9 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_up_password_por_usuario", conexion))
+                    using (var comando = new SqlCommand("sp_up_password_por_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@tx_pass", SqlDbType.VarChar,500).Value = entidad.tx_pass;                        
@@ -210,9 +210,9 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();             
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();             
             }
             return clientResponse;
         }
@@ -221,15 +221,15 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_usuario_login", conexion))
+                    using (var comando = new SqlCommand("sp_sel_usuario_login", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@tx_email", SqlDbType.VarChar,45).Value = entidad.tx_email;
                         comando.Parameters.Add("@tx_pass", SqlDbType.VarChar,500).Value = entidad.tx_pass;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -242,7 +242,7 @@ namespace AccessData
                         }
                        
                         clientResponse.Status = "OK";
-                        //using (reader = comando.ExecuteReader())
+                        //using (var reader = comando.ExecuteReader())
                         //{
                         //    lstUsuario = reader.ReadRows<Tbl_usuario>();
                         //}
@@ -257,10 +257,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -270,16 +270,16 @@ namespace AccessData
             try
             {
 
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_tbl_usuario", conexion))
+                    using (var comando = new SqlCommand("sp_sel_tbl_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         // comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
                         // comando.Parameters.Add("@id_sede", SqlDbType.Int).Value = idSede;
                         // comando.Parameters.Add("@numero_documento", SqlDbType.VarChar, 15).Value = numeroDocumento;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstUsuario = reader.ReadRows<Tbl_usuario>();                           
                         }
@@ -293,10 +293,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
 
             clientResponse.DataJson = JsonConvert.SerializeObject(lstUsuario).ToString();

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-   public class Tbl_anuncio
+    public class Tbl_anuncio
     {
-        public int id { get; set; }  = 0;
+        public string txt_titulo { get; set; } = "";
+        public int id { get; set; } = 0;
         public string codigo { get; set; } = "";
         public string txt_nombre_ficha { get; set; } = "";
         public string txt_telefono_1 { get; set; } = "";
@@ -40,7 +41,7 @@ namespace BusinessEntity
         public decimal dbl_costo_x_tiempo_3hora { get; set; } = 0;
         public decimal dbl_costo_x_tiempo_salidas { get; set; } = 0;
         public decimal dbl_costo_x_tiempo_toda_noche { get; set; } = 0;
-        public decimal dbl_costo_x_viaje { get; set; } = 0;        
+        public decimal dbl_costo_x_viaje { get; set; } = 0;
         public string txt_forma_pago { get; set; } = "";
         public string txt_forma_pago_desc { get; set; } = "";
         public string txt_descripcion_extra_tarifa { get; set; } = "";
@@ -67,10 +68,10 @@ namespace BusinessEntity
         public int fl_cerrado { get; set; } = 0;
         public string cod_anuncio_encryptado { get; set; } = "";
         public int id_usuario { get; set; } = 0;
-        public int int_cant_visto { get; set; } = 0;        
+        public int int_cant_visto { get; set; } = 0;
         //Propiedades Extras
         public string txt_imagen_prensetancion { get; set; } = "";
-        public Bean_paginate beanPaginate { get; set; }        
+        public Bean_paginate beanPaginate { get; set; }
         public string txt_imagen_galeria { get; set; } = "";
         public string txt_descripcion_lugar_servicio_distrito { get; set; } = "";
         public string tx_descripcion_lugar_atencion { get; set; } = "";
@@ -80,6 +81,13 @@ namespace BusinessEntity
         public string txt_descripcion_forma_pago { get; set; } = "";
         public int txt_descripcion_edad { get; set; } = 0;
         #endregion
+
+        public int int_departamento { get; set; } = 0;
+        public int int_provincia { get; set; } = 0;
+
+        public string txt_departamento { get; set; } = "";
+        public string txt_distrito { get; set; } = "";
+
     }
 
 

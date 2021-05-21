@@ -16,9 +16,9 @@ namespace AccessData
     {
         #region Variables
         private static IEnumerable<Tbl_productos> lstProducto;
-        private static SqlConnection conexion;
-        private static SqlCommand comando;
-        private static SqlDataReader reader;
+        //private static SqlConnection conexion;
+        //private static SqlCommand comando;
+        //private static SqlDataReader reader;
         private static ClientResponse clientResponse;
         private static Tbl_productos entidad;
         #endregion
@@ -26,10 +26,10 @@ namespace AccessData
         #region Constructor
         public ProductoData()
         {
-            conexion = null;
-            comando = null;
+            //var conexion = null;
+            //var comando = null;
             entidad = null;
-            reader = null;
+            //var reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
         }
@@ -40,14 +40,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_tbl_productos_por_tipo_producto", conexion))
+                    using (var comando = new SqlCommand("sp_sel_tbl_productos_por_tipo_producto", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id_tipo_producto", SqlDbType.Int).Value = tipoProducto;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstProducto = reader.ReadRows<Tbl_productos>();
                         }
@@ -62,10 +62,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -74,14 +74,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_monto_producto_por_id", conexion))
+                    using (var comando = new SqlCommand("sp_sel_monto_producto_por_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id_producto", SqlDbType.Int).Value = id_producto;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -99,10 +99,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }

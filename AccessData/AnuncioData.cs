@@ -16,11 +16,11 @@ namespace AccessData.PersonaDao
         #region Variables
         private static IEnumerable<Tbl_anuncio> lstAnuncio;
         private static IEnumerable<Tbl_anuncioDto> lstAnuncioDto;
-        
+
         private static Tbl_anuncio entidad;
-        private static SqlConnection conexion;
-        private static SqlCommand comando;
-        private static SqlDataReader reader;
+        //private static SqlConnection conexion;
+        //private static SqlCommand comando;
+        //private static SqlDataReader reader;
         private static ClientResponse clientResponse;
         #endregion
 
@@ -28,9 +28,9 @@ namespace AccessData.PersonaDao
         public AnuncioData()
         {
             entidad = null;
-            conexion = null;
-            comando = null;
-            reader = null;
+            //var conexion = null;
+            //var comando = null;
+            //var reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
         }
@@ -41,13 +41,13 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var  conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_fichas_anuncio_top_10", conexion))
+                    using (var  comando = new SqlCommand("sp_sel_fichas_anuncio_top_10", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var  reader = comando.ExecuteReader())
                         {
                             lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
@@ -62,10 +62,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -73,13 +73,13 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var  conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_fichas_anuncio", conexion))
+                    using (var  comando = new SqlCommand("sp_sel_fichas_anuncio", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var  reader = comando.ExecuteReader())
                         {
                             lstAnuncioDto = reader.ReadRows<Tbl_anuncioDto>();
                         }
@@ -94,10 +94,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -105,14 +105,14 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var  conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_fichas_mis_anuncio_por_usuario", conexion))
+                    using (var  comando = new SqlCommand("sp_sel_fichas_mis_anuncio_por_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id_usuario", SqlDbType.Int).Value = anuncio.id_usuario;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var  reader = comando.ExecuteReader())
                         {
                             lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
@@ -127,10 +127,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -138,14 +138,14 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var  conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_usuario", conexion))
+                    using (var  comando = new SqlCommand("sp_sel_tbl_anuncio_x_usuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@token_usuario", SqlDbType.VarChar, 255).Value = usuario_token;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var  reader = comando.ExecuteReader())
                         {
                             lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
@@ -160,10 +160,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -171,9 +171,9 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_upd_dar_baja_tbl_anuncio", conexion))
+                    using (var comando = new SqlCommand("sp_upd_dar_baja_tbl_anuncio", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = entidad.cod_anuncio_encryptado;
@@ -190,9 +190,9 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
             }
             return clientResponse;
         }
@@ -200,9 +200,9 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_up_anuncio_primerpaso", conexion))
+                    using (var comando = new SqlCommand("sp_up_anuncio_primerpaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha == null ? "" : objeto.txt_nombre_ficha;
@@ -225,10 +225,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -237,9 +237,9 @@ namespace AccessData.PersonaDao
             int id = 0;
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_ins_anuncio_primerpaso", conexion))
+                    using (var comando = new SqlCommand("sp_ins_anuncio_primerpaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha == null ? "" : objeto.txt_nombre_ficha;
@@ -271,9 +271,9 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
             }
             return clientResponse;
         }
@@ -281,16 +281,17 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_upd_anuncio_segundopaso", conexion))
+                    using (var comando = new SqlCommand("sp_upd_anuncio_segundopaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
-                        comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
+                        ///comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
                         comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
+                        comando.Parameters.Add("@txt_titulo", SqlDbType.VarChar).Value = objeto.txt_titulo;
                         conexion.Open();
                         comando.ExecuteNonQuery();
                         Tbl_anuncio entidad = GetAnucionXId(objeto.id);
@@ -305,10 +306,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -316,9 +317,9 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_upd_anuncio_tercerpaso", conexion))
+                    using (var comando = new SqlCommand("sp_upd_anuncio_tercerpaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@int_color_cabello", SqlDbType.Int).Value = objeto.int_color_cabello;
@@ -342,10 +343,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -353,9 +354,9 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_upd_anuncio_cuartopaso", conexion))
+                    using (var comando = new SqlCommand("sp_upd_anuncio_cuartopaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@dbl_costo_x_tiempo_30min", SqlDbType.Decimal).Value = objeto.dbl_costo_x_tiempo_30min;
@@ -390,10 +391,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -402,9 +403,9 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_upd_anuncio_quintopaso", conexion))
+                    using (var comando = new SqlCommand("sp_upd_anuncio_quintopaso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@txt_lugar_servicio_distrito", SqlDbType.VarChar, 255).Value = objeto.txt_lugar_servicio_distrito;
@@ -414,10 +415,29 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@tx_servicios_ofrece", SqlDbType.VarChar, 400).Value = objeto.tx_servicios_ofrece;
                         comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio == null ? "" : objeto.tx_descripcion_extra_servicio;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
+                        comando.Parameters.Add("@int_departamento", SqlDbType.Int).Value = objeto.int_departamento;
+                        comando.Parameters.Add("@int_provincia", SqlDbType.Int).Value = objeto.int_provincia;
                         conexion.Open();
                         comando.ExecuteNonQuery();
+
+                        IEnumerable<Tbl_provincia> listProvincia = null;
                         Tbl_anuncio entidad = GetAnucionXId(objeto.id);
+                        if (objeto.int_departamento > 0)
+                        {
+                            listProvincia = new UbigeoData().GetProvincia(new Tbl_departamento() { IdDepa = objeto.int_departamento });
+                        }
+                        IEnumerable<Tbl_distrito> listDistrito = null;
+                        if (objeto.int_provincia > 0)
+                        {
+                            listDistrito = new UbigeoData().GetDistrito(new Tbl_provincia() { IdProv = objeto.int_provincia });
+                        }
+                        var ubigeo = new
+                        {
+                            provincia = listProvincia,
+                            distrito= listDistrito
+                        };
                         clientResponse.Data = JsonConvert.SerializeObject(entidad).ToString();
+                        clientResponse.DataJson = JsonConvert.SerializeObject(ubigeo).ToString();
                     }
                 }
             }
@@ -428,10 +448,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -440,9 +460,9 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_upd_anuncio_todos_paso", conexion))
+                    using (var comando = new SqlCommand("sp_upd_anuncio_todos_paso", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@txt_nombre_ficha", SqlDbType.VarChar, 60).Value = objeto.txt_nombre_ficha == null ? "" : objeto.txt_nombre_ficha;
@@ -452,7 +472,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@txt_web", SqlDbType.VarChar, 500).Value = objeto.txt_web == null ? "" : objeto.txt_web;
                         comando.Parameters.Add("@int_edad", SqlDbType.Int).Value = objeto.int_edad;
                         comando.Parameters.Add("@int_pais_origen", SqlDbType.Int).Value = objeto.int_pais_origen;
-                        comando.Parameters.Add("@int_estudios", SqlDbType.Int).Value = objeto.int_estudios;
+                        comando.Parameters.Add("@txt_titulo", SqlDbType.VarChar).Value = objeto.txt_titulo;
                         comando.Parameters.Add("@txt_presentacion", SqlDbType.Text).Value = objeto.txt_presentacion == null ? "" : objeto.txt_presentacion;
                         comando.Parameters.Add("@int_color_cabello", SqlDbType.Int).Value = objeto.int_color_cabello;
                         comando.Parameters.Add("@int_color_ojos", SqlDbType.Int).Value = objeto.int_color_ojos;
@@ -477,7 +497,9 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@tx_lugar_atencion", SqlDbType.VarChar, 255).Value = objeto.tx_lugar_atencion;
                         comando.Parameters.Add("@tx_servicios_ofrece", SqlDbType.VarChar, 400).Value = objeto.tx_servicios_ofrece;
                         comando.Parameters.Add("@tx_descripcion_extra_servicio", SqlDbType.VarChar, 255).Value = objeto.tx_descripcion_extra_servicio == null ? "" : objeto.tx_descripcion_extra_servicio;
-
+                        
+                        comando.Parameters.Add("@int_departamento", SqlDbType.Int).Value = objeto.int_departamento;
+                        comando.Parameters.Add("@int_provincia", SqlDbType.Int).Value = objeto.int_provincia;
                         //ssss
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
@@ -494,10 +516,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -505,14 +527,14 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_id", conexion))
+                    using (var comando = new SqlCommand("sp_sel_tbl_anuncio_x_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = id_anucion;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -529,10 +551,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return entidad;
         }
@@ -540,14 +562,14 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_tbl_anuncio_x_tokens", conexion))
+                    using (var comando = new SqlCommand("sp_sel_tbl_anuncio_x_tokens", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             while (reader.Read())
                             {
@@ -565,10 +587,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return entidad;
         }
@@ -576,14 +598,14 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_fichas_anuncio_x_tokens", conexion))
+                    using (var comando = new SqlCommand("sp_sel_fichas_anuncio_x_tokens", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@cod_anuncio_encryptado", SqlDbType.VarChar, 500).Value = token_anuncio;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -602,10 +624,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -613,15 +635,15 @@ namespace AccessData.PersonaDao
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_anuncio_paginada", conexion))
+                    using (var comando = new SqlCommand("sp_sel_anuncio_paginada", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@PageIndex", SqlDbType.Int).Value = tblAnuncio.beanPaginate.pageIndex;
                         comando.Parameters.Add("@pageSize", SqlDbType.Int).Value = tblAnuncio.beanPaginate.pageSize;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                             reader.NextResult();
@@ -643,10 +665,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -656,16 +678,16 @@ namespace AccessData.PersonaDao
             int recordCount = 0;
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_listar_anuncio", conexion))
+                    using (var comando = new SqlCommand("sp_listar_anuncio", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@vi_pagina", SqlDbType.Int).Value = objeto.CurrentPage;
                         comando.Parameters.Add("@vi_registrosporpagina", SqlDbType.Int).Value = objeto.ItemsPerPage;
                         comando.Parameters.Add("@vi_RecordCount", SqlDbType.Int).Direction = ParameterDirection.Output;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstAnuncio = reader.ReadRows<Tbl_anuncio>();
                         }
@@ -680,10 +702,10 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             Pagination responsepaginacion = new Pagination()
             {
@@ -701,9 +723,9 @@ namespace AccessData.PersonaDao
             int id = 0;
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_registrar_pago", conexion))
+                    using (var comando = new SqlCommand("sp_registrar_pago", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@nombre_completo_pagador", SqlDbType.VarChar, 60).Value = objeto.nombreCompleto == null ? "" : objeto.nombreCompleto;
@@ -740,9 +762,9 @@ namespace AccessData.PersonaDao
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
             }
             return clientResponse;
         }

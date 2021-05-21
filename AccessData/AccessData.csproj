@@ -88,6 +88,7 @@
     <Compile Include="PersonaData.cs" />
     <Compile Include="ProductoData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UbigeoData.cs" />
     <Compile Include="UsuarioData.cs" />
   </ItemGroup>
   <ItemGroup>

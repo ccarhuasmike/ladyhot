@@ -17,9 +17,9 @@ namespace AccessData
         #region Variables
         private static IEnumerable<Persona> lstAnuncio;
         private static Persona entidad;
-        private static SqlConnection conexion;
-        private static SqlCommand comando;
-        private static SqlDataReader reader;
+        //private static SqlConnection conexion;
+        //private static SqlCommand comando;
+        //private static SqlDataReader reader;
         private static ClientResponse clientResponse;
         #endregion
 
@@ -27,9 +27,9 @@ namespace AccessData
         public PersonaData()
         {
             entidad = null;
-            conexion = null;
-            comando = null;
-            reader = null;
+            //var conexion = null;
+            //var comando = null;
+            //var reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
         }
@@ -39,9 +39,9 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("USP_LISTA_PERSNONA_DATAABLE", conexion))
+                    using (var comando = new SqlCommand("USP_LISTA_PERSNONA_DATAABLE", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@Apellido", SqlDbType.VarChar, 255).Value = persona.Nombre;
@@ -49,7 +49,7 @@ namespace AccessData
                         comando.Parameters.Add("@Start", SqlDbType.Int).Value = paginacion.start;
                         comando.Parameters.Add("@Length", SqlDbType.Int).Value = paginacion.length;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstAnuncio = reader.ReadRows<Persona>();
                         }             
@@ -61,10 +61,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return lstAnuncio;
         }

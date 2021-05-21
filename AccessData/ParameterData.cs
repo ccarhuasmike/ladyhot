@@ -21,9 +21,9 @@ namespace AccessData
         #region Variables
         private static IEnumerable<Tbl_parameter_detDto> lstParamaterDet;
         private static Tbl_parameter_det entidad;
-        private static SqlConnection conexion;
-        private static SqlCommand comando;
-        private static SqlDataReader reader;
+        //private static SqlConnection conexion;
+        //private static SqlCommand comando;
+        //private static SqlDataReader reader;
         private static ClientResponse clientResponse;
         #endregion
 
@@ -32,9 +32,9 @@ namespace AccessData
         {
             //lstContacto = new IEnumerable<tbl_anuncio>();
             entidad = null;
-            conexion = null;
-            comando = null;
-            reader = null;
+            //var conexion = null;
+            //var comando = null;
+            //var reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
         }
@@ -46,14 +46,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_parameter_skey", conexion))
+                    using (var comando = new SqlCommand("sp_sel_parameter_skey", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@skey_cab", SqlDbType.VarChar, 45).Value = det.paramter_cab.skey_cab;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstParamaterDet = reader.ReadRows<Tbl_parameter_detDto>();
                         }
@@ -68,10 +68,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return lstParamaterDet;
         }
@@ -80,15 +80,15 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_parameter_skey_x_det_id", conexion))
+                    using (var comando = new SqlCommand("sp_sel_parameter_skey_x_det_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@skey_cab", SqlDbType.VarChar, 45).Value = det.paramter_cab.skey_cab;
                         comando.Parameters.Add("@skey_det", SqlDbType.VarChar, 45).Value = det.skey_det;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             //entidad = reader.ReadFields<tbl_parameter_det>();
                             if (reader.Read())
@@ -110,10 +110,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
 
             //clientResponse.DataJson = JsonConvert.SerializeObject(lstContacto).ToString();

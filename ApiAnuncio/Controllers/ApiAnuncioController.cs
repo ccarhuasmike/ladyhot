@@ -39,10 +39,30 @@ namespace ApiAnuncio.Controllers
             try
             {
                 Tbl_galeria_anuncio entidad = new Tbl_galeria_anuncio() { id_anuncio = id };
+                Tbl_anuncio DetailleAnuncion = new AnuncioLogic().GetAnucionXId(id);
+
+                IEnumerable<Tbl_departamento> listDepartamento = null;
+                listDepartamento = new UbigeoLogic().GetDepatamento();                
+
+                IEnumerable<Tbl_provincia> listProvincia = null;
+                if (DetailleAnuncion.int_departamento > 0)
+                {
+                    listProvincia = new UbigeoLogic().GetProvincia(new Tbl_departamento() { IdDepa = DetailleAnuncion.int_departamento });
+                }
+                IEnumerable<Tbl_distrito> listDistrito = null;
+                if (DetailleAnuncion.int_provincia > 0)
+                {
+                    listDistrito = new UbigeoLogic().GetDistrito(new Tbl_provincia() { IdProv = DetailleAnuncion.int_provincia });
+                }
+                var ListCargarInicial = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
+                clientResponse.DataJson = new ParameterLogic().GetCargarControles_Add_Anuncio().DataJson;
                 object initData = new
                 {
-                    DetailleAnuncion = new AnuncioLogic().GetAnucionXId(id),
-                    ListCargarInicial = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad)
+                    DetailleAnuncion = DetailleAnuncion,
+                    ListCargarInicial = ListCargarInicial,
+                    provincia = listProvincia,
+                    distrito = listDistrito,
+                    departamento = listDepartamento
                 };
                 clientResponse.Status = "OK";
                 clientResponse.Data = initData;

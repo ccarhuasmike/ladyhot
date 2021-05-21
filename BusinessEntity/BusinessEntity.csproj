@@ -49,10 +49,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tbl_anuncio.cs" />
     <Compile Include="Tbl_carga_controles_add.cs" />
+    <Compile Include="Tbl_departamento.cs" />
+    <Compile Include="Tbl_distrito.cs" />
     <Compile Include="Tbl_galeria_anuncio.cs" />
     <Compile Include="Tbl_parameter_cab.cs" />
     <Compile Include="Tbl_parameter_det.cs" />
     <Compile Include="Tbl_productos.cs" />
+    <Compile Include="Tbl_provincia.cs" />
     <Compile Include="Tbl_usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -18,9 +18,9 @@ namespace AccessData
         #region Variables
         private static IEnumerable<Tbl_galeria_anuncio> lstGaleria;
         private static Tbl_galeria_anuncio entidad;
-        private static SqlConnection conexion;
-        private static SqlCommand comando;
-        private static SqlDataReader reader;
+        //private static SqlConnection conexion;
+        //private static SqlCommand comando;
+        //private static SqlDataReader reader;
         private static ClientResponse clientResponse;
         #endregion
 
@@ -29,9 +29,9 @@ namespace AccessData
         {
             lstGaleria = new List<Tbl_galeria_anuncio>();
             entidad = null;
-            conexion = null;
-            comando = null;
-            reader = null;
+            //var conexion = null;
+            //var comando = null;
+            //var reader = null;
             clientResponse = new ClientResponse();
             clientResponse.Status = "OK";
         }
@@ -40,9 +40,9 @@ namespace AccessData
         {
             try
             { 
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("usp_ins_galeria_object", conexion))
+                    using (var comando = new SqlCommand("usp_ins_galeria_object", conexion))
                     {   
                         comando.Parameters.AddWithValue("@id_anuncio", objeto.id_anuncio);
                         comando.Parameters.AddWithValue("@tx_filename", objeto.tx_filename);
@@ -83,9 +83,9 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
             }
             return clientResponse;
         }
@@ -109,9 +109,9 @@ namespace AccessData
                     root.Add(address);
                 }
                 string xml = root.ToString();
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("usp_ins_galeria", conexion))
+                    using (var comando = new SqlCommand("usp_ins_galeria", conexion))
                     {
                         comando.Parameters.AddWithValue("@xml", xml);
                         comando.Parameters.AddWithValue("@id_anuncio", id_anuncio);
@@ -147,9 +147,9 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
             }
             return clientResponse;
         }
@@ -172,9 +172,9 @@ namespace AccessData
                     root.Add(address);
                 }
                 string xml = root.ToString();
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("usp_ins_videos", conexion))
+                    using (var comando = new SqlCommand("usp_ins_videos", conexion))
                     {
                         comando.Parameters.AddWithValue("@xml", xml);
                         comando.Parameters.AddWithValue("@id_anuncio", id_anuncio);
@@ -210,9 +210,9 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
             }
             return clientResponse;
         }
@@ -221,14 +221,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_galeria_x_id", conexion))
+                    using (var comando = new SqlCommand("sp_sel_galeria_x_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             while (reader.Read())
                             {
@@ -246,10 +246,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }
@@ -258,14 +258,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_galeria_x_id_anuncion", conexion))
+                    using (var comando = new SqlCommand("sp_sel_galeria_x_id_anuncion", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id_anuncio", SqlDbType.Int).Value = objeto.id_anuncio;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstGaleria = reader.ReadRows<Tbl_galeria_anuncio>();
                         }
@@ -279,10 +279,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return lstGaleria;
         }
@@ -291,14 +291,14 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_sel_videos_x_id_anuncion", conexion))
+                    using (var comando = new SqlCommand("sp_sel_videos_x_id_anuncion", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id_anuncio", SqlDbType.Int).Value = objeto.id_anuncio;
                         conexion.Open();
-                        using (reader = comando.ExecuteReader())
+                        using (var reader = comando.ExecuteReader())
                         {
                             lstGaleria = reader.ReadRows<Tbl_galeria_anuncio>();
                         }
@@ -312,10 +312,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return lstGaleria;
         }
@@ -325,9 +325,9 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_del_galeria_x_id", conexion))
+                    using (var comando = new SqlCommand("sp_del_galeria_x_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
@@ -346,9 +346,9 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
                // reader.Dispose();
             }
             return clientResponse;
@@ -358,9 +358,9 @@ namespace AccessData
         {
             try
             {
-                using (conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (comando = new SqlCommand("sp_del_galeria_x_id", conexion))
+                    using (var comando = new SqlCommand("sp_del_galeria_x_id", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.Parameters.Add("@id", SqlDbType.Int).Value = objeto.id;
@@ -378,10 +378,10 @@ namespace AccessData
             }
             finally
             {
-                conexion.Close();
-                conexion.Dispose();
-                comando.Dispose();
-                reader.Dispose();
+                //conexion.Close();
+                //conexion.Dispose();
+                //comando.Dispose();
+                //reader.Dispose();
             }
             return clientResponse;
         }

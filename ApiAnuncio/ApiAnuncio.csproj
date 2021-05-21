@@ -161,6 +161,7 @@
     <Compile Include="Controllers\ApiParameterController.cs" />
     <Compile Include="Controllers\ApiProductoController.cs" />
     <Compile Include="Controllers\ApiSeguridadController.cs" />
+    <Compile Include="Controllers\ApiUbigeoController.cs" />
     <Compile Include="Controllers\ApiUsuarioController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">

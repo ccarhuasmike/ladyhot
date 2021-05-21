@@ -49,11 +49,11 @@ namespace BusinessLogic
                 entidad.color_ojos = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga distrito*/
-                entidad_det = new Tbl_parameter_det()
-                {
-                    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_DISTRITO" }
-                };
-                entidad.distritro = _parameterData.GetParameter_skey(entidad_det);
+                //entidad_det = new Tbl_parameter_det()
+                //{
+                //    paramter_cab = new Tbl_parameter_cab() { skey_cab = "SKEY_DISTRITO" }
+                //};
+                //entidad.distritro = _parameterData.GetParameter_skey(entidad_det);
 
                 /*carga estatura*/
                 entidad_det = new Tbl_parameter_det()
