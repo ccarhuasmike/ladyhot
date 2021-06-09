@@ -102,5 +102,9 @@ namespace BusinessEntity
         public string txt_lugar_servicio_distrito { get; set; } = "";
         public string tx_servicios_ofrece { get; set; } = "";
         public string tx_lugar_atencion { get; set; } = "";
+        public string provincia { get; set; } = "";
+        public string departamento { get; set; } = "";
+        public string txt_titulo { get; set; } = "";
+        public string txt_telefono_1 { get; set; } = "";
     }
 }
