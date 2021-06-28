@@ -53,14 +53,10 @@ namespace BusinessLogic
         {
             return _AnuncioData.UpdateCuartopaso(objeto);
         }
-
         public ClientResponse UpdateQuintopaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateQuintopaso(objeto);
         }
-
-
-
         public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
             return _AnuncioData.UpdateTodopaso(objeto);
@@ -69,9 +65,9 @@ namespace BusinessLogic
         {
             return _AnuncioData.MisAnuncio(usuario_token);
         }
-        public ClientResponse ListarAnuncio()
+        public ClientResponse ListarAnuncioPaginado(TblAnuncioBusqueda anuncioBusqueda)
         {
-            return _AnuncioData.ListarAnuncio();
+            return _AnuncioData.ListarAnuncioPaginado(anuncioBusqueda);
         }
         public ClientResponse ListarMisAnuncioPorUsuario(Tbl_anuncio anuncio)
         {
@@ -159,7 +155,6 @@ namespace BusinessLogic
         {
             return _AnuncioData.RegistrarPago(objeto);
         }
-
         public String obtenerLlaveSecretaStripe(String key)
         {
             String llaveSecreta = "";
@@ -187,6 +182,10 @@ namespace BusinessLogic
                 throw ex;
             }
             return llaveSecreta;
+        }
+        public ClientResponse ListarCantAnuncioFotoPorPaisRegion()
+        {
+            return _AnuncioData.ListarCantAnuncioFotoPorPaisRegion();
         }
     }
 }

@@ -106,5 +106,33 @@ namespace BusinessEntity
         public string departamento { get; set; } = "";
         public string txt_titulo { get; set; } = "";
         public string txt_telefono_1 { get; set; } = "";
+        public int TotalRegistros { get; set; }
+    }
+
+    public class Tbl_CantAnuncioFotoPorPaisRegion
+    {
+        public string tx_descripcion { get; set; } = "";
+        public int cntAnuncio { get; set; } = 0;
+        public int ctnFotos { get; set; } = 0;
+    }
+
+    public class TblAnuncioBusqueda
+    {
+        public int edad_min { get; set; }
+        public int edad_max { get; set; }
+        public int estatura { get; set; }
+        public int ojos { get; set; }
+        public int pais { get; set; }
+        public int pelo { get; set; }
+        public int peso { get; set; }
+        public string forma_pago { get; set; }
+        public string lugar_atencion { get; set; }
+        public string servicio_ofrece { get; set; }
+        public string nombre_ficha { get; set; }
+        public Pagination paginacion { get; set; }
+        public TblAnuncioBusqueda()
+        {
+            paginacion = new Pagination();
+        }
     }
 }

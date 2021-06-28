@@ -18,13 +18,13 @@ namespace ApiAnuncio.Controllers
     [RoutePrefix("api/anuncio")]
     public class ApiAnuncioController : ApiController
     {
-        [Route("ListarAnuncio"), HttpPost]
-        public ClientResponse sel_cliente()
+        [Route("ListarAnuncioPaginado"), HttpPost]
+        public ClientResponse sel_cliente(TblAnuncioBusqueda anuncioBusqueda)
         {
             ClientResponse clientResponse = new ClientResponse();
             try
             {
-                clientResponse = new AnuncioLogic().ListarAnuncio();
+                clientResponse = new AnuncioLogic().ListarAnuncioPaginado(anuncioBusqueda);
             }
             catch (Exception ex)
             {
@@ -424,6 +424,19 @@ namespace ApiAnuncio.Controllers
             }
             return clientResponse;
         }
-
+        [Route("ListarCantAnuncioFotoPorPaisRegion"), HttpGet]
+        public ClientResponse ListarCantAnuncioFotoPorPaisRegion()
+        {
+            ClientResponse clientResponse = new ClientResponse();
+            try
+            {
+                clientResponse = new AnuncioLogic().ListarCantAnuncioFotoPorPaisRegion();
+            }
+            catch (Exception ex)
+            {
+                clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
+            }
+            return clientResponse;
+        }
     }
 }

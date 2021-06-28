@@ -69,15 +69,28 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-        public ClientResponse ListarAnuncio()
+        public ClientResponse ListarAnuncioPaginado(TblAnuncioBusqueda anuncioBusqueda)
         {
             try
             {
                 using (var  conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
                 {
-                    using (var  comando = new SqlCommand("sp_sel_fichas_anuncio", conexion))
+                    using (var  comando = new SqlCommand("sp_sel_fichas_anuncio_paginado", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Add("@edad_min", SqlDbType.Int).Value = anuncioBusqueda.edad_min;
+                        comando.Parameters.Add("@edad_max", SqlDbType.Int).Value = anuncioBusqueda.edad_max;
+                        comando.Parameters.Add("@estatura", SqlDbType.Int).Value = anuncioBusqueda.estatura;
+                        comando.Parameters.Add("@ojos", SqlDbType.Int).Value = anuncioBusqueda.ojos;
+                        comando.Parameters.Add("@pais", SqlDbType.Int).Value = anuncioBusqueda.pais;
+                        comando.Parameters.Add("@pelo", SqlDbType.Int).Value = anuncioBusqueda.pelo;
+                        comando.Parameters.Add("@peso", SqlDbType.Int).Value = anuncioBusqueda.peso;
+                        comando.Parameters.Add("@forma_pago", SqlDbType.VarChar).Value = (object)anuncioBusqueda.forma_pago ?? DBNull.Value;
+                        comando.Parameters.Add("@lugar_atencion", SqlDbType.VarChar).Value = (object)anuncioBusqueda.lugar_atencion ?? DBNull.Value;
+                        comando.Parameters.Add("@servicio_ofrece", SqlDbType.VarChar).Value = (object)anuncioBusqueda.servicio_ofrece ?? DBNull.Value;
+                        comando.Parameters.Add("@nombre_ficha", SqlDbType.VarChar).Value = (object)anuncioBusqueda.nombre_ficha ?? DBNull.Value;
+                        comando.Parameters.Add("@Start", SqlDbType.Int).Value = anuncioBusqueda.paginacion.CurrentPage;
+                        comando.Parameters.Add("@Length", SqlDbType.Int).Value = anuncioBusqueda.paginacion.ItemsPerPage;
                         conexion.Open();
                         using (var  reader = comando.ExecuteReader())
                         {
@@ -398,7 +411,6 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-
         public ClientResponse UpdateQuintopaso(Tbl_anuncio objeto)
         {
             try
@@ -455,7 +467,6 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-
         public ClientResponse UpdateTodopaso(Tbl_anuncio objeto)
         {
             try
@@ -672,7 +683,6 @@ namespace AccessData.PersonaDao
             }
             return clientResponse;
         }
-
         public ClientResponse listarPaginado(Pagination objeto)
         {
             int recordCount = 0;
@@ -717,7 +727,6 @@ namespace AccessData.PersonaDao
             clientResponse.paginacion = JsonConvert.SerializeObject(responsepaginacion).ToString();
             return clientResponse;
         }
-
         public ClientResponse RegistrarPago(BeanCharge objeto)
         {
             int id = 0;
@@ -765,6 +774,32 @@ namespace AccessData.PersonaDao
                 //conexion.Close();
                 //conexion.Dispose();
                 //comando.Dispose();
+            }
+            return clientResponse;
+        }
+        public ClientResponse ListarCantAnuncioFotoPorPaisRegion()
+        {
+            try
+            {
+                using (var conexion = new SqlConnection(ConnectionBaseSql.ConexionBDSQL().ToString()))
+                {
+                    using (var comando = new SqlCommand("sp_lista_cant_anuncio_foto_pais_region", conexion))
+                    {
+                        IEnumerable<Tbl_CantAnuncioFotoPorPaisRegion> lstAnuncioFotoPorPaisRegion = new List<Tbl_CantAnuncioFotoPorPaisRegion>();
+                        comando.CommandType = CommandType.StoredProcedure;
+                        conexion.Open();
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            lstAnuncioFotoPorPaisRegion = reader.ReadRows<Tbl_CantAnuncioFotoPorPaisRegion>();
+                        }
+                        clientResponse.DataJson = JsonConvert.SerializeObject(lstAnuncioFotoPorPaisRegion).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clientResponse.Mensaje = ex.Message;
+                clientResponse.Status = "ERROR";
             }
             return clientResponse;
         }
