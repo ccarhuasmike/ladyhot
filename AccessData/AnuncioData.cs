@@ -89,7 +89,7 @@ namespace AccessData.PersonaDao
                         comando.Parameters.Add("@lugar_atencion", SqlDbType.VarChar).Value = (object)anuncioBusqueda.lugar_atencion ?? DBNull.Value;
                         comando.Parameters.Add("@servicio_ofrece", SqlDbType.VarChar).Value = (object)anuncioBusqueda.servicio_ofrece ?? DBNull.Value;
                         comando.Parameters.Add("@nombre_ficha", SqlDbType.VarChar).Value = (object)anuncioBusqueda.nombre_ficha ?? DBNull.Value;
-                        comando.Parameters.Add("@Start", SqlDbType.Int).Value = anuncioBusqueda.paginacion.CurrentPage;
+                        comando.Parameters.Add("@Start", SqlDbType.Int).Value = anuncioBusqueda.paginacion.StartPages;
                         comando.Parameters.Add("@Length", SqlDbType.Int).Value = anuncioBusqueda.paginacion.ItemsPerPage;
                         conexion.Open();
                         using (var  reader = comando.ExecuteReader())
