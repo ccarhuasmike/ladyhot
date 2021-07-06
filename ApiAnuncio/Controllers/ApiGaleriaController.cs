@@ -62,11 +62,12 @@ namespace ApiAnuncio.Controllers
                 string tempPath = rutas_fisica_image.tx_descripcion + objeto.id_anuncio;
                 string tempPathVirtual = rutas_rutas_virtuales_image.tx_descripcion + objeto.id_anuncio;
 
-                byte[] imageBytes = System.Convert.FromBase64String(objeto.tx_ruta_file);
+                //byte[] imageBytes = System.Convert.FromBase64String(objeto.tx_ruta_file);
+                byte[] imageBytes = Utilidades.marcaAguaImagenBytes(objeto.tx_ruta_file);
                 if (!Directory.Exists(tempPath))
                     Directory.CreateDirectory(tempPath);
-                
-                string file_ruta = tempPath + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;                
+
+                string file_ruta = tempPath + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                 string file_ruta_virtual = tempPathVirtual + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                 File.WriteAllBytes(file_ruta, imageBytes);
 
@@ -74,6 +75,10 @@ namespace ApiAnuncio.Controllers
                 string file_ruta_virtual_cortada = "";
                 string file_ruta_cortada = "";
                 //using (Bitmap bmp1 = new Bitmap(@"C:\ImagenResolucion\foto.jpg"))
+
+                //Image bmp1 = Utilidades.marcaAguaImagenImage(file_ruta);
+                //if(bmp1 != null)
+                //{
                 using (Bitmap bmp1 = new Bitmap(file_ruta))
                 {
                     ImageCodecInfo jpgEncoder = Utilidades.GetEncoder(ImageFormat.Jpeg);
@@ -100,7 +105,8 @@ namespace ApiAnuncio.Controllers
                     file_ruta_cortada = tempPath_cortada + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                     file_ruta_virtual_cortada = tempPathVirtual_cortada + @"/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                     bmp1.Save(file_ruta_cortada, jpgEncoder, myEncoderParameters);
-                }                
+                }
+                //}
                 objeto.tx_ruta_file = objeto.id_anuncio + "/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
                 objeto.id_tipo_archivo = id_tipo_archivo;
                 objeto.tx_ruta_file_cort = objeto.id_anuncio + "/" + objeto.tx_filename + "." + objeto.tx_extension_archivo;
@@ -122,13 +128,13 @@ namespace ApiAnuncio.Controllers
         {
             ClientResponse clientResponse = new ClientResponse();
             try
-            {   
+            {
                 IEnumerable<Tbl_galeria_anuncio> lst = new GaleriaLogic().Get_galeria_x_id_anuncio(entidad);
-                clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();  
+                clientResponse.DataJson = JsonConvert.SerializeObject(lst).ToString();
                 clientResponse.Status = "OK";
             }
             catch (Exception ex)
-            {                
+            {
                 clientResponse = Utilidades.ObtenerMensajeErrorWeb(ex);
             }
             return clientResponse;

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Communities
 {
@@ -135,6 +134,43 @@ namespace Communities
                  typeof(EnumStringAttribute), false) as EnumStringAttribute[];
             // Return the first if there was a match.  
             return attribs.Length > 0 ? attribs[0].Value : null;
+        }
+
+        public static byte[] marcaAguaImagenBytes(string ruta)
+        {
+            //Image bitmap = (Image)Bitmap.FromFile(ruta); // set image
+            Image bitmap = (Image)Utilidades.Base64StringToBitmap(ruta);
+            Font font = new Font("Kalam Bold", 80, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Pixel);
+            Color color = Color.FromArgb(55, 255, 0, 0);
+            Point atpoint = new Point(bitmap.Width / 2, bitmap.Height / 2);
+            SolidBrush brush = new SolidBrush(color);
+            Graphics graphics = Graphics.FromImage(bitmap);
+            StringFormat sf = new StringFormat();
+            sf.Alignment = StringAlignment.Center;
+            sf.LineAlignment = StringAlignment.Center;
+            graphics.DrawString("Gologolos", font, brush, atpoint, sf);
+            graphics.Dispose();
+            MemoryStream memoryStream = new MemoryStream();
+            bitmap.Save(memoryStream, ImageFormat.Jpeg);
+            return memoryStream.ToArray();
+        }
+
+        public static Bitmap Base64StringToBitmap(string base64String)
+        {
+            Bitmap bmpReturn = null;
+            //Convert Base64 string to byte[]
+            byte[] byteBuffer = Convert.FromBase64String(base64String);
+            MemoryStream memoryStream = new MemoryStream(byteBuffer);
+
+            //memoryStream.Position = 0;
+
+            bmpReturn = (Bitmap)Bitmap.FromStream(memoryStream);
+
+            memoryStream.Close();
+            memoryStream = null;
+            byteBuffer = null;
+
+            return bmpReturn;
         }
     }
 }
