@@ -140,7 +140,7 @@ namespace Communities
         {
             //Image bitmap = (Image)Bitmap.FromFile(ruta); // set image
             Image bitmap = (Image)Utilidades.Base64StringToBitmap(ruta);
-            Font font = new Font("Kalam Bold", 170, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Pixel);
+            Font font = new Font("Kalam Bold", 80, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Pixel);
             Color color = Color.FromArgb(55, 255, 0, 0);
             Point atpoint = new Point(bitmap.Width / 2, bitmap.Height / 2);
             SolidBrush brush = new SolidBrush(color);
@@ -162,7 +162,7 @@ namespace Communities
             byte[] byteBuffer = Convert.FromBase64String(base64String);
             MemoryStream memoryStream = new MemoryStream(byteBuffer);
 
-            memoryStream.Position = 0;
+            //memoryStream.Position = 0;
 
             bmpReturn = (Bitmap)Bitmap.FromStream(memoryStream);
 
