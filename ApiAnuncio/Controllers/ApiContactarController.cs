@@ -29,12 +29,13 @@ namespace ApiAnuncio.Controllers
                 Tbl_parameter_detDto clave = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_CLAVE")).FirstOrDefault();
                 Tbl_parameter_detDto smtp = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_SMTP")).FirstOrDefault();
                 Tbl_parameter_detDto puerto = lista.Where(x => x.skey_det.Equals("SKEY_MAIL_DET_PUERTO")).FirstOrDefault();
-                beanMail.puerto = int.Parse(puerto.tx_descripcion);
-                beanMail.de = user.tx_descripcion;
-                beanMail.para = beanMail.para;
-                beanMail.clave = clave.tx_descripcion;
-                beanMail.smtpServer = smtp.tx_descripcion;
-                beanMail.body = string.Format("Nombre del Solicitante: {0}<br/>Numero de telefono: {1}<br/>Solicitud: {2}", beanMail.nombreContactante, string.Join(",", beanMail.telefonoContacto), beanMail.body);
+                beanMail.puerto = int.Parse(puerto.tx_valor);
+                beanMail.de = user.tx_valor;
+                beanMail.para = new List<string>() { user.tx_valor };
+                //beanMail.para = beanMail.para;
+                beanMail.clave = clave.tx_valor;
+                beanMail.smtpServer = smtp.tx_valor;
+                beanMail.body = string.Format("Nombre del Solicitante: {0}<br/>Numero de telefono: {1}<br/>Solicitud: {2}<br/>Solicitante: {3}", beanMail.nombreContactante, string.Join(",", beanMail.telefonoContacto), beanMail.body, beanMail.correoEnvia);
                 beanMail.asunto = beanMail.asunto;                
                 clientResponse = Mail.EnvioMailSegundo(beanMail);
             }

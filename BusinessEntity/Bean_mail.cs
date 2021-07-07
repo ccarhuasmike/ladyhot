@@ -13,6 +13,7 @@ namespace BusinessEntity
         public string clave { get; set; } = "";
         public string smtpServer { get; set; } = "";
         public int puerto { get; set; } = 0;
+        public string correoEnvia { get; set; } = "";
         public List<string> telefonoContacto { get; set; } = new List<string>();
     }
 }

@@ -19,7 +19,7 @@ namespace Communities
             MailMessage correo = new MailMessage();
             SmtpClient smtp = new SmtpClient();
 
-            correo.From = new MailAddress(entidad.de, "LADYHOT", System.Text.Encoding.UTF8);
+            correo.From = new MailAddress(entidad.de, "Gologolos", System.Text.Encoding.UTF8);
             foreach (var item in entidad.para)
             {
                 correo.To.Add(item);
@@ -34,7 +34,7 @@ namespace Communities
             {
                 correo.Attachments.Add(new Attachment(item));
             }*/
-            smtp.Credentials = new System.Net.NetworkCredential(entidad.de, entidad.clave);
+            smtp.Credentials = new System.Net.NetworkCredential(entidad.para[0].ToString(), entidad.clave);
             //smtp.Port = Puerto;
             smtp.Host = entidad.smtpServer;
             smtp.EnableSsl = true;           
