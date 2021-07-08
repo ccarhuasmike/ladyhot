@@ -1,7 +1,3 @@
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\BusinessEntity\bin\Release\BusinessEntity.dll
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\BusinessEntity\bin\Release\BusinessEntity.pdb
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\BusinessEntity\obj\Release\BusinessEntity.dll
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\BusinessEntity\obj\Release\BusinessEntity.pdb
 C:\ProyectoFreelance\ladyhot\BusinessEntity\bin\Release\BusinessEntity.dll
 C:\ProyectoFreelance\ladyhot\BusinessEntity\bin\Release\BusinessEntity.pdb
 C:\ProyectoFreelance\ladyhot\BusinessEntity\obj\Release\BusinessEntity.csprojAssemblyReference.cache

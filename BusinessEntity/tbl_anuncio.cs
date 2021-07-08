@@ -106,6 +106,7 @@ namespace BusinessEntity
         public string departamento { get; set; } = "";
         public string txt_titulo { get; set; } = "";
         public string txt_telefono_1 { get; set; } = "";
+        public int es_demo { get; set; } =0;
         public int TotalRegistros { get; set; }
     }
 

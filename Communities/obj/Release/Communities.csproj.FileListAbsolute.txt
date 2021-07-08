@@ -1,13 +1,3 @@
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\bin\Release\Communities.dll
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\bin\Release\Communities.pdb
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\bin\Release\BusinessEntity.dll
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\bin\Release\Newtonsoft.Json.dll
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\bin\Release\BusinessEntity.pdb
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\bin\Release\Newtonsoft.Json.xml
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.csprojAssemblyReference.cache
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.csproj.CopyComplete
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.dll
-C:\Proyecto_Personal\branch_desarrollo\ladyhot\Communities\obj\Release\Communities.pdb
 C:\ProyectoFreelance\ladyhot\Communities\bin\Release\Communities.dll
 C:\ProyectoFreelance\ladyhot\Communities\bin\Release\Communities.pdb
 C:\ProyectoFreelance\ladyhot\Communities\bin\Release\BusinessEntity.dll
